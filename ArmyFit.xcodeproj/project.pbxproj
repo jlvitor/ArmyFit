@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90293CD628403A38000964FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293CD528403A38000964FE /* RegisterViewController.swift */; };
 		CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E4D9028400863003E5DB1 /* LoginViewController.swift */; };
 		CCA94974283D642E00A6FB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94973283D642E00A6FB05 /* AppDelegate.swift */; };
 		CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94975283D642E00A6FB05 /* SceneDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		CC7E4D9028400863003E5DB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CCA94970283D642E00A6FB05 /* ArmyFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArmyFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA94973283D642E00A6FB05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 			children = (
 				CCA94979283D642E00A6FB05 /* Main.storyboard */,
 				CC7E4D9028400863003E5DB1 /* LoginViewController.swift */,
+				90293CD528403A38000964FE /* RegisterViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */,
 				CCA94974283D642E00A6FB05 /* AppDelegate.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
+				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
