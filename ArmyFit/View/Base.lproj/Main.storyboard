@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cC8-hb-9qE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -306,7 +306,7 @@
             </objects>
             <point key="canvasLocation" x="-1323" y="2658"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="KFe-6l-nVF">
             <objects>
                 <viewController id="efR-p4-tjA" sceneMemberID="viewController">
@@ -316,13 +316,13 @@
                         <viewLayoutGuide key="safeArea" id="FlP-mW-r0Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Lgv-tf-Eb8"/>
+                    <tabBarItem key="tabBarItem" title="" image="bicycle.circle.fill" catalog="system" selectedImage="bicycle.circle.fill" id="Lgv-tf-Eb8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYI-hI-IQD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-142" y="1821"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="NUW-gF-fUy">
             <objects>
                 <viewController id="6Oy-n7-u1J" sceneMemberID="viewController">
@@ -332,7 +332,7 @@
                         <viewLayoutGuide key="safeArea" id="rtm-CL-Eoi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hC4-ki-fCp"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.crop.circle" catalog="system" selectedImage="person.crop.circle" id="hC4-ki-fCp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9W-4U-6q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -341,12 +341,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Trv-t9-ABr">
             <objects>
-                <tabBarController id="cC8-hb-9qE" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="cC8-hb-9qE" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ggy-7R-i5f"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="24G-Td-dSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="Icon color"/>
                     </tabBar>
                     <connections>
                         <segue destination="HZh-Pz-A3s" kind="relationship" relationship="viewControllers" id="LPO-d9-AuJ"/>
@@ -359,11 +361,11 @@
             </objects>
             <point key="canvasLocation" x="-722" y="788"/>
         </scene>
-        <!--Item 2-->
+        <!--Navigation Controller-->
         <scene sceneID="bRw-Ni-XoF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J1z-Q5-jmW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="aOA-lm-bgN"/>
+                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" selectedImage="house.fill" id="aOA-lm-bgN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4cB-Hs-1Rk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -378,11 +380,11 @@
             </objects>
             <point key="canvasLocation" x="-2774" y="1801"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="eO0-uk-R75">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HZh-Pz-A3s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="9hc-fr-SSj"/>
+                    <tabBarItem key="tabBarItem" title="" image="clock.fill" catalog="system" selectedImage="clock.fill" id="9hc-fr-SSj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZmC-TT-2CS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -402,8 +404,12 @@
         <segue reference="5wS-mf-mys"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bicycle.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="gambiarra" width="679" height="464"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="logo" width="1085" height="1085"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <namedColor name="Background">
             <color red="0.13300000131130219" green="0.18400000035762787" blue="0.24300000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
