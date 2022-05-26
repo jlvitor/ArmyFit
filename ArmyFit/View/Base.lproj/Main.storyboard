@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cC8-hb-9qE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -288,12 +288,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isM-pK-FC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2775" y="2658"/>
+            <point key="canvasLocation" x="-1259" y="2624"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ohR-zt-X7p">
             <objects>
-                <viewController id="bzp-l8-1I4" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="bzp-l8-1I4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kQv-Sf-yej">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,12 +304,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1WP-sj-Pnj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1323" y="2658"/>
+            <point key="canvasLocation" x="-2620" y="2624"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KFe-6l-nVF">
             <objects>
-                <viewController id="efR-p4-tjA" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="efR-p4-tjA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6l1-I1-gqO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,12 +320,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYI-hI-IQD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="1821"/>
+            <point key="canvasLocation" x="-159" y="1801"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NUW-gF-fUy">
             <objects>
-                <viewController id="6Oy-n7-u1J" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="6Oy-n7-u1J" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vuq-rj-skT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9W-4U-6q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="1821"/>
+            <point key="canvasLocation" x="1200" y="1801"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Trv-t9-ABr">
@@ -364,8 +364,8 @@
         <!--Navigation Controller-->
         <scene sceneID="bRw-Ni-XoF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J1z-Q5-jmW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" selectedImage="house.fill" id="aOA-lm-bgN"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="J1z-Q5-jmW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="clock.fill" catalog="system" selectedImage="clock.fill" id="aOA-lm-bgN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4cB-Hs-1Rk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -378,13 +378,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHG-5o-ORO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2774" y="1801"/>
+            <point key="canvasLocation" x="-1258" y="1801"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eO0-uk-R75">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HZh-Pz-A3s" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="clock.fill" catalog="system" selectedImage="clock.fill" id="9hc-fr-SSj"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="HZh-Pz-A3s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="house.fill" catalog="system" selectedImage="house.fill" id="9hc-fr-SSj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZmC-TT-2CS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -397,7 +397,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v92-0s-ep0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1323" y="1821"/>
+            <point key="canvasLocation" x="-2620" y="1801"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
