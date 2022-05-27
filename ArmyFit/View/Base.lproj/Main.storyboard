@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AUI-Vb-wkC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AUI-Vb-wkC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -278,7 +278,7 @@
         <!--Horários-->
         <scene sceneID="X8G-2P-EpY">
             <objects>
-                <viewController id="LY8-hg-D1p" sceneMemberID="viewController">
+                <viewController id="LY8-hg-D1p" customClass="ScheduleViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgR-2m-G7A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -354,7 +354,7 @@
                                 <rect key="frame" x="0.0" y="160" width="414" height="653"/>
                                 <color key="backgroundColor" name="Background 2"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shceduleCustomCell" rowHeight="60" id="C9R-Wu-BYK" customClass="ScheduleTableViewCell" customModule="ArmyFit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleCustomCell" rowHeight="60" id="C9R-Wu-BYK" customClass="ScheduleTableViewCell" customModule="ArmyFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C9R-Wu-BYK" id="pPa-HK-Cew">
@@ -567,10 +567,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Horários" id="Zgz-Bf-eDp"/>
+                    <connections>
+                        <outlet property="dateCollectionView" destination="BVg-mW-gZC" id="nvf-Kr-eRX"/>
+                        <outlet property="scheduleTableView" destination="OYe-YH-gFK" id="13g-yx-FPJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSR-6o-JWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1381.1594202898552" y="2623.6607142857142"/>
+            <point key="canvasLocation" x="-791" y="2617"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ohR-zt-X7p">
