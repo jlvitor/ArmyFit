@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AUI-Vb-wkC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cC8-hb-9qE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -138,7 +138,7 @@
                         <outlet property="emailTextField" destination="aaH-lu-RwK" id="kkP-mH-nWb"/>
                         <outlet property="passwordTextField" destination="zd1-Bu-l0W" id="7yY-Wt-sQw"/>
                         <segue destination="AHM-gc-9Yd" kind="show" identifier="goToRegisterScreen" id="4f4-Uk-I8d"/>
-                        <segue destination="cC8-hb-9qE" kind="show" id="Cqm-oA-vPW"/>
+                        <segue destination="cC8-hb-9qE" kind="show" identifier="loginToHome" id="Cqm-oA-vPW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -268,7 +268,7 @@
                         <outlet property="emailTextField" destination="2vL-Ty-SBe" id="tzM-mJ-MTK"/>
                         <outlet property="nameTextField" destination="fId-RZ-dzs" id="VGG-cZ-dfY"/>
                         <outlet property="passwordTextField" destination="j3N-84-Xe9" id="4fq-Nu-EFJ"/>
-                        <segue destination="cC8-hb-9qE" kind="show" id="5wS-mf-mys"/>
+                        <segue destination="cC8-hb-9qE" kind="show" identifier="registerToHome" id="5wS-mf-mys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXz-Ta-Qpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -278,29 +278,30 @@
         <!--Horários-->
         <scene sceneID="X8G-2P-EpY">
             <objects>
-                <viewController id="LY8-hg-D1p" customClass="ScheduleViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="LY8-hg-D1p" customClass="ScheduleViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgR-2m-G7A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BVg-mW-gZC">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BVg-mW-gZC">
                                 <rect key="frame" x="0.0" y="56" width="414" height="104"/>
                                 <color key="backgroundColor" name="Background 2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="s1m-5p-MmW"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="70h-MR-euh">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="70h-MR-euh">
                                     <size key="itemSize" width="128" height="128"/>
+                                    <size key="estimatedItemSize" width="73" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCustomCell" id="W8T-43-xgR" customClass="DateCollectionViewCell" customModule="ArmyFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="104"/>
+                                        <rect key="frame" x="0.0" y="-12" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3tE-nC-ikQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="104"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAb-3N-rtH">
@@ -350,9 +351,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
                                 <rect key="frame" x="0.0" y="160" width="414" height="653"/>
                                 <color key="backgroundColor" name="Background 2"/>
+                                <color key="separatorColor" name="Background 2"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleCustomCell" rowHeight="60" id="C9R-Wu-BYK" customClass="ScheduleTableViewCell" customModule="ArmyFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
@@ -570,11 +572,27 @@
                     <connections>
                         <outlet property="dateCollectionView" destination="BVg-mW-gZC" id="nvf-Kr-eRX"/>
                         <outlet property="scheduleTableView" destination="OYe-YH-gFK" id="13g-yx-FPJ"/>
+                        <segue destination="ahq-xd-yud" kind="showDetail" id="AaQ-ns-Gns"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSR-6o-JWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="2617"/>
+            <point key="canvasLocation" x="-1381" y="2624"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SMY-2w-j3P">
+            <objects>
+                <viewController id="ahq-xd-yud" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JiW-yL-Z8Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LD8-Tf-BJ4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3b-QV-Kd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1381" y="3431"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ohR-zt-X7p">
@@ -669,11 +687,11 @@
         <!--Navigation Controller-->
         <scene sceneID="q81-Et-eaC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AUI-Vb-wkC" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="AUI-Vb-wkC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="clock.fill" catalog="system" selectedImage="clock.fill" id="8wF-ic-9Qp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="h1y-QA-aL9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h1y-QA-aL9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="TopBar background"/>
                         <textAttributes key="titleTextAttributes">
@@ -694,7 +712,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cqm-oA-vPW"/>
+        <segue reference="5wS-mf-mys"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>

@@ -85,9 +85,9 @@
 		CCA94972283D642E00A6FB05 /* ArmyFit */ = {
 			isa = PBXGroup;
 			children = (
-				CC7E4D8E28400835003E5DB1 /* View */,
 				CCA94973283D642E00A6FB05 /* AppDelegate.swift */,
 				CCA94975283D642E00A6FB05 /* SceneDelegate.swift */,
+				CC7E4D8E28400835003E5DB1 /* View */,
 				CCA9497C283D643000A6FB05 /* Assets.xcassets */,
 				CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */,
 				CCA94981283D643000A6FB05 /* Info.plist */,
