@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		90293CD628403A38000964FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293CD528403A38000964FE /* RegisterViewController.swift */; };
+		CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */; };
+		CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */; };
 		CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E4D9028400863003E5DB1 /* LoginViewController.swift */; };
 		CCA94974283D642E00A6FB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94973283D642E00A6FB05 /* AppDelegate.swift */; };
 		CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94975283D642E00A6FB05 /* SceneDelegate.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		CC7E4D9028400863003E5DB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CCA94970283D642E00A6FB05 /* ArmyFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArmyFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA94973283D642E00A6FB05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +43,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC79805A2841539A00ECD18C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */,
+				CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CC7E4D8E28400835003E5DB1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC79805A2841539A00ECD18C /* Cells */,
 				CCA94979283D642E00A6FB05 /* Main.storyboard */,
 				CC7E4D9028400863003E5DB1 /* LoginViewController.swift */,
 				90293CD528403A38000964FE /* RegisterViewController.swift */,
@@ -151,8 +165,10 @@
 			files = (
 				CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */,
 				CCA94974283D642E00A6FB05 /* AppDelegate.swift in Sources */,
+				CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
+				CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
