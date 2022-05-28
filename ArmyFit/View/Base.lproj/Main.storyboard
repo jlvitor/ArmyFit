@@ -280,7 +280,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="LY8-hg-D1p" customClass="ScheduleViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgR-2m-G7A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BVg-mW-gZC">
@@ -352,7 +352,7 @@
                                 </cells>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
-                                <rect key="frame" x="0.0" y="160" width="414" height="653"/>
+                                <rect key="frame" x="0.0" y="160" width="414" height="599"/>
                                 <color key="backgroundColor" name="Background 2"/>
                                 <color key="separatorColor" name="Background 2"/>
                                 <prototypes>
@@ -560,7 +560,7 @@
                     <connections>
                         <outlet property="dateCollectionView" destination="BVg-mW-gZC" id="nvf-Kr-eRX"/>
                         <outlet property="scheduleTableView" destination="OYe-YH-gFK" id="13g-yx-FPJ"/>
-                        <segue destination="ahq-xd-yud" kind="showDetail" id="AaQ-ns-Gns"/>
+                        <segue destination="ahq-xd-yud" kind="showDetail" identifier="goToDescription" id="AaQ-ns-Gns"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSR-6o-JWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -587,7 +587,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="bzp-l8-1I4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kQv-Sf-yej">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="L72-27-JQb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -603,7 +603,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="efR-p4-tjA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6l1-I1-gqO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="FlP-mW-r0Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -619,7 +619,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="6Oy-n7-u1J" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vuq-rj-skT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="rtm-CL-Eoi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -635,11 +635,12 @@
             <objects>
                 <tabBarController modalPresentationStyle="fullScreen" id="cC8-hb-9qE" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ggy-7R-i5f"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="24G-Td-dSr">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" id="24G-Td-dSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="Background"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="Icon color"/>
+                        <color key="barTintColor" name="TopBar background"/>
                         <color key="selectedImageTintColor" name="Icon color"/>
                     </tabBar>
                     <connections>
