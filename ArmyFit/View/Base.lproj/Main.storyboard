@@ -351,7 +351,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
                                 <rect key="frame" x="0.0" y="160" width="414" height="653"/>
                                 <color key="backgroundColor" name="Background 2"/>
                                 <color key="separatorColor" name="Background 2"/>
@@ -398,7 +398,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZID-P7-qsh">
-                                                    <rect key="frame" x="244.5" y="19" width="66.5" height="22"/>
+                                                    <rect key="frame" x="240" y="19" width="66.5" height="22"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="6z1-MV-O2b">
                                                             <rect key="frame" x="0.0" y="0.0" width="51.5" height="22"/>
@@ -521,28 +521,16 @@
                                                     </subviews>
                                                     <color key="tintColor" red="0.43529411759999997" green="0.43529411759999997" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qw2-2P-MHn">
-                                                    <rect key="frame" x="351" y="8" width="43" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="UzI-8T-Eax"/>
-                                                    </constraints>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.forward.fill" catalog="system" title=""/>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Qw2-2P-MHn" secondAttribute="trailing" id="0Qi-vA-4jw"/>
-                                                <constraint firstItem="Qw2-2P-MHn" firstAttribute="centerY" secondItem="pPa-HK-Cew" secondAttribute="centerY" id="2u7-el-Qy1"/>
-                                                <constraint firstItem="Qw2-2P-MHn" firstAttribute="leading" secondItem="ZID-P7-qsh" secondAttribute="trailing" constant="40" id="5Wf-8E-Hjs"/>
                                                 <constraint firstAttribute="bottom" secondItem="JCC-Q3-Pe2" secondAttribute="bottom" constant="8" id="7Ln-HP-s70"/>
-                                                <constraint firstItem="ZID-P7-qsh" firstAttribute="top" secondItem="pPa-HK-Cew" secondAttribute="topMargin" constant="8" id="7ke-vf-xET"/>
                                                 <constraint firstItem="gkD-VG-Ahq" firstAttribute="leading" secondItem="JCC-Q3-Pe2" secondAttribute="trailing" constant="24" id="B5N-3p-R05"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ZID-P7-qsh" secondAttribute="bottom" constant="8" id="Gc9-8s-Kqr"/>
                                                 <constraint firstItem="JCC-Q3-Pe2" firstAttribute="leading" secondItem="pPa-HK-Cew" secondAttribute="leading" constant="32" id="Jp2-v3-dql"/>
+                                                <constraint firstItem="ZID-P7-qsh" firstAttribute="leading" secondItem="gkD-VG-Ahq" secondAttribute="trailing" constant="80" id="dYo-lU-P7a"/>
                                                 <constraint firstAttribute="bottom" secondItem="gkD-VG-Ahq" secondAttribute="bottom" constant="8" id="del-bB-ltB"/>
                                                 <constraint firstItem="JCC-Q3-Pe2" firstAttribute="top" secondItem="pPa-HK-Cew" secondAttribute="top" constant="8" id="fvA-tw-F5z"/>
                                                 <constraint firstItem="gkD-VG-Ahq" firstAttribute="top" secondItem="pPa-HK-Cew" secondAttribute="top" constant="8" id="vCW-v8-2uN"/>
+                                                <constraint firstItem="ZID-P7-qsh" firstAttribute="centerY" secondItem="pPa-HK-Cew" secondAttribute="centerY" id="zFr-BA-tol"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
@@ -715,7 +703,6 @@
         <segue reference="5wS-mf-mys"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowtriangle.forward.fill" catalog="system" width="128" height="113"/>
         <image name="bicycle.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="gambiarra" width="679" height="464"/>
