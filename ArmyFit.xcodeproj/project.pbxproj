@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6EB425A028415719005AE67C /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4259F28415718005AE67C /* ScheduleViewController.swift */; };
 		90293CD628403A38000964FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293CD528403A38000964FE /* RegisterViewController.swift */; };
+		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */; };
 		CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */; };
 		CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E4D9028400863003E5DB1 /* LoginViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		6EB4259F28415718005AE67C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		CC7E4D9028400863003E5DB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				CC7E4D9028400863003E5DB1 /* LoginViewController.swift */,
 				90293CD528403A38000964FE /* RegisterViewController.swift */,
 				6EB4259F28415718005AE67C /* ScheduleViewController.swift */,
+				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			files = (
 				CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */,
 				CCA94974283D642E00A6FB05 /* AppDelegate.swift in Sources */,
+				CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */,
 				CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
