@@ -82,8 +82,8 @@
 				CC7E4D9028400863003E5DB1 /* LoginViewController.swift */,
 				90293CD528403A38000964FE /* RegisterViewController.swift */,
 				6EB4259F28415718005AE67C /* ScheduleViewController.swift */,
-				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
 				6ED8EBAD28455DD300E962DF /* ScheduleDetailViewController.swift */,
+				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,9 +107,9 @@
 		CCA94972283D642E00A6FB05 /* ArmyFit */ = {
 			isa = PBXGroup;
 			children = (
-				14C0AD4828454F4700E5FEA4 /* Model */,
 				CCA94973283D642E00A6FB05 /* AppDelegate.swift */,
 				CCA94975283D642E00A6FB05 /* SceneDelegate.swift */,
+				14C0AD4828454F4700E5FEA4 /* Model */,
 				CC7E4D8E28400835003E5DB1 /* View */,
 				CCA9497C283D643000A6FB05 /* Assets.xcassets */,
 				CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */,

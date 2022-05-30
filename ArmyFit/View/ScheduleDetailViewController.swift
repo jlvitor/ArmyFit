@@ -24,22 +24,22 @@ class ScheduleDetailViewController: UIViewController {
         detailTableView.dataSource = self
         
     }
-    
 
     @IBAction func trainingParticipationButton(_ sender: UIButton) {
     }
     
 }
-//MARK: - TABLEVIEWDATASOURCE
+
+//MARK: - UITableViewDataSource
 extension ScheduleDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    
-    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as? ScheduleDetailTableViewCell
+        cell?.posterUser.image = UIImage(systemName: "person.fill")
+        cell?.userNameLabel.text = "Mitchell"
+        return cell ?? UITableViewCell()
+    }  
 }

@@ -15,7 +15,10 @@ class ScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configTableViewAndCollectionView()
+    }
+    
+    private func configTableViewAndCollectionView() {
         dateCollectionView.dataSource = self
         dateCollectionView.delegate = self
         
@@ -25,24 +28,22 @@ class ScheduleViewController: UIViewController {
 }
 
 
-//MARK: - UICOLLECTIONVIEWDELEGATE
+//MARK: - UICollectionViewDelegate
 extension ScheduleViewController: UICollectionViewDelegate {
-   
     
 }
 
-//MARK: - UITABLEVIEWDELEGATE
+//MARK: - UITableViewDelegate
 extension ScheduleViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc: ScheduleDetailViewController = ScheduleDetailViewController()
-        present(vc, animated: true, completion: nil)
+        guard let exerciseSelected = tableView.indexPathForSelectedRow?.row else { return }
+
+        performSegue(withIdentifier: "goToDetailsScreen", sender: exerciseSelected)
         tableView.deselectRow(at: indexPath, animated: true)
         }
-    
 }
 
-//MARK: - UICOLLECTIONVIEWDATASOURCE
+//MARK: - UICollectionViewDataSource
 extension ScheduleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -56,7 +57,7 @@ extension ScheduleViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - UITABLEVIEWDATASOURCE
+//MARK: - UITableViewDataSource
 extension ScheduleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
