@@ -24,14 +24,25 @@ class ScheduleViewController: UIViewController {
     }
 }
 
+
+//MARK: - UICOLLECTIONVIEWDELEGATE
 extension ScheduleViewController: UICollectionViewDelegate {
    
-}
-
-extension ScheduleViewController: UITableViewDelegate {
     
 }
 
+//MARK: - UITABLEVIEWDELEGATE
+extension ScheduleViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc: ScheduleDetailViewController = ScheduleDetailViewController()
+        present(vc, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        }
+    
+}
+
+//MARK: - UICOLLECTIONVIEWDATASOURCE
 extension ScheduleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -43,10 +54,9 @@ extension ScheduleViewController: UICollectionViewDataSource {
         cell?.dateNumberLabel.text = "18"
         return cell ?? UICollectionViewCell()
     }
-    
-    
 }
 
+//MARK: - UITABLEVIEWDATASOURCE
 extension ScheduleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20
@@ -60,6 +70,4 @@ extension ScheduleViewController: UITableViewDataSource {
         cell?.coachLabel.text = "FERNANDA"
         return cell ?? UITableViewCell()
     }
-    
-    
 }

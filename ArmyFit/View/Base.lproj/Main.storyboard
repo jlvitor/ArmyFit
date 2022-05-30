@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ahq-xd-yud">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ahq-xd-yud">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -568,17 +568,16 @@
             </objects>
             <point key="canvasLocation" x="-1381" y="2624"/>
         </scene>
-        <!--View Controller-->
+        <!--Schedule Detail View Controller-->
         <scene sceneID="SMY-2w-j3P">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T3b-QV-Kd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="ahq-xd-yud" sceneMemberID="viewController">
+                <viewController id="ahq-xd-yud" customClass="ScheduleDetailViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JiW-yL-Z8Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35i-Ez-cwj">
-                                <rect key="frame" x="0.0" y="44" width="414" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBo-6c-LcG" userLabel="Date View">
                                         <rect key="frame" x="8" y="15" width="63" height="80"/>
@@ -659,10 +658,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-dl-QZB">
-                                <rect key="frame" x="0.0" y="154" width="414" height="618"/>
-                                <color key="backgroundColor" name="Background 2"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="623"/>
+                                <color key="backgroundColor" name="Background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="usersCell" rowHeight="74" id="9NN-b3-f6W">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="usersCell" rowHeight="74" id="9NN-b3-f6W" customClass="ScheduleDetailTableViewCell" customModule="ArmyFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9NN-b3-f6W" id="Hvk-bn-5mq">
@@ -698,11 +697,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
+                                        <connections>
+                                            <outlet property="posterUser" destination="e3N-g2-Ojd" id="67D-GA-mb6"/>
+                                            <outlet property="userNameLabel" destination="bFe-Y9-Ncc" id="hRR-iE-yhY"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNy-xd-i8b">
-                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <rect key="frame" x="20" y="738" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6wB-mo-2Wy"/>
                                 </constraints>
@@ -711,10 +714,13 @@
                                 <buttonConfiguration key="configuration" style="filled" title="PARTICIPAR DO TREINO">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="trainingParticipationButton:" destination="ahq-xd-yud" eventType="touchUpInside" id="0Io-pq-HKv"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LD8-Tf-BJ4"/>
-                        <color key="backgroundColor" name="Background 2"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="ep0-dl-QZB" firstAttribute="top" secondItem="35i-Ez-cwj" secondAttribute="bottom" id="0IN-sB-Ueh"/>
                             <constraint firstItem="35i-Ez-cwj" firstAttribute="top" secondItem="JiW-yL-Z8Q" secondAttribute="topMargin" id="2YY-mb-Psz"/>
@@ -722,15 +728,23 @@
                             <constraint firstItem="LD8-Tf-BJ4" firstAttribute="trailing" secondItem="YNy-xd-i8b" secondAttribute="trailing" constant="20" id="IIU-B6-gYI"/>
                             <constraint firstItem="LD8-Tf-BJ4" firstAttribute="trailing" secondItem="35i-Ez-cwj" secondAttribute="trailing" id="IcZ-Ls-IZo"/>
                             <constraint firstItem="LD8-Tf-BJ4" firstAttribute="bottom" secondItem="YNy-xd-i8b" secondAttribute="bottom" constant="20" id="MLZ-IP-AaA"/>
+                            <constraint firstItem="YNy-xd-i8b" firstAttribute="top" secondItem="ep0-dl-QZB" secondAttribute="bottom" constant="5" id="QGF-dO-Ws9"/>
                             <constraint firstItem="LD8-Tf-BJ4" firstAttribute="trailing" secondItem="ep0-dl-QZB" secondAttribute="trailing" id="cUw-jN-6Rb"/>
                             <constraint firstItem="35i-Ez-cwj" firstAttribute="leading" secondItem="LD8-Tf-BJ4" secondAttribute="leading" id="f58-hU-a4a"/>
-                            <constraint firstItem="YNy-xd-i8b" firstAttribute="top" secondItem="ep0-dl-QZB" secondAttribute="bottom" id="gls-ne-H9o"/>
                             <constraint firstItem="ep0-dl-QZB" firstAttribute="leading" secondItem="LD8-Tf-BJ4" secondAttribute="leading" id="vbl-fo-kcM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailTableView" destination="ep0-dl-QZB" id="ZMv-ew-rgf"/>
+                        <outlet property="hourLabel" destination="eme-GE-qtr" id="apP-Lo-Vg5"/>
+                        <outlet property="minuteLabel" destination="apc-A5-9Ep" id="nfz-iJ-Ilg"/>
+                        <outlet property="monitorLabel" destination="MbL-gj-hcQ" id="gMh-He-mTf"/>
+                        <outlet property="spacesLabel" destination="1yl-aH-yAj" id="tO8-6r-0xQ"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T3b-QV-Kd5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1381.1594202898552" y="3430.5803571428569"/>
+            <point key="canvasLocation" x="-1381" y="3428"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ohR-zt-X7p">
