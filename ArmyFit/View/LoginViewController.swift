@@ -12,16 +12,17 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var registerScreen: UIStackView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-    }
+        configGestureRecognizer()
+       }
     
     @IBAction func forgotPasswordButton(_ sender: UIButton) {
+        
     }
-    
     
     @IBAction func loginButton(_ sender: UIButton) {
         
@@ -30,4 +31,19 @@ class LoginViewController: UIViewController {
         
         }
     
+    private func configGestureRecognizer() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapAction(_:))
+        )
+        self.view.addGestureRecognizer(tap)
+                
+        }
+    
+    @objc func tapAction(_ sender: UITapGestureRecognizer) {
+        let registerVC = RegisterViewController()
+        navigationController?.pushViewController(registerVC, animated: true)
+        
+    }
+
 }
