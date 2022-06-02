@@ -13,20 +13,26 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var loginScreen: UIStackView!
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//        configGestureRecognizer()
     }
     
     @IBAction func registerButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "registerToHome", sender: self)
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
+    private func configGestureRecognizer() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapAction(_:))
+        )
+        self.loginScreen.addGestureRecognizer(tap)
     }
-    
 
+    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        navigationController?.popViewController(animated: true)
+    }
 }
