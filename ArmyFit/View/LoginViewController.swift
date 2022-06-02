@@ -24,9 +24,10 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginButton(_ sender: UIButton) {
-    }
+        
+        let loginVC = FeedViewController()
+        navigationController?.pushViewController(loginVC, animated: true)
+        
+        }
     
-    
-    @IBAction func registerButton(_ sender: UIButton) {
-    }
 }
