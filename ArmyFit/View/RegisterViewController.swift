@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configGestureRecognizer()
+        configGestureRecognizer()
     }
     
     @IBAction func registerButton(_ sender: UIButton) {

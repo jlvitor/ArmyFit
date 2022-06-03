@@ -8,8 +8,6 @@
 import UIKit
 
 class ScheduleDetailViewController: UIViewController {
-
-    
     
     @IBOutlet weak var detailTableView: UITableView!
     
@@ -24,18 +22,20 @@ class ScheduleDetailViewController: UIViewController {
         detailTableView.dataSource = self
         
     }
-//MARK: - Alerta do botao particiacao do treino
+    //MARK: - Alerta do botao particiacao do treino
     @IBAction func trainingParticipationButton(_ sender: UIButton) {
         let confirmAlert = UIAlertController(title: "Confirmação", message: "Deseja confirmar sua participação?", preferredStyle: .alert)
-           confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
-             print("OK")
-           }
-                               )
-           )
-           confirmAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
-             print("Cancelado")
-           }))
-           self.present(confirmAlert, animated: true, completion: nil)
+        
+        let confirm = UIAlertAction(title: "Ok", style: .default) { action in
+            print("OK")
+        }
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
+            print("Cancelado")
+        }
+        
+        confirmAlert.addAction(confirm)
+        confirmAlert.addAction(cancel)
+        self.present(confirmAlert, animated: true)
     }
     
 }
@@ -51,5 +51,5 @@ extension ScheduleDetailViewController: UITableViewDataSource {
         cell?.posterUser.image = UIImage(systemName: "person.fill")
         cell?.userNameLabel.text = "Mitchell"
         return cell ?? UITableViewCell()
-    }  
+    }
 }
