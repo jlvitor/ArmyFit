@@ -24,8 +24,18 @@ class ScheduleDetailViewController: UIViewController {
         detailTableView.dataSource = self
         
     }
-
+//MARK: - Alerta do botao particiacao do treino
     @IBAction func trainingParticipationButton(_ sender: UIButton) {
+        let confirmAlert = UIAlertController(title: "Confirmação", message: "Deseja confirmar sua participação?", preferredStyle: .alert)
+           confirmAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+             print("OK")
+           }
+                               )
+           )
+           confirmAlert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action: UIAlertAction!) in
+             print("Cancelado")
+           }))
+           self.present(confirmAlert, animated: true, completion: nil)
     }
     
 }
