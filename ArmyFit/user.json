@@ -1,14 +1,14 @@
 {
-    "id": "823e7886-3338-437c-a0b8-3eb594c39cef",
-    "name": "Matheus Gomes Pires",
-    "email": "teste@123.com",
-    "password": "123@Teste",
-    "photoURL": "matheus",
-},
-{
     "id": "df37cf2c-c79b-45a4-a6b2-debe0ada89e3",
     "name": "Jean Lucas Vitor",
     "email": "teste@123.com.br",
     "password": "123@Teste",
     "photoURL": "jean",
+    "trainingUser": [
+        {
+            "id": "6f6e3a03-3d7a-4469-9014-554af79e57ee",
+            "user_id": "df37cf2c-c79b-45a4-a6b2-debe0ada89e3",
+            "training_hoursId": "217ab3e2-d75c-442f-b5a7-4efa6dc658ce"
+        }
+    ]
 }

@@ -14,6 +14,7 @@
 		6ED8EBAE28455DD300E962DF /* ScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8EBAD28455DD300E962DF /* ScheduleDetailViewController.swift */; };
 		6ED8EBB0284560C500E962DF /* ScheduleDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8EBAF284560C400E962DF /* ScheduleDetailTableViewCell.swift */; };
 		90293CD628403A38000964FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293CD528403A38000964FE /* RegisterViewController.swift */; };
+		CC086952284D2A7E005E74B0 /* training.json in Resources */ = {isa = PBXBuildFile; fileRef = CC086951284D2A7E005E74B0 /* training.json */; };
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */; };
 		CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		6ED8EBAD28455DD300E962DF /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		6ED8EBAF284560C400E962DF /* ScheduleDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailTableViewCell.swift; sourceTree = "<group>"; };
 		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		CC086951284D2A7E005E74B0 /* training.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = training.json; sourceTree = "<group>"; };
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */,
 				CCA94981283D643000A6FB05 /* Info.plist */,
 				CCBF6F22284C91F8006B89B4 /* user.json */,
+				CC086951284D2A7E005E74B0 /* training.json */,
 			);
 			path = ArmyFit;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCBF6F23284C91F8006B89B4 /* user.json in Resources */,
+				CC086952284D2A7E005E74B0 /* training.json in Resources */,
 				CCA94980283D643000A6FB05 /* LaunchScreen.storyboard in Resources */,
 				CCA9497D283D643000A6FB05 /* Assets.xcassets in Resources */,
 				CCA9497B283D642E00A6FB05 /* Main.storyboard in Resources */,
