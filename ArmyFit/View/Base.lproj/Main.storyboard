@@ -840,7 +840,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9W-4U-6q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="1801"/>
+            <point key="canvasLocation" x="1070" y="1801"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="Trv-t9-ABr">
@@ -950,7 +950,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgu-we-7PX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-159.42028985507247" y="1800.6696428571427"/>
+            <point key="canvasLocation" x="-159" y="1801"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
