@@ -7,21 +7,11 @@
 
 import Foundation
 
-
-struct User {
-    var email: String
-    var password: String
-    let name: String
-    var confirmPassword: Bool
-    var posterUser: String?
-    var dayTrainingParticipation: Bool = false
-    // se ele vai participar do treino ou nao
-    var anualCheckInNumber: Int = 0
-    // quantos check-ins ele fez no ano
-    var numberOfActivitiesDone: Int = 0
-    // número de atividades feitas
-    var userPublicationFeed: [String] = []
-    // Publicações do usuário no Feed
+struct User: Codable {
+    let id: UUID // Id do usuário
+    let name: String // Nome do usuário
+    let email: String // Email do usuário
+    let password: String // Senha do usuário
+    let photoURL: String? // Imagem do usuário
+    var trainingUser: [TrainingUser]? // Array de treinos que o usuário se inscreveu
 }
-    
-
