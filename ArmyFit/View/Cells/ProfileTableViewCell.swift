@@ -9,18 +9,6 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var trainingLabel: UILabel!
-    @IBOutlet weak var contactImageView: UIImageView!
-    @IBOutlet weak var contactLabel: UILabel!
-    @IBOutlet weak var logoutLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-      
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
+    @IBOutlet weak var cellImageView: UIImageView!
+    @IBOutlet weak var cellLabel: UILabel!
 }

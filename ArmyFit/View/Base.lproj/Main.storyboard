@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -754,7 +753,7 @@
                                 <rect key="frame" x="0.0" y="158" width="414" height="70"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="enN-FQ-p7s">
-                                        <rect key="frame" x="20" y="-60" width="120" height="120"/>
+                                        <rect key="frame" x="20" y="-65" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="e8G-qg-8BY"/>
                                             <constraint firstAttribute="height" constant="120" id="m7w-mO-gv0"/>
@@ -793,56 +792,30 @@
                                     <constraint firstItem="i7a-ui-NYD" firstAttribute="leading" secondItem="enN-FQ-p7s" secondAttribute="trailing" constant="10" id="Tcu-nu-swC"/>
                                     <constraint firstAttribute="trailing" secondItem="i7a-ui-NYD" secondAttribute="trailing" constant="20" id="VeT-M0-Ktr"/>
                                     <constraint firstAttribute="height" constant="70" id="qD9-p3-lgQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="enN-FQ-p7s" secondAttribute="bottom" constant="10" id="xXE-2p-p76"/>
+                                    <constraint firstAttribute="bottom" secondItem="enN-FQ-p7s" secondAttribute="bottom" constant="15" id="xXE-2p-p76"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JsH-rL-RBk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JsH-rL-RBk">
                                 <rect key="frame" x="0.0" y="228" width="414" height="585"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Background 2"/>
                                 <color key="sectionIndexBackgroundColor" name="Background 2"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trainingCell" editingAccessoryType="disclosureIndicator" id="UAa-k3-SOU" customClass="ProfileTableViewCell" customModule="ArmyFit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="profileCustomCell" id="4OS-3k-Zol" customClass="ProfileTableViewCell" customModule="ArmyFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UAa-k3-SOU" id="cWF-Uk-dte">
-                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Treinos agendados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-al-Vcu">
-                                                    <rect key="frame" x="40" y="11.5" width="317.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" name="Background"/>
-                                            <constraints>
-                                                <constraint firstItem="GSG-al-Vcu" firstAttribute="centerY" secondItem="cWF-Uk-dte" secondAttribute="centerY" id="R9K-4S-gHh"/>
-                                                <constraint firstItem="GSG-al-Vcu" firstAttribute="leading" secondItem="cWF-Uk-dte" secondAttribute="leadingMargin" constant="20" id="s4q-pB-Rr3"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="GSG-al-Vcu" secondAttribute="trailing" constant="20" id="x8a-Bo-lb5"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <outlet property="trainingLabel" destination="GSG-al-Vcu" id="lgB-Xd-sP1"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" id="4OS-3k-Zol" customClass="ProfileTableViewCell" customModule="ArmyFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4OS-3k-Zol" id="INL-P7-gWA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-Ft-6h7">
-                                                    <rect key="frame" x="20" y="11" width="25" height="21.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ew-Ft-6h7">
+                                                    <rect key="frame" x="20" y="9.5" width="25" height="25"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="25" id="E2y-Jv-TDa"/>
                                                         <constraint firstAttribute="height" constant="25" id="VpP-8s-6f2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT6-Ah-KQj">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kT6-Ah-KQj">
                                                     <rect key="frame" x="55" y="11.5" width="319" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -859,43 +832,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Background"/>
                                         <connections>
-                                            <outlet property="contactImageView" destination="0Ew-Ft-6h7" id="Xrw-y0-Hou"/>
-                                            <outlet property="contactLabel" destination="kT6-Ah-KQj" id="6kD-Nh-K0l"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logoutCell" id="Vys-Cg-fNO" customClass="ProfileTableViewCell" customModule="ArmyFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="131.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vys-Cg-fNO" id="PnG-z2-Z5v">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujw-UI-79Q">
-                                                    <rect key="frame" x="55" y="11.5" width="319" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone.and.arrow.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3BF-fF-JSb">
-                                                    <rect key="frame" x="20" y="9.5" width="25" height="25"/>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="C1u-ye-D36"/>
-                                                        <constraint firstAttribute="height" constant="25" id="Yh7-rN-ErH"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ujw-UI-79Q" firstAttribute="centerY" secondItem="PnG-z2-Z5v" secondAttribute="centerY" id="LXb-Hz-g7S"/>
-                                                <constraint firstItem="3BF-fF-JSb" firstAttribute="leading" secondItem="PnG-z2-Z5v" secondAttribute="leading" constant="20" id="Y7A-0y-rPa"/>
-                                                <constraint firstItem="3BF-fF-JSb" firstAttribute="centerY" secondItem="PnG-z2-Z5v" secondAttribute="centerY" id="eAf-sX-9Xl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Ujw-UI-79Q" secondAttribute="trailing" constant="20" id="iOK-3a-0pd"/>
-                                                <constraint firstItem="Ujw-UI-79Q" firstAttribute="leading" secondItem="3BF-fF-JSb" secondAttribute="trailing" constant="10" id="ifN-BS-Hs2"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" name="Background"/>
-                                        <connections>
-                                            <outlet property="logoutLabel" destination="Ujw-UI-79Q" id="zIE-Ev-kRf"/>
+                                            <outlet property="cellImageView" destination="0Ew-Ft-6h7" id="Xrw-y0-Hou"/>
+                                            <outlet property="cellLabel" destination="kT6-Ah-KQj" id="6kD-Nh-K0l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -933,7 +871,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9W-4U-6q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1979.7101449275365" y="1800.6696428571427"/>
+            <point key="canvasLocation" x="1070" y="2624"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="Trv-t9-ABr">
@@ -1075,10 +1013,8 @@
     <resources>
         <image name="bicycle.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
-        <image name="envelope.fill" catalog="system" width="128" height="93"/>
         <image name="gambiarra" width="679" height="464"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="iphone.and.arrow.forward" catalog="system" width="108" height="128"/>
         <image name="logo" width="1085" height="1085"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
@@ -1096,8 +1032,5 @@
         <namedColor name="TopBar background">
             <color red="0.37599998712539673" green="0.72899997234344482" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

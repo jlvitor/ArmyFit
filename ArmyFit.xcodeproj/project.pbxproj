@@ -17,6 +17,8 @@
 		90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B480284D4D59003AAA91 /* ProfileViewController.swift */; };
 		90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */; };
 		CC086952284D2A7E005E74B0 /* training.json in Resources */ = {isa = PBXBuildFile; fileRef = CC086951284D2A7E005E74B0 /* training.json */; };
+		CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086955284D7125005E74B0 /* UserViewModel.swift */; };
+		CC086958284D8D14005E74B0 /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086957284D8D14005E74B0 /* ProfileCellViewModel.swift */; };
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */; };
 		CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */; };
@@ -41,6 +43,8 @@
 		90B2B480284D4D59003AAA91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		CC086951284D2A7E005E74B0 /* training.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = training.json; sourceTree = "<group>"; };
+		CC086955284D7125005E74B0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserViewModel.swift; path = ArmyFit/UserViewModel.swift; sourceTree = SOURCE_ROOT; };
+		CC086957284D8D14005E74B0 /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileCellViewModel.swift; path = ArmyFit/ProfileCellViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		CC916E52284A9C10002A4AE1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CC086955284D7125005E74B0 /* UserViewModel.swift */,
+				CC086957284D8D14005E74B0 /* ProfileCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC086958284D8D14005E74B0 /* ProfileCellViewModel.swift in Sources */,
 				CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */,
 				CC916E55284A9C3D002A4AE1 /* Service.swift in Sources */,
 				6ED8EBB0284560C500E962DF /* ScheduleDetailTableViewCell.swift in Sources */,
@@ -239,6 +246,7 @@
 				6EB425A028415719005AE67C /* ScheduleViewController.swift in Sources */,
 				14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */,
 				90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */,
+				CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */,
 				6EABD7872849343100444347 /* FeedViewController.swift in Sources */,
 				CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */,
 			);
