@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ProfileViewController: UIViewController {
     
@@ -24,6 +25,11 @@ class ProfileViewController: UIViewController {
         configTableView()
     }
     
+    @IBAction func editProfileButtonAction(_ sender: UIBarButtonItem) {
+        showAlert()
+    }
+    
+    //MARK: - Private methods
     private func configTableView() {
         profileTableView.delegate = self
         profileTableView.dataSource = self
@@ -39,7 +45,47 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.borderColor = UIColor(named: "Background 2")?.cgColor
     }
     
-    @IBAction func logoutButtonAction(_ sender: UIButton) {
+    private func showAlert() {
+        let editProfileALert = UIAlertController(
+            title: "Editar perfil",
+            message: "Você deseja editar seu perfil?",
+            preferredStyle: .actionSheet)
+        
+        let editImageProfileGallery = UIAlertAction(title: "Selecionar uma foto de perfil na galeria", style: .default) { action in
+            self.openGalleryPickerView()
+        }
+        let editImageProfileCamera = UIAlertAction(title: "Tirar uma foto de perfil", style: .default) { action in
+            self.openCameraPickerView()
+        }
+        let editNameProfile = UIAlertAction(title: "Editar nome de perfil", style: .default)
+        let cancelEdit = UIAlertAction(title: "Cancelar", style: .cancel)
+        
+        editProfileALert.addAction(editImageProfileGallery)
+        editProfileALert.addAction(editImageProfileCamera)
+        editProfileALert.addAction(editNameProfile)
+        editProfileALert.addAction(cancelEdit)
+        
+        present(editProfileALert, animated: true)
+    }
+    
+    private func openGalleryPickerView() {
+        var configuration = PHPickerConfiguration(photoLibrary: .shared())
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        
+        let imagePicker = PHPickerViewController(configuration: configuration)
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true)
+    }
+    
+    private func openCameraPickerView() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        
+        present(imagePicker, animated: true)
     }
 }
 
@@ -52,6 +98,33 @@ extension ProfileViewController: UserVideModelDelegate {
     
     func errorRequest() {
         print("Erro ao carregar dados")
+    }
+}
+
+//MARK: - PHPickerViewControllerDelegate
+extension ProfileViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        results.forEach { result in
+            result.itemProvider.loadObject(ofClass: UIImage.self) { success, error in
+                guard let image = success as? UIImage, error == nil else { return }
+                DispatchQueue.main.async {
+                    self.profileImageView.image = image
+                }
+            }
+        }
+        
+    }
+}
+
+//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let profileImage = info[.originalImage] as? UIImage else { return }
+
+        profileImageView.image = profileImage
+        dismiss(animated: true)
     }
 }
 
