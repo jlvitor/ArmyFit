@@ -24,6 +24,7 @@ class ScheduleViewController: UIViewController {
         
         scheduleTableView.delegate = self
         scheduleTableView.dataSource = self
+        scheduleTableView.overrideUserInterfaceStyle = .dark
     }
 }
 
