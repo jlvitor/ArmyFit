@@ -13,6 +13,7 @@ protocol UserVideModelDelegate {
 }
 
 class UserVideModel {
+    
     private let service: Service = Service()
     private var userData: User?
     var delegate: UserVideModelDelegate?
@@ -23,7 +24,6 @@ class UserVideModel {
                 self.delegate?.errorRequest()
                 return
             }
-            
             self.userData = _success
             self.delegate?.successRequest()
         }

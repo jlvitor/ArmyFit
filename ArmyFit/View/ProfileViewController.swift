@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileTableView: UITableView!
     
     private let viewModel: UserVideModel = UserVideModel()
-    private let cellViewModel: ProfileCellViewModel = ProfileCellViewModel()
+    private let cellViewModel: ProfileViewModel = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +57,7 @@ extension ProfileViewController: UserVideModelDelegate {
 
 //MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
+
 }
 
 //MARK: - UITableViewDataSource
@@ -71,19 +69,10 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "profileCustomCell", for: indexPath) as? ProfileTableViewCell
         let section = indexPath.section
+        let row = indexPath.row
+        let _cellViewModel = cellViewModel.profileInfo(at: section, at: row)
         
-        switch section {
-        case 0:
-            cell?.cellLabel.text = "Treinos agendados: 11"
-        case 1:
-            cell?.cellImageView.image = UIImage(systemName: "envelope.fill")
-            cell?.cellLabel.text = "WhatsApp"
-        case 2:
-            cell?.cellImageView.image = UIImage(systemName: "iphone.and.arrow.forward")
-            cell?.cellLabel.text = "Sair"
-        default:
-            break
-        }
+        cell?.configure(profileCellViewModel: _cellViewModel)
         
         return cell ?? UITableViewCell()
     }
@@ -93,6 +82,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return cellViewModel.setTilteForSection(section)
+        let title = cellViewModel.setTilteForSection(section)
+        return title
     }
 }

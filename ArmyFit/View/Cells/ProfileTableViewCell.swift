@@ -7,8 +7,18 @@
 
 import UIKit
 
+struct ProfileCellViewModel {
+    let icon: UIImage?
+    let label: String
+}
+
 class ProfileTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cellImageView: UIImageView!
-    @IBOutlet weak var cellLabel: UILabel!
+    @IBOutlet private weak var cellImageView: UIImageView!
+    @IBOutlet private weak var cellLabel: UILabel!
+    
+    func configure(profileCellViewModel: ProfileCellViewModel) {
+        cellImageView.image = profileCellViewModel.icon
+        cellLabel.text = profileCellViewModel.label
+    }
 }
