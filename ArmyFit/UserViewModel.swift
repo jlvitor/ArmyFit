@@ -14,7 +14,7 @@ protocol UserVideModelDelegate {
 
 class UserVideModel {
     
-    private let service: Service = Service()
+    private let service: UserService = UserService()
     private var userData: User?
     var delegate: UserVideModelDelegate?
     
