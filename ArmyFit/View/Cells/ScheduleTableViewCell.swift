@@ -13,18 +13,16 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var exerciseTitleLabel: UILabel!
     @IBOutlet weak var coachLabel: UILabel!
+    @IBOutlet weak var spotsLabel: UILabel!
+    @IBOutlet weak var availableSpostLabel: UILabel!
     
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        accessoryType = .disclosureIndicator
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(_ viewModel: TrainingHoursViewModel) {
+        houerLabel.text = viewModel.getHourTraining()
+        minuteLabel.text = viewModel.getMinuteTraining()
+        exerciseTitleLabel.text = viewModel.getTrainingName()
+        coachLabel.text = viewModel.getCoachName()
+        spotsLabel.text = viewModel.getSpots()
+        availableSpostLabel.text = viewModel.getAvailableSpots()
     }
 
 }

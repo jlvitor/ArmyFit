@@ -20,6 +20,7 @@ class ScheduleDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailTableView.dataSource = self
+        detailTableView.delegate = self
         
     }
     //MARK: - Alerta do botao particiacao do treino
@@ -38,6 +39,13 @@ class ScheduleDetailViewController: UIViewController {
         self.present(confirmAlert, animated: true)
     }
     
+}
+
+//MARK: - UITableViewDelegate
+extension ScheduleDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
 }
 
 //MARK: - UITableViewDataSource
