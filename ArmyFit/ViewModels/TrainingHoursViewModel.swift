@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol TrainingHoursViewModelDelegate {
+    func success(_ viewModel: TrainingHoursViewModel)
+    func errorRequest()
+}
+
 class TrainingHoursViewModel {
     
     private let trainingHours: TrainingHours
+    var delegate: TrainingHoursViewModelDelegate?
     
     init(_ trainingHours: TrainingHours) {
         self.trainingHours = trainingHours
