@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol UserVideModelDelegate {
+protocol UserViewModelDelegate {
     func successRequest()
     func errorRequest()
 }
@@ -16,15 +16,15 @@ class UserVideModel {
     
     private let service: UserService = UserService()
     private var userData: User?
-    var delegate: UserVideModelDelegate?
+    var delegate: UserViewModelDelegate?
     
     func fetchUserData() {
         service.getUserFromJson(fromFileNamed: "user") { success, error in
-            guard let _success = success else {
+            guard let success = success else {
                 self.delegate?.errorRequest()
                 return
             }
-            self.userData = _success
+            self.userData = success
             self.delegate?.successRequest()
         }
     }
@@ -37,5 +37,5 @@ class UserVideModel {
     func getName() -> String {
         guard let name = userData?.name else { return ""}
         return name.uppercased()
-    }    
+    }
 }

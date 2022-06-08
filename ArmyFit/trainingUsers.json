@@ -1,0 +1,27 @@
+"__TrainingUser__"
+[
+    {
+        "id": "6f6e3a03-3d7a-4469-9014-554af79e57ee",
+        "user": {
+            "id": "df37cf2c-c79b-45a4-a6b2-debe0ada89e3",
+            "name": "Jean Lucas Vitor",
+            "email": "teste@123.com.br",
+            "password": "123@Teste",
+            "photoURL": "jean",
+        },
+        "user_id": "df37cf2c-c79b-45a4-a6b2-debe0ada89e3",
+        "training_hoursId": "217ab3e2-d75c-442f-b5a7-4efa6dc658ce"
+    },
+    {
+        "id": "854f240d-18d9-4c38-8853-63e7781a1e8c",
+        "user": {
+            "id": "df37cf2c-c79b-45a4-a6b2-debe0ada89e3",
+            "name": "Jean Lucas Vitor",
+            "email": "teste@123.com.br",
+            "password": "123@Teste",
+            "photoURL": "jean",
+        },
+        "user_id": "df37cf2c-c79b-45a4-a6b2-debe0ada89e3",
+        "training_hoursId": "cd498b26-2424-48a7-9645-166357c1049d"
+    },
+]
