@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141A4F932851383A00CABB3D /* TrainingsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A4F922851383A00CABB3D /* TrainingsDetailViewModel.swift */; };
 		14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4928454F7200E5FEA4 /* User.swift */; };
 		14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* Training.swift */; };
 		6E7CCF6028511B5700E87F1E /* TrainingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7CCF5F28511B5700E87F1E /* TrainingDetailViewModel.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		141A4F922851383A00CABB3D /* TrainingsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsDetailViewModel.swift; sourceTree = "<group>"; };
 		14C0AD4928454F7200E5FEA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14C0AD4B28454FB000E5FEA4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		6E7CCF5F28511B5700E87F1E /* TrainingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailViewModel.swift; sourceTree = "<group>"; };
@@ -125,16 +127,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CC916E52284A9C10002A4AE1 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				CC086955284D7125005E74B0 /* UserViewModel.swift */,
-				CC086957284D8D14005E74B0 /* ProfileViewModel.swift */,
-				CC22396B284F9A5500CBB22C /* ScheduleViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		CC916E53284A9C2D002A4AE1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +183,7 @@
 				CC22396D284FC69B00CBB22C /* TrainingHoursViewModel.swift */,
 				CCE1056F2850E4B5006376B8 /* DayViewModel.swift */,
 				6E7CCF5F28511B5700E87F1E /* TrainingDetailViewModel.swift */,
+				141A4F922851383A00CABB3D /* TrainingsDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -281,7 +274,6 @@
 				CC22396E284FC69B00CBB22C /* TrainingHoursViewModel.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
 				14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */,
-				CC22396C284F9A5500CBB22C /* ScheduleViewModel.swift in Sources */,
 				90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
 				CC22397A284FF9EA00CBB22C /* TrainingsHoursViewModel.swift in Sources */,
@@ -290,6 +282,7 @@
 				CCAF5FE0284ED7F900678230 /* UserService.swift in Sources */,
 				CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */,
 				14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */,
+				141A4F932851383A00CABB3D /* TrainingsDetailViewModel.swift in Sources */,
 				90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */,
 				CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */,
 				6EABD7872849343100444347 /* FeedViewController.swift in Sources */,

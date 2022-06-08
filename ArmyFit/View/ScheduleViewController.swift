@@ -21,6 +21,13 @@ class ScheduleViewController: UIViewController {
         configTableView()
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let detailVC = segue.destination as? ScheduleDetailViewController {
+//            let index = sender as? Int
+//            detailVC.viewModel = viewModel.getTrainingDetail(index)
+//        }
+//    }
+    
     //MARK: - Private methods
     private func configCollectionView() {
         dateCollectionView.dataSource = self
@@ -61,9 +68,8 @@ extension ScheduleViewController: UICollectionViewDataSource {
 //MARK: - UITableViewDelegate
 extension ScheduleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let exerciseSelected = tableView.indexPathForSelectedRow?.row else { return }
 
-        performSegue(withIdentifier: "goToDetailsScreen", sender: exerciseSelected)
+        performSegue(withIdentifier: "goToDetailsScreen", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
         }
     

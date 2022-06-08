@@ -36,6 +36,10 @@ class TrainingsHoursViewModel {
         return DayViewModel(trainingDay: day)
     }
     
+//    func getTrainingDetail() -> TrainingHoursViewModel {
+//        return TrainingHoursViewModel()
+//    }
+    
     func daysOnCurrentMonth() {
         let currentDate = Date() // Tras a data atual
         let dateFormatter = DateFormatter() // Formatador de data

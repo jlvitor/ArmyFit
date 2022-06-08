@@ -7,16 +7,25 @@
 
 import Foundation
 
-protocol TrainingDetailViewModelDelegate {
-    
-    func success(_ viewModel: TrainingHoursViewModel)
-    func errorRequest()
-
-}
 
 class TrainingDetailViewModel {
+    private let details: TrainingUser
     
-    var delegate: TrainingDetailViewModelDelegate?
+    init(details: TrainingUser) {
+        self.details = details
+    }
+    
+    func getUserImage() -> String {
+        guard let image = details.user?.photoURL else { return "" }
+        
+        return image
+    }
+    
+    func getUserName() -> String {
+        guard let name = details.user?.name else { return ""}
+        
+        return name
+    }
     
     func getDay() {
         
