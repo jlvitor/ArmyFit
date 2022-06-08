@@ -751,7 +751,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKT-yu-v1K" userLabel="View 2">
                                 <rect key="frame" x="0.0" y="158" width="414" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="enN-FQ-p7s">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="enN-FQ-p7s">
                                         <rect key="frame" x="20" y="-65" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="e8G-qg-8BY"/>
@@ -857,7 +857,7 @@
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="aNf-xw-AGr">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="logoutButtonAction:" destination="6Oy-n7-u1J" id="GOT-5T-2qP"/>
+                                <action selector="editProfileButtonAction:" destination="6Oy-n7-u1J" id="1Wc-OU-SEf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1007,7 +1007,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Cqm-oA-vPW"/>
+        <segue reference="5wS-mf-mys"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bicycle.circle.fill" catalog="system" width="128" height="121"/>

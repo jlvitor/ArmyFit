@@ -123,6 +123,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CC916E52284A9C10002A4AE1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CC086955284D7125005E74B0 /* UserViewModel.swift */,
+				CC086957284D8D14005E74B0 /* ProfileViewModel.swift */,
+				CC22396B284F9A5500CBB22C /* ScheduleViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		CC916E53284A9C2D002A4AE1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +278,7 @@
 				CC22396E284FC69B00CBB22C /* TrainingHoursViewModel.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
 				14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */,
+				CC22396C284F9A5500CBB22C /* ScheduleViewModel.swift in Sources */,
 				90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
 				CC22397A284FF9EA00CBB22C /* TrainingsHoursViewModel.swift in Sources */,
