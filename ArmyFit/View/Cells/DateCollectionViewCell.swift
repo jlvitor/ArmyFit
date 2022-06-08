@@ -13,4 +13,9 @@ class DateCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dateTextLabel: UILabel!
     @IBOutlet weak var dateNumberLabel: UILabel!
     
+    func configure(viewModel: DayViewModel) {
+        dateTextLabel.text = viewModel.getDayStringInAMonth()
+        dateNumberLabel.text = viewModel.getDayIntInAMonth()
+    }
+    
 }

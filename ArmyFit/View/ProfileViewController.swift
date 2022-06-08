@@ -90,14 +90,14 @@ class ProfileViewController: UIViewController {
 }
 
 //MARK: - UserVideModelDelegate
-extension ProfileViewController: UserVideModelDelegate {
+extension ProfileViewController: UserViewModelDelegate {
     func successRequest() {
         profileImageView.image = UIImage(named: viewModel.getUserImage())
         nameLabel.text = viewModel.getName()
     }
     
     func errorRequest() {
-        print("Erro ao carregar dados")
+        print("Erro ao carregar os dados do usuário")
     }
 }
 
@@ -130,7 +130,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 //MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }
 
 //MARK: - UITableViewDataSource
