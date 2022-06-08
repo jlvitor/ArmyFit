@@ -16,6 +16,9 @@
 		90293CD628403A38000964FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293CD528403A38000964FE /* RegisterViewController.swift */; };
 		90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B480284D4D59003AAA91 /* ProfileViewController.swift */; };
 		90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */; };
+		90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */; };
+		90D0FFD2285140E300143DB3 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */; };
+		90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */; };
 		CC086952284D2A7E005E74B0 /* training.json in Resources */ = {isa = PBXBuildFile; fileRef = CC086951284D2A7E005E74B0 /* training.json */; };
 		CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086955284D7125005E74B0 /* UserViewModel.swift */; };
 		CC086958284D8D14005E74B0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086957284D8D14005E74B0 /* ProfileViewModel.swift */; };
@@ -50,6 +53,9 @@
 		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		90B2B480284D4D59003AAA91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
+		90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
 		CC086951284D2A7E005E74B0 /* training.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = training.json; sourceTree = "<group>"; };
 		CC086955284D7125005E74B0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserViewModel.swift; path = ArmyFit/ViewModels/UserViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC086957284D8D14005E74B0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ArmyFit/ViewModels/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -103,6 +109,7 @@
 				CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */,
 				6ED8EBAF284560C400E962DF /* ScheduleDetailTableViewCell.swift */,
 				90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */,
+				90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -119,18 +126,9 @@
 				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
 				6EABD7862849343100444347 /* FeedViewController.swift */,
 				90B2B480284D4D59003AAA91 /* ProfileViewController.swift */,
+				90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		CC916E52284A9C10002A4AE1 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				CC086955284D7125005E74B0 /* UserViewModel.swift */,
-				CC086957284D8D14005E74B0 /* ProfileViewModel.swift */,
-				CC22396B284F9A5500CBB22C /* ScheduleViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CC916E53284A9C2D002A4AE1 /* Service */ = {
@@ -188,6 +186,7 @@
 				CC223979284FF9EA00CBB22C /* TrainingsHoursViewModel.swift */,
 				CC22396D284FC69B00CBB22C /* TrainingHoursViewModel.swift */,
 				CCE1056F2850E4B5006376B8 /* DayViewModel.swift */,
+				90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -277,8 +276,9 @@
 				CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */,
 				CC22396E284FC69B00CBB22C /* TrainingHoursViewModel.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
+				90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */,
+				90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */,
 				14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */,
-				CC22396C284F9A5500CBB22C /* ScheduleViewModel.swift in Sources */,
 				90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
 				CC22397A284FF9EA00CBB22C /* TrainingsHoursViewModel.swift in Sources */,
@@ -291,6 +291,7 @@
 				6EABD7872849343100444347 /* FeedViewController.swift in Sources */,
 				CC223974284FDAA900CBB22C /* TrainingHoursSerice.swift in Sources */,
 				CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */,
+				90D0FFD2285140E300143DB3 /* TrainingViewModel.swift in Sources */,
 				CC223976284FDB4800CBB22C /* TrainingUserService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
