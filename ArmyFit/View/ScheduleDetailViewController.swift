@@ -14,13 +14,14 @@ class ScheduleDetailViewController: UIViewController {
     @IBOutlet weak var monitorLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
-    @IBOutlet weak var spacesLabel: UILabel!
     
+    
+    private let viewModel: TrainingDetailViewModel = TrainingDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailTableView.dataSource = self
-        detailTableView.delegate = self
+        configTableView()
+        configViewModel()
         
     }
     //MARK: - Alerta do botao particiacao do treino
@@ -39,6 +40,14 @@ class ScheduleDetailViewController: UIViewController {
         self.present(confirmAlert, animated: true)
     }
     
+    private func configTableView() {
+        detailTableView.dataSource = self
+        detailTableView.delegate = self
+    }
+    
+    private func configViewModel() {
+        viewModel.delegate = self
+    }
 }
 
 //MARK: - UITableViewDelegate
@@ -61,3 +70,19 @@ extension ScheduleDetailViewController: UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
 }
+
+extension ScheduleDetailViewController: TrainingDetailViewModelDelegate {
+    func success(_ viewModel: TrainingHoursViewModel) {
+        monitorLabel.text = viewModel.getCoachName()
+        hourLabel.text = viewModel.getHourTraining()
+        minuteLabel.text = viewModel.getMinuteTraining()
+        
+    }
+    
+    func errorRequest() {
+        print("Erro ao carregar detalhes")
+    }
+    
+    
+}
+
