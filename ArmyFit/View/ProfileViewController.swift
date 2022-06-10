@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
     
     private func configUserImage() {
         profileImageView.layer.borderWidth = 5
-        profileImageView.layer.borderColor = UIColor(named: "Background 2")?.cgColor
+        profileImageView.layer.borderColor = UIColor(named: "light_background")?.cgColor
     }
     
     private func showAlert() {
