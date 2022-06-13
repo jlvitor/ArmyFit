@@ -13,8 +13,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerScreen: UIStackView!
     
+    private let viewModel: LoginViewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configViewModel()
         configGestureRecognizer()
     }
     
@@ -30,8 +33,24 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "loginToHome", sender: self)
+        viewModel.makeLoginRequest(
+            emailTextField.text,
+            passwordTextField.text)
     }
+    
+    private func configViewModel() {
+        viewModel.delegate = self
+    }
+    
+    private func showAlert() {
+        let error = UIAlertController(
+          title: "Acesso negado",
+          message: "Dados incorretos, verifique e tente novamente!",
+          preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "OK", style: .cancel)
+        error.addAction(confirm)
+        present(error, animated: true)
+      }
     
     private func configGestureRecognizer() {
         let tap = UITapGestureRecognizer(
@@ -44,5 +63,17 @@ class LoginViewController: UIViewController {
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
+    
+}
+
+extension LoginViewController: LoginViewModelDelegate {
+    func successAuth() {
+        performSegue(withIdentifier: "loginToHome", sender: self)
+    }
+    
+    func errorAuth() {
+        showAlert()
+    }
+    
     
 }
