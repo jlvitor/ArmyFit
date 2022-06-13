@@ -44,8 +44,8 @@ class TrainingHoursViewModel {
     }
     
     func getAvailableSpots() -> String {
-        let availableSpots = trainingHours.availabe_spots
-        return "\(availableSpots)"
+//        let availableSpots = trainingHours.availabe_spots
+        return "Oi" 
     }
     
     func getSpots() -> String {

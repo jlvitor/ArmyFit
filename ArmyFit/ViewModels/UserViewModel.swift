@@ -19,14 +19,14 @@ class UserVideModel {
     var delegate: UserViewModelDelegate?
     
     func fetchUserData() {
-        service.getUserFromJson(fromFileNamed: "user") { success, error in
-            guard let success = success else {
-                self.delegate?.errorRequest()
-                return
-            }
-            self.userData = success
-            self.delegate?.successRequest()
-        }
+//        service.getUserFromJson(fromFileNamed: "user") { success, error in
+//            guard let success = success else {
+//                self.delegate?.errorRequest()
+//                return
+//            }
+//            self.userData = success
+//            self.delegate?.successRequest()
+//        }
     }
     
     func getUserImage() -> String {
