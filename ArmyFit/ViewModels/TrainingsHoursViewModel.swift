@@ -17,12 +17,12 @@ class TrainingsHoursViewModel {
     var trainingDays: [String: String] = [:]
     
     func fetchTrainingsHours() {
-        service.getTrainingHoursFromJson(fromFileNamed: "trainingHours") { success, error in
-            guard let success = success else { return }
-            self.trainingHoursList = self.sortedDate(success)
-            self.trainingHoursDateList = success
-            self.trainingHoursCount = success.count
-        }
+//        service.getTrainingHoursFromJson(fromFileNamed: "trainingHours") { success, error in
+//            guard let success = success else { return }
+//            self.trainingHoursList = self.sortedDate(success)
+//            self.trainingHoursDateList = success
+//            self.trainingHoursCount = success.count
+//        }
     }
     
     func getTrainingCellViewModel(_ index: Int) -> TrainingHoursViewModel {

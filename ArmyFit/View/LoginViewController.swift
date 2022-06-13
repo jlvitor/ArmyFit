@@ -13,24 +13,74 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerScreen: UIStackView!
     
+    private let viewModel: LoginViewModel = LoginViewModel()
+    private var iconClick = false
+    private let imageIcon = UIImageView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+        configViewModel()
         configGestureRecognizer()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        configureContentView()
+        configureImageIcon()
     }
     
     @IBAction func forgotPasswordButton(_ sender: UIButton) {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "loginToHome", sender: self)
+        viewModel.makeLoginRequest(
+            emailTextField.text,
+            passwordTextField.text)
+    }
+    
+    //MARK: - Private methods
+    private func configViewModel() {
+        viewModel.delegate = self
+    }
+    
+    private func showAlert() {
+        let error = UIAlertController(
+            title: "Acesso negado",
+            message: "Dados incorretos, verifique e tente novamente!",
+            preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "OK", style: .cancel)
+        error.addAction(confirm)
+        present(error, animated: true)
+    }
+    
+    private func configureContentView() {
+        let contentView = UIView()
+        contentView.addSubview(imageIcon)
+        
+        contentView.frame = CGRect(
+            x: 100,
+            y: 100,
+            width: UIImage(systemName: "eye.slash")!.size.width,
+            height: UIImage(systemName: "eye.slash")!.size.height
+        )
+        imageIcon.frame = CGRect(
+            x: -10,
+            y: 0,
+            width: UIImage(systemName: "eye.slash")!.size.width,
+            height: UIImage(systemName: "eye.slash")!.size.height
+        )
+        
+        passwordTextField.rightView = contentView
+        passwordTextField.rightViewMode = .always
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageIcon.isUserInteractionEnabled = true
+        imageIcon.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func configureImageIcon() {
+        imageIcon.image = UIImage(systemName: "eye.slash")
+        imageIcon.tintColor = .black
     }
     
     private func configGestureRecognizer() {
@@ -44,5 +94,31 @@ class LoginViewController: UIViewController {
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
+    
+    @objc private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        if iconClick {
+            iconClick = false
+            tappedImage.image = UIImage(systemName: "eye")
+            passwordTextField.isSecureTextEntry = false
+        } else {
+            iconClick = true
+            tappedImage.image = UIImage(systemName: "eye.slash")
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
+    
+}
+
+//MARK: - LoginViewModelDelegate
+extension LoginViewController: LoginViewModelDelegate {
+    func successAuth() {
+        performSegue(withIdentifier: "loginToHome", sender: self)
+    }
+    
+    func errorAuth() {
+        showAlert()
+    }
+    
     
 }

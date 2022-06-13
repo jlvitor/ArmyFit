@@ -9,10 +9,11 @@ import Foundation
 
 class AuthService {
     
-
+    private let baseUrl = "https://armyapi.herokuapp.com/login"
     
+    // Valida o usuario para poder logar no app
     func makeAuthPostRequest(email: String, password:  String, completion:  @escaping (Auth?, Error?) -> Void) {
-        guard let url = URL(string: "URL") else { return }
+        guard let url = URL(string: baseUrl) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
