@@ -19,7 +19,7 @@ struct TrainingHours: Codable {
     let id: UUID // Id do horário do treino
     let date_hour: String // Dia e horário do treino
     let spots: Int // Quantidade de usuarios que se cadastraram no treino
-    var availabe_spots: Int // Vagas disponiveis
+    let available_spots: Int // Vagas disponiveis
     let instructor: String // Instrutor/ professor do treino
     let description: String // Descricao do treino
     let training: Training // Dados de um treino específico
@@ -32,5 +32,5 @@ struct TrainingUser: Codable {
     let user: User? // Dados de um usuario em específico
     let user_id: UUID // Id do usuario ( relacao com id na struct User)
     let training_hours: TrainingHours? // Dados de um horário específico
-    let training_hoursId: UUID //Id do horario de um treino específico (relacao com id na struct TrainingHours)
+    let trainingHoursId: UUID //Id do horario de um treino específico (relacao com id na struct TrainingHours)
 }
