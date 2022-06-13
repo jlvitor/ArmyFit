@@ -9,13 +9,11 @@ import Foundation
 
 class UserService {
     
-    private let baseURL: String = ""
-    
-    let token: String = ""
+
     
     //MARK: - Registra o usuário no app/ bando de dados do app
     func registerUser(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
-        guard let url = URL(string: baseURL) else { return }
+        guard let url = URL(string: "URL") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -46,12 +44,12 @@ class UserService {
     
     //MARK: - Atualiza nome e foto do usuário
     func updateUser(name: String, photoURL: String, completion: @escaping (User?, Error?) -> Void) {
-        guard let url = URL(string: baseURL) else { return }
+        guard let url = URL(string: "URL") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer\(token")", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
             "name": name,
             "photoURL": photoURL
