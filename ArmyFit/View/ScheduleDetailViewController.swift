@@ -18,7 +18,7 @@ class ScheduleDetailViewController: UIViewController {
     @IBOutlet weak var availableSpotsLabel: UILabel!
     
     
-     private let viewModel: TrainingsDetailViewModel = TrainingsDetailViewModel()
+//     private let viewModel: TrainingsDetailViewModel = TrainingsDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +67,8 @@ extension ScheduleDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as? ScheduleDetailTableViewCell
-        let cellViewModel = viewModel.getUserCellViewModel(indexPath.row)
-        cell?.configure(cellViewModel)
+//        let cellViewModel = viewModel.getUserCellViewModel(indexPath.row)
+//        cell?.configure(cellViewModel)
         return cell ?? UITableViewCell()
     }
 }
