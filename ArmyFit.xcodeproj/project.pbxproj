@@ -18,6 +18,7 @@
 		90293CD628403A38000964FE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90293CD528403A38000964FE /* RegisterViewController.swift */; };
 		90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B480284D4D59003AAA91 /* ProfileViewController.swift */; };
 		90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */; };
+		90D000122857AE8500143DB3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D000112857AE8500143DB3 /* AuthService.swift */; };
 		90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */; };
 		90D0FFD2285140E300143DB3 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */; };
 		90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */; };
@@ -56,6 +57,7 @@
 		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		90B2B480284D4D59003AAA91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		90D000112857AE8500143DB3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
 		90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				CCAF5FDF284ED7F900678230 /* UserService.swift */,
 				CC223973284FDAA900CBB22C /* TrainingHoursSerice.swift */,
+				90D000112857AE8500143DB3 /* AuthService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
 				90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */,
 				90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */,
+				90D000122857AE8500143DB3 /* AuthService.swift in Sources */,
 				CC9FE16F2857A86C0010EE58 /* Auth.swift in Sources */,
 				14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */,
 				90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */,
