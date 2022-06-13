@@ -12,6 +12,7 @@ class TrainingHoursService {
     private let baseUrl = "https://armyapi.herokuapp.com/hours/2022-06-15"
       let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUwOTEzMjcsImV4cCI6MTY4NjY0ODkyNywic3ViIjoiMWMyMjNmNmMtMzBhMS00MzcyLWFjYTItMjc1NWYwNjg3ODhkIn0.0dxYt-RwScqNdF9OAR_BCIiF6JZfWsKiGK1zQMYuesA"
     
+    //MARK: - Pega os treinos dos dias no mes atual
     func getTrainingHours(completion: @escaping ([TrainingHours]?, Error?) -> Void) {
         guard let url = URL(string: baseUrl) else { return }
         

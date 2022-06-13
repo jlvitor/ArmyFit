@@ -15,19 +15,43 @@ class LoginViewController: UIViewController {
     
     private let viewModel: LoginViewModel = LoginViewModel()
     private var iconClick = false
-    let imageIcon = UIImageView()
+    private let imageIcon = UIImageView()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         configViewModel()
         configGestureRecognizer()
-        passwordTextField.isSecureTextEntry = true
         configureContentView()
         configureImageIcon()
     }
-//MARK: - Toggle
-    func configureContentView() {
+    
+    @IBAction func forgotPasswordButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func loginButton(_ sender: UIButton) {
+        viewModel.makeLoginRequest(
+            emailTextField.text,
+            passwordTextField.text)
+    }
+    
+    //MARK: - Private methods
+    private func configViewModel() {
+        viewModel.delegate = self
+    }
+    
+    private func showAlert() {
+        let error = UIAlertController(
+            title: "Acesso negado",
+            message: "Dados incorretos, verifique e tente novamente!",
+            preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "OK", style: .cancel)
+        error.addAction(confirm)
+        present(error, animated: true)
+    }
+    
+    private func configureContentView() {
         let contentView = UIView()
         contentView.addSubview(imageIcon)
         
@@ -35,11 +59,11 @@ class LoginViewController: UIViewController {
             x: 100,
             y: 100,
             width: UIImage(systemName: "eye.slash")!.size.width,
-            height: UIImage(systemName: "eye.slash")!.size.width
+            height: UIImage(systemName: "eye.slash")!.size.height
         )
         imageIcon.frame = CGRect(
             x: -10,
-            y: 5,
+            y: 0,
             width: UIImage(systemName: "eye.slash")!.size.width,
             height: UIImage(systemName: "eye.slash")!.size.height
         )
@@ -54,54 +78,10 @@ class LoginViewController: UIViewController {
         imageIcon.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    func configureImageIcon() {
+    private func configureImageIcon() {
         imageIcon.image = UIImage(systemName: "eye.slash")
         imageIcon.tintColor = .black
     }
-    
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        if iconClick {
-            iconClick = false
-            tappedImage.image = UIImage(systemName: "eye")
-            passwordTextField.isSecureTextEntry = false
-        } else {
-            iconClick = true
-            tappedImage.image = UIImage(systemName: "eye.slash")
-            passwordTextField.isSecureTextEntry = true
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    @IBAction func forgotPasswordButton(_ sender: UIButton) {
-    }
-    
-    @IBAction func loginButton(_ sender: UIButton) {
-        viewModel.makeLoginRequest(
-            emailTextField.text,
-            passwordTextField.text)
-    }
-    
-    private func configViewModel() {
-        viewModel.delegate = self
-    }
-    
-    private func showAlert() {
-        let error = UIAlertController(
-          title: "Acesso negado",
-          message: "Dados incorretos, verifique e tente novamente!",
-          preferredStyle: .alert)
-        let confirm = UIAlertAction(title: "OK", style: .cancel)
-        error.addAction(confirm)
-        present(error, animated: true)
-      }
     
     private func configGestureRecognizer() {
         let tap = UITapGestureRecognizer(
@@ -115,8 +95,22 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
     
+    @objc private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        if iconClick {
+            iconClick = false
+            tappedImage.image = UIImage(systemName: "eye")
+            passwordTextField.isSecureTextEntry = false
+        } else {
+            iconClick = true
+            tappedImage.image = UIImage(systemName: "eye.slash")
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
+    
 }
 
+//MARK: - LoginViewModelDelegate
 extension LoginViewController: LoginViewModelDelegate {
     func successAuth() {
         performSegue(withIdentifier: "loginToHome", sender: self)
