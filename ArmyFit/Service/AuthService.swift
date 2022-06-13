@@ -9,7 +9,7 @@ import Foundation
 
 class AuthService {
     
-    private let baseURL = "https://armyapi.herokuapp.com/login"
+    private let baseURL: String = ""
     
     func makeAuthPostRequest(email: String, password:  String, completion:  @escaping (Auth?, Error?) -> Void) {
         guard let url = URL(string: baseURL) else { return }

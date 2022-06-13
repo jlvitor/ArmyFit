@@ -9,9 +9,9 @@ import Foundation
 
 class TrainingHoursService {
     
-    private let baseURL = "https://armyapi.herokuapp.com/hours/2022-06-15"
+    private let baseURL: String = ""
     
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUwOTEzMjcsImV4cCI6MTY4NjY0ODkyNywic3ViIjoiMWMyMjNmNmMtMzBhMS00MzcyLWFjYTItMjc1NWYwNjg3ODhkIn0.0dxYt-RwScqNdF9OAR_BCIiF6JZfWsKiGK1zQMYuesA"
+    let token: String = ""
     
     func getTrainingHours(completion: @escaping ([TrainingHours]?, Error?) -> Void) {
         guard let url = URL(string: baseURL) else { return }

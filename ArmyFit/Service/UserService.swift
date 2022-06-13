@@ -9,9 +9,9 @@ import Foundation
 
 class UserService {
     
-    private let baseURL = "https://armyapi.herokuapp.com/users"
+    private let baseURL: String = ""
     
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUwOTEzMjcsImV4cCI6MTY4NjY0ODkyNywic3ViIjoiMWMyMjNmNmMtMzBhMS00MzcyLWFjYTItMjc1NWYwNjg3ODhkIn0.0dxYt-RwScqNdF9OAR_BCIiF6JZfWsKiGK1zQMYuesA"
+    let token: String = ""
     
     //MARK: - Registra o usuário no app/ bando de dados do app
     func registerUser(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
