@@ -15,14 +15,30 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var loginScreen: UIStackView!
     
+    private let viewModel: RegisterViewModel = RegisterViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         configGestureRecognizer()
+        viewModel.delegate = self
     }
     
     @IBAction func registerButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "registerToHome", sender: self)
+        viewModel.makeRegisterRequest(
+            nameTextField.text,
+            emailTextField.text,
+            passwordTextField.text)
+    }
+    
+    private func showAlert() {
+        let error = UIAlertController(
+            title: "Acesso negado",
+            message: "Dados incorretos, verifique e tente novamente!",
+            preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "OK", style: .cancel)
+        error.addAction(confirm)
+        present(error, animated: true)
     }
     
     private func configGestureRecognizer() {
@@ -35,5 +51,15 @@ class RegisterViewController: UIViewController {
 
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension RegisterViewController: RegisterViewModelDelegate {
+    func successRegister() {
+        performSegue(withIdentifier: "registerToHome", sender: self)
+    }
+    
+    func errorRegister() {
+        showAlert() 
     }
 }
