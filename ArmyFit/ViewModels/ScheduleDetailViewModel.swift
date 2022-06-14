@@ -1,56 +1,60 @@
 //
-//  TrainingViewModel.swift
+//  TrainingDetailViewModel.swift
 //  ArmyFit
 //
-//  Created by Jean Lucas Vitor on 07/06/22.
+//  Created by Gabriel Lopes on 08/06/22.
 //
 
 import Foundation
 
-protocol TrainingHoursViewModelDelegate {
-    func success(_ viewModel: TrainingHoursViewModel)
-    func errorRequest()
-}
-
-class TrainingHoursViewModel {
+class ScheduleDetailViewModel {
+    private let hourDetail: TrainingHours
     
-    private let trainingHours: TrainingHours
-    var delegate: TrainingHoursViewModelDelegate?
-    
-    init(_ trainingHours: TrainingHours) {
-        self.trainingHours = trainingHours
+    init(_ hourDetail: TrainingHours) {
+        self.hourDetail = hourDetail
     }
     
     func getHourTraining() -> String {
-        let trainingHour = trainingHours.date_hour
+        let trainingHour = hourDetail.date_hour
         return formatDateStringToHour(date: trainingHour)
     }
     
     func getMinuteTraining() -> String {
-        let trainingMinute = trainingHours.date_hour
+        let trainingMinute = hourDetail.date_hour
         return formatDateStringToMinute(date: trainingMinute)
     }
     
-    func getTrainingName() -> String {
-        let trainingName = trainingHours.training.name
-        let title = convertToUppercasedFrom(trainingName)
-        return title
-    }
-    
     func getCoachName() -> String {
-        let coachName = trainingHours.instructor
+        let coachName = hourDetail.instructor
         let name = convertToUppercasedFrom(coachName)
         return name
     }
     
     func getAvailableSpots() -> String {
-//        let availableSpots = trainingHours.availabe_spots
-        return "Oi" 
+        let availableSpots = hourDetail.available_spots
+        return "\(availableSpots)"
     }
     
     func getSpots() -> String {
-        let spots = trainingHours.spots
+        let spots = hourDetail.spots
         return "\(spots)"
+    }
+    
+    func getNumberOfUsers() -> Int {
+        guard let users = hourDetail.training_users?.count else { return 0}
+        return users
+    }
+    
+    func getUserImage() -> String {
+        guard let userImage = hourDetail.training_users,
+              let image = userImage[0].user?.photoURL else { return "person.fill" }
+        return image
+    }
+    
+    func getUserName() -> String {
+        guard let userName = hourDetail.training_users,
+              let name = userName[0].user?.name else { return "Usuário sem nome"}
+        return name
     }
     
     private func convertToUppercasedFrom(_ text: String) -> String {
@@ -60,7 +64,7 @@ class TrainingHoursViewModel {
     private func formatDateStringToHour(date: String) -> String {
         // Variavel que instancia formatador de data
         let dateFormatter = DateFormatter()
-        // Variavel que instacia locale
+        // Variavel que recebe a localizacao atual
         let locale = NSLocale.current
         // Variavel que instancia formatador atraves do locale
         let dateFormatterFromLocale = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: locale)!

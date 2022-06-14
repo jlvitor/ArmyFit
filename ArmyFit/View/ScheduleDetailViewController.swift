@@ -9,23 +9,22 @@ import UIKit
 
 class ScheduleDetailViewController: UIViewController {
     
-    @IBOutlet weak var detailTableView: UITableView!
-    
     @IBOutlet weak var monitorLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var spotsLabel: UILabel!
     @IBOutlet weak var availableSpotsLabel: UILabel!
     
+    @IBOutlet weak var detailTableView: UITableView!
     
-//     private let viewModel: TrainingsDetailViewModel = TrainingsDetailViewModel()
+    var viewModel: ScheduleDetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
-      //  configViewModel()
-        
+        configScreen()
     }
+
     //MARK: - Alerta do botao particiacao do treino
     @IBAction func trainingParticipationButton(_ sender: UIButton) {
         let confirmAlert = UIAlertController(title: "Confirmação", message: "Deseja confirmar sua participação?", preferredStyle: .alert)
@@ -42,14 +41,22 @@ class ScheduleDetailViewController: UIViewController {
         self.present(confirmAlert, animated: true)
     }
     
+    //MARK: - Private method
     private func configTableView() {
         detailTableView.dataSource = self
         detailTableView.delegate = self
     }
     
-//    private func configViewModel() {
-//        viewModel.delegate = self
-//    }
+    private func configScreen() {
+        guard let viewModel = viewModel else { return }
+        
+        monitorLabel.text = viewModel.getCoachName()
+        hourLabel.text = viewModel.getHourTraining()
+        minuteLabel.text = viewModel.getMinuteTraining()
+        spotsLabel.text = viewModel.getSpots()
+        availableSpotsLabel.text = viewModel.getAvailableSpots()
+        
+    }
 }
 
 //MARK: - UITableViewDelegate
@@ -62,30 +69,15 @@ extension ScheduleDetailViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ScheduleDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        guard let rows = viewModel?.getNumberOfUsers() else { return 0}
+        return rows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as? ScheduleDetailTableViewCell
-//        let cellViewModel = viewModel.getUserCellViewModel(indexPath.row)
-//        cell?.configure(cellViewModel)
+//                let cellViewModel = viewModel.getUserCellViewModel(indexPath.row)
+//                cell?.configure(cellViewModel)
         return cell ?? UITableViewCell()
     }
-}
-
-extension ScheduleDetailViewController: TrainingHoursViewModelDelegate {
-    func success(_ viewModel: TrainingHoursViewModel) {
-        monitorLabel.text = viewModel.getCoachName()
-        hourLabel.text = viewModel.getHourTraining()
-        minuteLabel.text = viewModel.getMinuteTraining()
-        spotsLabel.text = viewModel.getSpots()
-        availableSpotsLabel.text = viewModel.getAvailableSpots()
-    }
-    
-    func errorRequest() {
-        print("Erro ao carregar detalhes")
-    }
-    
-    
 }
 

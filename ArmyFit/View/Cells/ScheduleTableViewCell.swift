@@ -16,7 +16,7 @@ class ScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var spotsLabel: UILabel!
     @IBOutlet weak var availableSpostLabel: UILabel!
     
-    func configure(_ viewModel: TrainingHoursViewModel) {
+    func configure(_ viewModel: ScheduleViewModel) {
         houerLabel.text = viewModel.getHourTraining()
         minuteLabel.text = viewModel.getMinuteTraining()
         exerciseTitleLabel.text = viewModel.getTrainingName()

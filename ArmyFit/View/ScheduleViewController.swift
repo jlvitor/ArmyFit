@@ -12,7 +12,7 @@ class ScheduleViewController: UIViewController {
     @IBOutlet weak var dateCollectionView: UICollectionView!
     @IBOutlet weak var scheduleTableView: UITableView!
     
-    private let viewModel: TrainingsHoursViewModel = TrainingsHoursViewModel()
+    private let viewModel: SchedulesViewModel = SchedulesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +21,12 @@ class ScheduleViewController: UIViewController {
         configTableView()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let detailVC = segue.destination as? ScheduleDetailViewController {
-//            let index = sender as? Int
-//            detailVC.viewModel = viewModel.getTrainingDetail(index)
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination as? ScheduleDetailViewController {
+            let index = sender as? Int
+            detailVC.viewModel = viewModel.getTrainingDetail(index)
+        }
+    }
     
     //MARK: - Private methods
     private func configCollectionView() {
@@ -41,6 +41,7 @@ class ScheduleViewController: UIViewController {
     }
     
     private func configViewModel() {
+        viewModel.delegate = self
         viewModel.daysOnCurrentMonth()
         viewModel.fetchTrainingsHours()
     }
@@ -81,7 +82,8 @@ extension ScheduleViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ScheduleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.trainingHoursCount
+        let count = viewModel.trainingHoursCount
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,5 +91,11 @@ extension ScheduleViewController: UITableViewDataSource {
         let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.row)
         cell?.configure(cellViewModel)
         return cell ?? UITableViewCell()
+    }
+}
+
+extension ScheduleViewController: SchedulesViewModelDelegate {
+    func reloadData() {
+        scheduleTableView.reloadData()
     }
 }
