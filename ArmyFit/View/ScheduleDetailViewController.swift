@@ -45,6 +45,7 @@ class ScheduleDetailViewController: UIViewController {
     private func configTableView() {
         detailTableView.dataSource = self
         detailTableView.delegate = self
+        detailTableView.overrideUserInterfaceStyle = .dark
     }
     
     private func configScreen() {
