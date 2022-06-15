@@ -113,7 +113,7 @@ class LoginViewController: UIViewController {
 //MARK: - LoginViewModelDelegate
 extension LoginViewController: LoginViewModelDelegate {
     func successAuth() {
-        performSegue(withIdentifier: "loginToHome", sender: self)
+        UserDefaults.setValue(true, key: .isLogged)
     }
     
     func errorAuth() {

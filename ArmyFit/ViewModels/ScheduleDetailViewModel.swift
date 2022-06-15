@@ -47,7 +47,7 @@ class ScheduleDetailViewModel {
     
     func getUserImage() -> String {
         guard let userImage = hourDetail.training_users,
-              let image = userImage[0].user?.photoURL else { return "person.fill" }
+              let image = userImage[0].user?.photoUrl else { return "person.fill" }
         return image
     }
     
