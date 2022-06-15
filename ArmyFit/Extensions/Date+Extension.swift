@@ -1,63 +1,15 @@
 //
-//  TrainingViewModel.swift
+//  Date+Extension.swift
 //  ArmyFit
 //
-//  Created by Jean Lucas Vitor on 07/06/22.
+//  Created by Jean Lucas Vitor on 14/06/22.
 //
 
 import Foundation
 
-protocol TrainingHoursViewModelDelegate {
-    func success(_ viewModel: TrainingHoursViewModel)
-    func errorRequest()
-}
-
-class TrainingHoursViewModel {
+extension Date {
     
-    private let trainingHours: TrainingHours
-    var delegate: TrainingHoursViewModelDelegate?
-    
-    init(_ trainingHours: TrainingHours) {
-        self.trainingHours = trainingHours
-    }
-    
-    func getHourTraining() -> String {
-        let trainingHour = trainingHours.date_hour
-        return formatDateStringToHour(date: trainingHour)
-    }
-    
-    func getMinuteTraining() -> String {
-        let trainingMinute = trainingHours.date_hour
-        return formatDateStringToMinute(date: trainingMinute)
-    }
-    
-    func getTrainingName() -> String {
-        let trainingName = trainingHours.training.name
-        let title = convertToUppercasedFrom(trainingName)
-        return title
-    }
-    
-    func getCoachName() -> String {
-        let coachName = trainingHours.instructor
-        let name = convertToUppercasedFrom(coachName)
-        return name
-    }
-    
-    func getAvailableSpots() -> String {
-//        let availableSpots = trainingHours.availabe_spots
-        return "Oi" 
-    }
-    
-    func getSpots() -> String {
-        let spots = trainingHours.spots
-        return "\(spots)"
-    }
-    
-    private func convertToUppercasedFrom(_ text: String) -> String {
-        return text.uppercased()
-    }
-    
-    private func formatDateStringToHour(date: String) -> String {
+    static func formatDateStringToHour(date: String) -> String {
         // Variavel que instancia formatador de data
         let dateFormatter = DateFormatter()
         // Variavel que instacia locale
@@ -66,7 +18,7 @@ class TrainingHoursViewModel {
         let dateFormatterFromLocale = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: locale)!
         // Variavel que vai receber o valor 24h ou 12h
         var hour = ""
-    
+        
         // Define o formato ao qual o dado precisa ser retornado
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         // Guarda o valor formatado
@@ -87,7 +39,7 @@ class TrainingHoursViewModel {
         return hour
     }
     
-    private func formatDateStringToMinute(date: String) -> String {
+    static func formatDateStringToMinute(date: String) -> String {
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
         

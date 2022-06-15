@@ -12,7 +12,7 @@ class ScheduleDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var posterUser: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
-    func configure(_ viewModel: TrainingDetailViewModel) {
+    func configure(_ viewModel: ScheduleDetailViewModel) {
         posterUser.image = UIImage(named: viewModel.getUserImage())
         userNameLabel.text = viewModel.getUserName()
     }    

@@ -7,27 +7,34 @@
 
 import Foundation
 
-class TrainingsHoursViewModel {
+protocol SchedulesViewModelDelegate {
+    func reloadData()
+}
+
+class SchedulesViewModel {
     
     private let service: TrainingHoursService = TrainingHoursService()
     private var trainingHoursList: [TrainingHours] = []
-    private var trainingHoursDateList: [TrainingHours] = []
     
     var trainingHoursCount: Int = 0
     var trainingDays: [String: String] = [:]
+    var delegate: SchedulesViewModelDelegate?
     
     func fetchTrainingsHours() {
-//        service.getTrainingHoursFromJson(fromFileNamed: "trainingHours") { success, error in
-//            guard let success = success else { return }
-//            self.trainingHoursList = self.sortedDate(success)
-//            self.trainingHoursDateList = success
-//            self.trainingHoursCount = success.count
-//        }
+        service.getTrainingHours { success, error in
+            guard let success = success else {
+                return
+            }
+
+            self.trainingHoursCount = success.count
+            self.trainingHoursList = self.sortedDate(success)
+            self.delegate?.reloadData()
+        }
     }
     
-    func getTrainingCellViewModel(_ index: Int) -> TrainingHoursViewModel {
+    func getTrainingCellViewModel(_ index: Int) -> ScheduleViewModel {
         let training = trainingHoursList[index]
-        return TrainingHoursViewModel(training)
+        return ScheduleViewModel(training)
     }
     
     func getDayCellViewModel(_ index: Int) -> DayViewModel {
@@ -36,9 +43,13 @@ class TrainingsHoursViewModel {
         return DayViewModel(trainingDay: day)
     }
     
-//    func getTrainingDetail() -> TrainingHoursViewModel {
-//        return TrainingHoursViewModel()
-//    }
+    func getTrainingDetail(_ index: Int?) -> ScheduleDetailViewModel? {
+        guard let index = index else { return nil }
+
+        let trainingSelected = trainingHoursList[index]
+        let trainingDetail = ScheduleDetailViewModel(trainingSelected)
+        return trainingDetail
+    }
     
     func daysOnCurrentMonth() {
         let currentDate = Date() // Tras a data atual
