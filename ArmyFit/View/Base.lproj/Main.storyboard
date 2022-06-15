@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRr-qZ-JN5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRr-qZ-JN5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -178,7 +178,6 @@
                         <outlet property="passwordTextField" destination="zd1-Bu-l0W" id="7yY-Wt-sQw"/>
                         <outlet property="registerScreen" destination="tRp-kN-2HM" id="xbd-D4-eQ1"/>
                         <segue destination="AHM-gc-9Yd" kind="show" identifier="goToRegisterScreen" id="4f4-Uk-I8d"/>
-                        <segue destination="cC8-hb-9qE" kind="show" identifier="loginToHome" id="Cqm-oA-vPW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -313,7 +312,6 @@
                         <outlet property="loginScreen" destination="AXT-gx-wkh" id="Omo-70-PH6"/>
                         <outlet property="nameTextField" destination="fId-RZ-dzs" id="VGG-cZ-dfY"/>
                         <outlet property="passwordTextField" destination="j3N-84-Xe9" id="4fq-Nu-EFJ"/>
-                        <segue destination="cC8-hb-9qE" kind="show" identifier="registerToHome" id="5wS-mf-mys"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXz-Ta-Qpf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -547,7 +545,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35i-Ez-cwj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="110"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBo-6c-LcG" userLabel="Date View">
                                         <rect key="frame" x="8" y="15" width="63" height="80"/>
@@ -667,7 +665,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-dl-QZB">
-                                <rect key="frame" x="0.0" y="110" width="414" height="643"/>
+                                <rect key="frame" x="0.0" y="154" width="414" height="633"/>
                                 <color key="backgroundColor" name="light_background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="usersCell" rowHeight="70" id="9NN-b3-f6W" customClass="ScheduleDetailTableViewCell" customModule="ArmyFit" customModuleProvider="target">
@@ -714,7 +712,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNy-xd-i8b">
-                                <rect key="frame" x="20" y="758" width="374" height="50"/>
+                                <rect key="frame" x="20" y="792" width="374" height="50"/>
                                 <color key="backgroundColor" name="green_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6wB-mo-2Wy"/>
@@ -1138,7 +1136,7 @@
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="Trv-t9-ABr">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="cC8-hb-9qE" customClass="CustomTabBarViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" modalPresentationStyle="fullScreen" id="cC8-hb-9qE" customClass="CustomTabBarViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ggy-7R-i5f"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="24G-Td-dSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -1211,7 +1209,7 @@
         <!--Navigation Controller-->
         <scene sceneID="b1I-dz-1o4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jRr-qZ-JN5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="jRr-qZ-JN5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6R-3n-RIC">
@@ -1276,9 +1274,6 @@
             <point key="canvasLocation" x="1069.5652173913045" y="1800.6696428571427"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5wS-mf-mys"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="bicycle.circle.fill" catalog="system" width="128" height="121"/>
         <image name="bubble.left" catalog="system" width="128" height="110"/>

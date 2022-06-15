@@ -13,11 +13,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         
-//        if #available(iOS 13.0, *) {
-//            window?.overrideUserInterfaceStyle = .dark
-//        }
+        window = UIWindow(windowScene: windowScene)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let isLogged = UserDefaults.getIsLogged()
+        
+        if isLogged {
+            let customTB = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? CustomTabBarViewController
+            
+            window?.rootViewController = customTB
+            window?.makeKeyAndVisible()
+        } else {
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginNavigationController")
+            
+            window?.rootViewController = loginVC
+            window?.makeKeyAndVisible()
+        }
+    }
+    
+    func setRootViewController(_ viewController: UIViewController) {
+        guard let window = window else { return }
+        
+        window.rootViewController = viewController
+        
+        UIView.transition(
+            with: window,
+            duration: 0.4,
+            options: .transitionCrossDissolve,
+            animations: nil,
+            completion: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

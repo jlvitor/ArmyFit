@@ -141,6 +141,12 @@ extension ProfileViewController: UITableViewDelegate {
             if indexPath.row == 0 {
                 UserDefaults.standard.resetAllValues()
                 keychain.clear()
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainLoginVC = storyboard.instantiateViewController(
+                    withIdentifier: "LoginNavigationController")
+                
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainLoginVC)
             }
         }
     }
