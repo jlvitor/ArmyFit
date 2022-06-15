@@ -34,7 +34,7 @@ class LoginViewModel {
                     self.delegate?.errorAuth()
                     return
                 }
-                self.keychain.set(success.token, forKey: "token")
+                self.keychain.set(success.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
                 self.userAuth = success
                 self.delegate?.successAuth()
             }
