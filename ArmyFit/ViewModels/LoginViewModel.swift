@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import KeychainSwift
 
 protocol LoginViewModelDelegate {
     func successAuth()
@@ -14,10 +15,16 @@ protocol LoginViewModelDelegate {
 
 class LoginViewModel {
     
-    private let service = AuthService()
+    private let service: AuthService
+    private let keychain: KeychainSwift
     private var userAuth: Auth?
     
     var delegate: LoginViewModelDelegate?
+    
+    init(service: AuthService = .init(), keychain: KeychainSwift = .init()) {
+        self.service = service
+        self.keychain = keychain
+    }
     
     func makeLoginRequest(_ email: String?, _ password: String?) {
         service.makeAuthPostRequest(
@@ -27,6 +34,7 @@ class LoginViewModel {
                     self.delegate?.errorAuth()
                     return
                 }
+                self.keychain.set(success.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
                 self.userAuth = success
                 self.delegate?.successAuth()
             }

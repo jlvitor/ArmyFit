@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import KeychainSwift
 
 class UserService {
     
     private let baseUrl = "https://armyapi.herokuapp.com/users"
-      let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUwOTEzMjcsImV4cCI6MTY4NjY0ODkyNywic3ViIjoiMWMyMjNmNmMtMzBhMS00MzcyLWFjYTItMjc1NWYwNjg3ODhkIn0.0dxYt-RwScqNdF9OAR_BCIiF6JZfWsKiGK1zQMYuesA"
+    private let keychain: KeychainSwift = .init()
     
     //MARK: - Registra o usuário no app/ bando de dados do app
     func registerUser(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
@@ -50,7 +51,7 @@ class UserService {
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
             "name": name,
             "photoURL": photoURL
