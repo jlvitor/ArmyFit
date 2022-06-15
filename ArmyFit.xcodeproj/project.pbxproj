@@ -43,12 +43,15 @@
 		CCA94980283D643000A6FB05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */; };
 		CCAF5FE0284ED7F900678230 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF5FDF284ED7F900678230 /* UserService.swift */; };
 		CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1056F2850E4B5006376B8 /* DayViewModel.swift */; };
+		F865A093BFEAFFCA63C167B2 /* Pods_ArmyFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693603C10A79B8F9F7DCEB67 /* Pods_ArmyFit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		141A4F922851383A00CABB3D /* TrainingsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsDetailViewModel.swift; sourceTree = "<group>"; };
 		14C0AD4928454F7200E5FEA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14C0AD4B28454FB000E5FEA4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.release.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
+		693603C10A79B8F9F7DCEB67 /* Pods_ArmyFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArmyFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E277B5528590D4B00672B92 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		6E3B8ED82857BCDA0023E5A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6E7CCF5F28511B5700E87F1E /* ScheduleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewModel.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		6EB4259F28415718005AE67C /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		6ED8EBAD28455DD300E962DF /* ScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		6ED8EBAF284560C400E962DF /* ScheduleDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6FDAE7A2B05CA73E29CD5B3C /* Pods-ArmyFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.debug.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.debug.xcconfig"; sourceTree = "<group>"; };
 		90293CD528403A38000964FE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		90B2B480284D4D59003AAA91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F865A093BFEAFFCA63C167B2 /* Pods_ArmyFit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +110,24 @@
 				14C0AD4B28454FB000E5FEA4 /* Training.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2BB84705ADF050CD8801EA9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				693603C10A79B8F9F7DCEB67 /* Pods_ArmyFit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AFDCE65B446BD427B88FCE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FDAE7A2B05CA73E29CD5B3C /* Pods-ArmyFit.debug.xcconfig */,
+				61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		CC79805A2841539A00ECD18C /* Cells */ = {
@@ -160,6 +183,8 @@
 			children = (
 				CCA94972283D642E00A6FB05 /* ArmyFit */,
 				CCA94971283D642E00A6FB05 /* Products */,
+				9AFDCE65B446BD427B88FCE5 /* Pods */,
+				2BB84705ADF050CD8801EA9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCA94984283D643000A6FB05 /* Build configuration list for PBXNativeTarget "ArmyFit" */;
 			buildPhases = (
+				C079E4D60E2B5134F4027553 /* [CP] Check Pods Manifest.lock */,
 				CCA9496C283D642E00A6FB05 /* Sources */,
 				CCA9496D283D642E00A6FB05 /* Frameworks */,
 				CCA9496E283D642E00A6FB05 /* Resources */,
+				1658559927436C12D6E7FD5D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -270,6 +297,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1658559927436C12D6E7FD5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArmyFit/Pods-ArmyFit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArmyFit/Pods-ArmyFit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArmyFit/Pods-ArmyFit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C079E4D60E2B5134F4027553 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArmyFit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CCA9496C283D642E00A6FB05 /* Sources */ = {
@@ -450,6 +519,7 @@
 		};
 		CCA94985283D643000A6FB05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FDAE7A2B05CA73E29CD5B3C /* Pods-ArmyFit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -479,6 +549,7 @@
 		};
 		CCA94986283D643000A6FB05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
