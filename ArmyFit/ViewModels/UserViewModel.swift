@@ -30,7 +30,7 @@ class UserVideModel {
     }
     
     func getUserImage() -> String {
-        guard let image = userData?.photoURL else { return ""}
+        guard let image = userData?.photoUrl else { return ""}
         return image
     }
     

@@ -31,6 +31,7 @@
 		CC223974284FDAA900CBB22C /* TrainingHoursService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC223973284FDAA900CBB22C /* TrainingHoursService.swift */; };
 		CC22397A284FF9EA00CBB22C /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC223979284FF9EA00CBB22C /* SchedulesViewModel.swift */; };
 		CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E326C285A4CD600B7AA7B /* String+Extension.swift */; };
+		CC63E188285A520F009446D2 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */; };
 		CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */; };
 		CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */; };
 		CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E4D9028400863003E5DB1 /* LoginViewController.swift */; };
@@ -75,6 +76,7 @@
 		CC223973284FDAA900CBB22C /* TrainingHoursService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingHoursService.swift; sourceTree = "<group>"; };
 		CC223979284FF9EA00CBB22C /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SchedulesViewModel.swift; path = ArmyFit/ViewModels/SchedulesViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC3E326C285A4CD600B7AA7B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		CC7E4D9028400863003E5DB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +130,6 @@
 				6FDAE7A2B05CA73E29CD5B3C /* Pods-ArmyFit.debug.xcconfig */,
 				61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -174,8 +175,9 @@
 		CC9FE1702857CCAA0010EE58 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
+				CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */,
 				CC9B2E81285949A40081745D /* Date+Extension.swift */,
+				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
 				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
 			);
 			path = Extensions;
@@ -361,6 +363,7 @@
 				6E3B8ED92857BCDA0023E5A7 /* LoginViewModel.swift in Sources */,
 				CC9FE1722857CCDB0010EE58 /* HideKeyboard+Extension.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
+				CC63E188285A520F009446D2 /* UserDefaults+Extension.swift in Sources */,
 				90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */,
 				90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */,
 				90D000122857AE8500143DB3 /* AuthService.swift in Sources */,

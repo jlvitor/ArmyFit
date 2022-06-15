@@ -139,6 +139,7 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
             if indexPath.row == 0 {
+                UserDefaults.standard.resetAllValues()
                 keychain.clear()
             }
         }

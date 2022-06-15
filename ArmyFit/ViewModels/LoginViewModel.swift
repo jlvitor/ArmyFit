@@ -17,7 +17,6 @@ class LoginViewModel {
     
     private let service: AuthService
     private let keychain: KeychainSwift
-    private var userAuth: Auth?
     
     var delegate: LoginViewModelDelegate?
     
@@ -34,8 +33,12 @@ class LoginViewModel {
                     self.delegate?.errorAuth()
                     return
                 }
+                
+                UserDefaults.setValue(success.user.id, key: .userId)
+                UserDefaults.setValue(success.user.name, key: .userName)
+                UserDefaults.setValue(success.user.email, key: .userEmail)
+                UserDefaults.setValue(success.user.photoUrl, key: .userPhoto)
                 self.keychain.set(success.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
-                self.userAuth = success
                 self.delegate?.successAuth()
             }
     }
