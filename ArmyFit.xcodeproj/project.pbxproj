@@ -128,6 +128,7 @@
 				6FDAE7A2B05CA73E29CD5B3C /* Pods-ArmyFit.debug.xcconfig */,
 				61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
