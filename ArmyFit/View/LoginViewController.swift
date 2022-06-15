@@ -113,7 +113,14 @@ class LoginViewController: UIViewController {
 //MARK: - LoginViewModelDelegate
 extension LoginViewController: LoginViewModelDelegate {
     func successAuth() {
-        UserDefaults.setValue(true, key: .isLogged)
+        UserDefaults.setIsLogged(true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let mainTabBarController = storyboard.instantiateViewController(
+            withIdentifier: "TabBarViewController") as? CustomTabBarViewController else { return }
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainTabBarController)
+        
     }
     
     func errorAuth() {

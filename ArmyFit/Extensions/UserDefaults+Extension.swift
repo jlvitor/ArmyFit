@@ -17,6 +17,13 @@ extension UserDefaults {
         case userPhoto
     }
     
+    static func setIsLogged(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: Keys.isLogged.rawValue)
+    }
+    
+    static func getIsLogged() -> Bool {
+        UserDefaults.standard.bool(forKey: Keys.isLogged.rawValue)
+    }
     
     static func setValue(_ value: Any, key: Keys) {
         UserDefaults.standard.set(value, forKey: key.rawValue)
