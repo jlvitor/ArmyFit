@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import KeychainSwift
 
 class ProfileViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class ProfileViewController: UIViewController {
     
     private let viewModel: UserVideModel = UserVideModel()
     private let cellViewModel: ProfileViewModel = ProfileViewModel()
+    private let keychain: KeychainSwift = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,6 +134,14 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                keychain.clear()
+            }
+        }
     }
 }
 

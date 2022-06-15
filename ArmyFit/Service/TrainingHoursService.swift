@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import KeychainSwift
 
 class TrainingHoursService {
     
     private let baseUrl = "https://armyapi.herokuapp.com/hours/2022-06-15"
-      let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUwOTEzMjcsImV4cCI6MTY4NjY0ODkyNywic3ViIjoiMWMyMjNmNmMtMzBhMS00MzcyLWFjYTItMjc1NWYwNjg3ODhkIn0.0dxYt-RwScqNdF9OAR_BCIiF6JZfWsKiGK1zQMYuesA"
+    private let keychain: KeychainSwift = .init()
     
     //MARK: - Pega os treinos dos dias no mes atual
     func getTrainingHours(completion: @escaping ([TrainingHours]?, Error?) -> Void) {
@@ -19,7 +20,7 @@ class TrainingHoursService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer\(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else { return }

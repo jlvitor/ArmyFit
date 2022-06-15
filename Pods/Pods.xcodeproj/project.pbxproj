@@ -41,8 +41,8 @@
 		701D088B713CAE00E67BAA65DE11DF89 /* Pods-ArmyFit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArmyFit-Info.plist"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		95B1FF4F1D295DBF60D03D827C5D206B /* Pods-ArmyFit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ArmyFit-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainSwift; path = KeychainSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B502BAFE5E7ED2252A7A3700B3303167 /* Pods-ArmyFit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArmyFit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B6DBDC187520AEA2149B702813C781D4 /* KeychainSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainSwift.release.xcconfig; sourceTree = "<group>"; };
 		C05EF3F1670D4CDE8B3678AA3CBF369F /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		976261C6F4F8A16149B2B73E7B05B481 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift */,
+				9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift.framework */,
 				33B763F6D3F9DEE4882DCE10E9929BC6 /* Pods-ArmyFit */,
 			);
 			name = Products;
@@ -130,7 +130,6 @@
 				CAA3466BDF1C63EE297562FE8F1823FD /* TegKeychainConstants.swift */,
 				B00DA973CA9C8B3444685714158C4C85 /* Support Files */,
 			);
-			name = KeychainSwift;
 			path = KeychainSwift;
 			sourceTree = "<group>";
 		};
@@ -207,7 +206,7 @@
 			);
 			name = KeychainSwift;
 			productName = KeychainSwift;
-			productReference = 9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift */;
+			productReference = 9E0FD012ADC3C7179C684035672383E5 /* KeychainSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3B301230BAA651D6F70B7ED0B09C7CBB /* Pods-ArmyFit */ = {
@@ -236,7 +235,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1340;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -387,7 +386,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainSwift/KeychainSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainSwift/KeychainSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,7 +558,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/KeychainSwift/KeychainSwift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/KeychainSwift/KeychainSwift-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
