@@ -34,11 +34,11 @@ class LoginViewModel {
                     return
                 }
                 
+                self.keychain.set(success.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
                 UserDefaults.setValue(success.user.id, key: .userId)
                 UserDefaults.setValue(success.user.name, key: .userName)
                 UserDefaults.setValue(success.user.email, key: .userEmail)
                 UserDefaults.setValue(success.user.photoUrl, key: .userPhoto)
-                self.keychain.set(success.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
                 self.delegate?.successAuth()
             }
     }

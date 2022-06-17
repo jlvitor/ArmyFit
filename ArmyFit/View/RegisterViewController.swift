@@ -56,7 +56,7 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController: RegisterViewModelDelegate {
     func successRegister() {
-        performSegue(withIdentifier: "registerToHome", sender: self)
+        performSegue(withIdentifier: "backToLoginScreen", sender: self)
     }
     
     func errorRegister() {
