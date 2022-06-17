@@ -19,8 +19,7 @@ class TrainingHoursService {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else { return }
