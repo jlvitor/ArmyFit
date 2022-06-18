@@ -11,23 +11,29 @@ protocol RegisterViewModelDelegate {
     
     func successRegister()
     func errorRegister()
-    }
+}
+
+protocol ValidationTextFieldsDelegate {
+    func successValidation()
+    func errorValidation()
+}
 
 class RegisterViewModel {
     
     private let service: UserService
     
     var delegate: RegisterViewModelDelegate?
+    var validationDelegate: ValidationTextFieldsDelegate?
     
     init(service: UserService = .init()) {
         self.service = service
     }
     
- func getValueToValidade(_ text: String?) -> String {
-    guard let text = text else { return "" }
-    return text
-}
-
+    func getValueToValidade(_ text: String?) -> String {
+        guard let text = text else { return "" }
+        return text
+    }
+    
     func makeRegisterRequest(_ name: String?, _ email: String?, _ password: String?) {
         service.registerUser(
             name: getValueToValidade(name),
@@ -39,21 +45,20 @@ class RegisterViewModel {
                 }
                 print(success)
                 self.delegate?.successRegister()
-            
+                
             }
     }
     
+    func validationTextFields(_ name: String?, _ email: String?, _ password: String?, _ confirmPassword: String?) {
+        guard let name = name,
+              let email = email,
+              let password = password,
+              let confirmPassword = confirmPassword else {
+                  validationDelegate?.errorValidation()
+                  return
+                 }
+                validationDelegate?.successValidation()
+    }
 }
 
-//func makeLoginRequest(_ email: String?, _ password: String?) {
-//    service.makeAuthPostRequest(
-//        email: getValueToValidade(email),
-//        password: getValueToValidade(password)) { success, error in
-//            guard let success = success else {
-//                self.delegate?.errorAuth()
-//                return
-//            }
-//            self.userAuth = success
-//            self.delegate?.successAuth()
-//        }
-//}
+

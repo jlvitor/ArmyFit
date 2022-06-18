@@ -19,6 +19,8 @@ class RegisterViewController: UIViewController {
     private let imageIcon = UIImageView()
     private var iconClick2 =  false
     private let imageIcon2 = UIImageView()
+    private var alert: Alert?
+    
     
     private let viewModel: RegisterViewModel = RegisterViewModel()
     
@@ -26,11 +28,17 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         configGestureRecognizer()
-        viewModel.delegate = self
+        configureViewModel()
         configureContentViewPassword()
         configureImageIcon()
         configureContentViewConfirmPassword()
         configureImageIcon2()
+        
+    }
+    
+    private func configureViewModel() {
+        viewModel.delegate = self
+        viewModel.validationDelegate = self
     }
     
     //MARK: - Toggle textfield password
@@ -133,34 +141,13 @@ class RegisterViewController: UIViewController {
             nameTextField.text,
             emailTextField.text,
             passwordTextField.text)
-//MARK: Autenticação dos textfields
-        if let name = nameTextField.text,
-           let email = emailTextField.text,
-           let password = passwordTextField.text,
-           let confirmPassword = confirmPasswordTextField.text {
-            
-            if name == "" || email == "" || password == "" {
-                ErrorAlertsTextfield().alertTextField(
-                    vc: self,
-                    title: "Erro",
-                    message: "Por favor preencha todos os campos")
-            } else if password != confirmPassword {
-                ErrorAlertsTextfield().alertTextField(
-                    vc: self,
-                    title: "Erro",
-                    message: "Por favor digite a mesma senha nos dois campos")
-            } else {
-                if !email.isValidEmail(email: email) {
-                    ErrorAlertsTextfield().alertTextField(vc: self, title: "Opa!", message: "Por favor coloque um email válido")
-                }
-                 else if !password.isValidPassword(password: password) {
-                     ErrorAlertsTextfield().alertTextField(vc: self, title: "Opa!", message: "Por favor coloque uma senha válida")
-                    
-                 } else {
-                  performSegue(withIdentifier: "backToLoginScreen", sender: self)
-                    }
-                }
-        }
+    }
+    
+    private func alertValidation() {
+        alert?.getAlert(
+            title: "Erro",
+            message: "Não foi possível realizar o registro",
+            completion: nil)
     }
     
     private func showAlert() {
@@ -194,4 +181,20 @@ extension RegisterViewController: RegisterViewModelDelegate {
     func errorRegister() {
         showAlert() 
     }
+}
+
+extension RegisterViewController: ValidationTextFieldsDelegate {
+    func successValidation() {
+        viewModel.makeRegisterRequest(
+            nameTextField.text,
+            emailTextField.text,
+            passwordTextField.text)
+    }
+    
+    func errorValidation() {
+        alertValidation()
+    }
+    
+    
+    
 }

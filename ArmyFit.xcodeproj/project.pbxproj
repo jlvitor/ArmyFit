@@ -10,7 +10,7 @@
 		141A4F932851383A00CABB3D /* TrainingsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141A4F922851383A00CABB3D /* TrainingsDetailViewModel.swift */; };
 		14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4928454F7200E5FEA4 /* User.swift */; };
 		14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* Training.swift */; };
-		6E2656D7285D834A00F7DD75 /* ValidationAlerts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2656D6285D834A00F7DD75 /* ValidationAlerts+Extension.swift */; };
+		6E2656D7285D834A00F7DD75 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2656D6285D834A00F7DD75 /* Alerts.swift */; };
 		6E2656D9285D83E100F7DD75 /* EmailPasswordValidation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2656D8285D83E100F7DD75 /* EmailPasswordValidation+Extension.swift */; };
 		6E277B5628590D4B00672B92 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E277B5528590D4B00672B92 /* RegisterViewModel.swift */; };
 		6E3B8ED92857BCDA0023E5A7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B8ED82857BCDA0023E5A7 /* LoginViewModel.swift */; };
@@ -61,7 +61,7 @@
 		14C0AD4B28454FB000E5FEA4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.release.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
 		693603C10A79B8F9F7DCEB67 /* Pods_ArmyFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArmyFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E2656D6285D834A00F7DD75 /* ValidationAlerts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ValidationAlerts+Extension.swift"; sourceTree = "<group>"; };
+		6E2656D6285D834A00F7DD75 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		6E2656D8285D83E100F7DD75 /* EmailPasswordValidation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailPasswordValidation+Extension.swift"; sourceTree = "<group>"; };
 		6E277B5528590D4B00672B92 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		6E3B8ED82857BCDA0023E5A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +139,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6E2656DA285E659800F7DD75 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				6E2656D6285D834A00F7DD75 /* Alerts.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		9AFDCE65B446BD427B88FCE5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +204,6 @@
 				CC9B2E81285949A40081745D /* Date+Extension.swift */,
 				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
 				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
-				6E2656D6285D834A00F7DD75 /* ValidationAlerts+Extension.swift */,
 				6E2656D8285D83E100F7DD75 /* EmailPasswordValidation+Extension.swift */,
 			);
 			path = Extensions;
@@ -223,6 +230,7 @@
 		CCA94972283D642E00A6FB05 /* ArmyFit */ = {
 			isa = PBXGroup;
 			children = (
+				6E2656DA285E659800F7DD75 /* Alert */,
 				CCA94973283D642E00A6FB05 /* AppDelegate.swift */,
 				CCA94975283D642E00A6FB05 /* SceneDelegate.swift */,
 				CC9FE1702857CCAA0010EE58 /* Extensions */,
@@ -387,7 +395,7 @@
 				CC9FE1722857CCDB0010EE58 /* HideKeyboard+Extension.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
 				CCCB48AA285C36EC00AEC1E2 /* PostsViewModel.swift in Sources */,
-				6E2656D7285D834A00F7DD75 /* ValidationAlerts+Extension.swift in Sources */,
+				6E2656D7285D834A00F7DD75 /* Alerts.swift in Sources */,
 				CC63E188285A520F009446D2 /* UserDefaults+Extension.swift in Sources */,
 				90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */,
 				CCCB48A6285C0A2A00AEC1E2 /* Post.swift in Sources */,
