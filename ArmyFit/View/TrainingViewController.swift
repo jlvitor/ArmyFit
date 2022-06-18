@@ -22,9 +22,9 @@ class TrainingViewController: UIViewController {
     private func configTableView() {
         trainingTableView.dataSource = self
     }
-    
-
 }
+
+//MARK: - UITableViewDataSource
 extension TrainingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let rows = viewModel?.countRowsInSection(section) else { return 0 }
@@ -39,7 +39,6 @@ extension TrainingViewController: UITableViewDataSource {
             cell?.configure(viewModel: cellViewModel)
             return cell ?? UITableViewCell()
         }
-         
         return UITableViewCell()
     }
     

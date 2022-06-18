@@ -9,8 +9,8 @@ import Foundation
 
 class TrainingViewModel {
     
-
     private let trainingDetail: TrainingHours
+    
     init(trainingDetail: TrainingHours){
         self.trainingDetail = trainingDetail
     }

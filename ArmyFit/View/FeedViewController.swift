@@ -25,7 +25,6 @@ class FeedViewController: UIViewController {
     }
     
     //MARK: - Private methods
-    
     private func configUserImage() {
         guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return }
         userImageView.image = UIImage(named: userImage)
@@ -52,16 +51,12 @@ extension FeedViewController: PostViewModelDelegate {
 //MARK: - UITableViewDelegate
 extension FeedViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(
-            width: 390,
-            height: 200
-        )
+        return CGSize(width: 390, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
     }
-    
 }
 
 //MARK: - UICollectionViewDataSource

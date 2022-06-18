@@ -10,12 +10,12 @@ import KeychainSwift
 
 class TrainingHoursService {
     
-    private let baseUrl = "https://armyapi.herokuapp.com/hours/2022-06-15"
+    private let baseUrl = "https://armyapi.herokuapp.com/hours"
     private let keychain: KeychainSwift = .init()
     
     //MARK: - Pega os treinos dos dias no mes atual
-    func getTrainingHours(completion: @escaping ([TrainingHours]?, Error?) -> Void) {
-        guard let url = URL(string: baseUrl) else { return }
+    func getTrainingHours(_ date: String, completion: @escaping ([TrainingHours]?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/\(date)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

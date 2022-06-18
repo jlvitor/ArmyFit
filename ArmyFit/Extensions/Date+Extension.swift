@@ -52,4 +52,17 @@ extension Date {
         let minuteFormatt = String(format: "%02d", minute)
         return minuteFormatt
     }
+    
+    static func getCurrentDateToDateString() -> String {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: currentDate)
+        let month = calendar.component(.month, from: currentDate)
+        let day = calendar.component(.day, from: currentDate)
+        let monthFormatted = String(format: "%02d", month)
+        let dayFormatted = String(format: "%02d", day)
+        
+        let dateFormatted = String("\(year)-\(monthFormatted)-\(dayFormatted)")
+        return dateFormatted
+    }
 }
