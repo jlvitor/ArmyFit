@@ -27,16 +27,16 @@ class LoginViewController: UIViewController {
         configureImageIcon()
     }
     
-    @IBAction func forgotPasswordButton(_ sender: UIButton) {
+    //MARK: - Private methods
+    @IBAction private func forgotPasswordButton(_ sender: UIButton) {
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
+    @IBAction private func loginButton(_ sender: UIButton) {
         viewModel.makeLoginRequest(
             emailTextField.text,
             passwordTextField.text)
     }
     
-    //MARK: - Private methods
     private func configViewModel() {
         viewModel.delegate = self
     }
@@ -120,12 +120,9 @@ extension LoginViewController: LoginViewModelDelegate {
             withIdentifier: "TabBarViewController") as? CustomTabBarViewController else { return }
         
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainTabBarController)
-        
     }
     
     func errorAuth() {
         showAlert()
     }
-    
-    
 }

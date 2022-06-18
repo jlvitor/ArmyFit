@@ -26,19 +26,8 @@ class ScheduleDetailViewController: UIViewController {
     }
 
     //MARK: - Alerta do botao particiacao do treino
-    @IBAction func trainingParticipationButton(_ sender: UIButton) {
-        let confirmAlert = UIAlertController(title: "Confirmação", message: "Deseja confirmar sua participação?", preferredStyle: .alert)
-        
-        let confirm = UIAlertAction(title: "Ok", style: .default) { action in
-            print("OK")
-        }
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
-            print("Cancelado")
-        }
-        
-        confirmAlert.addAction(confirm)
-        confirmAlert.addAction(cancel)
-        self.present(confirmAlert, animated: true)
+    @IBAction private func trainingParticipationButton(_ sender: UIButton) {
+        showAlert()
     }
     
     //MARK: - Private method
@@ -56,7 +45,25 @@ class ScheduleDetailViewController: UIViewController {
         minuteLabel.text = viewModel.getMinuteTraining()
         spotsLabel.text = viewModel.getSpots()
         availableSpotsLabel.text = viewModel.getAvailableSpots()
+    }
+    
+    private func showAlert() {
+        let confirmAlert = UIAlertController(
+            title: "Confirmação",
+            message: "Deseja confirmar sua participação?",
+            preferredStyle: .alert)
         
+        let confirm = UIAlertAction(title: "Ok", style: .default) { action in
+            print("OK")
+        }
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
+            print("Cancelado")
+        }
+        
+        confirmAlert.addAction(confirm)
+        confirmAlert.addAction(cancel)
+        self.present(confirmAlert, animated: true)
     }
 }
 

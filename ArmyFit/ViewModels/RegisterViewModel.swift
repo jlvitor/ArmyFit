@@ -8,10 +8,9 @@
 import Foundation
 
 protocol RegisterViewModelDelegate {
-    
     func successRegister()
     func errorRegister()
-    }
+}
 
 class RegisterViewModel {
     
@@ -22,12 +21,7 @@ class RegisterViewModel {
     init(service: UserService = .init()) {
         self.service = service
     }
-    
- func getValueToValidade(_ text: String?) -> String {
-    guard let text = text else { return "" }
-    return text
-}
-
+        
     func makeRegisterRequest(_ name: String?, _ email: String?, _ password: String?) {
         service.registerUser(
             name: getValueToValidade(name),
@@ -39,21 +33,11 @@ class RegisterViewModel {
                 }
                 print(success)
                 self.delegate?.successRegister()
-            
             }
     }
     
+    func getValueToValidade(_ text: String?) -> String {
+        guard let text = text else { return "" }
+        return text
+    }
 }
-
-//func makeLoginRequest(_ email: String?, _ password: String?) {
-//    service.makeAuthPostRequest(
-//        email: getValueToValidade(email),
-//        password: getValueToValidade(password)) { success, error in
-//            guard let success = success else {
-//                self.delegate?.errorAuth()
-//                return
-//            }
-//            self.userAuth = success
-//            self.delegate?.successAuth()
-//        }
-//}

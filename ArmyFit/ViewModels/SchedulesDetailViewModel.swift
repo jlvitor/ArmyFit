@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TrainingsDetailViewModel {
+class SchedulesDetailViewModel {
 //    private let service: TrainingUserService = TrainingUserService()
 //    private var trainingUserList: [TrainingUser] = []
 //    

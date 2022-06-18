@@ -24,7 +24,8 @@ class RegisterViewController: UIViewController {
         viewModel.delegate = self
     }
     
-    @IBAction func registerButton(_ sender: UIButton) {
+    //MARK: - Private methods
+    @IBAction private func registerButton(_ sender: UIButton) {
         viewModel.makeRegisterRequest(
             nameTextField.text,
             emailTextField.text,
@@ -54,6 +55,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
+//MARK: - RegisterViewModelDelegate
 extension RegisterViewController: RegisterViewModelDelegate {
     func successRegister() {
         performSegue(withIdentifier: "backToLoginScreen", sender: self)

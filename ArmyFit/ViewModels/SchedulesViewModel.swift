@@ -17,15 +17,15 @@ class SchedulesViewModel {
     private var trainingHoursList: [TrainingHours] = []
     
     var trainingHoursCount: Int = 0
-    var trainingDays: [String: String] = [:]
+    var trainingDays: [(String, String)] = []
     var delegate: SchedulesViewModelDelegate?
     
-    func fetchTrainingsHours() {
-        service.getTrainingHours { success, error in
+    func fetchTrainingsHours(_ date: String) {
+        service.getTrainingHours(date) { success, error in
             guard let success = success else {
                 return
             }
-
+            
             self.trainingHoursCount = success.count
             self.trainingHoursList = self.sortedDate(success)
             self.delegate?.reloadData()
@@ -38,26 +38,27 @@ class SchedulesViewModel {
     }
     
     func getDayCellViewModel(_ index: Int) -> DayViewModel {
-        let daysInArray = Array(trainingDays).sorted {$0.0 < $1.0 }
-        let day = daysInArray[index]
+        let daysSorted = trainingDays.sorted {$0.0 < $1.0 }
+        let day = daysSorted[index]
         return DayViewModel(trainingDay: day)
     }
     
     func getTrainingDetail(_ index: Int?) -> ScheduleDetailViewModel? {
         guard let index = index else { return nil }
-
+        
         let trainingSelected = trainingHoursList[index]
         let trainingDetail = ScheduleDetailViewModel(trainingSelected)
         return trainingDetail
     }
     
-    func daysOnCurrentMonth() {
+    func getRemainingDaysInAMonth() {
         let currentDate = Date() // Tras a data atual
         let dateFormatter = DateFormatter() // Formatador de data
         let calendar = Calendar.current // Componente de calendario
         let year = calendar.component(.year, from: currentDate) // Retornao o ano atual do dispositivo
-        let month = calendar.component(.month, from: currentDate) // Retornao o mes atual do dispositivo
-
+        let month = calendar.component(.month, from: currentDate) // Retorna o mes atual do dispositivo
+        let currentDay = calendar.component(.day, from: currentDate)
+        
         // Retorna um range de dias do mes atual do dispositivo
         let range = calendar.range(of: .day, in: .month, for: currentDate)
         
@@ -65,12 +66,25 @@ class SchedulesViewModel {
             // Formata a data no padrao ano/mes/dia - ISO
             dateFormatter.dateFormat = "yyyy-MM-dd"
             if let date = dateFormatter.date(from: "\(year)/\(month)/\(day)") {
-                dateFormatter.dateFormat = "EEE"
-                let dayName = dateFormatter.string(from: date)
-                let dayFormatted = String(format: "%02d", day)
-                trainingDays[dayFormatted] = dayName
+                if day >= currentDay {
+                    dateFormatter.dateFormat = "EEE"
+                    let dayName = dateFormatter.string(from: date)
+                    let dayFormatted = String(format: "%02d", day)
+                    trainingDays.append((dayFormatted, dayName))
+                }
             }
         })
+    }
+    
+    func getDayStringToDateString(day: String) -> String {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: currentDate)
+        let month = calendar.component(.month, from: currentDate)
+        let monthFormatted = String(format: "%02d", month)
+        
+        let dateFormatted = String("\(year)-\(monthFormatted)-\(day)")
+        return dateFormatted
     }
     
     private func sortedDate(_ hours: [TrainingHours]) -> [TrainingHours] {

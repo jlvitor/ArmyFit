@@ -42,14 +42,18 @@ class ScheduleViewController: UIViewController {
     
     private func configViewModel() {
         viewModel.delegate = self
-        viewModel.daysOnCurrentMonth()
-        viewModel.fetchTrainingsHours()
+        viewModel.getRemainingDaysInAMonth()
+        viewModel.fetchTrainingsHours(Date.getCurrentDateToDateString())
     }
 }
 
 //MARK: - UICollectionViewDelegate
 extension ScheduleViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let day = viewModel.trainingDays[indexPath.row].0
+        let date = viewModel.getDayStringToDateString(day: day)
+        viewModel.fetchTrainingsHours(date)
+    }
 }
 
 //MARK: - UICollectionViewDataSource
@@ -69,7 +73,6 @@ extension ScheduleViewController: UICollectionViewDataSource {
 //MARK: - UITableViewDelegate
 extension ScheduleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         performSegue(withIdentifier: "goToDetailsScreen", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -94,6 +97,7 @@ extension ScheduleViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - SchedulesViewModelDelegate
 extension ScheduleViewController: SchedulesViewModelDelegate {
     func reloadData() {
         scheduleTableView.reloadData()
