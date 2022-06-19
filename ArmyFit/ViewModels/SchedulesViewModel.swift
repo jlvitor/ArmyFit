@@ -21,7 +21,7 @@ class SchedulesViewModel {
     var delegate: SchedulesViewModelDelegate?
     
     func fetchTrainingsHours(_ date: String) {
-        service.getTrainingHours(date) { success, error in
+        service.getAllTrainingHours(date) { success, error in
             guard let success = success else {
                 return
             }

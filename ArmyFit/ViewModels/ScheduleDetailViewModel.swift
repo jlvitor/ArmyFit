@@ -7,11 +7,32 @@
 
 import Foundation
 
+protocol ScheduleDetailViewModelDelegate {
+    func reloadData()
+}
+
 class ScheduleDetailViewModel {
-    private let hourDetail: TrainingHours
     
-    init(_ hourDetail: TrainingHours) {
+    private let service: TrainingHoursService
+    private var hourDetail: TrainingHours
+    
+    var delegate: ScheduleDetailViewModelDelegate?
+    
+    init(service: TrainingHoursService = .init() , _ hourDetail: TrainingHours) {
+        self.service = service
         self.hourDetail = hourDetail
+    }
+    
+    func makeTrainingRegister() {
+        guard let userId = UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String else { return }
+        let trainingHoursId = hourDetail.id
+        service.addUserOnTraining(trainingHoursId, userId) { _, error in
+            if error != nil {
+                print(error)
+            }
+            
+            self.delegate?.reloadData()
+        }
     }
     
     func getHourTraining() -> String {
@@ -41,23 +62,17 @@ class ScheduleDetailViewModel {
     }
     
     func getNumberOfUsers() -> Int {
-        guard let users = hourDetail.training_users?.count else { return 0}
+        guard let users = hourDetail.training_users?.count else { return 0 }
         return users
     }
     
-    func getUserImage() -> String {
-        guard let userImage = hourDetail.training_users,
-              let image = userImage[0].user?.photoUrl else { return "person.fill" }
-        return image
-    }
-    
-    func getUserName() -> String {
-        guard let userName = hourDetail.training_users,
-              let name = userName[0].user?.name else { return "Usuário sem nome"}
-        return name
+    func getTrainingDetailCellViewModel() -> RegisterTrainingViewModel {
+        let user = hourDetail
+        return RegisterTrainingViewModel(trainingDetail: user)
     }
     
     private func convertToUppercasedFrom(_ text: String) -> String {
         return text.uppercased()
     }
 }
+
