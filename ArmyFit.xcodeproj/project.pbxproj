@@ -12,6 +12,7 @@
 		144FF8B0285FACC70014B6E7 /* RegisterTrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AD285FACC70014B6E7 /* RegisterTrainingViewModel.swift */; };
 		144FF8B1285FACC70014B6E7 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AE285FACC70014B6E7 /* SchedulesViewModel.swift */; };
 		144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */; };
+		144FF8B42860F8FE0014B6E7 /* TrainingHoursService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */; };
 		14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4928454F7200E5FEA4 /* User.swift */; };
 		14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* Training.swift */; };
 		6E277B5628590D4B00672B92 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E277B5528590D4B00672B92 /* RegisterViewModel.swift */; };
@@ -29,7 +30,6 @@
 		CC086958284D8D14005E74B0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086957284D8D14005E74B0 /* ProfileViewModel.swift */; };
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */; };
-		CC223974284FDAA900CBB22C /* TrainingHoursService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC223973284FDAA900CBB22C /* TrainingHoursService.swift */; };
 		CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E326C285A4CD600B7AA7B /* String+Extension.swift */; };
 		CC42A674285C45D900F2F857 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A673285C45D900F2F857 /* PostViewModel.swift */; };
 		CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */; };
@@ -59,6 +59,7 @@
 		144FF8AD285FACC70014B6E7 /* RegisterTrainingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTrainingViewModel.swift; sourceTree = "<group>"; };
 		144FF8AE285FACC70014B6E7 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
 		144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewModel.swift; sourceTree = "<group>"; };
+		144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingHoursService.swift; sourceTree = "<group>"; };
 		14C0AD4928454F7200E5FEA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14C0AD4B28454FB000E5FEA4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.release.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		CC086957284D8D14005E74B0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ArmyFit/ViewModels/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleViewModel.swift; path = ArmyFit/ViewModels/ScheduleViewModel.swift; sourceTree = SOURCE_ROOT; };
-		CC223973284FDAA900CBB22C /* TrainingHoursService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingHoursService.swift; sourceTree = "<group>"; };
 		CC3E326C285A4CD600B7AA7B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CC42A673285C45D900F2F857 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			children = (
 				90D000112857AE8500143DB3 /* AuthService.swift */,
 				CCAF5FDF284ED7F900678230 /* UserService.swift */,
-				CC223973284FDAA900CBB22C /* TrainingHoursService.swift */,
+				144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */,
 				CCCB48A7285C0C3300AEC1E2 /* PostService.swift */,
 			);
 			path = Service;
@@ -392,6 +392,7 @@
 				14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */,
 				90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
+				144FF8B42860F8FE0014B6E7 /* TrainingHoursService.swift in Sources */,
 				6EB425A028415719005AE67C /* ScheduleViewController.swift in Sources */,
 				CC9B2E82285949A40081745D /* Date+Extension.swift in Sources */,
 				CCAF5FE0284ED7F900678230 /* UserService.swift in Sources */,
@@ -400,7 +401,6 @@
 				90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */,
 				CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */,
 				6EABD7872849343100444347 /* FeedViewController.swift in Sources */,
-				CC223974284FDAA900CBB22C /* TrainingHoursService.swift in Sources */,
 				144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */,
 				144FF8AA285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift in Sources */,
 				CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */,
