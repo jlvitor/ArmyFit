@@ -71,7 +71,7 @@ class ScheduleDetailViewController: UIViewController {
 //MARK: - UITableViewDelegate
 extension ScheduleDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 65
     }
 }
 

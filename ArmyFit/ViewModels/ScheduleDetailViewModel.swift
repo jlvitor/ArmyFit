@@ -28,10 +28,11 @@ class ScheduleDetailViewModel {
         let trainingHoursId = hourDetail.id
         service.addUserOnTraining(trainingHoursId, userId) { _, error in
             if error != nil {
-                print(error)
+                print("Error \(error?.localizedDescription)")
+            } else {
+                self.delegate?.reloadData()
             }
             
-            self.delegate?.reloadData()
         }
     }
     

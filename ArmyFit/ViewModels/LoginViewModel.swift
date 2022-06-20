@@ -38,7 +38,7 @@ class LoginViewModel {
                 UserDefaults.setValue(success.user.id, key: .userId)
                 UserDefaults.setValue(success.user.name, key: .userName)
                 UserDefaults.setValue(success.user.email, key: .userEmail)
-                UserDefaults.setValue(success.user.photoUrl, key: .userPhoto)
+                UserDefaults.setValue(success.user.photoUrl ?? "profile", key: .userPhoto)
                 self.delegate?.successAuth()
             }
     }
