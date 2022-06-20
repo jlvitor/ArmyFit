@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,7 +98,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="LOGIN">
-                                    <color key="titleColor" name="green_color"/>
+                                    <color key="titleColor" red="0.37647058823529411" green="0.72941176470588232" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -153,9 +154,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jSg-qV-TuO">
+                                <rect key="frame" x="69" y="468" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="systemGreenColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="dark_background"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.18431372549019609" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aAj-HQ-fMF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ae4-2f-Oih"/>
                             <constraint firstItem="v37-pR-3IN" firstAttribute="top" secondItem="wpU-Fp-Hdx" secondAttribute="bottom" constant="50" id="BEg-ax-AVs"/>
@@ -175,14 +181,16 @@
                     <navigationItem key="navigationItem" id="zh5-jV-h4N"/>
                     <connections>
                         <outlet property="emailTextField" destination="aaH-lu-RwK" id="kkP-mH-nWb"/>
+                        <outlet property="loginButton" destination="wpU-Fp-Hdx" id="1kT-tO-KaE"/>
                         <outlet property="passwordTextField" destination="zd1-Bu-l0W" id="7yY-Wt-sQw"/>
                         <outlet property="registerScreen" destination="tRp-kN-2HM" id="xbd-D4-eQ1"/>
+                        <outlet property="spinner" destination="jSg-qV-TuO" id="b3b-Bx-dtW"/>
                         <segue destination="AHM-gc-9Yd" kind="show" identifier="goToRegisterScreen" id="4f4-Uk-I8d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1217" y="-56"/>
+            <point key="canvasLocation" x="-1218.4615384615383" y="-56.161137440758289"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="2hS-Fn-OVf">
@@ -1371,5 +1379,8 @@
         <namedColor name="light_background">
             <color red="0.34099999070167542" green="0.39599999785423279" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
