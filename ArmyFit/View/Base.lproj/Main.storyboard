@@ -371,7 +371,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="green_color"/>
                                                     <constraints>
                                                         <constraint firstItem="Vns-on-1iY" firstAttribute="centerX" secondItem="iAb-3N-rtH" secondAttribute="centerX" id="4fL-wr-cVu"/>
                                                         <constraint firstItem="y6h-xb-i8V" firstAttribute="top" secondItem="iAb-3N-rtH" secondAttribute="top" constant="14" id="Uhq-sU-scT"/>
@@ -392,6 +391,12 @@
                                                 <constraint firstItem="iAb-3N-rtH" firstAttribute="leading" secondItem="3tE-nC-ikQ" secondAttribute="leading" id="z0H-X4-bd1"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="dark_background"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="dateNumberLabel" destination="Vns-on-1iY" id="1Bw-ij-6qu"/>
                                             <outlet property="dateTextLabel" destination="y6h-xb-i8V" id="df8-2S-dRN"/>

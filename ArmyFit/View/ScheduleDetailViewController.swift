@@ -21,6 +21,7 @@ class ScheduleDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.delegate = self
         configTableView()
         configScreen()
     }
@@ -54,7 +55,7 @@ class ScheduleDetailViewController: UIViewController {
             preferredStyle: .alert)
         
         let confirm = UIAlertAction(title: "Ok", style: .default) { action in
-            print("OK")
+            self.viewModel?.makeTrainingRegister()
         }
         
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
@@ -83,9 +84,16 @@ extension ScheduleDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as? ScheduleDetailTableViewCell
-//                let cellViewModel = viewModel.getUserCellViewModel(indexPath.row)
-//                cell?.configure(cellViewModel)
+        if let cellViewModel = viewModel?.getTrainingDetailCellViewModel() {
+            cell?.configure(indexPath.row, cellViewModel)
+        }
+                
         return cell ?? UITableViewCell()
     }
 }
 
+extension ScheduleDetailViewController: ScheduleDetailViewModelDelegate {
+    func reloadData() {
+        detailTableView.reloadData()
+    }
+}
