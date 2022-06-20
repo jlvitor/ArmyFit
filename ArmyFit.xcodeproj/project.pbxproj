@@ -26,7 +26,6 @@
 		90D0FFD028513FA000143DB3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */; };
 		90D0FFD2285140E300143DB3 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */; };
 		90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */; };
-		CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086955284D7125005E74B0 /* UserViewModel.swift */; };
 		CC086958284D8D14005E74B0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086957284D8D14005E74B0 /* ProfileViewModel.swift */; };
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */; };
@@ -76,7 +75,6 @@
 		90D0FFCF28513FA000143DB3 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
 		90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
-		CC086955284D7125005E74B0 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserViewModel.swift; path = ArmyFit/ViewModels/UserViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC086957284D8D14005E74B0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ArmyFit/ViewModels/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleViewModel.swift; path = ArmyFit/ViewModels/ScheduleViewModel.swift; sourceTree = SOURCE_ROOT; };
@@ -236,7 +234,6 @@
 			children = (
 				6E3B8ED82857BCDA0023E5A7 /* LoginViewModel.swift */,
 				6E277B5528590D4B00672B92 /* RegisterViewModel.swift */,
-				CC086955284D7125005E74B0 /* UserViewModel.swift */,
 				CCCB48A9285C36EC00AEC1E2 /* PostsViewModel.swift */,
 				CC42A673285C45D900F2F857 /* PostViewModel.swift */,
 				CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */,
@@ -399,7 +396,6 @@
 				CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */,
 				14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */,
 				90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */,
-				CC086956284D7125005E74B0 /* UserViewModel.swift in Sources */,
 				6EABD7872849343100444347 /* FeedViewController.swift in Sources */,
 				144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */,
 				144FF8AA285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift in Sources */,

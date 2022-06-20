@@ -10,6 +10,16 @@ import UIKit
 
 class ProfileViewModel {
     
+    func getUserImage() -> String {
+        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile2" }
+        return userImage
+    }
+    
+    func getUserName() -> String {
+        guard let userName = UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String else { return "Perfil sem nome" }
+        return userName.uppercased()
+    }
+    
     func countRowsInSection(_ section: Int) -> Int {
         switch section {
         case 0:
