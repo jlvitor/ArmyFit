@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         configUserImageViewBorder()
         configTableView()
+        configUserData()
     }
     
     @IBAction func editProfileButtonAction(_ sender: UIBarButtonItem) {
