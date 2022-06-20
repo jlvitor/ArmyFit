@@ -33,26 +33,62 @@ class Alert {
         
         self.controller.present(alert, animated: true, completion: nil)
     }
+    
+    public func alertIsEmptyTextField(title: String, message: String, completion: (() -> Void)? = nil) {
+    let emptyAlert = UIAlertController(
+        title: title,
+        message: message,
+        preferredStyle: .alert
+    )
+    let okAction = UIAlertAction(
+        title: "Ok",
+        style: .default) { action in
+            completion?()
+        }
+    
+    emptyAlert.addAction(okAction)
+    
+    self.controller.present(emptyAlert, animated: true, completion: nil)
+}
+    public func alertIsEqualPassword(title: String, message: String, completion: (() -> Void)? = nil) {
+    let equalAlert = UIAlertController(
+        title: title,
+        message: message,
+        preferredStyle: .alert
+    )
+    let okAction = UIAlertAction(
+        title: "Ok",
+        style: .default) { action in
+            completion?()
+        }
+    
+    equalAlert.addAction(okAction)
+    
+    self.controller.present(equalAlert, animated: true, completion: nil)
+    
+}
+    public func alertIsValidEmail(title: String, message: String, completion: (() -> Void)? = nil) {
+    let validAlert = UIAlertController(
+        title: title,
+        message: message,
+        preferredStyle: .alert
+    )
+    let okAction = UIAlertAction(
+        title: "Ok",
+        style: .default) { action in
+            completion?()
+        }
+    
+    validAlert.addAction(okAction)
+    
+    self.controller.present(validAlert, animated: true, completion: nil)
+    
+    }
+    
 }
 
-//if name == "" || email == "" || password == "" {
-//    ErrorAlertsTextfield().alertTextField(
-//        vc: self,
-//        title: "Erro",
-//        message: "Por favor preencha todos os campos")
-//} else if password != confirmPassword {
-//    ErrorAlertsTextfield().alertTextField(
-//        vc: self,
-//        title: "Erro",
-//        message: "Por favor digite a mesma senha nos dois campos")
-//} else {
-//    if !email.isValidEmail(email: email) {
-//        ErrorAlertsTextfield().alertTextField(vc: self, title: "Opa!", message: "Por favor coloque um email válido")
-//    }
-//    else if !password.isValidPassword(password: password) {
-//        ErrorAlertsTextfield().alertTextField(vc: self, title: "Opa!", message: "Por favor coloque uma senha válida")
-//
-//    } else {
-//        performSegue(withIdentifier: "backToLoginScreen", sender: self)
-//    }
-//}
+// Campos em branco
+// Senha = confirmar senha
+// Email é valido
+// Senha é válida
+

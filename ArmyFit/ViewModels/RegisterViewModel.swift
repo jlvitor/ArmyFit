@@ -16,6 +16,9 @@ protocol RegisterViewModelDelegate {
 protocol ValidationTextFieldsDelegate {
     func successValidation()
     func errorValidation()
+    func isEmptyTextField()
+    func isEqualPassword()
+    func isValidEmailValidation()
 }
 
 class RegisterViewModel {
@@ -49,16 +52,51 @@ class RegisterViewModel {
             }
     }
     
-    func validationTextFields(_ name: String?, _ email: String?, _ password: String?, _ confirmPassword: String?) {
-        guard let name = name,
-              let email = email,
-              let password = password,
-              let confirmPassword = confirmPassword else {
-                  validationDelegate?.errorValidation()
-                  return
-                 }
+//    func validationTextFields(_ name: String?, _ email: String?, _ password: String?, _ confirmPassword: String?) {
+//        guard let name = name,
+//              let email = email,
+//              let password = password,
+//              let confirmPassword = confirmPassword else {
+//                  validationDelegate?.errorValidation()
+//                  return }
+//
+//        }
+    
+    func isEqualPassword(_ password: String, _ confirmPassword: String) -> Bool {
+        if password != confirmPassword {
+            return false
+            validationDelegate?.errorValidation()
+        }
+            return  String.isValidPassword(password: password)
+            validationDelegate?.successValidation()
+    }
+    
+    func isValidEmailRegister(_ email: String?) {
+        guard let email = email else { return }
+        let validEmail = String.isValidEmail(email: email)
+        if validEmail {
+            validationDelegate?.successValidation()
+        }
+            validationDelegate?.errorValidation()
+        
+    }
+    
+    func isEmptyTextField(_ name: String?, _ email: String?, _ password: String?, _ confirmPassword: String?)  {
+        if let name = name,
+           let email = email,
+           let password = password,
+           let confirmPassword = confirmPassword {
+        
+            if name == "" || email == "" || password == "" || confirmPassword == "" {
+                validationDelegate?.errorValidation()
+            }
                 validationDelegate?.successValidation()
+        }
     }
 }
 
+    
+    
+    
+    
 

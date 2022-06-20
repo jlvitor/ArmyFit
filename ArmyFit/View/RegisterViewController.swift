@@ -142,12 +142,26 @@ class RegisterViewController: UIViewController {
             emailTextField.text,
             passwordTextField.text)
     }
-    
+//MARK: Alerts
     private func alertValidation() {
         alert?.getAlert(
             title: "Erro",
             message: "Não foi possível realizar o registro",
             completion: nil)
+    }
+    
+    private func alertPasswordValidation() {
+        alert?.alertIsEqualPassword(
+            title: "Erro",
+            message: "Por favor, digite a mesma senha nos campos de senha.",
+            completion: nil)
+    }
+    
+    private func alertEmailValidation() {
+        alert?.alertIsValidEmail(
+            title: "Erro",
+            message: "Por favor digite um email válido",
+            completion: nil )
     }
     
     private func showAlert() {
@@ -184,6 +198,18 @@ extension RegisterViewController: RegisterViewModelDelegate {
 }
 
 extension RegisterViewController: ValidationTextFieldsDelegate {
+    func isValidEmailValidation() {
+        alertEmailValidation()
+    }
+    
+    func isEmptyTextField() {
+        alertValidation()
+    }
+    
+    func isEqualPassword() {
+        alertPasswordValidation()
+    }
+
     func successValidation() {
         viewModel.makeRegisterRequest(
             nameTextField.text,
