@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerScreen: UIStackView!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     private let viewModel: LoginViewModel = LoginViewModel()
     private var iconClick = false
@@ -32,9 +34,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func loginButton(_ sender: UIButton) {
+        showActivityIndicator()
+        
         viewModel.makeLoginRequest(
             emailTextField.text,
             passwordTextField.text)
+        
+        stopActivityIndicator()
     }
     
     private func configViewModel() {
@@ -106,6 +112,18 @@ class LoginViewController: UIViewController {
             tappedImage.image = UIImage(systemName: "eye.slash")
             passwordTextField.isSecureTextEntry = true
         }
+    }
+    
+    private func showActivityIndicator() {
+        loginButton.setTitle("", for: .normal)
+        spinner.layer.position = loginButton.layer.position
+        spinner.hidesWhenStopped = true
+        spinner.startAnimating()
+    }
+    
+    private func stopActivityIndicator() {
+        spinner.stopAnimating()
+        loginButton.setTitle("LOGIN", for: .normal)
     }
     
 }
