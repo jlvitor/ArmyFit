@@ -34,13 +34,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func loginButton(_ sender: UIButton) {
-        showActivityIndicator()
         
         viewModel.makeLoginRequest(
             emailTextField.text,
             passwordTextField.text)
-        
-        stopActivityIndicator()
+        showActivityIndicator()
     }
     
     private func configViewModel() {
@@ -142,5 +140,6 @@ extension LoginViewController: LoginViewModelDelegate {
     
     func errorAuth() {
         showAlert()
+        stopActivityIndicator()
     }
 }
