@@ -377,11 +377,6 @@
                                                         <constraint firstItem="y6h-xb-i8V" firstAttribute="centerX" secondItem="iAb-3N-rtH" secondAttribute="centerX" id="byL-zE-ZhU"/>
                                                         <constraint firstAttribute="bottom" secondItem="Vns-on-1iY" secondAttribute="bottom" constant="14" id="m5l-AR-MgU"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -394,7 +389,7 @@
                                         <color key="backgroundColor" name="dark_background"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -405,7 +400,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
                                 <rect key="frame" x="0.0" y="192" width="390" height="569"/>
                                 <color key="backgroundColor" name="light_background"/>
                                 <color key="separatorColor" name="Background 2"/>
@@ -565,8 +560,8 @@
                                         <rect key="frame" x="8" y="15" width="63" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfc-fN-gPn">
-                                                <rect key="frame" x="14" y="13.999999999999998" width="35" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="16" y="13.999999999999998" width="31" height="19.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.97677507990000001" green="1" blue="0.94499434329999998" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -580,12 +575,11 @@
                                         <color key="backgroundColor" name="TopBar background"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="uXq-h9-iCr" secondAttribute="bottom" constant="14" id="2X9-wB-KWa"/>
+                                            <constraint firstItem="bfc-fN-gPn" firstAttribute="centerX" secondItem="FBo-6c-LcG" secondAttribute="centerX" id="A5K-Lz-adO"/>
+                                            <constraint firstItem="bfc-fN-gPn" firstAttribute="top" secondItem="FBo-6c-LcG" secondAttribute="top" constant="14" id="FsU-Nl-KWG"/>
                                             <constraint firstAttribute="width" constant="63" id="TT1-5p-mHH"/>
-                                            <constraint firstAttribute="trailing" secondItem="bfc-fN-gPn" secondAttribute="trailing" constant="14" id="V5D-1z-4bm"/>
                                             <constraint firstItem="uXq-h9-iCr" firstAttribute="centerX" secondItem="FBo-6c-LcG" secondAttribute="centerX" id="XBj-b6-1Kb"/>
                                             <constraint firstAttribute="height" constant="80" id="ZeY-5U-w86"/>
-                                            <constraint firstItem="bfc-fN-gPn" firstAttribute="top" secondItem="FBo-6c-LcG" secondAttribute="top" constant="14" id="dBf-de-lDw"/>
-                                            <constraint firstItem="bfc-fN-gPn" firstAttribute="leading" secondItem="FBo-6c-LcG" secondAttribute="leading" constant="14" id="jyS-iU-glM"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -678,7 +672,7 @@
                                     <constraint firstItem="lgJ-TW-SN9" firstAttribute="top" secondItem="TLY-ik-grz" secondAttribute="bottom" constant="5" id="urR-g8-1Gd"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-dl-QZB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ep0-dl-QZB">
                                 <rect key="frame" x="0.0" y="198" width="390" height="557"/>
                                 <color key="backgroundColor" name="light_background"/>
                                 <constraints>
@@ -776,6 +770,8 @@
                     <navigationItem key="navigationItem" id="MAe-aM-Cmb"/>
                     <connections>
                         <outlet property="availableSpotsLabel" destination="ckZ-MK-PgT" id="5Ay-3g-uAu"/>
+                        <outlet property="dayNameLabel" destination="bfc-fN-gPn" id="6ai-zh-lFS"/>
+                        <outlet property="dayNumberLabel" destination="uXq-h9-iCr" id="wKS-17-XeE"/>
                         <outlet property="detailTableView" destination="ep0-dl-QZB" id="ZMv-ew-rgf"/>
                         <outlet property="hourLabel" destination="eme-GE-qtr" id="apP-Lo-Vg5"/>
                         <outlet property="minuteLabel" destination="apc-A5-9Ep" id="nfz-iJ-Ilg"/>
@@ -1045,7 +1041,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uyX-uJ-OCP" userLabel="Houer Stack View">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uyX-uJ-OCP" userLabel="Houer Stack View">
                                                     <rect key="frame" x="20" y="8.6666666666666643" width="26.333333333333329" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rQ-19-j2c">
@@ -1063,9 +1059,9 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do treinador" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xl-ee-s7o">
-                                                    <rect key="frame" x="70.333333333333343" y="20.666666666666671" width="279.66666666666663" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="70.333333333333343" y="23" width="279.66666666666663" height="19.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1158,6 +1154,11 @@
                                             <constraint firstAttribute="trailing" secondItem="jr1-gN-kdx" secondAttribute="trailing" constant="12" id="Ydz-wW-n9n"/>
                                             <constraint firstAttribute="bottom" secondItem="jr1-gN-kdx" secondAttribute="bottom" constant="12" id="zAQ-mX-7II"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -1188,6 +1189,11 @@
                                             <constraint firstItem="Ds0-WQ-FiJ" firstAttribute="top" secondItem="vvq-4f-fBq" secondAttribute="top" constant="12" id="b2i-Mz-DJZ"/>
                                             <constraint firstAttribute="trailing" secondItem="Ds0-WQ-FiJ" secondAttribute="trailing" constant="12" id="feo-DH-Eso"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>

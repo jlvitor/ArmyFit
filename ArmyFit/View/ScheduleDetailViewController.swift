@@ -9,6 +9,8 @@ import UIKit
 
 class ScheduleDetailViewController: UIViewController {
     
+    @IBOutlet weak var dayNameLabel: UILabel!
+    @IBOutlet weak var dayNumberLabel: UILabel!
     @IBOutlet weak var monitorLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
@@ -49,6 +51,8 @@ class ScheduleDetailViewController: UIViewController {
     private func configScreen() {
         guard let viewModel = viewModel else { return }
         
+        dayNameLabel.text = viewModel.getDayName()
+        dayNumberLabel.text = viewModel.getDayNumber()
         monitorLabel.text = viewModel.getCoachName()
         hourLabel.text = viewModel.getHourTraining()
         minuteLabel.text = viewModel.getMinuteTraining()

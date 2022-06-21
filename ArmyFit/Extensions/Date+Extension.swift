@@ -20,7 +20,7 @@ extension Date {
         var hour = ""
         
         // Define o formato ao qual o dado precisa ser retornado
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
         // Guarda o valor formatado
         let dateFormatted = dateFormatter.date(from: date)
         // Desembrulha o dado para ser utilizado
@@ -43,7 +43,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         let calendar = Calendar.current
         
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
         let dateFormatted = dateFormatter.date(from: date)
         
         guard let dateFormatted = dateFormatted else { return "" }
@@ -64,5 +64,32 @@ extension Date {
         
         let dateFormatted = String("\(year)-\(monthFormatted)-\(dayFormatted)")
         return dateFormatted
+    }
+    
+    static func getDayNumberFromString(date: String) -> String {
+        var day: Int = 0
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+   
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
+        if let dateFormatted = dateFormatter.date(from: date) {
+            day = calendar.component(.day, from: dateFormatted)
+        }
+        
+        let dayFormatted = String(format: "%02d", day)
+        return dayFormatted
+    }
+    
+    static func getDayNameFromString(date: String) -> String {
+        var dayName: String = ""
+        let dateFormatter = DateFormatter()
+   
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
+        if let dateFormatted = dateFormatter.date(from: date) {
+            dateFormatter.dateFormat = "EEE"
+            dayName = dateFormatter.string(from: dateFormatted)
+        }
+        
+        return dayName
     }
 }

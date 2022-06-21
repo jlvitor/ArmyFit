@@ -59,10 +59,20 @@ class ScheduleDetailViewModel {
             if error != nil {
                 print("Error \(error?.localizedDescription)")
             } else {
-                self.delegate?.reloadData()
+                self.registerDelegate?.success()
             }
             
         }
+    }
+    
+    func getDayName() -> String {
+        let dayName = Date.getDayNameFromString(date: traininigHoursDetail.date_hour)
+        return dayName.uppercased()
+    }
+    
+    func getDayNumber() -> String {
+        let dayNumber = Date.getDayNumberFromString(date: traininigHoursDetail.date_hour)
+        return dayNumber
     }
     
     func getHourTraining() -> String {

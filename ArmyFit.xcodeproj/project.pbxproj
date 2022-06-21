@@ -206,8 +206,8 @@
 				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
 				6EABD7862849343100444347 /* FeedViewController.swift */,
 				6EB4259F28415718005AE67C /* ScheduleViewController.swift */,
-				90D0FFCF28513FA000143DB3 /* TrainingDetailViewController.swift */,
 				144FF8AB285FABD90014B6E7 /* ScheduleDetailViewController.swift */,
+				90D0FFCF28513FA000143DB3 /* TrainingDetailViewController.swift */,
 				90B2B480284D4D59003AAA91 /* ProfileViewController.swift */,
 				9091028528624C5200A03DFF /* TrainingViewController.swift */,
 			);
