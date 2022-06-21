@@ -50,9 +50,16 @@ class ScheduleViewController: UIViewController {
 //MARK: - UICollectionViewDelegate
 extension ScheduleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let day = viewModel.trainingDays[indexPath.row].0
+        let day = viewModel.trainingDays[indexPath.item].0
         let date = viewModel.getDayStringToDateString(day: day)
         viewModel.fetchTrainingsHours(date)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? DateCollectionViewCell
+            let cellSelected = UIView()
+        cellSelected.backgroundColor = UIColor(named: "green_color")
+        cell?.selectedBackgroundView = cellSelected
     }
 }
 
@@ -66,6 +73,10 @@ extension ScheduleViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCustomCell", for: indexPath) as? DateCollectionViewCell
         let cellViewModel = viewModel.getDayCellViewModel(indexPath.row)
         cell?.configure(viewModel: cellViewModel)
+        
+        if indexPath.row == 0 {
+            cell?.backgroundColor = UIColor(named: "green_color")
+        }
         return cell ?? UICollectionViewCell()
     }
 }

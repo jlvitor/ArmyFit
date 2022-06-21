@@ -51,7 +51,9 @@ extension FeedViewController: PostViewModelDelegate {
 //MARK: - UITableViewDelegate
 extension FeedViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 390, height: 200)
+        return CGSize(
+            width: view.bounds.width,
+            height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

@@ -16,15 +16,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
     
-    private let viewModel: UserVideModel = UserVideModel()
-    private let cellViewModel: ProfileViewModel = ProfileViewModel()
+    private let viewModel: ProfileViewModel = ProfileViewModel()
     private let keychain: KeychainSwift = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configViewModel()
-        configUserImage()
+        configUserImageViewBorder()
         configTableView()
+        configUserData()
     }
     
     @IBAction func editProfileButtonAction(_ sender: UIBarButtonItem) {
@@ -37,14 +36,14 @@ class ProfileViewController: UIViewController {
         profileTableView.dataSource = self
     }
     
-    private func configViewModel() {
-        viewModel.delegate = self
-        viewModel.fetchUserData()
-    }
-    
-    private func configUserImage() {
+    private func configUserImageViewBorder() {
         profileImageView.layer.borderWidth = 5
         profileImageView.layer.borderColor = UIColor(named: "light_background")?.cgColor
+    }
+    
+    private func configUserData() {
+        profileImageView.image = UIImage(named: viewModel.getUserImage())
+        nameLabel.text = viewModel.getUserName()
     }
     
     private func showAlert() {
@@ -88,18 +87,6 @@ class ProfileViewController: UIViewController {
         imagePicker.delegate = self
         
         present(imagePicker, animated: true)
-    }
-}
-
-//MARK: - UserVideModelDelegate
-extension ProfileViewController: UserViewModelDelegate {
-    func successRequest() {
-        profileImageView.image = UIImage(named: viewModel.getUserImage())
-        nameLabel.text = viewModel.getName()
-    }
-    
-    func errorRequest() {
-        print("Erro ao carregar os dados do usuário")
     }
 }
 
@@ -155,14 +142,14 @@ extension ProfileViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellViewModel.countRowsInSection(section)
+        return viewModel.countRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "profileCustomCell", for: indexPath) as? ProfileTableViewCell
         let section = indexPath.section
         let row = indexPath.row
-        let _cellViewModel = cellViewModel.profileInfo(at: section, at: row)
+        let _cellViewModel = viewModel.profileInfo(at: section, at: row)
         
         cell?.configure(profileCellViewModel: _cellViewModel)
         
@@ -174,7 +161,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = cellViewModel.setTilteForSection(section)
+        let title = viewModel.setTilteForSection(section)
         return title
     }
 }
