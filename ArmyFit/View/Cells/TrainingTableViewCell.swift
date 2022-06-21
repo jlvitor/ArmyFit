@@ -13,10 +13,12 @@ struct TrainingCellViewModel {
 
 class TrainingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var trainingLabel: UILabel!
+    @IBOutlet weak var coachNameLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var minuteLabel: UILabel!
     
     func configure(viewModel: TrainingCellViewModel) {
-        trainingLabel.text = viewModel.text
+        coachNameLabel.text = viewModel.text
     }
 
 }
