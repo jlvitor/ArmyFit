@@ -8,11 +8,13 @@
 import UIKit
 
 class ScheduleViewController: UIViewController {
-
+    
     @IBOutlet weak var dateCollectionView: UICollectionView!
     @IBOutlet weak var scheduleTableView: UITableView!
     
     private let viewModel: SchedulesViewModel = SchedulesViewModel()
+    
+    var date: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +23,17 @@ class ScheduleViewController: UIViewController {
         configTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let date = date {
+            viewModel.fetchTrainingsHours(date)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? ScheduleDetailViewController {
             let index = sender as? Int
-            detailVC.viewModel = viewModel.getTrainingDetail(index)
+            detailVC.viewModel = viewModel.getTrainingHoursDetail(index)
         }
     }
     
@@ -53,13 +62,11 @@ extension ScheduleViewController: UICollectionViewDelegate {
         let day = viewModel.trainingDays[indexPath.item].0
         let date = viewModel.getDayStringToDateString(day: day)
         viewModel.fetchTrainingsHours(date)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? DateCollectionViewCell
-            let cellSelected = UIView()
-        cellSelected.backgroundColor = UIColor(named: "green_color")
-        cell?.selectedBackgroundView = cellSelected
+        
+        viewModel.cellSelected = indexPath.row
+        self.date = date
+        collectionView.reloadData()
+        
     }
 }
 
@@ -69,14 +76,15 @@ extension ScheduleViewController: UICollectionViewDataSource {
         return viewModel.trainingDays.count
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCustomCell", for: indexPath) as? DateCollectionViewCell
         let cellViewModel = viewModel.getDayCellViewModel(indexPath.row)
-        cell?.configure(viewModel: cellViewModel)
         
-        if indexPath.row == 0 {
-            cell?.backgroundColor = UIColor(named: "green_color")
-        }
+        cell?.configure(viewModel: cellViewModel)
+        viewModel.configCellBackgroundColorWhenSelected(cell, at: indexPath.row)
+        
         return cell ?? UICollectionViewCell()
     }
 }
@@ -86,7 +94,7 @@ extension ScheduleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToDetailsScreen", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
-        }
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
@@ -103,7 +111,9 @@ extension ScheduleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCustomCell", for: indexPath) as? ScheduleTableViewCell
         let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.row)
+        
         cell?.configure(cellViewModel)
+        
         return cell ?? UITableViewCell()
     }
 }

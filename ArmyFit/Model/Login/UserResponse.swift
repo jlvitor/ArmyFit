@@ -1,16 +1,11 @@
 //
-//  Auth.swift
+//  UserResponse.swift
 //  ArmyFit
 //
-//  Created by Jean Lucas Vitor on 13/06/22.
+//  Created by Jean Lucas Vitor on 21/06/22.
 //
 
 import Foundation
-
-struct Auth: Codable {
-    let token: String
-    let user: UserResponse
-}
 
 struct UserResponse: Codable {
     let id: String

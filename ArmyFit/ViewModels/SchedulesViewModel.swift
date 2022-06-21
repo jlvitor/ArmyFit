@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol SchedulesViewModelDelegate {
     func reloadData()
@@ -16,9 +17,10 @@ class SchedulesViewModel {
     private let service: TrainingHoursService = TrainingHoursService()
     private var trainingHoursList: [TrainingHours] = []
     
+    var delegate: SchedulesViewModelDelegate?
     var trainingHoursCount: Int = 0
     var trainingDays: [(String, String)] = []
-    var delegate: SchedulesViewModelDelegate?
+    var cellSelected: Int = 0
     
     func fetchTrainingsHours(_ date: String) {
         service.getAllTrainingHours(date) { success, error in
@@ -43,12 +45,19 @@ class SchedulesViewModel {
         return DayViewModel(trainingDay: day)
     }
     
-    func getTrainingDetail(_ index: Int?) -> ScheduleDetailViewModel? {
+    func getTrainingHoursDetail(_ index: Int?) -> ScheduleDetailViewModel? {
         guard let index = index else { return nil }
         
-        let trainingSelected = trainingHoursList[index]
-        let trainingDetail = ScheduleDetailViewModel(trainingSelected)
-        return trainingDetail
+        let trainingHoursId = trainingHoursList[index].id
+        return ScheduleDetailViewModel(trainingHoursId)
+    }
+    
+    func configCellBackgroundColorWhenSelected(_ cell: DateCollectionViewCell?, at index: Int) {
+        if index == cellSelected {
+            cell?.backgroundColor = UIColor(named: "green_color")
+        } else {
+            cell?.backgroundColor = UIColor(named: "dark_background")
+        }
     }
     
     func getRemainingDaysInAMonth() {
