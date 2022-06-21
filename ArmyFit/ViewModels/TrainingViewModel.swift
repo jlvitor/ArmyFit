@@ -33,6 +33,7 @@ class TrainingViewModel {
         }
     }
     
+    
     func setTitleForSection(_ section: Int) -> String? {
         switch section {
         case 0:
