@@ -68,7 +68,7 @@ class TrainingHoursService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
-            "trainingHoursId": trainingHoursId,
+            "training_hours_id": trainingHoursId,
             "user_id": userId
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
