@@ -14,13 +14,14 @@ protocol SchedulesViewModelDelegate {
 
 class SchedulesViewModel {
     
-    private let service: TrainingHoursService = TrainingHoursService()
+    private let service: TrainingHoursService = .init()
     private var trainingHoursList: [TrainingHours] = []
     
     var delegate: SchedulesViewModelDelegate?
     var trainingHoursCount: Int = 0
     var trainingDays: [(String, String)] = []
     var cellSelected: Int = 0
+    var date: String? = Date.getCurrentDateToDateString()
     
     func fetchTrainingsHours(_ date: String) {
         service.getAllTrainingHours(date) { success, error in

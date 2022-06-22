@@ -14,8 +14,6 @@ class ScheduleViewController: UIViewController {
     
     private let viewModel: SchedulesViewModel = SchedulesViewModel()
     
-    var date: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configViewModel()
@@ -25,7 +23,7 @@ class ScheduleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let date = date {
+        if let date = viewModel.date {
             viewModel.fetchTrainingsHours(date)
         }
     }
@@ -64,7 +62,7 @@ extension ScheduleViewController: UICollectionViewDelegate {
         viewModel.fetchTrainingsHours(date)
         
         viewModel.cellSelected = indexPath.row
-        self.date = date
+        viewModel.date = date
         collectionView.reloadData()
         
     }

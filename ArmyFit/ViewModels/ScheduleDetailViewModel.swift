@@ -32,7 +32,7 @@ class ScheduleDetailViewModel {
         description: "",
         training: Training.init(id: "", name: "", created_at: "", warning: "", trainingHours: nil),
         training_id: "",
-        training_users: nil)
+        training_users: [])
     
     var delegate: ScheduleDetailViewModelDelegate?
     var registerDelegate: RegisterOnTrainingDelegate?
@@ -67,10 +67,9 @@ class ScheduleDetailViewModel {
     }
     
     func removeUserOnTraining() {
-        guard let trainingUser = traininigHoursDetail.training_users else { return }
-        let id = trainingUser[0].id
+        guard let userId = UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String else { return }
         
-        service.removeUserOnTraining(id) { _, error in
+        service.removeUserOnTraining(trainingHoursId, userId) { _, error in
             if error != nil {
                 print("Error \(error?.localizedDescription)")
             } else {
@@ -143,7 +142,7 @@ class ScheduleDetailViewModel {
     
     private func userIsRegistered() {
         guard let trainingUsers = traininigHoursDetail.training_users else { return }
-        
+
         let isRegistered = trainingUsers.contains { user in
             UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String == user.user_id
         }

@@ -7,18 +7,16 @@
 
 import UIKit
 
-struct TrainingCellViewModel {
-    let text: String
-}
-
 class TrainingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var coachNameLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
+    @IBOutlet weak var coachNameLabel: UILabel!
     
-    func configure(viewModel: TrainingCellViewModel) {
-        coachNameLabel.text = viewModel.text
+    func configure(viewModel: TrainingDetailViewModel) {
+        hourLabel.text = viewModel.getHourTraining()
+        minuteLabel.text = viewModel.getMinuteTraining()
+        coachNameLabel.text = viewModel.getCoachName()
     }
 
 }

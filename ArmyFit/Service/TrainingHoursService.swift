@@ -89,8 +89,8 @@ class TrainingHoursService {
     }
     
     // Remove usuario do treino
-    func removeUserOnTraining(_ id: String, completion: @escaping (URLResponse?, Error?) -> Void) {
-        guard let url = URL(string: "\(baseUrl)/trainingusers/\(id)") else { return }
+    func removeUserOnTraining(_ trainingHoursId: String, _ userId: String, completion: @escaping (URLResponse?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/trainingusers/\(userId)/\(trainingHoursId)") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
@@ -107,6 +107,28 @@ class TrainingHoursService {
         }
         task.resume()
     }
+    
+    func getTrainingUser(_ date: String, completion: @escaping ([TrainingUser]?, Error?) -> Void) {
+            guard let url = URL(string: "\(baseUrl)/trainingusers/\(date)") else { return }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.setValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+            
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else { return }
+                
+                do {
+                    let trainings = try JSONDecoder().decode([TrainingUser].self, from: data)
+                    DispatchQueue.main.async {
+                        completion(trainings, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                }
+            }
+            task.resume()
+        }
 }
 
 

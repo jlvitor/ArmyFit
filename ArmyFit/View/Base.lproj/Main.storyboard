@@ -332,7 +332,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="LY8-hg-D1p" customClass="ScheduleViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgR-2m-G7A">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BVg-mW-gZC">
@@ -403,7 +403,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OYe-YH-gFK">
                                 <rect key="frame" x="0.0" y="192" width="390" height="569"/>
                                 <color key="backgroundColor" name="light_background"/>
-                                <color key="separatorColor" name="Background 2"/>
+                                <color key="separatorColor" name="light_background"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleCustomCell" editingAccessoryType="disclosureIndicator" rowHeight="60" id="C9R-Wu-BYK" customClass="ScheduleTableViewCell" customModule="ArmyFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="60"/>
@@ -789,7 +789,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="bzp-l8-1I4" customClass="FeedViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kQv-Sf-yej">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eu1-nB-ahJ">
@@ -1027,14 +1027,15 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="efR-p4-tjA" customClass="TrainingViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6l1-I1-gqO">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="svQ-tF-2Gh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="svQ-tF-2Gh">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" name="light_background"/>
+                                <color key="separatorColor" name="light_background"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exerciseCell" rowHeight="65" id="qPY-Ak-eNK" customClass="TrainingTableViewCell" customModule="ArmyFit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trainingCell" rowHeight="65" id="qPY-Ak-eNK" customClass="TrainingTableViewCell" customModule="ArmyFit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qPY-Ak-eNK" id="xOe-Lj-ZH9">
@@ -1100,7 +1101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYI-hI-IQD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-160" y="2623.9336492890993"/>
+            <point key="canvasLocation" x="-160" y="2623"/>
         </scene>
         <!--Training Detail View Controller-->
         <scene sceneID="6DZ-ca-k1C">
@@ -1226,7 +1227,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="6Oy-n7-u1J" customClass="ProfileViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vuq-rj-skT">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFa-X9-deN" userLabel="View 1">
@@ -1358,19 +1359,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9W-4U-6q0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="2624"/>
+            <point key="canvasLocation" x="1069" y="2623"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="Trv-t9-ABr">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarViewController" modalPresentationStyle="fullScreen" id="cC8-hb-9qE" customClass="CustomTabBarViewController" customModule="ArmyFit" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ggy-7R-i5f"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="24G-Td-dSr">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" id="24G-Td-dSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="dark_background"/>
                         <color key="tintColor" name="green_color"/>
-                        <color key="barTintColor" name="green_color"/>
+                        <color key="barTintColor" name="dark_background"/>
                         <color key="selectedImageTintColor" name="green_color"/>
                     </tabBar>
                     <connections>
@@ -1455,7 +1456,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pH9-GM-Dzg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Lt2-zO-TFX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Lt2-zO-TFX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="bicycle.circle.fill" catalog="system" selectedImage="bicycle.circle.fill" id="Lgv-tf-Eb8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2P2-6X-VRa">
