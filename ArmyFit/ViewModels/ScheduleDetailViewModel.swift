@@ -13,6 +13,8 @@ protocol ScheduleDetailViewModelDelegate {
 }
 
 protocol RegisterOnTrainingDelegate {
+    func showAlertAddUserOnTraining()
+    func showAlertRemoveUserOnTraining()
     func success()
 }
 
@@ -61,7 +63,19 @@ class ScheduleDetailViewModel {
             } else {
                 self.registerDelegate?.success()
             }
-            
+        }
+    }
+    
+    func removeUserOnTraining() {
+        guard let trainingUser = traininigHoursDetail.training_users else { return }
+        let id = trainingUser[0].id
+        
+        service.removeUserOnTraining(id) { _, error in
+            if error != nil {
+                print("Error \(error?.localizedDescription)")
+            } else {
+                self.registerDelegate?.success()
+            }
         }
     }
     
@@ -111,6 +125,14 @@ class ScheduleDetailViewModel {
         return RegisterTrainingViewModel(trainingDetail: user)
     }
     
+    func registerButtonPressed() {
+        if isRegistered {
+            self.registerDelegate?.showAlertRemoveUserOnTraining()
+        } else {
+            self.registerDelegate?.showAlertAddUserOnTraining()
+        }
+    }
+    
     func getRegisterButtonTitle() -> String {
         if isRegistered {
             return "SAIR DO TREINO"
@@ -125,7 +147,7 @@ class ScheduleDetailViewModel {
         let isRegistered = trainingUsers.contains { user in
             UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String == user.user_id
         }
-
+        
         self.isRegistered = isRegistered
     }
     

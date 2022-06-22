@@ -87,6 +87,26 @@ class TrainingHoursService {
         }
         task.resume()
     }
+    
+    // Remove usuario do treino
+    func removeUserOnTraining(_ id: String, completion: @escaping (URLResponse?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/trainingusers/\(id)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { _, response, error in
+            if error != nil {
+                print("Erro: \(error?.localizedDescription)")
+                completion(nil, error)
+            }
+            
+            completion(response, nil)
+            
+        }
+        task.resume()
+    }
 }
 
 

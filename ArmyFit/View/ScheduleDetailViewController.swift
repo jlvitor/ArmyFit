@@ -30,7 +30,7 @@ class ScheduleDetailViewController: UIViewController {
 
     //MARK: - Alerta do botao particiacao do treino
     @IBAction private func trainingParticipationButton(_ sender: UIButton) {
-        showAlert()
+        viewModel?.registerButtonPressed()
     }
     
     //MARK: - Private method
@@ -60,8 +60,11 @@ class ScheduleDetailViewController: UIViewController {
         availableSpotsLabel.text = viewModel.getAvailableSpots()
         registerButton.setTitle(viewModel.getRegisterButtonTitle(), for: .normal)
     }
-    
-    private func showAlert() {
+}
+
+//MARK: - RegisterOnTrainingDelegate
+extension ScheduleDetailViewController: RegisterOnTrainingDelegate {
+    func showAlertAddUserOnTraining() {
         let confirmAlert = UIAlertController(
             title: "Confirmação",
             message: "Deseja confirmar sua participação?",
@@ -79,10 +82,26 @@ class ScheduleDetailViewController: UIViewController {
         confirmAlert.addAction(cancel)
         self.present(confirmAlert, animated: true)
     }
-}
-
-//MARK: - RegisterOnTrainingDelegate
-extension ScheduleDetailViewController: RegisterOnTrainingDelegate {
+    
+    func showAlertRemoveUserOnTraining() {
+        let confirmAlert = UIAlertController(
+            title: "Confirmação",
+            message: "Deseja confirmar sua saida do treino?",
+            preferredStyle: .alert)
+        
+        let confirm = UIAlertAction(title: "Ok", style: .default) { action in
+            self.viewModel?.removeUserOnTraining()
+        }
+        
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
+            print("Cancelado")
+        }
+        
+        confirmAlert.addAction(confirm)
+        confirmAlert.addAction(cancel)
+        self.present(confirmAlert, animated: true)
+    }
+    
     func success() {
         viewModel?.fetchTrainingsHours(completion: {
             self.configScreen()
