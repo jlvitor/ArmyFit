@@ -8,15 +8,24 @@
 import UIKit
 
 class TrainingDetailViewController: UIViewController {
+    
+    @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var trainingLabel: UILabel!
     
-    
-    private var viewModel: TrainingViewModel?
+    var viewModel: TrainingViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScreen()
+    }
+    
+    private func setScreen() {
+        guard let viewModel = viewModel else { return }
 
+        exerciseLabel.text = viewModel.getExerciseName
+        warningLabel.text = viewModel.getWarning
+        trainingLabel.text = viewModel.getDetail
     }
 }
 

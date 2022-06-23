@@ -2,35 +2,41 @@
 //  TrainingViewModel.swift
 //  ArmyFit
 //
-//  Created by Gabriel Policastro on 08/06/22.
+//  Created by Jean Lucas Vitor on 23/06/22.
 //
 
 import Foundation
 
-protocol TrainingViewModelDelegate {
-    func reloadData()
-}
-
 class TrainingViewModel {
     
-    private let service: TrainingHoursService = .init()
-    private var trainingUser: [TrainingUser] = []
+    //MARK: - Private methods
+    private let service: UserService
+    private var trainingDetail: TrainingUser
     
-    var delegate: TrainingViewModelDelegate?
-    var trainingCount: Int = 0
-    
-    func fetchTrainingUser(_ date: String) {
-        service.getTrainingUser(date) { success, error in
-            guard let success = success else { return }
-            self.trainingUser = success
-            self.trainingCount = success.count
-            self.delegate?.reloadData()
+    init(service: UserService = .init(), trainingDetail: TrainingUser) {
+        self.service = service
+        self.trainingDetail = trainingDetail
+    }
+
+    //MARK: - Getters
+    var getExerciseName: String {
+        guard let exerciseName = trainingDetail.training_hours?.training.name else {
+            return "Não foi possivel carregar o aviso desse treino"
         }
+        return exerciseName
     }
     
-    func getTrainingCellViewModel(_ index: Int) -> TrainingDetailViewModel {
-        let training = trainingUser[index]
-        return TrainingDetailViewModel(training)
+    var getWarning: String {
+        guard let warning = trainingDetail.training_hours?.training.warning else {
+            return "Não foi possivel carregar o aviso desse treino"
+        }
+        return warning
     }
     
+    var getDetail: String {
+        guard let detail = trainingDetail.training_hours?.description else {
+            return "Não foi possivel carregar o aviso desse treino"
+        }
+        return detail
+    }
 }
