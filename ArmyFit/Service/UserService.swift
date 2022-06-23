@@ -74,4 +74,26 @@ class UserService {
         }
         task.resume()
     }
+    
+    func getUserDetails(completion: @escaping (User?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/profile") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else { return }
+            
+            do {
+                let user = try JSONDecoder().decode(User.self, from: data)
+                DispatchQueue.main.async {
+                    completion(user, nil)
+                }
+            } catch {
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    }
 }

@@ -11,7 +11,7 @@ class TrainingViewController: UIViewController {
     
     @IBOutlet weak var trainingTableView: UITableView!
     
-    private let viewModel: TrainingViewModel = .init()
+    private let viewModel: TrainingsViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,13 @@ class TrainingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.fetchTrainingUser(Date.getCurrentDateToDateString())
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination as? TrainingDetailViewController {
+            let index = sender as? Int
+            detailVC.viewModel = viewModel.getTrainingDetail(at: index)
+        }
     }
     
     private func configTableView() {
@@ -37,6 +44,11 @@ class TrainingViewController: UIViewController {
 
 //MARK: - UITableViewDelegate
 extension TrainingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "trainingDetail", sender: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }

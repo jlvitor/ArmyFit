@@ -25,7 +25,7 @@
 		90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */; };
 		90D000122857AE8500143DB3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D000112857AE8500143DB3 /* AuthService.swift */; };
 		90D0FFD028513FA000143DB3 /* TrainingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFCF28513FA000143DB3 /* TrainingDetailViewController.swift */; };
-		90D0FFD2285140E300143DB3 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */; };
+		90D0FFD2285140E300143DB3 /* TrainingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD1285140E300143DB3 /* TrainingsViewModel.swift */; };
 		90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */; };
 		CC086958284D8D14005E74B0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086957284D8D14005E74B0 /* ProfileViewModel.swift */; };
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
@@ -56,6 +56,7 @@
 		CCCB48A8285C0C3300AEC1E2 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB48A7285C0C3300AEC1E2 /* PostService.swift */; };
 		CCCB48AA285C36EC00AEC1E2 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB48A9285C36EC00AEC1E2 /* PostsViewModel.swift */; };
 		CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1056F2850E4B5006376B8 /* DayViewModel.swift */; };
+		CCE1F2032864EECB0072F231 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1F2022864EECB0072F231 /* TrainingViewModel.swift */; };
 		F865A093BFEAFFCA63C167B2 /* Pods_ArmyFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693603C10A79B8F9F7DCEB67 /* Pods_ArmyFit.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +82,7 @@
 		90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		90D000112857AE8500143DB3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		90D0FFCF28513FA000143DB3 /* TrainingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailViewController.swift; sourceTree = "<group>"; };
-		90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
+		90D0FFD1285140E300143DB3 /* TrainingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsViewModel.swift; sourceTree = "<group>"; };
 		90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
 		CC086957284D8D14005E74B0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ArmyFit/ViewModels/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		CCCB48A7285C0C3300AEC1E2 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		CCCB48A9285C36EC00AEC1E2 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
 		CCE1056F2850E4B5006376B8 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
+		CCE1F2022864EECB0072F231 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,10 +286,11 @@
 				CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */,
 				144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */,
 				144FF8AD285FACC70014B6E7 /* RegisterTrainingViewModel.swift */,
-				90D0FFD1285140E300143DB3 /* TrainingViewModel.swift */,
+				90D0FFD1285140E300143DB3 /* TrainingsViewModel.swift */,
 				CC7A2A202863B05A00E9943B /* TrainingDetailViewModel.swift */,
 				CCE1056F2850E4B5006376B8 /* DayViewModel.swift */,
 				CC086957284D8D14005E74B0 /* ProfileViewModel.swift */,
+				CCE1F2022864EECB0072F231 /* TrainingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -451,7 +454,8 @@
 				144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */,
 				144FF8AA285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift in Sources */,
 				CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */,
-				90D0FFD2285140E300143DB3 /* TrainingViewModel.swift in Sources */,
+				CCE1F2032864EECB0072F231 /* TrainingViewModel.swift in Sources */,
+				90D0FFD2285140E300143DB3 /* TrainingsViewModel.swift in Sources */,
 				CC52D9A12862449C00C10680 /* UserResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
