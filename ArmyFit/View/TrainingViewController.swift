@@ -21,13 +21,15 @@ class TrainingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.trainingUserSections = []
         viewModel.fetchTrainingUser(Date.getCurrentDateToDateString())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? TrainingDetailViewController {
-            let index = sender as? Int
-            detailVC.viewModel = viewModel.getTrainingDetail(at: index)
+            if let index = sender as? (Int, Int) {
+                detailVC.viewModel = viewModel.getTrainingDetail(index.0, index.1)
+            }
         }
     }
     
@@ -38,44 +40,51 @@ class TrainingViewController: UIViewController {
     
     private func configViewModel() {
         viewModel.delegate = self
-        viewModel.fetchTrainingUser(Date.getCurrentDateToDateString())
     }
 }
 
 //MARK: - UITableViewDelegate
 extension TrainingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "trainingDetail", sender: indexPath.row)
+        performSegue(withIdentifier: "trainingDetail", sender: (indexPath.section, indexPath.row))
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 65
     }
 }
 
+//MARK: - UITableViewDataSource
 extension TrainingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.trainingCount
+        return viewModel.trainingUserSections[section].trainings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trainingCell", for: indexPath) as? TrainingTableViewCell
-        let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.row)
-        cell?.configure(viewModel: cellViewModel)
-        return cell ?? UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "trainingCell", for: indexPath) as? TrainingTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.section, indexPath.row)
+        cell.configure(viewModel: cellViewModel)
+        
+//        let item = viewModel.trainingUserSections[indexPath.section].trainings[indexPath.row]
+//        cell.textLabel?.text = item.training_hours?.training.name
+        
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.trainingUserSections.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = "CROSSFIT"
-        return title
+        return viewModel.trainingUserSections[section].name
     }
 }
 
+//MARK: - TrainingViewModelDelegate
 extension TrainingViewController: TrainingViewModelDelegate {
     func reloadData() {
         trainingTableView.reloadData()
