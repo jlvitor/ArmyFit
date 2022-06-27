@@ -24,11 +24,11 @@ class PostsViewModel {
     }
     
     func getPosts() {
-        service.getPost { success, error in
-            guard let success = success else { return }
+        service.getPost { post, error in
+            guard let post = post else { return }
 
-            self.numberOfPosts = success.count
-            self.postsList = success
+            self.numberOfPosts = post.count
+            self.postsList = post
             self.delegate?.reloadData()
         }
     }
