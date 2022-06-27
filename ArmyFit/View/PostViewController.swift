@@ -1,5 +1,5 @@
 //
-//  PublicationViewController.swift
+//  PostViewController.swift
 //  ArmyFit
 //
 //  Created by Gabriel Lopes on 24/06/22.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class PublicationViewController: UIViewController {
+class PostViewController: UIViewController {
     
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var publicationUserTextView: UITextView!
+    @IBOutlet weak var publishTabButton: UIBarButtonItem!
     
-    @IBOutlet weak var publicationUserPoster: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         publicationUserTextView.text = "No que você está pensando?"

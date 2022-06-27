@@ -22,6 +22,7 @@ class FeedViewController: UIViewController {
         configUserImage()
         configCollectionView()
         configViewModel()
+        configGestureRecognizer()
     }
     
     //MARK: - Private methods
@@ -39,6 +40,19 @@ class FeedViewController: UIViewController {
         viewModel.delegate = self
         viewModel.getPosts()
     }
+    
+    private func configGestureRecognizer() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapAction(_:))
+        )
+        self.userPostView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "goToPostScreen", sender: self)
+    }
+    
 }
 
 //MARK: - PostViewModelDelegate
