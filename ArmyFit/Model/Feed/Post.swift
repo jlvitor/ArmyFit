@@ -14,7 +14,7 @@ struct Post: Codable {
     let user_id: String
     let created_at: String
     let user: User
-    let feed_comments: [CommentPost]?
+//    let feed_comments: [CommentPost]?
 }
 
 

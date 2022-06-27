@@ -25,6 +25,11 @@ class FeedViewController: UIViewController {
         configGestureRecognizer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getPosts()
+    }
+    
     //MARK: - Private methods
     private func configUserImage() {
         guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return }
