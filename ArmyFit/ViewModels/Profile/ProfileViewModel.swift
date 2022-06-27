@@ -10,6 +10,17 @@ import UIKit
 
 class ProfileViewModel {
     
+    private let service: UserService = .init()
+    private var media: MediaResponse?
+    
+    func uploadImage(image: UIImage) {
+        service.uploadImageToServer(image: image) { media, error in
+            guard let media = media else { return }
+
+            self.media = media
+        }
+    }
+    
     func getUserImage() -> String {
         guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile2" }
         return userImage

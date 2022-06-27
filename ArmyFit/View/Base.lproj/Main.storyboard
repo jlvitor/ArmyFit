@@ -767,7 +767,16 @@
                             <constraint firstItem="ep0-dl-QZB" firstAttribute="leading" secondItem="LD8-Tf-BJ4" secondAttribute="leading" id="vbl-fo-kcM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MAe-aM-Cmb"/>
+                    <navigationItem key="navigationItem" id="MAe-aM-Cmb">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Rop-4Z-BQW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="q6Y-j3-he9">
+                                <rect key="frame" x="-33" y="-15" width="86" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="availableSpotsLabel" destination="ckZ-MK-PgT" id="5Ay-3g-uAu"/>
                         <outlet property="dayNameLabel" destination="bfc-fN-gPn" id="6ai-zh-lFS"/>

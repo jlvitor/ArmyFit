@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var profileTableView: UITableView!
     
-    private let viewModel: ProfileViewModel = ProfileViewModel()
+    private let viewModel: ProfileViewModel = .init()
     private let keychain: KeychainSwift = .init()
     
     override func viewDidLoad() {
@@ -99,11 +99,10 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
             result.itemProvider.loadObject(ofClass: UIImage.self) { success, error in
                 guard let image = success as? UIImage, error == nil else { return }
                 DispatchQueue.main.async {
-                    self.profileImageView.image = image
+                    self.viewModel.uploadImage(image: image)
                 }
             }
         }
-        
     }
 }
 
@@ -111,8 +110,8 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.originalImage] as? UIImage else { return }
-
-        profileImageView.image = profileImage
+        
+        viewModel.uploadImage(image: profileImage)
         dismiss(animated: true)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct User: Codable {
-    let id: String // Id do usuário
+    let id: UUID // Id do usuário
     let name: String // Nome do usuário
     let email: String // Email do usuário
     let password: String // Senha do usuário

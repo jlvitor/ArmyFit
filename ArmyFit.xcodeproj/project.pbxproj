@@ -31,6 +31,9 @@
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */; };
 		CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E326C285A4CD600B7AA7B /* String+Extension.swift */; };
+		CC3E726F286913B6004F525F /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E726E286913B6004F525F /* Media.swift */; };
+		CC3E72712869145C004F525F /* MediaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E72702869145C004F525F /* MediaResponse.swift */; };
+		CC3E72732869186B004F525F /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E72722869186B004F525F /* Data+Extension.swift */; };
 		CC42A674285C45D900F2F857 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A673285C45D900F2F857 /* PostViewModel.swift */; };
 		CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */; };
 		CC52D997286243FA00C10680 /* TrainingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D996286243FA00C10680 /* TrainingHours.swift */; };
@@ -89,6 +92,9 @@
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleViewModel.swift; path = ArmyFit/ViewModels/Schedules/ScheduleViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC3E326C285A4CD600B7AA7B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CC3E726E286913B6004F525F /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		CC3E72702869145C004F525F /* MediaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaResponse.swift; sourceTree = "<group>"; };
+		CC3E72722869186B004F525F /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		CC42A673285C45D900F2F857 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC52D996286243FA00C10680 /* TrainingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingHours.swift; sourceTree = "<group>"; };
@@ -135,7 +141,7 @@
 		14C0AD4828454F4700E5FEA4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				14C0AD4928454F7200E5FEA4 /* User.swift */,
+				CC3E726D286913A8004F525F /* User */,
 				CC52D9A2286244AD00C10680 /* Login */,
 				CC52D99F2862447E00C10680 /* Feed */,
 				CC52D99C2862445800C10680 /* Training */,
@@ -158,6 +164,16 @@
 				61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC3E726D286913A8004F525F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				14C0AD4928454F7200E5FEA4 /* User.swift */,
+				CC3E726E286913B6004F525F /* Media.swift */,
+				CC3E72702869145C004F525F /* MediaResponse.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		CC52D99C2862445800C10680 /* Training */ = {
@@ -238,6 +254,7 @@
 				CC9B2E81285949A40081745D /* Date+Extension.swift */,
 				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
 				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
+				CC3E72722869186B004F525F /* Data+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -476,6 +493,7 @@
 				CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */,
 				9091028628624C5200A03DFF /* TrainingViewController.swift in Sources */,
 				CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */,
+				CC3E72712869145C004F525F /* MediaResponse.swift in Sources */,
 				6E3B8ED92857BCDA0023E5A7 /* LoginViewModel.swift in Sources */,
 				CC9FE1722857CCDB0010EE58 /* HideKeyboard+Extension.swift in Sources */,
 				CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */,
@@ -484,6 +502,7 @@
 				90D0FFD028513FA000143DB3 /* TrainingDetailViewController.swift in Sources */,
 				CCCB48A6285C0A2A00AEC1E2 /* Post.swift in Sources */,
 				144FF8B1285FACC70014B6E7 /* SchedulesViewModel.swift in Sources */,
+				CC3E726F286913B6004F525F /* Media.swift in Sources */,
 				90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */,
 				CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */,
 				90D000122857AE8500143DB3 /* AuthService.swift in Sources */,
@@ -494,6 +513,7 @@
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
 				144FF8B42860F8FE0014B6E7 /* TrainingHoursService.swift in Sources */,
 				6EB425A028415719005AE67C /* ScheduleViewController.swift in Sources */,
+				CC3E72732869186B004F525F /* Data+Extension.swift in Sources */,
 				CC9B2E82285949A40081745D /* Date+Extension.swift in Sources */,
 				CCAF5FE0284ED7F900678230 /* UserService.swift in Sources */,
 				CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */,
