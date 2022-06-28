@@ -22,12 +22,17 @@ class FeedViewController: UIViewController {
         configUserImage()
         configCollectionView()
         configViewModel()
+        configGestureRecognizer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getPosts()
     }
     
     //MARK: - Private methods
     private func configUserImage() {
-        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return }
-        userImageView.image = UIImage(named: userImage)
+        userImageView.image = UIImage(named: viewModel.getUserImage)
     }
     
     private func configCollectionView() {
@@ -39,6 +44,19 @@ class FeedViewController: UIViewController {
         viewModel.delegate = self
         viewModel.getPosts()
     }
+    
+    private func configGestureRecognizer() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapAction(_:))
+        )
+        self.userPostView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "goToPostScreen", sender: self)
+    }
+    
 }
 
 //MARK: - PostViewModelDelegate
