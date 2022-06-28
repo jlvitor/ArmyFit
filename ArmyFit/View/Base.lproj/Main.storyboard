@@ -1565,7 +1565,8 @@
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" text="No que você está pensando?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bbz-P2-7Nb">
                                         <rect key="frame" x="20" y="0.0" width="350" height="650"/>
-                                        <color key="backgroundColor" name="Background 2"/>
+                                        <color key="backgroundColor" name="light_background"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

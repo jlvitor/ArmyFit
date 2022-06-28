@@ -9,17 +9,18 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    
-    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var publicationUserTextView: UITextView!
     
     private let viewModel: NewPostViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         configTextView()
         configViewModel()
+        configUserLabel()
     }
     
     //MARK: - Private methods
@@ -35,6 +36,11 @@ class PostViewController: UIViewController {
     
     private func configViewModel() {
         viewModel.delegate = self
+    }
+    
+    private func configUserLabel() {
+        posterImage.image = UIImage(named: viewModel.getUserImage)
+        userNameLabel.text = viewModel.getUserName
     }
 }
 
@@ -57,8 +63,7 @@ extension PostViewController: UITextViewDelegate {
 
 extension PostViewController: NewPostViewModelDelegate {
     func successMakeNewPost() {
-        print("Sucesso ao fazer postagem")
-    }
+        navigationController?.popViewController(animated: true)    }
     
     func errorMakeNewPost() {
         print("Erro ao fazer postagem")

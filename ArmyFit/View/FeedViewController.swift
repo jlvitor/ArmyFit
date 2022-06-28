@@ -32,8 +32,7 @@ class FeedViewController: UIViewController {
     
     //MARK: - Private methods
     private func configUserImage() {
-        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return }
-        userImageView.image = UIImage(named: userImage)
+        userImageView.image = UIImage(named: viewModel.getUserImage)
     }
     
     private func configCollectionView() {

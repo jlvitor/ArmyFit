@@ -44,7 +44,7 @@ class PostService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
             "description": description
         ]

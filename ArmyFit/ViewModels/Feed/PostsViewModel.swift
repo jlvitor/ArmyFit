@@ -18,6 +18,10 @@ class PostsViewModel {
     var delegate: PostViewModelDelegate?
     var postsList: [Post] = []
     var numberOfPosts: Int = 0
+    var getUserImage: String {
+        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile"}
+        return userImage
+    }
     
     init(service: PostService = .init()) {
         self.service = service

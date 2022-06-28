@@ -18,6 +18,16 @@ class NewPostViewModel {
     
     var delegate: NewPostViewModelDelegate?
     
+    var getUserImage: String {
+        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile"}
+        return userImage
+    }
+    
+    var getUserName: String {
+        guard let userName = UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String else { return "Usuário sem nome"}
+        return userName
+    }
+    
     init(service: PostService = .init()) {
         self.service = service
     }
