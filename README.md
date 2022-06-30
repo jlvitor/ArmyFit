@@ -1,4 +1,4 @@
-[Logo do projeto ArmyFit](https://i.imgur.com/gZpSH12.png?1)
+![Logo do projeto ArmyFit](https://i.imgur.com/gZpSH12.png?1)
 
 <h1 align="center"> ArmyFit </h1>
 
