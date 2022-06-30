@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRr-qZ-JN5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRr-qZ-JN5">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -916,21 +916,24 @@
                                                     <rect key="frame" x="20" y="180" width="344" height="17"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-Jb-O8S">
-                                                            <rect key="frame" x="0.0" y="0.0" width="79.666666666666671" height="17"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="17"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW8-6U-dwC">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="65.666666666666671" height="17"/>
+                                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW8-6U-dwC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="76.666666666666671" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                                                     <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-10" maxY="0.0"/>
-                                                                    <state key="normal" title="Curtir">
+                                                                    <state key="normal" title="   Curtir">
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <imageReference key="image" image="hand.thumbsup" catalog="system" symbolScale="small"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="likeButtonPressed:" destination="a14-CC-ahf" eventType="touchUpInside" id="EqW-at-ICg"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBx-NC-247">
-                                                                    <rect key="frame" x="70.666666666666671" y="0.0" width="9" height="17"/>
+                                                                    <rect key="frame" x="81.666666666666671" y="0.0" width="9" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -987,6 +990,7 @@
                                         <size key="customSize" width="384" height="207"/>
                                         <connections>
                                             <outlet property="buttonsStackView" destination="o2N-kq-LKY" id="sKn-oK-GfP"/>
+                                            <outlet property="likeButton" destination="tW8-6U-dwC" id="Bja-UI-IZx"/>
                                             <outlet property="numberOfCommentsLabel" destination="hHs-TC-ONL" id="O3Z-BD-IWW"/>
                                             <outlet property="numberOfLikesLabel" destination="mBx-NC-247" id="Klv-Wh-cAk"/>
                                             <outlet property="postDateLabel" destination="DcY-Of-SkQ" id="slA-7I-JY9"/>

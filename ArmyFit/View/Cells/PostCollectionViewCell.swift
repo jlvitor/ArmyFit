@@ -16,6 +16,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberOfLikesLabel: UILabel!
     @IBOutlet weak var numberOfCommentsLabel: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var buttonsStackView: UIStackView!
     
     func configure(_ viewModel: PostViewModel) {
@@ -24,4 +25,18 @@ class PostCollectionViewCell: UICollectionViewCell {
         postLabel.text = viewModel.getPostText()
         numberOfLikesLabel.text = viewModel.getNumberOfLikes()
     }
-}
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        if likeButton.tag == 0 {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+            likeButton.tag = 1
+            likeButton.im
+        } else {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            likeButton.tag = 0
+            likeButton.titleLabel!.font = UIFont(name: "System", size: 14.0)
+           
+        }
+    }
+    }
+
