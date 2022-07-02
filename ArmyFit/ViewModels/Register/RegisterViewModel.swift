@@ -12,16 +12,22 @@ protocol RegisterViewModelDelegate {
     func errorRegister()
 }
 
+protocol PasswordValidationDelegate {
+    func successPasswordValidation()
+    func errorPasswordValidation()
+}
+
 class RegisterViewModel {
     
     private let service: UserService
     
     var delegate: RegisterViewModelDelegate?
+    var validationDelegate: PasswordValidationDelegate?
     
     init(service: UserService = .init()) {
         self.service = service
     }
-        
+    
     func makeRegisterRequest(_ name: String?, _ email: String?, _ password: String?) {
         service.registerUser(
             name: getValueToValidade(name),
@@ -34,6 +40,18 @@ class RegisterViewModel {
                 print(success)
                 self.delegate?.successRegister()
             }
+    }
+    
+    func getPasswordValidation(_ password: String?, _ confirmPassword: String?) {
+        guard let password = password,
+              let confirmPassword = confirmPassword else { return }
+        
+        
+        if password != confirmPassword {
+            self.validationDelegate?.errorPasswordValidation()
+        } else {
+            self.validationDelegate?.successPasswordValidation()
+        }
     }
     
     func getValueToValidade(_ text: String?) -> String {

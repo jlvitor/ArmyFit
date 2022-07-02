@@ -23,14 +23,12 @@ class RegisterViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         configGestureRecognizer()
         viewModel.delegate = self
+        viewModel.validationDelegate = self
     }
     
     //MARK: - Private methods
     @IBAction private func registerButton(_ sender: UIButton) {
-        viewModel.makeRegisterRequest(
-            nameTextField.text,
-            emailTextField.text,
-            passwordTextField.text)
+        viewModel.getPasswordValidation(passwordTextField.text, confirmPasswordTextField.text)
     }
     
     private func showAlert() {
@@ -43,6 +41,19 @@ class RegisterViewController: UIViewController {
         present(error, animated: true)
     }
     
+    private func errorPasswordValidationAlert() {
+        let error = UIAlertController(
+            title: "Acesso negado",
+            message: "Digite a mesma senha nos dois campos",
+            preferredStyle: .alert)
+        let confirm = UIAlertAction(
+            title: "Ok",
+            style:.cancel)
+            
+        error.addAction(confirm)
+        present(error, animated: true, completion: nil)
+    }
+    
     private func configGestureRecognizer() {
         let tap = UITapGestureRecognizer(
             target: self,
@@ -51,7 +62,7 @@ class RegisterViewController: UIViewController {
         self.loginScreen.addGestureRecognizer(tap)
     }
 
-    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+@objc private func tapAction(_ sender: UITapGestureRecognizer) {
         navigationController?.popViewController(animated: true)
     }
 }
@@ -65,4 +76,19 @@ extension RegisterViewController: RegisterViewModelDelegate {
     func errorRegister() {
         showAlert() 
     }
+}
+//MARK: - PasswordValidationDelegate
+extension RegisterViewController: PasswordValidationDelegate {
+    func successPasswordValidation() {
+        viewModel.makeRegisterRequest(
+            nameTextField.text,
+            emailTextField.text,
+            passwordTextField.text)
+    }
+    
+    func errorPasswordValidation() {
+        errorPasswordValidationAlert()
+    }
+    
+    
 }

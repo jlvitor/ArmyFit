@@ -16,6 +16,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var numberOfLikesLabel: UILabel!
     @IBOutlet weak var numberOfCommentsLabel: UILabel!
     
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var buttonsStackView: UIStackView!
     
     func configure(_ viewModel: PostViewModel) {
@@ -24,4 +25,19 @@ class PostCollectionViewCell: UICollectionViewCell {
         postLabel.text = viewModel.getPostText()
         numberOfLikesLabel.text = viewModel.getNumberOfLikes()
     }
+    
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+        let scaleConfig = UIImage.SymbolConfiguration(scale: .small)
+        
+        if likeButton.tag == 0 {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup")?.withConfiguration(scaleConfig), for: .normal)
+            likeButton.tintColor = UIColor(named: "green_color")
+            likeButton.tag = 1
+        } else {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill")?.withConfiguration(scaleConfig), for: .normal)
+            likeButton.tintColor = UIColor(named: "green_color")
+            likeButton.tag = 0
+        }
+    }
 }
+
