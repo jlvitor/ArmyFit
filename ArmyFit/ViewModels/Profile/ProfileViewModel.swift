@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 class ProfileViewModel {
     
@@ -63,39 +64,27 @@ class ProfileViewModel {
         return nil
     }
     
-    func getWhatsapp() {
+    func getWhatsApp() {
         let countryCode = "55" //Country code
-           let mobileNumber = "81993704720" //Mobile number
-           let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
-
-           let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
-           let URL = NSURL(string: urlStringEncoded!)
-
-           if UIApplication.shared.canOpenURL(URL! as URL) {
-               debugPrint("opening Whatsapp")
-               UIApplication.shared.open(URL! as URL, options: [:]) { status in
-                   debugPrint("Opened WhatsApp Chat")
-               }
-           } else {
-               debugPrint("Can't open")
-           }
-    }
-    
-    func getGmail() {
-           let urlString = "https://gmail.com"
-
-           let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
-           let URL = NSURL(string: urlStringEncoded!)
-
-           if UIApplication.shared.canOpenURL(URL! as URL) {
-               debugPrint("opening Gmail")
-               UIApplication.shared.open(URL! as URL, options: [:]) { status in
-                   debugPrint("Opened Gmail")
-               }
-           } else {
-               debugPrint("Can't open")
-           }
+        let mobileNumber = "81993704720" //Mobile number
+        let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
+        
+        let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        let URL = NSURL(string: urlStringEncoded!)
+        
+        if UIApplication.shared.canOpenURL(URL! as URL) {
+            debugPrint("opening Whatsapp")
+            UIApplication.shared.open(URL! as URL, options: [:]) { status in
+                debugPrint("Opened WhatsApp Chat")
+            }
+        } else {
+            debugPrint("Can't open")
+        }
     }
 }
+
+
+
+
+
