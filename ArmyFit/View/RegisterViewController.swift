@@ -27,10 +27,7 @@ class RegisterViewController: UIViewController {
     
     //MARK: - Private methods
     @IBAction private func registerButton(_ sender: UIButton) {
-        viewModel.makeRegisterRequest(
-            nameTextField.text,
-            emailTextField.text,
-            passwordTextField.text)
+        viewModel.getPasswordValidation(passwordTextField.text, confirmPasswordTextField.text)
     }
     
     private func showAlert() {
@@ -50,11 +47,8 @@ class RegisterViewController: UIViewController {
             preferredStyle: .alert)
         let confirm = UIAlertAction(
             title: "Ok",
-            style:.cancel) { (action) in
-                guard let password = self.passwordTextField.text,
-                      let confirmPassword = self.confirmPasswordTextField.text else { return }
-                self.viewModel.getPasswordValidation(password, confirmPassword)
-            }
+            style:.cancel)
+            
         error.addAction(confirm)
         present(error, animated: true, completion: nil)
     }
@@ -67,7 +61,7 @@ class RegisterViewController: UIViewController {
         self.loginScreen.addGestureRecognizer(tap)
     }
 
-    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+@objc private func tapAction(_ sender: UITapGestureRecognizer) {
         navigationController?.popViewController(animated: true)
     }
 }
@@ -82,10 +76,13 @@ extension RegisterViewController: RegisterViewModelDelegate {
         showAlert() 
     }
 }
-
+//MARK: - PasswordValidationViewModelDelegate
 extension RegisterViewController: PasswordValidationDelegate {
     func successPasswordValidation() {
-        performSegue(withIdentifier: "backToLoginScreen", sender: self)
+        viewModel.makeRegisterRequest(
+            nameTextField.text,
+            emailTextField.text,
+            passwordTextField.text)
     }
     
     func errorPasswordValidation() {

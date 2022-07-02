@@ -30,7 +30,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         if likeButton.tag == 0 {
             likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
             likeButton.tag = 1
-            likeButton.im
+          
         } else {
             likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
             likeButton.tag = 0
