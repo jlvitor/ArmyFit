@@ -23,6 +23,7 @@ class RegisterViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         configGestureRecognizer()
         viewModel.delegate = self
+        viewModel.validationDelegate = self
     }
     
     //MARK: - Private methods
@@ -76,7 +77,7 @@ extension RegisterViewController: RegisterViewModelDelegate {
         showAlert() 
     }
 }
-//MARK: - PasswordValidationViewModelDelegate
+//MARK: - PasswordValidationDelegate
 extension RegisterViewController: PasswordValidationDelegate {
     func successPasswordValidation() {
         viewModel.makeRegisterRequest(

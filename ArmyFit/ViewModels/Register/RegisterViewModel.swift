@@ -27,7 +27,7 @@ class RegisterViewModel {
     init(service: UserService = .init()) {
         self.service = service
     }
-        
+    
     func makeRegisterRequest(_ name: String?, _ email: String?, _ password: String?) {
         service.registerUser(
             name: getValueToValidade(name),
@@ -43,13 +43,14 @@ class RegisterViewModel {
     }
     
     func getPasswordValidation(_ password: String?, _ confirmPassword: String?) {
-        if let password = password,
-           let confirmPassword = confirmPassword {
-            if password != confirmPassword {
-                self.validationDelegate?.errorPasswordValidation()
-            } else {
-                self.validationDelegate?.successPasswordValidation()
-            }
+        guard let password = password,
+              let confirmPassword = confirmPassword else { return }
+        
+        
+        if password != confirmPassword {
+            self.validationDelegate?.errorPasswordValidation()
+        } else {
+            self.validationDelegate?.successPasswordValidation()
         }
     }
     

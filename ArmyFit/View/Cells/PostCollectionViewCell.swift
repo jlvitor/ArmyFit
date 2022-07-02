@@ -27,16 +27,17 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
+        let scaleConfig = UIImage.SymbolConfiguration(scale: .small)
+        
         if likeButton.tag == 0 {
-            likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup")?.withConfiguration(scaleConfig), for: .normal)
+            likeButton.tintColor = UIColor(named: "green_color")
             likeButton.tag = 1
-          
         } else {
-            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill")?.withConfiguration(scaleConfig), for: .normal)
+            likeButton.tintColor = UIColor(named: "green_color")
             likeButton.tag = 0
-            likeButton.titleLabel!.font = UIFont(name: "System", size: 14.0)
-           
         }
     }
-    }
+}
 
