@@ -43,6 +43,22 @@ class RegisterViewController: UIViewController {
         present(error, animated: true)
     }
     
+    private func errorPasswordValidationAlert() {
+        let error = UIAlertController(
+            title: "Acesso negado",
+            message: "Digite a mesma senha nos dois campos",
+            preferredStyle: .alert)
+        let confirm = UIAlertAction(
+            title: "Ok",
+            style:.cancel) { (action) in
+                guard let password = self.passwordTextField.text,
+                      let confirmPassword = self.confirmPasswordTextField.text else { return }
+                self.viewModel.getPasswordValidation(password, confirmPassword)
+            }
+        error.addAction(confirm)
+        present(error, animated: true, completion: nil)
+    }
+    
     private func configGestureRecognizer() {
         let tap = UITapGestureRecognizer(
             target: self,
@@ -65,4 +81,16 @@ extension RegisterViewController: RegisterViewModelDelegate {
     func errorRegister() {
         showAlert() 
     }
+}
+
+extension RegisterViewController: PasswordValidationDelegate {
+    func successPasswordValidation() {
+        performSegue(withIdentifier: "backToLoginScreen", sender: self)
+    }
+    
+    func errorPasswordValidation() {
+        errorPasswordValidationAlert()
+    }
+    
+    
 }
