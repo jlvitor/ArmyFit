@@ -65,7 +65,7 @@ class ProfileViewModel {
     
     func getWhatsapp() {
         let countryCode = "55" //Country code
-           let mobileNumber = "81996687697" //Mobile number
+           let mobileNumber = "81993704720" //Mobile number
            let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
 
            let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
