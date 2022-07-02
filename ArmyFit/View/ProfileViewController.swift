@@ -8,6 +8,7 @@
 import UIKit
 import PhotosUI
 import KeychainSwift
+import MessageUI
 
 class ProfileViewController: UIViewController {
     
@@ -90,7 +91,7 @@ class ProfileViewController: UIViewController {
         
         present(editProfileALert, animated: true)
     }
-
+    
     private func openGalleryPickerView() {
         var configuration = PHPickerConfiguration(photoLibrary: .shared())
         configuration.filter = .images
@@ -133,7 +134,7 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.originalImage] as? UIImage else { return }
-
+        
         profileImageView.image = profileImage
         dismiss(animated: true)
     }
@@ -156,6 +157,33 @@ extension ProfileViewController: UITableViewDelegate {
                     withIdentifier: "LoginNavigationController")
                 
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainLoginVC)
+            }
+        }
+        
+        if indexPath.section == 1 {
+            if indexPath.row == 1 {
+                viewModel.getWhatsApp()
+            }
+        }
+        
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                let recipientEmail = "vjeanlucas93@gmail.com"
+                let subject = "ArmyFit - Suporte ao cliente"
+                
+                // Show default mail composer
+                if MFMailComposeViewController.canSendMail() {
+                    let mail = MFMailComposeViewController()
+                    mail.mailComposeDelegate = self
+                    mail.setToRecipients([recipientEmail])
+                    mail.setSubject(subject)
+                    
+                    present(mail, animated: true)
+                    
+                    // Show third party email composer if default Mail app is not present
+                } else if let emailUrl = viewModel.createEmailUrl(to: recipientEmail, subject: subject) {
+                    UIApplication.shared.open(emailUrl)
+                }
             }
         }
     }
@@ -185,5 +213,12 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let title = viewModel.setTilteForSection(section)
         return title
+    }
+}
+
+extension ProfileViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

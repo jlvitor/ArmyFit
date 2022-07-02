@@ -62,4 +62,46 @@ class ProfileViewModel {
         }
         return nil
     }
+    
+    func getWhatsApp() {
+        let countryCode = "55" //Country code
+        let mobileNumber = "81993704720" //Mobile number
+        let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
+        
+        let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        let URL = NSURL(string: urlStringEncoded!)
+        
+        if UIApplication.shared.canOpenURL(URL! as URL) {
+            debugPrint("opening Whatsapp")
+            UIApplication.shared.open(URL! as URL, options: [:]) { status in
+                debugPrint("Opened WhatsApp Chat")
+            }
+        } else {
+            debugPrint("Can't open")
+        }
+    }
+    
+    private func createEmailUrl(to: String, subject: String, body: String) -> URL? {
+              let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+              let bodyEncoded = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+              
+              let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
+              let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subjectEncoded)")
+              let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
+              let sparkUrl = URL(string: "readdle-spark://compose?recipient=\(to)&subject=\(subjectEncoded)&body=\(bodyEncoded)")
+              let defaultUrl = URL(string: "mailto:\(to)?subject=\(subjectEncoded)&body=\(bodyEncoded)")
+              
+              if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
+                  return gmailUrl
+              } else if let outlookUrl = outlookUrl, UIApplication.shared.canOpenURL(outlookUrl) {
+                  return outlookUrl
+              } else if let yahooMail = yahooMail, UIApplication.shared.canOpenURL(yahooMail) {
+                  return yahooMail
+              } else if let sparkUrl = sparkUrl, UIApplication.shared.canOpenURL(sparkUrl) {
+                  return sparkUrl
+              }
+              
+              return defaultUrl
+          }
 }
