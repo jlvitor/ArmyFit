@@ -62,4 +62,23 @@ class ProfileViewModel {
         }
         return nil
     }
+    
+    func getWhatsapp() {
+        let countryCode = "55" //Country code
+           let mobileNumber = "81996687697" //Mobile number
+           let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
+
+           let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+           let URL = NSURL(string: urlStringEncoded!)
+
+           if UIApplication.shared.canOpenURL(URL! as URL) {
+               debugPrint("opening Whatsapp")
+               UIApplication.shared.open(URL! as URL, options: [:]) { status in
+                   debugPrint("Opened WhatsApp Chat")
+               }
+           } else {
+               debugPrint("Can't open")
+           }
+    }
 }
