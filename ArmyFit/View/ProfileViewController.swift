@@ -158,12 +158,18 @@ extension ProfileViewController: UITableViewDelegate {
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainLoginVC)
             }
         }
+        
         if indexPath.section == 1 {
             if indexPath.row == 1 {
                 viewModel.getWhatsapp()
             }
         }
         
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                viewModel.getGmail()
+            }
+        }
     }
 }
 

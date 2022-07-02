@@ -81,4 +81,21 @@ class ProfileViewModel {
                debugPrint("Can't open")
            }
     }
+    
+    func getGmail() {
+           let urlString = "https://gmail.com"
+
+           let urlStringEncoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+           let URL = NSURL(string: urlStringEncoded!)
+
+           if UIApplication.shared.canOpenURL(URL! as URL) {
+               debugPrint("opening Gmail")
+               UIApplication.shared.open(URL! as URL, options: [:]) { status in
+                   debugPrint("Opened Gmail")
+               }
+           } else {
+               debugPrint("Can't open")
+           }
+    }
 }
