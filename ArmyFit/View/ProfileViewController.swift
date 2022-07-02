@@ -58,7 +58,29 @@ class ProfileViewController: UIViewController {
         let editImageProfileCamera = UIAlertAction(title: "Tirar uma foto de perfil", style: .default) { action in
             self.openCameraPickerView()
         }
-        let editNameProfile = UIAlertAction(title: "Editar nome de perfil", style: .default)
+        let editNameProfile = UIAlertAction(title: "Editar nome de perfil", style: .default) { (action) in
+            let alertController = UIAlertController(title: "Confirmação", message: "Digite seu novo nome de perfil", preferredStyle: .alert)
+            
+            alertController.addTextField { (textfield) in
+                textfield.placeholder = "Digite seu nome"
+            }
+            
+            let submit = UIAlertAction(title: "Ok", style: .default) { (action) in
+                
+                if let name = alertController.textFields?.first?.text {
+                    self.nameLabel.text = String(name).uppercased()
+                }
+                
+            }
+            
+            let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { (action) in
+                print("Operation has been cancelled")
+            }
+            alertController.addAction(submit)
+            alertController.addAction(cancel)
+            self.present(alertController, animated: true)
+        }
+        
         let cancelEdit = UIAlertAction(title: "Cancelar", style: .cancel)
         
         editProfileALert.addAction(editImageProfileGallery)
@@ -68,7 +90,7 @@ class ProfileViewController: UIViewController {
         
         present(editProfileALert, animated: true)
     }
-    
+
     private func openGalleryPickerView() {
         var configuration = PHPickerConfiguration(photoLibrary: .shared())
         configuration.filter = .images
