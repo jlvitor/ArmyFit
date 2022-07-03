@@ -9,9 +9,11 @@ import UIKit
 
 class ScheduleDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var posterUser: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
+    //MARK: - Private properties
+    @IBOutlet private weak var posterUser: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
     
+    //MARK: - Punlic method
     func configure(_ index: Int, _ viewModel: RegisterTrainingViewModel) {
         posterUser.image = UIImage(named: viewModel.getUserImage(index))
         userNameLabel.text = viewModel.getUserName(index)

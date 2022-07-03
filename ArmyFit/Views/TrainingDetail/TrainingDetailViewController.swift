@@ -9,10 +9,12 @@ import UIKit
 
 class TrainingDetailViewController: UIViewController {
     
-    @IBOutlet weak var exerciseLabel: UILabel!
-    @IBOutlet weak var warningLabel: UILabel!
-    @IBOutlet weak var trainingLabel: UILabel!
+    //MARK: - Private properties
+    @IBOutlet private weak var exerciseLabel: UILabel!
+    @IBOutlet private weak var warningLabel: UILabel!
+    @IBOutlet private weak var trainingLabel: UILabel!
     
+    //MARK: - Public propertie
     var viewModel: TrainingViewModel?
     
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ class TrainingDetailViewController: UIViewController {
         setScreen()
     }
     
+    //MARK: - Private method
     private func setScreen() {
         guard let viewModel = viewModel else { return }
 

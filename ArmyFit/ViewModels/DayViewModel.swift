@@ -9,22 +9,23 @@ import Foundation
 
 class DayViewModel {
     
+    //MARK: - Private propertie
     private var trainingDay: (String, String)
     
     init(trainingDay: (String, String)) {
         self.trainingDay = trainingDay
     }
     
-    func getDayStringInAMonth() -> String {
-        let dayName = trainingDay.1
-        return convertToUppercasedAndRemoveDotIfNecessary(dayName)
-    }
-
-    func getDayIntInAMonth() -> String {
-        let day = trainingDay.0
-        return day
+    //MARK: - Getters
+    var getDayStringInAMonth: String {
+        convertToUppercasedAndRemoveDotIfNecessary(trainingDay.1)
     }
     
+    var getDayIntInAMonth: String {
+        trainingDay.0
+    }
+    
+    //MARK: - Private methods
     private func convertToUppercasedAndRemoveDotIfNecessary(_ text: String) -> String {
         var dayName = text
         

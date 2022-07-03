@@ -8,10 +8,14 @@
 import UIKit
 
 class CustomTabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configTabBarController()
+    }
+    
+    //MARK: - Private method
+    private func configTabBarController() {
         tabBar.layer.shadowOffset = CGSize.zero
         tabBar.layer.shadowRadius = 4
         tabBar.layer.shadowColor = UIColor.black.cgColor

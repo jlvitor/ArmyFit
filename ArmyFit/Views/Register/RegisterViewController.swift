@@ -9,11 +9,12 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var loginScreen: UIStackView!
+    //MARK: - Private properties
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var loginScreen: UIStackView!
     
     private let viewModel: RegisterViewModel = RegisterViewModel()
     
@@ -21,9 +22,8 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         view.overrideUserInterfaceStyle = .light
         hideKeyboardWhenTappedAround()
+        configViewModel()
         configGestureRecognizer()
-        viewModel.delegate = self
-        viewModel.validationDelegate = self
     }
     
     //MARK: - Private methods
@@ -31,12 +31,19 @@ class RegisterViewController: UIViewController {
         viewModel.getPasswordValidation(passwordTextField.text, confirmPasswordTextField.text)
     }
     
-    private func showAlert() {
+    private func configViewModel() {
+        viewModel.delegate = self
+        viewModel.validationDelegate = self
+    }
+    
+    private func errorAlert() {
         let error = UIAlertController(
             title: "Acesso negado",
             message: "Dados incorretos, verifique e tente novamente!",
             preferredStyle: .alert)
+        
         let confirm = UIAlertAction(title: "OK", style: .cancel)
+        
         error.addAction(confirm)
         present(error, animated: true)
     }
@@ -46,6 +53,7 @@ class RegisterViewController: UIViewController {
             title: "Acesso negado",
             message: "Digite a mesma senha nos dois campos",
             preferredStyle: .alert)
+        
         let confirm = UIAlertAction(
             title: "Ok",
             style:.cancel)
@@ -74,7 +82,7 @@ extension RegisterViewController: RegisterViewModelDelegate {
     }
     
     func errorRegister() {
-        showAlert() 
+        errorAlert() 
     }
 }
 //MARK: - PasswordValidationDelegate
@@ -89,6 +97,4 @@ extension RegisterViewController: PasswordValidationDelegate {
     func errorPasswordValidation() {
         errorPasswordValidationAlert()
     }
-    
-    
 }

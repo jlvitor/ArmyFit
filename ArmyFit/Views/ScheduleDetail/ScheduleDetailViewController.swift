@@ -9,17 +9,19 @@ import UIKit
 
 class ScheduleDetailViewController: UIViewController {
     
-    @IBOutlet weak var dayNameLabel: UILabel!
-    @IBOutlet weak var dayNumberLabel: UILabel!
-    @IBOutlet weak var monitorLabel: UILabel!
-    @IBOutlet weak var hourLabel: UILabel!
-    @IBOutlet weak var minuteLabel: UILabel!
-    @IBOutlet weak var spotsLabel: UILabel!
-    @IBOutlet weak var availableSpotsLabel: UILabel!
-    @IBOutlet weak var registerButton: UIButton!
+    //MARK: - Private properties
+    @IBOutlet private weak var dayNameLabel: UILabel!
+    @IBOutlet private weak var dayNumberLabel: UILabel!
+    @IBOutlet private weak var monitorLabel: UILabel!
+    @IBOutlet private weak var hourLabel: UILabel!
+    @IBOutlet private weak var minuteLabel: UILabel!
+    @IBOutlet private weak var spotsLabel: UILabel!
+    @IBOutlet private weak var availableSpotsLabel: UILabel!
+    @IBOutlet private weak var registerButton: UIButton!
     
-    @IBOutlet weak var detailTableView: UITableView!
+    @IBOutlet private weak var detailTableView: UITableView!
     
+    //MARK: - Public propertie
     var viewModel: ScheduleDetailViewModel?
     
     override func viewDidLoad() {
@@ -28,12 +30,11 @@ class ScheduleDetailViewController: UIViewController {
         configTableView()
     }
 
-    //MARK: - Alerta do botao particiacao do treino
+    //MARK: - Private methods
     @IBAction private func trainingParticipationButton(_ sender: UIButton) {
         viewModel?.registerButtonPressed()
     }
     
-    //MARK: - Private method
     private func configTableView() {
         detailTableView.dataSource = self
         detailTableView.delegate = self
@@ -51,13 +52,13 @@ class ScheduleDetailViewController: UIViewController {
     private func configScreen() {
         guard let viewModel = viewModel else { return }
         
-        dayNameLabel.text = viewModel.getDayName()
-        dayNumberLabel.text = viewModel.getDayNumber()
-        monitorLabel.text = viewModel.getCoachName()
-        hourLabel.text = viewModel.getHourTraining()
-        minuteLabel.text = viewModel.getMinuteTraining()
-        spotsLabel.text = viewModel.getSpots()
-        availableSpotsLabel.text = viewModel.getAvailableSpots()
+        dayNameLabel.text = viewModel.getDayName
+        dayNumberLabel.text = viewModel.getDayNumber
+        monitorLabel.text = viewModel.getCoachName
+        hourLabel.text = viewModel.getHourTraining
+        minuteLabel.text = viewModel.getMinuteTraining
+        spotsLabel.text = viewModel.getSpots
+        availableSpotsLabel.text = viewModel.getAvailableSpots
         registerButton.setTitle(viewModel.getRegisterButtonTitle(), for: .normal)
     }
 }
@@ -70,13 +71,15 @@ extension ScheduleDetailViewController: RegisterOnTrainingDelegate {
             message: "Deseja confirmar sua participação?",
             preferredStyle: .alert)
         
-        let confirm = UIAlertAction(title: "Ok", style: .default) { action in
+        let confirm = UIAlertAction(
+            title: "Ok",
+            style: .default) { action in
             self.viewModel?.addUserOnTraining()
         }
         
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
-            print("Cancelado")
-        }
+        let cancel = UIAlertAction(
+            title: "Cancelar",
+            style: .cancel)
         
         confirmAlert.addAction(confirm)
         confirmAlert.addAction(cancel)
@@ -89,13 +92,15 @@ extension ScheduleDetailViewController: RegisterOnTrainingDelegate {
             message: "Deseja confirmar sua saida do treino?",
             preferredStyle: .alert)
         
-        let confirm = UIAlertAction(title: "Ok", style: .default) { action in
+        let confirm = UIAlertAction(
+            title: "Ok",
+            style: .default) { action in
             self.viewModel?.removeUserOnTraining()
         }
         
-        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { action in
-            print("Cancelado")
-        }
+        let cancel = UIAlertAction(
+            title: "Cancelar",
+            style: .cancel)
         
         confirmAlert.addAction(confirm)
         confirmAlert.addAction(cancel)
@@ -103,9 +108,9 @@ extension ScheduleDetailViewController: RegisterOnTrainingDelegate {
     }
     
     func success() {
-        viewModel?.fetchTrainingsHours(completion: {
+        viewModel?.fetchTrainingsHours {
             self.configScreen()
-        })
+        }
     }
 }
 
@@ -126,16 +131,18 @@ extension ScheduleDetailViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ScheduleDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rows = viewModel?.getNumberOfUsers() else { return 0}
-        return rows
+        return viewModel?.getNumberOfUsers ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as? ScheduleDetailTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as? ScheduleDetailTableViewCell else {
+            return UITableViewCell()
+        }
+        
         if let cellViewModel = viewModel?.getTrainingDetailCellViewModel() {
-            cell?.configure(indexPath.row, cellViewModel)
+            cell.configure(indexPath.row, cellViewModel)
         }
                 
-        return cell ?? UITableViewCell()
+        return cell
     }
 }

@@ -8,6 +8,8 @@
 import Foundation
 
 class TrainingUserSection {
+    
+    //MARK: - Public properties
     var name: String
     var trainings: [TrainingUser] = []
     

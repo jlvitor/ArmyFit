@@ -7,35 +7,29 @@
 
 import Foundation
 
-protocol PostLikeDelegate {
-    func likeAPost(_ like: LikePost)
-}
-
 class PostViewModel {
     
+    //MARK: - Private propertie
     private let post: Post
     
     init(_ post: Post) {
         self.post = post
     }
     
-    func getUserImage() -> String {
-        guard let image = post.user.photoUrl else { return "person.circle"}
-        return image
+    //MARK: - Getters
+    var getUserImage: String {
+        post.user.photoUrl ?? "person.circle"
     }
     
-    func getUserName() -> String {
-        let name = post.user.name
-        return name
+    var getUserName: String {
+        post.user.name
     }
     
-    func getPostText() -> String {
-        let text = post.description
-        return text
+    var getPostText: String {
+        post.description
     }
     
-    func getNumberOfLikes() -> String {
-        let likes = post.like
-        return "\(likes)"
-    }    
+    var getNumberOfLikes: String {
+        "\(post.like)"
+    }
 }

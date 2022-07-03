@@ -7,18 +7,17 @@
 
 import UIKit
 import PhotosUI
-import KeychainSwift
 import MessageUI
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var profileTableView: UITableView!
+    //MARK: - Private properties
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var profileTableView: UITableView!
     
     private let viewModel: ProfileViewModel = ProfileViewModel()
-    private let keychain: KeychainSwift = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +26,11 @@ class ProfileViewController: UIViewController {
         configUserData()
     }
     
-    @IBAction func editProfileButtonAction(_ sender: UIBarButtonItem) {
-        showAlert()
+    //MARK: - Private methods
+    @IBAction private func editProfileButtonAction(_ sender: UIBarButtonItem) {
+        editProfileAlert()
     }
     
-    //MARK: - Private methods
     private func configTableView() {
         profileTableView.delegate = self
         profileTableView.dataSource = self
@@ -43,44 +42,33 @@ class ProfileViewController: UIViewController {
     }
     
     private func configUserData() {
-        profileImageView.image = UIImage(named: viewModel.getUserImage())
-        nameLabel.text = viewModel.getUserName()
+        profileImageView.image = UIImage(named: viewModel.getUserImage)
+        nameLabel.text = viewModel.getUserName
     }
     
-    private func showAlert() {
+    private func editProfileAlert() {
         let editProfileALert = UIAlertController(
             title: "Editar perfil",
             message: "Você deseja editar seu perfil?",
             preferredStyle: .actionSheet)
         
-        let editImageProfileGallery = UIAlertAction(title: "Selecionar uma foto de perfil na galeria", style: .default) { action in
-            self.openGalleryPickerView()
-        }
-        let editImageProfileCamera = UIAlertAction(title: "Tirar uma foto de perfil", style: .default) { action in
-            self.openCameraPickerView()
-        }
-        let editNameProfile = UIAlertAction(title: "Editar nome de perfil", style: .default) { (action) in
-            let alertController = UIAlertController(title: "Confirmação", message: "Digite seu novo nome de perfil", preferredStyle: .alert)
-            
-            alertController.addTextField { (textfield) in
-                textfield.placeholder = "Digite seu nome"
+        let editImageProfileGallery = UIAlertAction(
+            title: "Selecionar uma foto de perfil",
+            style: .default) { action in
+                self.openGalleryPickerView()
             }
-            
-            let submit = UIAlertAction(title: "Ok", style: .default) { (action) in
-                
-                if let name = alertController.textFields?.first?.text {
-                    self.nameLabel.text = String(name).uppercased()
-                }
-                
+        
+        let editImageProfileCamera = UIAlertAction(
+            title: "Tirar uma foto de perfil",
+            style: .default) { action in
+                self.openCameraPickerView()
             }
-            
-            let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { (action) in
-                print("Operation has been cancelled")
+        
+        let editNameProfile = UIAlertAction(
+            title: "Editar nome de perfil",
+            style: .default) { action in
+                self.editNameProfile()
             }
-            alertController.addAction(submit)
-            alertController.addAction(cancel)
-            self.present(alertController, animated: true)
-        }
         
         let cancelEdit = UIAlertAction(title: "Cancelar", style: .cancel)
         
@@ -90,6 +78,33 @@ class ProfileViewController: UIViewController {
         editProfileALert.addAction(cancelEdit)
         
         present(editProfileALert, animated: true)
+    }
+    
+    private func editNameProfile() {
+        let alertController = UIAlertController(
+            title: "Confirmação",
+            message: "Digite seu novo nome de perfil",
+            preferredStyle: .alert)
+        
+        alertController.addTextField { textfield in
+            textfield.placeholder = "Digite seu nome"
+        }
+        
+        let submit = UIAlertAction(
+            title: "Ok",
+            style: .default) { action in
+                if let name = alertController.textFields?.first?.text {
+                    self.nameLabel.text = String(name).uppercased()
+                }
+            }
+        
+        let cancel = UIAlertAction(
+            title: "Cancelar",
+            style: .cancel)
+        
+        alertController.addAction(submit)
+        alertController.addAction(cancel)
+        present(alertController, animated: true)
     }
     
     private func openGalleryPickerView() {
@@ -126,7 +141,6 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
                 }
             }
         }
-        
     }
 }
 
@@ -147,27 +161,14 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
-            if indexPath.row == 0 {
-                UserDefaults.standard.resetAllValues()
-                keychain.clear()
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainLoginVC = storyboard.instantiateViewController(
-                    withIdentifier: "LoginNavigationController")
-                
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainLoginVC)
-            }
-        }
+        let section = indexPath.section
+        let row = indexPath.row
         
-        if indexPath.section == 1 {
-            if indexPath.row == 1 {
-                viewModel.getWhatsApp()
-            }
-        }
+        viewModel.sendMessageOnWhatsApp(at: section, at: row)
+        viewModel.logout(at: section, at: row)
         
-        if indexPath.section == 1 {
-            if indexPath.row == 0 {
+        if section == 1 {
+            if row == 0 {
                 let recipientEmail = "vjeanlucas93@gmail.com"
                 let subject = "ArmyFit - Suporte ao cliente"
                 
@@ -192,18 +193,18 @@ extension ProfileViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.countRowsInSection(section)
+        return viewModel.countRowsInSection(at: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "profileCustomCell", for: indexPath) as? ProfileTableViewCell
-        let section = indexPath.section
-        let row = indexPath.row
-        let _cellViewModel = viewModel.profileInfo(at: section, at: row)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "profileCustomCell", for: indexPath) as? ProfileTableViewCell else {
+            return UITableViewCell()
+        }
         
-        cell?.configure(profileCellViewModel: _cellViewModel)
+        let cellViewModel = viewModel.profileInfo(at: indexPath.section, at: indexPath.row)
+        cell.configure(profileCellViewModel: cellViewModel)
         
-        return cell ?? UITableViewCell()
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -211,13 +212,12 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = viewModel.setTilteForSection(section)
-        return title
+        viewModel.setTilteForSection(at: section)
     }
 }
 
+//MARK: - MFMailComposeViewControllerDelegate
 extension ProfileViewController: MFMailComposeViewControllerDelegate {
-    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }

@@ -13,25 +13,27 @@ protocol PostViewModelDelegate {
 
 class PostsViewModel {
     
-    private let service: PostService
+    //MARK: - Private propertie
+    private let service: PostService = .init()
     
+    //MARK: - Public properties
     var delegate: PostViewModelDelegate?
     var postsList: [Post] = []
-    var numberOfPosts: Int = 0
+    
+    //MARK: - Getters
+    var getNumberOfPosts: Int {
+        postsList.count
+    }
+    
     var getUserImage: String {
-        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile"}
-        return userImage
+        UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String ?? "profile"
     }
     
-    init(service: PostService = .init()) {
-        self.service = service
-    }
-    
+    //MARK: - Public methods
     func getPosts() {
         service.getPost { post, error in
             guard let post = post else { return }
-
-            self.numberOfPosts = post.count
+            
             self.postsList = post
             self.delegate?.reloadData()
         }
@@ -41,5 +43,4 @@ class PostsViewModel {
         let post = postsList[index]
         return PostViewModel(post)
     }
-    
 }

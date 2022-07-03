@@ -9,45 +9,35 @@ import Foundation
 
 class ScheduleViewModel {
     
+    //MARK: - Private propertie
     private let trainingHours: TrainingHours
     
     init(_ trainingHours: TrainingHours) {
         self.trainingHours = trainingHours
     }
     
-    func getHourTraining() -> String {
-        let trainingHour = trainingHours.dateHour
-        return Date.formatDateStringToHour(date: trainingHour)
+    //MARK: - Getters
+    var getHourTraining: String {
+        Date.formatDateStringToHour(date: trainingHours.dateHour)
     }
     
-    func getMinuteTraining() -> String {
-        let trainingMinute = trainingHours.dateHour
-        return Date.formatDateStringToMinute(date: trainingMinute)
+    var getMinuteTraining: String {
+        Date.formatDateStringToMinute(date: trainingHours.dateHour)
     }
     
-    func getTrainingName() -> String {
-        let trainingName = trainingHours.training.name
-        let title = convertToUppercasedFrom(trainingName)
-        return title
+    var getTrainingName: String {
+        trainingHours.training.name.uppercased()
     }
     
-    func getCoachName() -> String {
-        let coachName = trainingHours.instructor
-        let name = convertToUppercasedFrom(coachName)
-        return name
+    var getCoachName: String {
+        trainingHours.instructor.uppercased()
     }
     
-    func getAvailableSpots() -> String {
-        let availableSpots = trainingHours.availableSpots
-        return "\(availableSpots)"
+    var getAvailableSpots: String {
+        "\(trainingHours.availableSpots)"
     }
     
-    func getSpots() -> String {
-        let spots = trainingHours.spots
-        return "\(spots)"
-    }
-    
-    private func convertToUppercasedFrom(_ text: String) -> String {
-        return text.uppercased()
+    var getSpots: String {
+        "\(trainingHours.spots)"
     }
 }

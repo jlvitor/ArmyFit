@@ -9,13 +9,14 @@ import UIKit
 
 class DateCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var dateView: UIView!
-    @IBOutlet weak var dateTextLabel: UILabel!
-    @IBOutlet weak var dateNumberLabel: UILabel!
+    //MARK: - Private properties
+    @IBOutlet private weak var dateView: UIView!
+    @IBOutlet private weak var dateTextLabel: UILabel!
+    @IBOutlet private weak var dateNumberLabel: UILabel!
     
+    //MARK: - Public method
     func configure(viewModel: DayViewModel) {
-        dateTextLabel.text = viewModel.getDayStringInAMonth()
-        dateNumberLabel.text = viewModel.getDayIntInAMonth()
+        dateTextLabel.text = viewModel.getDayStringInAMonth
+        dateNumberLabel.text = viewModel.getDayIntInAMonth
     }
-    
 }

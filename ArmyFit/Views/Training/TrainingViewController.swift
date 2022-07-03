@@ -9,7 +9,8 @@ import UIKit
 
 class TrainingViewController: UIViewController {
     
-    @IBOutlet weak var trainingTableView: UITableView!
+    //MARK: - Private properties
+    @IBOutlet private weak var trainingTableView: UITableView!
     
     private let viewModel: TrainingsViewModel = .init()
     
@@ -68,9 +69,6 @@ extension TrainingViewController: UITableViewDataSource {
         
         let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.section, indexPath.row)
         cell.configure(viewModel: cellViewModel)
-        
-//        let item = viewModel.trainingUserSections[indexPath.section].trainings[indexPath.row]
-//        cell.textLabel?.text = item.training_hours?.training.name
         
         return cell
     }
