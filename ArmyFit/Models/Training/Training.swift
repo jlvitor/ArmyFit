@@ -7,10 +7,16 @@
 
 import Foundation
 
-struct Training: Codable {
-    let id: String // Id do treino
-    let name: String // Nome do treino (crossfit)
-    let created_at: String // Quando foi criado/ ou inserido o treino no banco de dados
-    let warning: String // Aviso antes de iniciar o treino
-    var trainingHours: [TrainingHours]? // Array com horários e dados de um treino específico
+struct Training: Decodable {
+    let id: String
+    let name: String
+    let createdAt: String
+    let warning: String
+    var trainingHours: [TrainingHours]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name
+        case createdAt = "created_at"
+        case warning, trainingHours
+    }
 }

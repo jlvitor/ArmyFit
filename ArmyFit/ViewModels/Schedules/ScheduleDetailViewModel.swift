@@ -25,14 +25,14 @@ class ScheduleDetailViewModel {
     private var isRegistered: Bool = false
     private var traininigHoursDetail: TrainingHours = .init(
         id: "",
-        date_hour: "",
+        dateHour: "",
         spots: 0,
-        available_spots: 0,
+        availableSpots: 0,
         instructor: "",
         description: "",
-        training: Training.init(id: "", name: "", created_at: "", warning: "", trainingHours: nil),
-        training_id: "",
-        training_users: [])
+        training: Training.init(id: "", name: "", createdAt: "", warning: "", trainingHours: nil),
+        trainingId: "",
+        trainingUsers: [])
     
     var delegate: ScheduleDetailViewModelDelegate?
     var registerDelegate: RegisterOnTrainingDelegate?
@@ -79,22 +79,22 @@ class ScheduleDetailViewModel {
     }
     
     func getDayName() -> String {
-        let dayName = Date.getDayNameFromString(date: traininigHoursDetail.date_hour)
+        let dayName = Date.getDayNameFromString(date: traininigHoursDetail.dateHour)
         return dayName.uppercased()
     }
     
     func getDayNumber() -> String {
-        let dayNumber = Date.getDayNumberFromString(date: traininigHoursDetail.date_hour)
+        let dayNumber = Date.getDayNumberFromString(date: traininigHoursDetail.dateHour)
         return dayNumber
     }
     
     func getHourTraining() -> String {
-        let trainingHour = traininigHoursDetail.date_hour
+        let trainingHour = traininigHoursDetail.dateHour
         return Date.formatDateStringToHour(date: trainingHour)
     }
     
     func getMinuteTraining() -> String {
-        let trainingMinute = traininigHoursDetail.date_hour
+        let trainingMinute = traininigHoursDetail.dateHour
         return Date.formatDateStringToMinute(date: trainingMinute)
     }
     
@@ -105,7 +105,7 @@ class ScheduleDetailViewModel {
     }
     
     func getAvailableSpots() -> String {
-        let availableSpots = traininigHoursDetail.available_spots
+        let availableSpots = traininigHoursDetail.availableSpots
         return "\(availableSpots)"
     }
     
@@ -115,7 +115,7 @@ class ScheduleDetailViewModel {
     }
     
     func getNumberOfUsers() -> Int {
-        guard let users = traininigHoursDetail.training_users?.count else { return 0 }
+        guard let users = traininigHoursDetail.trainingUsers?.count else { return 0 }
         return users
     }
     
@@ -141,10 +141,10 @@ class ScheduleDetailViewModel {
     }
     
     private func userIsRegistered() {
-        guard let trainingUsers = traininigHoursDetail.training_users else { return }
+        guard let trainingUsers = traininigHoursDetail.trainingUsers else { return }
 
         let isRegistered = trainingUsers.contains { user in
-            UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String == user.user_id
+            UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String == user.userId
         }
         
         self.isRegistered = isRegistered

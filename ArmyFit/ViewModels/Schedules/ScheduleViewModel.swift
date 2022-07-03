@@ -16,12 +16,12 @@ class ScheduleViewModel {
     }
     
     func getHourTraining() -> String {
-        let trainingHour = trainingHours.date_hour
+        let trainingHour = trainingHours.dateHour
         return Date.formatDateStringToHour(date: trainingHour)
     }
     
     func getMinuteTraining() -> String {
-        let trainingMinute = trainingHours.date_hour
+        let trainingMinute = trainingHours.dateHour
         return Date.formatDateStringToMinute(date: trainingMinute)
     }
     
@@ -38,7 +38,7 @@ class ScheduleViewModel {
     }
     
     func getAvailableSpots() -> String {
-        let availableSpots = trainingHours.available_spots
+        let availableSpots = trainingHours.availableSpots
         return "\(availableSpots)"
     }
     

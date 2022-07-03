@@ -13,7 +13,7 @@ class UserService {
     private let baseUrl = "https://armyapi.herokuapp.com/users"
     private let keychain: KeychainSwift = .init()
     
-    //MARK: - Registra o usuário no app/ bando de dados do app
+    // Registra o usuário no app/ bando de dados do app
     func registerUser(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
         guard let url = URL(string: baseUrl) else { return }
         
@@ -44,7 +44,7 @@ class UserService {
         task.resume()
     }
     
-    //MARK: - Atualiza nome e foto do usuário
+    // Atualiza nome e foto do usuário
     func updateUser(name: String, photoURL: String, completion: @escaping (User?, Error?) -> Void) {
         guard let url = URL(string: baseUrl) else { return }
         
@@ -75,6 +75,7 @@ class UserService {
         task.resume()
     }
     
+    // Pega os detalhes do usuário
     func getUserDetails(completion: @escaping (User?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/profile") else { return }
         

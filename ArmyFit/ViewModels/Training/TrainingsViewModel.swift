@@ -53,13 +53,13 @@ class TrainingsViewModel {
     private func organizeSections(trainings: [TrainingUser]) {
         trainings.forEach { training in
             let section = trainingUserSections.first(where: { section in
-                return section.name == training.training_hours?.training.name
+                return section.name == training.trainingHours?.training.name
             })
             
             if let section = section {
                 section.trainings.append(training)
             } else {
-                let section = TrainingUserSection(name: training.training_hours?.training.name ?? "", trainings: [training])
+                let section = TrainingUserSection(name: training.trainingHours?.training.name ?? "", trainings: [training])
                 trainingUserSections.append(section)
             }
         }

@@ -10,29 +10,20 @@ import Foundation
 extension Date {
     
     static func formatDateStringToHour(date: String) -> String {
-        // Variavel que instancia formatador de data
         let dateFormatter = DateFormatter()
-        // Variavel que instacia locale
         let locale = NSLocale.current
-        // Variavel que instancia formatador atraves do locale
         let dateFormatterFromLocale = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: locale)!
-        // Variavel que vai receber o valor 24h ou 12h
         var hour = ""
         
-        // Define o formato ao qual o dado precisa ser retornado
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSZ"
-        // Guarda o valor formatado
         let dateFormatted = dateFormatter.date(from: date)
-        // Desembrulha o dado para ser utilizado
         guard let dateFormatted = dateFormatted else { return "" }
         
-        // Se o dateFormatterFromLocale conter "a"
+        // TODO: Fazer funcionar formatacao quando relógio for 12h
         if dateFormatterFromLocale.contains("a") {
-            // Retorna formato 12h
             dateFormatter.dateFormat = "hh a"
             hour = dateFormatter.string(from: dateFormatted)
         } else {
-            // Se nao retorna formato 24h
             dateFormatter.dateFormat = "HH"
             hour = dateFormatter.string(from: dateFormatted)
         }

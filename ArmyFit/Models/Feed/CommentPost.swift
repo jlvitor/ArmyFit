@@ -7,11 +7,17 @@
 
 import Foundation
 
-struct CommentPost: Codable {
+struct CommentPost: Decodable {
     let id: String
     let comment: String
     let feedsId: String
     let usersId: String
-    let created_at: String
+    let createdAt: String
     let user: User
+    
+    enum CodingKeys: String, CodingKey {
+        case id, comment, feedsId, usersId
+        case createdAt = "created_at"
+        case user
+    }
 }

@@ -16,13 +16,13 @@ class RegisterTrainingViewModel {
     }
     
     func getUserImage(_ index: Int) -> String {
-        guard let user = trainingDetail.training_users,
+        guard let user = trainingDetail.trainingUsers,
                 let image = user[index].user?.photoUrl else { return "profile"}
         return image
     }
     
     func getUserName(_ index: Int) -> String {
-        guard let user = trainingDetail.training_users,
+        guard let user = trainingDetail.trainingUsers,
               let name = user[index].user?.name else { return "Usuario sem nome"}
         return name
     }

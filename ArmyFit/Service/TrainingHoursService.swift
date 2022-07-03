@@ -13,7 +13,7 @@ class TrainingHoursService {
     private let baseUrl = "https://armyapi.herokuapp.com"
     private let keychain: KeychainSwift = .init()
     
-    // Pega todos os treinos dos dias no mes atual
+    // Pega todos os treinos do dia no mes atual
     func getAllTrainingHours(_ date: String, completion: @escaping ([TrainingHours]?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/hours/\(date)") else { return }
         
@@ -108,6 +108,7 @@ class TrainingHoursService {
         task.resume()
     }
     
+    // Pega os usuários que estão participando do treino
     func getTrainingUser(_ date: String, completion: @escaping ([TrainingUser]?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/trainingusers/\(date)") else { return }
         

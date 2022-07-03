@@ -16,17 +16,17 @@ class TrainingDetailViewModel {
     }
     
     func getHourTraining() -> String {
-        guard let trainingHour = trainingDetail.training_hours?.date_hour else { return "" }
+        guard let trainingHour = trainingDetail.trainingHours?.dateHour else { return "" }
         return Date.formatDateStringToHour(date: trainingHour)
     }
     
     func getMinuteTraining() -> String {
-        guard let trainingMinute = trainingDetail.training_hours?.date_hour else { return "" }
+        guard let trainingMinute = trainingDetail.trainingHours?.dateHour else { return "" }
         return Date.formatDateStringToMinute(date: trainingMinute)
     }
     
     func getCoachName() -> String {
-        guard let coachName = trainingDetail.training_hours?.instructor else { return "" }
+        guard let coachName = trainingDetail.trainingHours?.instructor else { return "" }
         let name = convertToUppercasedFrom(coachName)
         return name
     }
