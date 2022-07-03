@@ -7,10 +7,16 @@
 
 import Foundation
 
-struct LikePost: Codable {
+struct LikePost: Decodable {
     let id: String
     let description: String
     let like: Int
-    let user_id: String
-    let created_at: String
+    let userId: String
+    let createdAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, description, like
+        case userId = "user_id"
+        case createdAt = "created_at"
+    }
 }

@@ -102,8 +102,8 @@ class SchedulesViewModel {
         
         let hours = hours.sorted(by: { firstDate, secondDate in
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            let saveFirstDate = dateFormatter.date(from: firstDate.date_hour)
-            let saveSecondDate = dateFormatter.date(from: secondDate.date_hour)
+            let saveFirstDate = dateFormatter.date(from: firstDate.dateHour)
+            let saveSecondDate = dateFormatter.date(from: secondDate.dateHour)
             
             guard let saveFirstDate = saveFirstDate,
                   let saveSecondDate = saveSecondDate else { return false }

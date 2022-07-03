@@ -7,10 +7,17 @@
 
 import Foundation
 
-struct TrainingUser: Codable {
-    let id: String // Id de cada usuario no treino
-    let user: User? // Dados de um usuario em específico
-    let user_id: String // Id do usuario ( relacao com id na struct User)
-    let training_hours: TrainingHours? // Dados de um horário específico
-    let training_hours_id: String //Id do horario de um treino específico (relacao com id na struct TrainingHours)
+struct TrainingUser: Decodable {
+    let id: String
+    let user: User?
+    let userId: String
+    let trainingHours: TrainingHours?
+    let trainingHoursId: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, user
+        case userId = "user_id"
+        case trainingHours = "training_hours"
+        case trainingHoursId = "training_hours_id"
+    }
 }

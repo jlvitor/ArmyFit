@@ -7,14 +7,22 @@
 
 import Foundation
 
-struct Post: Codable {
+struct Post: Decodable {
     let id: String
     let description: String
     let like: Int
-    let user_id: String
-    let created_at: String
+    let userId: String
+    let createdAt: String
     let user: User
-//    let feed_comments: [CommentPost]?
+    let feedComments: [CommentPost]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, description, like
+        case userId = "user_id"
+        case createdAt = "created_at"
+        case user
+        case feedComments = "feed_comments"
+    }
 }
 
 

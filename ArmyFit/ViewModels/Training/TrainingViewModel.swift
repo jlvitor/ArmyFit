@@ -20,21 +20,21 @@ class TrainingViewModel {
 
     //MARK: - Getters
     var getExerciseName: String {
-        guard let exerciseName = trainingDetail.training_hours?.training.name else {
+        guard let exerciseName = trainingDetail.trainingHours?.training.name else {
             return "Não foi possivel carregar o aviso desse treino"
         }
         return exerciseName
     }
     
     var getWarning: String {
-        guard let warning = trainingDetail.training_hours?.training.warning else {
+        guard let warning = trainingDetail.trainingHours?.training.warning else {
             return "Não foi possivel carregar o aviso desse treino"
         }
         return warning
     }
     
     var getDetail: String {
-        guard let detail = trainingDetail.training_hours?.description else {
+        guard let detail = trainingDetail.trainingHours?.description else {
             return "Não foi possivel carregar o aviso desse treino"
         }
         return detail
