@@ -136,7 +136,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14C0AD4828454F4700E5FEA4 /* Model */ = {
+		14C0AD4828454F4700E5FEA4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				14C0AD4928454F7200E5FEA4 /* User.swift */,
@@ -144,7 +144,7 @@
 				CC52D99F2862447E00C10680 /* Feed */,
 				CC52D99C2862445800C10680 /* Training */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2BB84705ADF050CD8801EA9C /* Frameworks */ = {
@@ -193,36 +193,21 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		CC79805A2841539A00ECD18C /* Cells */ = {
+		CC7E4D8E28400835003E5DB1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */,
-				CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */,
-				CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */,
-				144FF8A9285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift */,
-				90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */,
-				90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */,
+				CCFB5AE728714D2200A7A9B4 /* Login */,
+				CCFB5AE628714D1C00A7A9B4 /* Register */,
+				CCFB5AE528714D0E00A7A9B4 /* TabBar */,
+				CCFB5AE428714CE400A7A9B4 /* Feed */,
+				CCFB5AE328714CDC00A7A9B4 /* Post */,
+				CCFB5AE228714CBB00A7A9B4 /* Schedule */,
+				CCFB5AE128714CAD00A7A9B4 /* ScheduleDetail */,
+				CCFB5ADF28714C7E00A7A9B4 /* Training */,
+				CCFB5AE028714C9200A7A9B4 /* TrainingDetail */,
+				CCFB5ADE28714C7600A7A9B4 /* Profile */,
 			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		CC7E4D8E28400835003E5DB1 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CC79805A2841539A00ECD18C /* Cells */,
-				CCA94979283D642E00A6FB05 /* Main.storyboard */,
-				CC7E4D9028400863003E5DB1 /* LoginViewController.swift */,
-				90293CD528403A38000964FE /* RegisterViewController.swift */,
-				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
-				6EABD7862849343100444347 /* FeedViewController.swift */,
-				6E4DDBBE286641680038E652 /* PostViewController.swift */,
-				6EB4259F28415718005AE67C /* ScheduleViewController.swift */,
-				144FF8AB285FABD90014B6E7 /* ScheduleDetailViewController.swift */,
-				9091028528624C5200A03DFF /* TrainingViewController.swift */,
-				90D0FFCF28513FA000143DB3 /* TrainingDetailViewController.swift */,
-				90B2B480284D4D59003AAA91 /* ProfileViewController.swift */,
-			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CC916E53284A9C2D002A4AE1 /* Service */ = {
@@ -268,15 +253,13 @@
 		CCA94972283D642E00A6FB05 /* ArmyFit */ = {
 			isa = PBXGroup;
 			children = (
-				CCA94973283D642E00A6FB05 /* AppDelegate.swift */,
-				CCA94975283D642E00A6FB05 /* SceneDelegate.swift */,
+				CCFB5ADC28714C0B00A7A9B4 /* Utils */,
 				CC9FE1702857CCAA0010EE58 /* Extensions */,
 				CC916E53284A9C2D002A4AE1 /* Service */,
-				14C0AD4828454F4700E5FEA4 /* Model */,
-				CC7E4D8E28400835003E5DB1 /* View */,
+				14C0AD4828454F4700E5FEA4 /* Models */,
+				CC7E4D8E28400835003E5DB1 /* Views */,
 				CCE1056C2850E438006376B8 /* ViewModels */,
-				CCA9497C283D643000A6FB05 /* Assets.xcassets */,
-				CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */,
+				CCFB5ADD28714C1A00A7A9B4 /* Resources */,
 				CCA94981283D643000A6FB05 /* Info.plist */,
 			);
 			path = ArmyFit;
@@ -350,6 +333,111 @@
 				CC086957284D8D14005E74B0 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		CCFB5ADC28714C0B00A7A9B4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CCA94973283D642E00A6FB05 /* AppDelegate.swift */,
+				CCA94975283D642E00A6FB05 /* SceneDelegate.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CCFB5ADD28714C1A00A7A9B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CCA94979283D642E00A6FB05 /* Main.storyboard */,
+				CCA9497C283D643000A6FB05 /* Assets.xcassets */,
+				CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CCFB5ADE28714C7600A7A9B4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				90B2B482284D4FC0003AAA91 /* ProfileTableViewCell.swift */,
+				90B2B480284D4D59003AAA91 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		CCFB5ADF28714C7E00A7A9B4 /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				90D0FFD32851448D00143DB3 /* TrainingTableViewCell.swift */,
+				9091028528624C5200A03DFF /* TrainingViewController.swift */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		CCFB5AE028714C9200A7A9B4 /* TrainingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				90D0FFCF28513FA000143DB3 /* TrainingDetailViewController.swift */,
+			);
+			path = TrainingDetail;
+			sourceTree = "<group>";
+		};
+		CCFB5AE128714CAD00A7A9B4 /* ScheduleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				144FF8A9285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift */,
+				144FF8AB285FABD90014B6E7 /* ScheduleDetailViewController.swift */,
+			);
+			path = ScheduleDetail;
+			sourceTree = "<group>";
+		};
+		CCFB5AE228714CBB00A7A9B4 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				CC79805B284153B700ECD18C /* DateCollectionViewCell.swift */,
+				CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */,
+				6EB4259F28415718005AE67C /* ScheduleViewController.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		CCFB5AE328714CDC00A7A9B4 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				6E4DDBBE286641680038E652 /* PostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		CCFB5AE428714CE400A7A9B4 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */,
+				6EABD7862849343100444347 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		CCFB5AE528714D0E00A7A9B4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CCFB5AE628714D1C00A7A9B4 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				90293CD528403A38000964FE /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		CCFB5AE728714D2200A7A9B4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CC7E4D9028400863003E5DB1 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
