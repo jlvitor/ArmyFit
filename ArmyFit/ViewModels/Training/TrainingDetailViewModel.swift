@@ -9,30 +9,23 @@ import Foundation
 
 class TrainingDetailViewModel {
     
+    //MARK: - Private propertie
     private let trainingDetail: TrainingUser
     
     init(_ trainingDetail: TrainingUser) {
         self.trainingDetail = trainingDetail
     }
     
-    func getHourTraining() -> String {
-        guard let trainingHour = trainingDetail.trainingHours?.dateHour else { return "" }
-        return Date.formatDateStringToHour(date: trainingHour)
+    //MARK: - Getters
+    var getHourTraining: String {
+        Date.formatDateStringToHour(date: trainingDetail.trainingHours?.dateHour ?? "")
     }
     
-    func getMinuteTraining() -> String {
-        guard let trainingMinute = trainingDetail.trainingHours?.dateHour else { return "" }
-        return Date.formatDateStringToMinute(date: trainingMinute)
+    var getMinuteTraining: String {
+        Date.formatDateStringToMinute(date: trainingDetail.trainingHours?.dateHour ?? "")
     }
     
-    func getCoachName() -> String {
-        guard let coachName = trainingDetail.trainingHours?.instructor else { return "" }
-        let name = convertToUppercasedFrom(coachName)
-        return name
+    var getCoachName: String {
+        trainingDetail.trainingHours?.instructor.uppercased() ?? ""
     }
-    
-    private func convertToUppercasedFrom(_ text: String) -> String {
-        return text.uppercased()
-    }
-    
 }

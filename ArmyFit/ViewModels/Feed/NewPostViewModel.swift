@@ -14,27 +14,25 @@ protocol NewPostViewModelDelegate {
 
 class NewPostViewModel {
     
-    private let service: PostService
+    //MARK: - Private propertie
+    private let service: PostService = .init()
     
+    //MARK: - Public propertie
     var delegate: NewPostViewModelDelegate?
     
+    //MARK: - Getters
     var getUserImage: String {
-        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile"}
-        return userImage
+        UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String ?? "profile"
     }
     
     var getUserName: String {
-        guard let userName = UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String else { return "Usuário sem nome"}
-        return userName
+        UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String ?? "Usuário sem nome"
     }
     
-    init(service: PostService = .init()) {
-        self.service = service
-    }
-    
+    //MARK: - Public method
     func makeNewPost(description: String?) {
         guard let description = description else { return }
-
+        
         service.makeNewPost(description: description) { _, error in
             if error != nil {
                 self.delegate?.errorMakeNewPost()

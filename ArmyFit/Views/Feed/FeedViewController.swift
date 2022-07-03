@@ -9,11 +9,11 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    @IBOutlet weak var userPostView: UIView!
-    @IBOutlet weak var userImageView: UIImageView!
+    //MARK: - Private properties
+    @IBOutlet private weak var userPostView: UIView!
+    @IBOutlet private weak var userImageView: UIImageView!
     
-    @IBOutlet weak var postCollectionView: UICollectionView!
-    
+    @IBOutlet private weak var postCollectionView: UICollectionView!
     
     private let viewModel: PostsViewModel = .init()
     
@@ -82,14 +82,16 @@ extension FeedViewController: UICollectionViewDelegate, UICollectionViewDelegate
 //MARK: - UICollectionViewDataSource
 extension FeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let rows = viewModel.numberOfPosts
-        return rows
+        viewModel.getNumberOfPosts
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCustomCell", for: indexPath) as? PostCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postCustomCell", for: indexPath) as? PostCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         let cellViewModel = viewModel.getPostCellViewModel(indexPath.row)
-        cell?.configure(cellViewModel)
-        return cell ?? UICollectionViewCell()
+        cell.configure(cellViewModel)
+        
+        return cell
     }
 }

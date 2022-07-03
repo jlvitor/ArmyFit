@@ -6,21 +6,25 @@
 //
 
 import Foundation
+import KeychainSwift
 import UIKit
 
 class ProfileViewModel {
     
-    func getUserImage() -> String {
-        guard let userImage = UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String else { return "profile2" }
-        return userImage
+    private let keychain: KeychainSwift = .init()
+    
+    //MARK: - Getters
+    var getUserImage: String {
+        UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String ?? "profile2"
     }
     
-    func getUserName() -> String {
+    var getUserName: String {
         guard let userName = UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String else { return "Perfil sem nome" }
         return userName.uppercased()
     }
     
-    func countRowsInSection(_ section: Int) -> Int {
+    //MARK: - Public methods
+    func countRowsInSection(at section: Int) -> Int {
         switch section {
         case 0:
             return 1
@@ -49,7 +53,7 @@ class ProfileViewModel {
         }
     }
     
-    func setTilteForSection(_ section: Int) -> String? {
+    func setTilteForSection(at section: Int) -> String? {
         switch section {
         case 0:
             return "Treinos"
@@ -63,7 +67,48 @@ class ProfileViewModel {
         return nil
     }
     
-    func getWhatsApp() {
+    func createEmailUrl(to: String, subject: String) -> URL? {
+        let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subjectEncoded)")
+        let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subjectEncoded)")
+        let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subjectEncoded)")
+        let sparkUrl = URL(string: "readdle-spark://compose?recipient=\(to)&subject=\(subjectEncoded)")
+        let defaultUrl = URL(string: "mailto:\(to)?subject=\(subjectEncoded)")
+        
+        if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
+            return gmailUrl
+        } else if let outlookUrl = outlookUrl, UIApplication.shared.canOpenURL(outlookUrl) {
+            return outlookUrl
+        } else if let yahooMail = yahooMail, UIApplication.shared.canOpenURL(yahooMail) {
+            return yahooMail
+        } else if let sparkUrl = sparkUrl, UIApplication.shared.canOpenURL(sparkUrl) {
+            return sparkUrl
+        }
+        
+        return defaultUrl
+    }
+    
+    func sendMessageOnWhatsApp(at section: Int, at index: Int) {
+        if section == 1 {
+            if index == 1 {
+                getWhatsApp()
+            }
+        }
+    }
+    
+    func logout(at section: Int, at index: Int) {
+        if section == 2 {
+            if index == 0 {
+                resetUserDefaultsValue()
+                clearKeychain()
+                setRootViewController()
+            }
+        }
+    }
+    
+    //MARK: - Private methods
+    private func getWhatsApp() {
         let countryCode = "55" //Country code
         let mobileNumber = "81993704720" //Mobile number
         let urlString = "https://api.whatsapp.com/send?phone=\(countryCode)\(mobileNumber)"
@@ -73,34 +118,26 @@ class ProfileViewModel {
         let URL = NSURL(string: urlStringEncoded!)
         
         if UIApplication.shared.canOpenURL(URL! as URL) {
-            debugPrint("opening Whatsapp")
             UIApplication.shared.open(URL! as URL, options: [:]) { status in
-                debugPrint("Opened WhatsApp Chat")
             }
         } else {
             debugPrint("Can't open")
         }
     }
     
-    func createEmailUrl(to: String, subject: String) -> URL? {
-              let subjectEncoded = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-              
-              let gmailUrl = URL(string: "googlegmail://co?to=\(to)&subject=\(subjectEncoded)")
-              let outlookUrl = URL(string: "ms-outlook://compose?to=\(to)&subject=\(subjectEncoded)")
-              let yahooMail = URL(string: "ymail://mail/compose?to=\(to)&subject=\(subjectEncoded)")
-              let sparkUrl = URL(string: "readdle-spark://compose?recipient=\(to)&subject=\(subjectEncoded)")
-              let defaultUrl = URL(string: "mailto:\(to)?subject=\(subjectEncoded)")
-              
-              if let gmailUrl = gmailUrl, UIApplication.shared.canOpenURL(gmailUrl) {
-                  return gmailUrl
-              } else if let outlookUrl = outlookUrl, UIApplication.shared.canOpenURL(outlookUrl) {
-                  return outlookUrl
-              } else if let yahooMail = yahooMail, UIApplication.shared.canOpenURL(yahooMail) {
-                  return yahooMail
-              } else if let sparkUrl = sparkUrl, UIApplication.shared.canOpenURL(sparkUrl) {
-                  return sparkUrl
-              }
-              
-              return defaultUrl
-          }
+    private func resetUserDefaultsValue() {
+        UserDefaults.standard.resetAllValues()
+    }
+    
+    private func clearKeychain() {
+        keychain.clear()
+    }
+    
+    private func setRootViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainLoginVC = storyboard.instantiateViewController(
+            withIdentifier: "LoginNavigationController")
+        
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setRootViewController(mainLoginVC)
+    }
 }

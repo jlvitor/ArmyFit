@@ -15,32 +15,40 @@ protocol LoginViewModelDelegate {
 
 class LoginViewModel {
     
-    private let service: AuthService
-    private let keychain: KeychainSwift
+    //MARK: - Private properties
+    private let service: AuthService = .init()
+    private let keychain: KeychainSwift = .init()
     
+    //MARK: - Public propertie
     var delegate: LoginViewModelDelegate?
     
-    init(service: AuthService = .init(), keychain: KeychainSwift = .init()) {
-        self.service = service
-        self.keychain = keychain
-    }
-    
+    //MARK: - Public method
     func makeLoginRequest(_ email: String?, _ password: String?) {
         service.makeAuthPostRequest(
             email: getValueToValidade(email),
-            password: getValueToValidade(password)) { success, error in
-                guard let success = success else {
+            password: getValueToValidade(password)) { auth, error in
+                guard let auth = auth else {
                     self.delegate?.errorAuth()
                     return
                 }
                 
-                self.keychain.set(success.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
-                UserDefaults.setValue(success.user.id, key: .userId)
-                UserDefaults.setValue(success.user.name, key: .userName)
-                UserDefaults.setValue(success.user.email, key: .userEmail)
-                UserDefaults.setValue(success.user.photoUrl ?? "profile", key: .userPhoto)
+                self.setKeychain(with: auth)
+                self.setUserDefaultsValues(with: auth)
                 self.delegate?.successAuth()
             }
+    }
+    
+    //MARK: - Private methods
+    private func setKeychain(with auth: Auth) {
+        keychain.set(auth.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
+    }
+    
+    private func setUserDefaultsValues(with auth: Auth) {
+        UserDefaults.setIsLogged(true)
+        UserDefaults.setValue(auth.user.id, key: .userId)
+        UserDefaults.setValue(auth.user.name, key: .userName)
+        UserDefaults.setValue(auth.user.email, key: .userEmail)
+        UserDefaults.setValue(auth.user.photoUrl ?? "profile", key: .userPhoto)
     }
     
     private func getValueToValidade(_ text: String?) -> String {

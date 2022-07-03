@@ -10,33 +10,23 @@ import Foundation
 class TrainingViewModel {
     
     //MARK: - Private methods
-    private let service: UserService
+    private let service: UserService = .init()
     private var trainingDetail: TrainingUser
     
-    init(service: UserService = .init(), trainingDetail: TrainingUser) {
-        self.service = service
+    init(trainingDetail: TrainingUser) {
         self.trainingDetail = trainingDetail
     }
-
+    
     //MARK: - Getters
     var getExerciseName: String {
-        guard let exerciseName = trainingDetail.trainingHours?.training.name else {
-            return "Não foi possivel carregar o aviso desse treino"
-        }
-        return exerciseName
+        trainingDetail.trainingHours?.training.name ?? "Não foi possivel carregar o nome desse treino"
     }
     
     var getWarning: String {
-        guard let warning = trainingDetail.trainingHours?.training.warning else {
-            return "Não foi possivel carregar o aviso desse treino"
-        }
-        return warning
+        trainingDetail.trainingHours?.training.warning ?? "Não foi possivel carregar o aviso desse treino"
     }
     
     var getDetail: String {
-        guard let detail = trainingDetail.trainingHours?.description else {
-            return "Não foi possivel carregar o aviso desse treino"
-        }
-        return detail
+        trainingDetail.trainingHours?.description ?? "Não foi possivel carregar os detalhes desse treino"
     }
 }

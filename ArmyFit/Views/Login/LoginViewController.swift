@@ -9,16 +9,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var registerScreen: UIStackView!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    //MARK: - Private properties
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var registerScreen: UIStackView!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var spinner: UIActivityIndicatorView!
     
-    private let viewModel: LoginViewModel = LoginViewModel()
+    private let viewModel: LoginViewModel = .init()
     private var iconClick = false
     private let imageIcon = UIImageView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction private func loginButton(_ sender: UIButton) {
-        
         viewModel.makeLoginRequest(
             emailTextField.text,
             passwordTextField.text)
@@ -46,7 +45,7 @@ class LoginViewController: UIViewController {
         viewModel.delegate = self
     }
     
-    private func showAlert() {
+    private func errorAlert() {
         let error = UIAlertController(
             title: "Acesso negado",
             message: "Dados incorretos, verifique e tente novamente!",
@@ -56,6 +55,7 @@ class LoginViewController: UIViewController {
         present(error, animated: true)
     }
     
+    //-----> Start of show password configuration <-----//
     private func configureContentView() {
         let contentView = UIView()
         contentView.addSubview(imageIcon)
@@ -88,18 +88,6 @@ class LoginViewController: UIViewController {
         imageIcon.tintColor = .black
     }
     
-    private func configGestureRecognizer() {
-        let tap = UITapGestureRecognizer(
-            target: self,
-            action: #selector(tapAction(_:))
-        )
-        self.registerScreen.addGestureRecognizer(tap)
-    }
-    
-    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "goToRegisterScreen", sender: self)
-    }
-    
     @objc private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         if iconClick {
@@ -111,6 +99,19 @@ class LoginViewController: UIViewController {
             tappedImage.image = UIImage(systemName: "eye.slash")
             passwordTextField.isSecureTextEntry = true
         }
+    }
+    //-----> End of show password configuration <-----//
+    
+    private func configGestureRecognizer() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(tapAction(_:))
+        )
+        self.registerScreen.addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapAction(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
     
     private func showActivityIndicator() {
@@ -124,14 +125,11 @@ class LoginViewController: UIViewController {
         spinner.stopAnimating()
         loginButton.setTitle("LOGIN", for: .normal)
     }
-    
 }
 
 //MARK: - LoginViewModelDelegate
 extension LoginViewController: LoginViewModelDelegate {
     func successAuth() {
-        UserDefaults.setIsLogged(true)
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let mainTabBarController = storyboard.instantiateViewController(
             withIdentifier: "TabBarViewController") as? CustomTabBarViewController else { return }
@@ -140,7 +138,7 @@ extension LoginViewController: LoginViewModelDelegate {
     }
     
     func errorAuth() {
-        showAlert()
+        errorAlert()
         stopActivityIndicator()
     }
 }

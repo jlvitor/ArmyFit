@@ -14,22 +14,28 @@ protocol SchedulesViewModelDelegate {
 
 class SchedulesViewModel {
     
+    //MARK: - Private properties
     private let service: TrainingHoursService = .init()
     private var trainingHoursList: [TrainingHours] = []
     
+    //MARK: - Public properties
     var delegate: SchedulesViewModelDelegate?
-    var trainingHoursCount: Int = 0
     var trainingDays: [(String, String)] = []
     var cellSelected: Int = 0
-    var date: String? = Date.getCurrentDateToDateString()
+    var date: String?
     
+    //MARK: - Getter
+    var trainingHoursCount: Int {
+        trainingHoursList.count
+    }
+    
+    //MARK: - Public methods
     func fetchTrainingsHours(_ date: String) {
         service.getAllTrainingHours(date) { success, error in
             guard let success = success else {
                 return
             }
             
-            self.trainingHoursCount = success.count
             self.trainingHoursList = self.sortedDate(success)
             self.delegate?.reloadData()
         }
@@ -62,18 +68,16 @@ class SchedulesViewModel {
     }
     
     func getRemainingDaysInAMonth() {
-        let currentDate = Date() // Tras a data atual
-        let dateFormatter = DateFormatter() // Formatador de data
-        let calendar = Calendar.current // Componente de calendario
-        let year = calendar.component(.year, from: currentDate) // Retornao o ano atual do dispositivo
-        let month = calendar.component(.month, from: currentDate) // Retorna o mes atual do dispositivo
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: currentDate)
+        let month = calendar.component(.month, from: currentDate)
         let currentDay = calendar.component(.day, from: currentDate)
         
-        // Retorna um range de dias do mes atual do dispositivo
         let range = calendar.range(of: .day, in: .month, for: currentDate)
         
-        range?.forEach({ day in
-            // Formata a data no padrao ano/mes/dia - ISO
+        range?.forEach { day in
             dateFormatter.dateFormat = "yyyy-MM-dd"
             if let date = dateFormatter.date(from: "\(year)/\(month)/\(day)") {
                 if day >= currentDay {
@@ -83,7 +87,7 @@ class SchedulesViewModel {
                     trainingDays.append((dayFormatted, dayName))
                 }
             }
-        })
+        }
     }
     
     func getDayStringToDateString(day: String) -> String {
@@ -97,6 +101,7 @@ class SchedulesViewModel {
         return dateFormatted
     }
     
+    //MARK: - Private method
     private func sortedDate(_ hours: [TrainingHours]) -> [TrainingHours] {
         let dateFormatter = DateFormatter()
         

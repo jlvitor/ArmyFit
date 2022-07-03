@@ -9,10 +9,11 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
     
-    @IBOutlet weak var dateCollectionView: UICollectionView!
-    @IBOutlet weak var scheduleTableView: UITableView!
+    //MARK: - Private properties
+    @IBOutlet private weak var dateCollectionView: UICollectionView!
+    @IBOutlet private weak var scheduleTableView: UITableView!
     
-    private let viewModel: SchedulesViewModel = SchedulesViewModel()
+    private let viewModel: SchedulesViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,6 @@ extension ScheduleViewController: UICollectionViewDelegate {
         viewModel.cellSelected = indexPath.row
         viewModel.date = date
         collectionView.reloadData()
-        
     }
 }
 
@@ -73,17 +73,17 @@ extension ScheduleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.trainingDays.count
     }
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCustomCell", for: indexPath) as? DateCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dateCustomCell", for: indexPath) as? DateCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         let cellViewModel = viewModel.getDayCellViewModel(indexPath.row)
         
-        cell?.configure(viewModel: cellViewModel)
+        cell.configure(viewModel: cellViewModel)
         viewModel.configCellBackgroundColorWhenSelected(cell, at: indexPath.row)
         
-        return cell ?? UICollectionViewCell()
+        return cell
     }
 }
 
@@ -102,17 +102,18 @@ extension ScheduleViewController: UITableViewDelegate {
 //MARK: - UITableViewDataSource
 extension ScheduleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.trainingHoursCount
-        return count
+        return viewModel.trainingHoursCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCustomCell", for: indexPath) as? ScheduleTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCustomCell", for: indexPath) as? ScheduleTableViewCell else {
+            return UITableViewCell()
+        }
         let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.row)
         
-        cell?.configure(cellViewModel)
+        cell.configure(cellViewModel)
         
-        return cell ?? UITableViewCell()
+        return cell
     }
 }
 

@@ -9,23 +9,26 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var postDateLabel: UILabel!
-    @IBOutlet weak var postLabel: UILabel!
-    @IBOutlet weak var numberOfLikesLabel: UILabel!
-    @IBOutlet weak var numberOfCommentsLabel: UILabel!
+    //MARK: - Private properties
+    @IBOutlet private weak var userImageView: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var postDateLabel: UILabel!
+    @IBOutlet private weak var postLabel: UILabel!
+    @IBOutlet private weak var numberOfLikesLabel: UILabel!
+    @IBOutlet private weak var numberOfCommentsLabel: UILabel!
     
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var buttonsStackView: UIStackView!
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private weak var buttonsStackView: UIStackView!
     
+    //MARK: - Public method
     func configure(_ viewModel: PostViewModel) {
-        userImageView.image = UIImage(named: viewModel.getUserImage())
-        userNameLabel.text = viewModel.getUserName()
-        postLabel.text = viewModel.getPostText()
-        numberOfLikesLabel.text = viewModel.getNumberOfLikes()
+        userImageView.image = UIImage(named: viewModel.getUserImage)
+        userNameLabel.text = viewModel.getUserName
+        postLabel.text = viewModel.getPostText
+        numberOfLikesLabel.text = viewModel.getNumberOfLikes
     }
     
+    //MARK: - Private method
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         let scaleConfig = UIImage.SymbolConfiguration(scale: .small)
         

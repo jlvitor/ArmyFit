@@ -14,25 +14,20 @@ protocol TrainingViewModelDelegate {
 class TrainingsViewModel {
     
     //MARK: - Private properties
-    private let service: TrainingHoursService
-    private var trainingUser: [TrainingUser] = []
-    var trainingUserSections: [TrainingUserSection] = []
+    private let service: TrainingHoursService = .init()
+    private var trainingUserList: [TrainingUser] = []
     
     //MARK: - Public properties
     var delegate: TrainingViewModelDelegate?
-    var crossfit: String?
-    
-    init(service: TrainingHoursService = .init()) {
-        self.service = service
-    }
+    var trainingUserSections: [TrainingUserSection] = []
     
     //MARK: - Public methods
     func fetchTrainingUser(_ date: String) {
-        service.getTrainingUser(date) { success, error in
-            guard let success = success else { return }
+        service.getTrainingUser(date) { trainingUsers, error in
+            guard let trainingUsers = trainingUsers else { return }
             
-            self.trainingUser = success
-            self.organizeSections(trainings: success)
+            self.trainingUserList = trainingUsers
+            self.organizeSections(trainings: trainingUsers)
             self.delegate?.reloadData()
         }
     }
@@ -50,6 +45,7 @@ class TrainingsViewModel {
         return TrainingViewModel(trainingDetail: detail)
     }
     
+    //MARK: - Private method
     private func organizeSections(trainings: [TrainingUser]) {
         trainings.forEach { training in
             let section = trainingUserSections.first(where: { section in

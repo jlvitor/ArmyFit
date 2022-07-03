@@ -9,9 +9,10 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var publicationUserTextView: UITextView!
+    //MARK: - Private properties
+    @IBOutlet private weak var posterImage: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var publicationUserTextView: UITextView!
     
     private let viewModel: NewPostViewModel = .init()
     
@@ -24,7 +25,7 @@ class PostViewController: UIViewController {
     }
     
     //MARK: - Private methods
-    @IBAction func publishButtonAction(_ sender: UIButton) {
+    @IBAction private func publishButtonAction(_ sender: UIButton) {
         viewModel.makeNewPost(description: publicationUserTextView.text)
     }
     
@@ -61,6 +62,7 @@ extension PostViewController: UITextViewDelegate {
     }
 }
 
+//MARK: - NewPostViewModelDelegate
 extension PostViewController: NewPostViewModelDelegate {
     func successMakeNewPost() {
         navigationController?.popViewController(animated: true)    }

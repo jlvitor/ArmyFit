@@ -20,7 +20,8 @@ protocol RegisterOnTrainingDelegate {
 
 class ScheduleDetailViewModel {
     
-    private let service: TrainingHoursService
+    //MARK: - Private properties
+    private let service: TrainingHoursService = .init()
     private let trainingHoursId: String
     private var isRegistered: Bool = false
     private var traininigHoursDetail: TrainingHours = .init(
@@ -30,24 +31,64 @@ class ScheduleDetailViewModel {
         availableSpots: 0,
         instructor: "",
         description: "",
-        training: Training.init(id: "", name: "", createdAt: "", warning: "", trainingHours: nil),
+        training: Training.init(
+            id: "",
+            name: "",
+            createdAt: "",
+            warning: "",
+            trainingHours: nil),
         trainingId: "",
-        trainingUsers: [])
+        trainingUsers: []
+    )
     
+    //MARK: - Public properties
     var delegate: ScheduleDetailViewModelDelegate?
     var registerDelegate: RegisterOnTrainingDelegate?
     
-    init(service: TrainingHoursService = .init() , _ trainingHoursId: String) {
-        self.service = service
+    //MARK: - Getters
+    var getDayName: String {
+        Date.getDayNameFromString(date: traininigHoursDetail.dateHour).uppercased()
+    }
+    
+    var getDayNumber: String {
+        Date.getDayNumberFromString(date: traininigHoursDetail.dateHour)
+    }
+    
+    var getHourTraining: String {
+        Date.formatDateStringToHour(date: traininigHoursDetail.dateHour)
+    }
+    
+    var getMinuteTraining: String {
+        Date.formatDateStringToMinute(date: traininigHoursDetail.dateHour)
+    }
+    
+    var getCoachName: String {
+        traininigHoursDetail.instructor.uppercased()
+    }
+    
+    var getAvailableSpots: String {
+        "\(traininigHoursDetail.availableSpots)"
+    }
+    
+    var getSpots: String {
+        "\(traininigHoursDetail.spots)"
+    }
+    
+    var getNumberOfUsers: Int {
+        traininigHoursDetail.trainingUsers?.count ?? 0
+    }
+    
+    init(_ trainingHoursId: String) {
         self.trainingHoursId = trainingHoursId
     }
     
+    //MARK: - Public methods
     func fetchTrainingsHours(completion: @escaping () -> Void) {
-        service.getTrainingHours(trainingHoursId) { success, error in
-            guard let success = success else {
+        service.getTrainingHours(trainingHoursId) { trainingHours, error in
+            guard let trainingHours = trainingHours else {
                 return
             }
-            self.traininigHoursDetail = success
+            self.traininigHoursDetail = trainingHours
             self.userIsRegistered()
             self.delegate?.reloadData()
             completion()
@@ -78,47 +119,6 @@ class ScheduleDetailViewModel {
         }
     }
     
-    func getDayName() -> String {
-        let dayName = Date.getDayNameFromString(date: traininigHoursDetail.dateHour)
-        return dayName.uppercased()
-    }
-    
-    func getDayNumber() -> String {
-        let dayNumber = Date.getDayNumberFromString(date: traininigHoursDetail.dateHour)
-        return dayNumber
-    }
-    
-    func getHourTraining() -> String {
-        let trainingHour = traininigHoursDetail.dateHour
-        return Date.formatDateStringToHour(date: trainingHour)
-    }
-    
-    func getMinuteTraining() -> String {
-        let trainingMinute = traininigHoursDetail.dateHour
-        return Date.formatDateStringToMinute(date: trainingMinute)
-    }
-    
-    func getCoachName() -> String {
-        let coachName = traininigHoursDetail.instructor
-        let name = convertToUppercasedFrom(coachName)
-        return name
-    }
-    
-    func getAvailableSpots() -> String {
-        let availableSpots = traininigHoursDetail.availableSpots
-        return "\(availableSpots)"
-    }
-    
-    func getSpots() -> String {
-        let spots = traininigHoursDetail.spots
-        return "\(spots)"
-    }
-    
-    func getNumberOfUsers() -> Int {
-        guard let users = traininigHoursDetail.trainingUsers?.count else { return 0 }
-        return users
-    }
-    
     func getTrainingDetailCellViewModel() -> RegisterTrainingViewModel {
         let user = traininigHoursDetail
         return RegisterTrainingViewModel(trainingDetail: user)
@@ -140,9 +140,10 @@ class ScheduleDetailViewModel {
         }
     }
     
+    //MARK: - Private methods
     private func userIsRegistered() {
         guard let trainingUsers = traininigHoursDetail.trainingUsers else { return }
-
+        
         let isRegistered = trainingUsers.contains { user in
             UserDefaults.getValue(key: UserDefaults.Keys.userId) as? String == user.userId
         }
