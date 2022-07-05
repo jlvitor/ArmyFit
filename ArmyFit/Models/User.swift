@@ -13,5 +13,5 @@ struct User: Decodable {
     let email: String
     let password: String
     let photoUrl: String?
-    var trainingUser: [TrainingUser]?
+    var trainingUser: [TrainingUserDTO]?
 }

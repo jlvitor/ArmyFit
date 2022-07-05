@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Training" representedClassName="Training" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <attribute name="warning" attributeType="String"/>
+        <relationship name="trainingHours" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrainingHours" inverseName="training" inverseEntity="TrainingHours"/>
+    </entity>
+    <entity name="TrainingHours" representedClassName="TrainingHours" syncable="YES">
+        <attribute name="dateHour" attributeType="String"/>
+        <attribute name="instructor" attributeType="String"/>
+        <attribute name="trainingDescription" attributeType="String"/>
+        <relationship name="training" maxCount="1" deletionRule="Nullify" destinationEntity="Training" inverseName="trainingHours" inverseEntity="Training"/>
+        <relationship name="trainingUsers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrainingUser" inverseName="trainingHours" inverseEntity="TrainingUser"/>
+    </entity>
+    <entity name="TrainingUser" representedClassName="TrainingUser" syncable="YES">
+        <relationship name="trainingHours" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TrainingHours" inverseName="trainingUsers" inverseEntity="TrainingHours"/>
+    </entity>
+    <elements>
+        <element name="TrainingUser" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="TrainingHours" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="Training" positionX="-36" positionY="36" width="128" height="74"/>
+    </elements>
+</model>

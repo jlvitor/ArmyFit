@@ -10,7 +10,6 @@ import Foundation
 class TrainingViewModel {
     
     //MARK: - Private methods
-    private let service: UserService = .init()
     private var trainingDetail: TrainingUser
     
     init(trainingDetail: TrainingUser) {

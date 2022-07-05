@@ -84,6 +84,10 @@ extension TrainingViewController: UITableViewDataSource {
 
 //MARK: - TrainingViewModelDelegate
 extension TrainingViewController: TrainingViewModelDelegate {
+    func success() {
+        viewModel.fetchTrainingsOnCoreData()
+    }
+    
     func reloadData() {
         trainingTableView.reloadData()
     }

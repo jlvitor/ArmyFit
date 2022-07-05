@@ -10,9 +10,9 @@ import Foundation
 class ScheduleViewModel {
     
     //MARK: - Private propertie
-    private let trainingHours: TrainingHours
+    private let trainingHours: TrainingHoursDTO
     
-    init(_ trainingHours: TrainingHours) {
+    init(_ trainingHours: TrainingHoursDTO) {
         self.trainingHours = trainingHours
     }
     

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol TrainingViewModelDelegate {
+    func success()
     func reloadData()
 }
 
@@ -15,7 +16,7 @@ class TrainingsViewModel {
     
     //MARK: - Private properties
     private let service: TrainingHoursService = .init()
-    private var trainingUserList: [TrainingUser] = []
+    private let serviceCD: CoreDataService = .init()
     
     //MARK: - Public properties
     var delegate: TrainingViewModelDelegate?
@@ -26,8 +27,8 @@ class TrainingsViewModel {
         service.getTrainingUser(date) { trainingUsers, error in
             guard let trainingUsers = trainingUsers else { return }
             
-            self.trainingUserList = trainingUsers
-            self.organizeSections(trainings: trainingUsers)
+            self.saveTrainingsOnCoreData(trainingUsers)
+            self.delegate?.success()
             self.delegate?.reloadData()
         }
     }
@@ -46,6 +47,20 @@ class TrainingsViewModel {
     }
     
     //MARK: - Private method
+    private func saveTrainingsOnCoreData(_ trainingUser: [TrainingUserDTO]) {
+        serviceCD.saveOnCoreData(trainingUser)
+    }
+    
+    func fetchTrainingsOnCoreData() {
+        let trainings = serviceCD.fetchTrainingUser()
+        
+        for training in trainings {
+            print("\(trainings[0].trainingHours?.training.name)")
+        }
+        
+        organizeSections(trainings: trainings)
+    }
+    
     private func organizeSections(trainings: [TrainingUser]) {
         trainings.forEach { training in
             let section = trainingUserSections.first(where: { section in

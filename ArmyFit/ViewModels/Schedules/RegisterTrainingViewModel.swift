@@ -10,9 +10,9 @@ import Foundation
 class RegisterTrainingViewModel {
     
     //MARK: - Private propertie
-    private let trainingDetail: TrainingHours
+    private let trainingDetail: TrainingHoursDTO
     
-    init(trainingDetail: TrainingHours) {
+    init(trainingDetail: TrainingHoursDTO) {
         self.trainingDetail = trainingDetail
     }
     
