@@ -22,7 +22,7 @@ class SchedulesViewModel {
     var delegate: SchedulesViewModelDelegate?
     var trainingDays: [(String, String)] = []
     var cellSelected: Int = 0
-    var date: String?
+    var date: String? = Date.getCurrentDateToDateString()
     
     //MARK: - Getter
     var trainingHoursCount: Int {

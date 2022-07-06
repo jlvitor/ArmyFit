@@ -9,7 +9,7 @@ import Foundation
 
 struct TrainingUserDTO: Decodable {
     let id: String
-    let user: User?
+    let user: UserDTO?
     let userId: String
     let trainingHours: TrainingHoursDTO?
     let trainingHoursId: String

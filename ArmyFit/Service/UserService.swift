@@ -14,7 +14,7 @@ class UserService {
     private let keychain: KeychainSwift = .init()
     
     // Registra o usuário no app/ bando de dados do app
-    func registerUser(name: String, email: String, password: String, completion: @escaping (User?, Error?) -> Void) {
+    func registerUser(name: String, email: String, password: String, completion: @escaping (UserDTO?, Error?) -> Void) {
         guard let url = URL(string: baseUrl) else { return }
         
         var request = URLRequest(url: url)
@@ -31,7 +31,7 @@ class UserService {
             guard let data = data, error == nil else { return }
             
             do {
-                let register = try JSONDecoder().decode(User.self, from: data)
+                let register = try JSONDecoder().decode(UserDTO.self, from: data)
                 DispatchQueue.main.async {
                     completion(register, nil)
                 }
@@ -44,8 +44,8 @@ class UserService {
         task.resume()
     }
     
-    // Atualiza nome e foto do usuário
-    func updateUser(name: String, photoURL: String, completion: @escaping (User?, Error?) -> Void) {
+    // Atualiza nome do usuário
+    func updateUser(name: String, completion: @escaping (UserDTO?, Error?) -> Void) {
         guard let url = URL(string: baseUrl) else { return }
         
         var request = URLRequest(url: url)
@@ -53,8 +53,7 @@ class UserService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
-            "name": name,
-            "photoURL": photoURL
+            "name": name
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
@@ -62,7 +61,7 @@ class UserService {
             guard let data = data, error == nil else { return }
 
             do {
-                let update = try JSONDecoder().decode(User.self, from: data)
+                let update = try JSONDecoder().decode(UserDTO.self, from: data)
                 DispatchQueue.main.async {
                     completion(update, nil)
                 }
@@ -76,7 +75,7 @@ class UserService {
     }
     
     // Pega os detalhes do usuário
-    func getUserDetails(completion: @escaping (User?, Error?) -> Void) {
+    func getUserDetails(completion: @escaping (UserDTO?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/profile") else { return }
         
         var request = URLRequest(url: url)
@@ -87,7 +86,7 @@ class UserService {
             guard let data = data, error == nil else { return }
             
             do {
-                let user = try JSONDecoder().decode(User.self, from: data)
+                let user = try JSONDecoder().decode(UserDTO.self, from: data)
                 DispatchQueue.main.async {
                     completion(user, nil)
                 }

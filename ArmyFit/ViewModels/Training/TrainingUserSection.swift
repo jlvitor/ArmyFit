@@ -11,9 +11,9 @@ class TrainingUserSection {
     
     //MARK: - Public properties
     var name: String
-    var trainings: [TrainingUser] = []
+    var trainings: [TrainingUserDTO] = []
     
-    init(name: String, trainings: [TrainingUser]) {
+    init(name: String, trainings: [TrainingUserDTO]) {
         self.name = name
         self.trainings = trainings
     }

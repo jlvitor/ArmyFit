@@ -2,7 +2,7 @@
 //  Training+CoreDataClass.swift
 //  
 //
-//  Created by Jean Lucas Vitor on 05/07/22.
+//  Created by Jean Lucas Vitor on 06/07/22.
 //
 //
 

@@ -10,9 +10,9 @@ import Foundation
 class TrainingViewModel {
     
     //MARK: - Private methods
-    private var trainingDetail: TrainingUser
+    private var trainingDetail: TrainingUserDTO
     
-    init(trainingDetail: TrainingUser) {
+    init(trainingDetail: TrainingUserDTO) {
         self.trainingDetail = trainingDetail
     }
     

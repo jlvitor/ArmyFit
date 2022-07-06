@@ -2,7 +2,7 @@
 //  TrainingHours+CoreDataProperties.swift
 //  
 //
-//  Created by Jean Lucas Vitor on 05/07/22.
+//  Created by Jean Lucas Vitor on 06/07/22.
 //
 //
 
@@ -16,10 +16,10 @@ extension TrainingHours {
         return NSFetchRequest<TrainingHours>(entityName: "TrainingHours")
     }
 
-    @NSManaged public var dateHour: String
-    @NSManaged public var instructor: String
-    @NSManaged public var trainingDescription: String
-    @NSManaged public var training: Training
+    @NSManaged public var dateHour: String?
+    @NSManaged public var instructor: String?
+    @NSManaged public var trainingDescription: String?
+    @NSManaged public var training: Training?
     @NSManaged public var trainingUsers: NSSet?
 
 }

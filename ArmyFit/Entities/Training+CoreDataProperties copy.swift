@@ -2,7 +2,7 @@
 //  Training+CoreDataProperties.swift
 //  
 //
-//  Created by Jean Lucas Vitor on 05/07/22.
+//  Created by Jean Lucas Vitor on 06/07/22.
 //
 //
 
@@ -16,8 +16,8 @@ extension Training {
         return NSFetchRequest<Training>(entityName: "Training")
     }
 
-    @NSManaged public var name: String
-    @NSManaged public var warning: String
+    @NSManaged public var name: String?
+    @NSManaged public var warning: String?
     @NSManaged public var trainingHours: NSSet?
 
 }

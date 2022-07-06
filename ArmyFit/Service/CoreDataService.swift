@@ -10,26 +10,23 @@ import CoreData
 
 class CoreDataService {
     
-    private let context = CoreDataManager.shared.persistentContainer.viewContext
+    private let context = CoreDataManager.shared.context
     
-    func saveOnCoreData(_ trainingUser: [TrainingUserDTO]) {
+    static var shared = CoreDataService()
+    
+    var sampleImageData: Data = .init()
+    var storedImageData: Data = .init()
+    
+    func saveOnCoreData() {
+        let image: User = .init(context: context)
         
-        trainingUser.forEach { trainingUser in
-            let delegate = CoreDataManager.shared.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "TrainingUser", in: delegate)
-            let training = TrainingUser(trainingUser, context: context)
-            
-            do {
-                try context.save()
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
+        image.photoUrl = sampleImageData
+        saveContext()
     }
     
-    func fetchTrainingUser() -> [TrainingUser] {
+    func fetchUserImage() -> [User] {
         do {
-            return try context.fetch(TrainingUser.fetchRequest())
+            return try context.fetch(User.fetchRequest())
         } catch {
             print(error)
         }
