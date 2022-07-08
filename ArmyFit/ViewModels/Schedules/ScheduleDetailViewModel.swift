@@ -24,14 +24,14 @@ class ScheduleDetailViewModel {
     private let service: TrainingHoursService = .init()
     private let trainingHoursId: String
     private var isRegistered: Bool = false
-    private var traininigHoursDetail: TrainingHours = .init(
+    private var traininigHoursDetail: TrainingHoursDTO = .init(
         id: "",
         dateHour: "",
         spots: 0,
         availableSpots: 0,
         instructor: "",
         description: "",
-        training: Training.init(
+        training: TrainingDTO.init(
             id: "",
             name: "",
             createdAt: "",

@@ -14,7 +14,7 @@ class TrainingHoursService {
     private let keychain: KeychainSwift = .init()
     
     // Pega todos os treinos do dia no mes atual
-    func getAllTrainingHours(_ date: String, completion: @escaping ([TrainingHours]?, Error?) -> Void) {
+    func getAllTrainingHours(_ date: String, completion: @escaping ([TrainingHoursDTO]?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/hours/\(date)") else { return }
         
         var request = URLRequest(url: url)
@@ -25,7 +25,7 @@ class TrainingHoursService {
             guard let data = data, error == nil else { return }
             
             do {
-                let trainings = try JSONDecoder().decode([TrainingHours].self, from: data)
+                let trainings = try JSONDecoder().decode([TrainingHoursDTO].self, from: data)
                 DispatchQueue.main.async {
                     completion(trainings, nil)
                 }
@@ -37,7 +37,7 @@ class TrainingHoursService {
     }
     
     // Pega um treino em especifico
-    func getTrainingHours(_ trainingId: String, completion: @escaping (TrainingHours?, Error?) -> Void) {
+    func getTrainingHours(_ trainingId: String, completion: @escaping (TrainingHoursDTO?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/hours/training/\(trainingId)") else { return }
         
         var request = URLRequest(url: url)
@@ -48,7 +48,7 @@ class TrainingHoursService {
             guard let data = data, error == nil else { return }
             
             do {
-                let training = try JSONDecoder().decode(TrainingHours.self, from: data)
+                let training = try JSONDecoder().decode(TrainingHoursDTO.self, from: data)
                 DispatchQueue.main.async {
                     completion(training, nil)
                 }
@@ -60,7 +60,7 @@ class TrainingHoursService {
     }
     
     // Inscreve o usuario no treino
-    func addUserOnTraining(_ trainingHoursId: String, _ userId: String, completion: @escaping (TrainingUser?, Error?) -> Void) {
+    func addUserOnTraining(_ trainingHoursId: String, _ userId: String, completion: @escaping (TrainingUserDTO?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/trainingusers") else { return }
         
         var request = URLRequest(url: url)
@@ -77,7 +77,7 @@ class TrainingHoursService {
             guard let data = data, error == nil else { return }
             
             do {
-                let trainingRegister = try JSONDecoder().decode(TrainingUser.self, from: data)
+                let trainingRegister = try JSONDecoder().decode(TrainingUserDTO.self, from: data)
                 DispatchQueue.main.async {
                     completion(trainingRegister, nil)
                 }
@@ -109,7 +109,7 @@ class TrainingHoursService {
     }
     
     // Pega os usuários que estão participando do treino
-    func getTrainingUser(_ date: String, completion: @escaping ([TrainingUser]?, Error?) -> Void) {
+    func getTrainingUser(_ date: String, completion: @escaping ([TrainingUserDTO]?, Error?) -> Void) {
         guard let url = URL(string: "\(baseUrl)/trainingusers/\(date)") else { return }
         
         var request = URLRequest(url: url)
@@ -120,7 +120,7 @@ class TrainingHoursService {
             guard let data = data, error == nil else { return }
             
             do {
-                let trainings = try JSONDecoder().decode([TrainingUser].self, from: data)
+                let trainings = try JSONDecoder().decode([TrainingUserDTO].self, from: data)
                 DispatchQueue.main.async {
                     completion(trainings, nil)
                 }

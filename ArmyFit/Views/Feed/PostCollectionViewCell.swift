@@ -22,7 +22,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Public method
     func configure(_ viewModel: PostViewModel) {
-        userImageView.image = UIImage(named: viewModel.getUserImage)
+        userImageView.loadFrom(URLAddress: viewModel.getUserImage)
         userNameLabel.text = viewModel.getUserName
         postLabel.text = viewModel.getPostText
         numberOfLikesLabel.text = viewModel.getNumberOfLikes

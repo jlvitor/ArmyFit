@@ -40,4 +40,17 @@ class AuthService {
         }
         task.resume()
     }
+    
+    func loadUserImageFrom(_ imageUrl: String) {
+        guard let url = URL(string: imageUrl) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+
+            DispatchQueue.main.async {
+                CoreDataService.shared.saveImageOnCoreData(sampleImageData: data)
+            }
+        }
+        task.resume()
+    }
 }

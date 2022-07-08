@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func configUserData() {
-        profileImageView.image = UIImage(named: viewModel.getUserImage)
+        profileImageView.image = UIImage(data: viewModel.getUserImage)
         nameLabel.text = viewModel.getUserName
     }
     
@@ -169,7 +169,7 @@ extension ProfileViewController: UITableViewDelegate {
         
         if section == 1 {
             if row == 0 {
-                let recipientEmail = "vjeanlucas93@gmail.com"
+                let recipientEmail = "recepcaoarmyclf@gmail.com"
                 let subject = "ArmyFit - Suporte ao cliente"
                 
                 // Show default mail composer
@@ -187,6 +187,7 @@ extension ProfileViewController: UITableViewDelegate {
                 }
             }
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

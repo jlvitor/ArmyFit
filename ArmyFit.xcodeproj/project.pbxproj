@@ -14,7 +14,7 @@
 		144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */; };
 		144FF8B42860F8FE0014B6E7 /* TrainingHoursService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */; };
 		14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4928454F7200E5FEA4 /* User.swift */; };
-		14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* Training.swift */; };
+		14C0AD4C28454FB000E5FEA4 /* TrainingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */; };
 		6E277B5628590D4B00672B92 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E277B5528590D4B00672B92 /* RegisterViewModel.swift */; };
 		6E3B8ED92857BCDA0023E5A7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B8ED82857BCDA0023E5A7 /* LoginViewModel.swift */; };
 		6E4DDBBF286641690038E652 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4DDBBE286641680038E652 /* PostViewController.swift */; };
@@ -34,8 +34,8 @@
 		CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E326C285A4CD600B7AA7B /* String+Extension.swift */; };
 		CC42A674285C45D900F2F857 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A673285C45D900F2F857 /* PostViewModel.swift */; };
 		CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */; };
-		CC52D997286243FA00C10680 /* TrainingHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D996286243FA00C10680 /* TrainingHours.swift */; };
-		CC52D9992862440F00C10680 /* TrainingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D9982862440F00C10680 /* TrainingUser.swift */; };
+		CC52D997286243FA00C10680 /* TrainingHoursDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D996286243FA00C10680 /* TrainingHoursDTO.swift */; };
+		CC52D9992862440F00C10680 /* TrainingUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D9982862440F00C10680 /* TrainingUserDTO.swift */; };
 		CC52D99B2862444300C10680 /* CommentPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D99A2862444300C10680 /* CommentPost.swift */; };
 		CC52D99E2862446C00C10680 /* LikePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D99D2862446C00C10680 /* LikePost.swift */; };
 		CC52D9A12862449C00C10680 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D9A02862449C00C10680 /* UserResponse.swift */; };
@@ -44,9 +44,21 @@
 		CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */; };
 		CC7A2A212863B05A00E9943B /* TrainingDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7A2A202863B05A00E9943B /* TrainingDetailViewModel.swift */; };
 		CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E4D9028400863003E5DB1 /* LoginViewController.swift */; };
+		CC7F205928760F29008219BB /* Training+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205128760F29008219BB /* Training+CoreDataClass copy.swift */; };
+		CC7F205A28760F29008219BB /* TrainingUser+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205228760F29008219BB /* TrainingUser+CoreDataClass copy.swift */; };
+		CC7F205B28760F29008219BB /* TrainingUser+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205328760F29008219BB /* TrainingUser+CoreDataProperties copy.swift */; };
+		CC7F205C28760F29008219BB /* Training+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205428760F29008219BB /* Training+CoreDataProperties copy.swift */; };
+		CC7F205D28760F29008219BB /* User+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205528760F29008219BB /* User+CoreDataProperties copy.swift */; };
+		CC7F205E28760F29008219BB /* TrainingHours+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */; };
+		CC7F205F28760F29008219BB /* User+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */; };
+		CC7F206028760F29008219BB /* TrainingHours+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */; };
+		CC8B20412878B51C007157A5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8B20402878B51C007157A5 /* UIImageView+Extension.swift */; };
 		CC9B2E82285949A40081745D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B2E81285949A40081745D /* Date+Extension.swift */; };
 		CC9FE16F2857A86C0010EE58 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE16E2857A86C0010EE58 /* Auth.swift */; };
 		CC9FE1722857CCDB0010EE58 /* HideKeyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */; };
+		CCA204BB287491F100C8CBFA /* ArmyFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCA204B9287491F100C8CBFA /* ArmyFit.xcdatamodeld */; };
+		CCA204BE2874941200C8CBFA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA204BD2874941200C8CBFA /* CoreDataManager.swift */; };
+		CCA204D9287495AC00C8CBFA /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA204D8287495AC00C8CBFA /* CoreDataService.swift */; };
 		CCA94974283D642E00A6FB05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94973283D642E00A6FB05 /* AppDelegate.swift */; };
 		CCA94976283D642E00A6FB05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA94975283D642E00A6FB05 /* SceneDelegate.swift */; };
 		CCA9497B283D642E00A6FB05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA94979283D642E00A6FB05 /* Main.storyboard */; };
@@ -71,7 +83,7 @@
 		144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewModel.swift; sourceTree = "<group>"; };
 		144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingHoursService.swift; sourceTree = "<group>"; };
 		14C0AD4928454F7200E5FEA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		14C0AD4B28454FB000E5FEA4 /* Training.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDTO.swift; sourceTree = "<group>"; };
 		61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.release.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
 		693603C10A79B8F9F7DCEB67 /* Pods_ArmyFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArmyFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E277B5528590D4B00672B92 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -94,8 +106,8 @@
 		CC3E326C285A4CD600B7AA7B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CC42A673285C45D900F2F857 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
-		CC52D996286243FA00C10680 /* TrainingHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingHours.swift; sourceTree = "<group>"; };
-		CC52D9982862440F00C10680 /* TrainingUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingUser.swift; sourceTree = "<group>"; };
+		CC52D996286243FA00C10680 /* TrainingHoursDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingHoursDTO.swift; sourceTree = "<group>"; };
+		CC52D9982862440F00C10680 /* TrainingUserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingUserDTO.swift; sourceTree = "<group>"; };
 		CC52D99A2862444300C10680 /* CommentPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPost.swift; sourceTree = "<group>"; };
 		CC52D99D2862446C00C10680 /* LikePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePost.swift; sourceTree = "<group>"; };
 		CC52D9A02862449C00C10680 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
@@ -104,9 +116,21 @@
 		CC79805D284153FA00ECD18C /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		CC7A2A202863B05A00E9943B /* TrainingDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailViewModel.swift; sourceTree = "<group>"; };
 		CC7E4D9028400863003E5DB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CC7F205128760F29008219BB /* Training+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Training+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		CC7F205228760F29008219BB /* TrainingUser+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingUser+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		CC7F205328760F29008219BB /* TrainingUser+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingUser+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
+		CC7F205428760F29008219BB /* Training+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Training+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
+		CC7F205528760F29008219BB /* User+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
+		CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingHours+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
+		CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingHours+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		CC8B20402878B51C007157A5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CC9B2E81285949A40081745D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CC9FE16E2857A86C0010EE58 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+Extension.swift"; sourceTree = "<group>"; };
+		CCA204BA287491F100C8CBFA /* ArmyFit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArmyFit.xcdatamodel; sourceTree = "<group>"; };
+		CCA204BD2874941200C8CBFA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		CCA204D8287495AC00C8CBFA /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		CCA94970283D642E00A6FB05 /* ArmyFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArmyFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA94973283D642E00A6FB05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA94975283D642E00A6FB05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,9 +191,9 @@
 		CC52D99C2862445800C10680 /* Training */ = {
 			isa = PBXGroup;
 			children = (
-				14C0AD4B28454FB000E5FEA4 /* Training.swift */,
-				CC52D9982862440F00C10680 /* TrainingUser.swift */,
-				CC52D996286243FA00C10680 /* TrainingHours.swift */,
+				14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */,
+				CC52D9982862440F00C10680 /* TrainingUserDTO.swift */,
+				CC52D996286243FA00C10680 /* TrainingHoursDTO.swift */,
 			);
 			path = Training;
 			sourceTree = "<group>";
@@ -214,9 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				90D000112857AE8500143DB3 /* AuthService.swift */,
-				CCAF5FDF284ED7F900678230 /* UserService.swift */,
-				144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */,
 				CCCB48A7285C0C3300AEC1E2 /* PostService.swift */,
+				CCAF5FDF284ED7F900678230 /* UserService.swift */,
+				CCA204D8287495AC00C8CBFA /* CoreDataService.swift */,
+				144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -226,10 +251,34 @@
 			children = (
 				CC9B2E81285949A40081745D /* Date+Extension.swift */,
 				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
+				CC8B20402878B51C007157A5 /* UIImageView+Extension.swift */,
 				CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */,
 				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CCA204BC287493F300C8CBFA /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CCA204BD2874941200C8CBFA /* CoreDataManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CCA204BF2874946200C8CBFA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */,
+				CC7F205528760F29008219BB /* User+CoreDataProperties copy.swift */,
+				CC7F205128760F29008219BB /* Training+CoreDataClass copy.swift */,
+				CC7F205428760F29008219BB /* Training+CoreDataProperties copy.swift */,
+				CC7F205228760F29008219BB /* TrainingUser+CoreDataClass copy.swift */,
+				CC7F205328760F29008219BB /* TrainingUser+CoreDataProperties copy.swift */,
+				CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */,
+				CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		CCA94967283D642E00A6FB05 = {
@@ -256,11 +305,14 @@
 				CCFB5ADC28714C0B00A7A9B4 /* Utils */,
 				CC9FE1702857CCAA0010EE58 /* Extensions */,
 				CC916E53284A9C2D002A4AE1 /* Service */,
+				CCA204BC287493F300C8CBFA /* Manager */,
+				CCA204BF2874946200C8CBFA /* Entities */,
 				14C0AD4828454F4700E5FEA4 /* Models */,
 				CC7E4D8E28400835003E5DB1 /* Views */,
 				CCE1056C2850E438006376B8 /* ViewModels */,
 				CCFB5ADD28714C1A00A7A9B4 /* Resources */,
 				CCA94981283D643000A6FB05 /* Info.plist */,
+				CCA204B9287491F100C8CBFA /* ArmyFit.xcdatamodeld */,
 			);
 			path = ArmyFit;
 			sourceTree = "<group>";
@@ -559,7 +611,9 @@
 				CC52D99B2862444300C10680 /* CommentPost.swift in Sources */,
 				CC086958284D8D14005E74B0 /* ProfileViewModel.swift in Sources */,
 				CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */,
+				CC7F205D28760F29008219BB /* User+CoreDataProperties copy.swift in Sources */,
 				6E4DDBBF286641690038E652 /* PostViewController.swift in Sources */,
+				CC7F205F28760F29008219BB /* User+CoreDataClass copy.swift in Sources */,
 				CCCB48A8285C0C3300AEC1E2 /* PostService.swift in Sources */,
 				144FF8AC285FABD90014B6E7 /* ScheduleDetailViewController.swift in Sources */,
 				CC52D99E2862446C00C10680 /* LikePost.swift in Sources */,
@@ -569,6 +623,7 @@
 				CC79805E284153FA00ECD18C /* ScheduleTableViewCell.swift in Sources */,
 				144FF8B0285FACC70014B6E7 /* RegisterTrainingViewModel.swift in Sources */,
 				CCBDF758286A3FA9009F3FB9 /* NewPostViewModel.swift in Sources */,
+				CC7F206028760F29008219BB /* TrainingHours+CoreDataClass copy.swift in Sources */,
 				CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */,
 				9091028628624C5200A03DFF /* TrainingViewController.swift in Sources */,
 				CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */,
@@ -578,13 +633,17 @@
 				CCCB48AA285C36EC00AEC1E2 /* PostsViewModel.swift in Sources */,
 				CC63E188285A520F009446D2 /* UserDefaults+Extension.swift in Sources */,
 				90D0FFD028513FA000143DB3 /* TrainingDetailViewController.swift in Sources */,
+				CC7F205928760F29008219BB /* Training+CoreDataClass copy.swift in Sources */,
 				CCCB48A6285C0A2A00AEC1E2 /* Post.swift in Sources */,
 				144FF8B1285FACC70014B6E7 /* SchedulesViewModel.swift in Sources */,
 				90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */,
 				CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */,
 				90D000122857AE8500143DB3 /* AuthService.swift in Sources */,
 				CC9FE16F2857A86C0010EE58 /* Auth.swift in Sources */,
+				CCA204BB287491F100C8CBFA /* ArmyFit.xcdatamodeld in Sources */,
 				CC7A2A212863B05A00E9943B /* TrainingDetailViewModel.swift in Sources */,
+				CCA204D9287495AC00C8CBFA /* CoreDataService.swift in Sources */,
+				CC7F205E28760F29008219BB /* TrainingHours+CoreDataProperties copy.swift in Sources */,
 				14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */,
 				90B2B483284D4FC0003AAA91 /* ProfileTableViewCell.swift in Sources */,
 				90293CD628403A38000964FE /* RegisterViewController.swift in Sources */,
@@ -594,13 +653,18 @@
 				CCAF5FE0284ED7F900678230 /* UserService.swift in Sources */,
 				CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */,
 				CCE1F20B28652BE00072F231 /* TrainingUserSection.swift in Sources */,
-				14C0AD4C28454FB000E5FEA4 /* Training.swift in Sources */,
+				14C0AD4C28454FB000E5FEA4 /* TrainingDTO.swift in Sources */,
 				90B2B481284D4D59003AAA91 /* ProfileViewController.swift in Sources */,
-				CC52D9992862440F00C10680 /* TrainingUser.swift in Sources */,
+				CC52D9992862440F00C10680 /* TrainingUserDTO.swift in Sources */,
 				6EABD7872849343100444347 /* FeedViewController.swift in Sources */,
-				CC52D997286243FA00C10680 /* TrainingHours.swift in Sources */,
+				CC7F205C28760F29008219BB /* Training+CoreDataProperties copy.swift in Sources */,
+				CC7F205B28760F29008219BB /* TrainingUser+CoreDataProperties copy.swift in Sources */,
+				CC52D997286243FA00C10680 /* TrainingHoursDTO.swift in Sources */,
 				144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */,
+				CC8B20412878B51C007157A5 /* UIImageView+Extension.swift in Sources */,
+				CCA204BE2874941200C8CBFA /* CoreDataManager.swift in Sources */,
 				144FF8AA285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift in Sources */,
+				CC7F205A28760F29008219BB /* TrainingUser+CoreDataClass copy.swift in Sources */,
 				CC79805C284153B700ECD18C /* DateCollectionViewCell.swift in Sources */,
 				CCE1F2032864EECB0072F231 /* TrainingViewModel.swift in Sources */,
 				90D0FFD2285140E300143DB3 /* TrainingsViewModel.swift in Sources */,
@@ -826,6 +890,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CCA204B9287491F100C8CBFA /* ArmyFit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CCA204BA287491F100C8CBFA /* ArmyFit.xcdatamodel */,
+			);
+			currentVersion = CCA204BA287491F100C8CBFA /* ArmyFit.xcdatamodel */;
+			path = ArmyFit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CCA94968283D642E00A6FB05 /* Project object */;
 }

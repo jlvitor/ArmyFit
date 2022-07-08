@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct TrainingHours: Decodable {
+struct TrainingHoursDTO: Decodable {
     let id: String
     let dateHour: String
     let spots: Int
     let availableSpots: Int
     let instructor: String
     let description: String
-    let training: Training
+    let training: TrainingDTO
     let trainingId: String?
-    let trainingUsers: [TrainingUser]?
+    let trainingUsers: [TrainingUserDTO]?
     
     enum CodingKeys: String, CodingKey {
         case id

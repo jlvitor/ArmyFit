@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Training: Decodable {
+struct TrainingDTO: Decodable {
     let id: String
     let name: String
     let createdAt: String
     let warning: String
-    var trainingHours: [TrainingHours]?
+    var trainingHours: [TrainingHoursDTO]?
     
     enum CodingKeys: String, CodingKey {
         case id, name

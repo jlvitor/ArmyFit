@@ -37,6 +37,7 @@ class TrainingViewController: UIViewController {
     private func configTableView() {
         trainingTableView.delegate = self
         trainingTableView.dataSource = self
+        trainingTableView.overrideUserInterfaceStyle = .dark
     }
     
     private func configViewModel() {
@@ -83,7 +84,7 @@ extension TrainingViewController: UITableViewDataSource {
 }
 
 //MARK: - TrainingViewModelDelegate
-extension TrainingViewController: TrainingViewModelDelegate {
+extension TrainingViewController: TrainingViewModelDelegate {    
     func reloadData() {
         trainingTableView.reloadData()
     }

@@ -15,18 +15,17 @@ class TrainingsViewModel {
     
     //MARK: - Private properties
     private let service: TrainingHoursService = .init()
-    private var trainingUserList: [TrainingUser] = []
+    private let serviceCD: CoreDataService = .init()
     
     //MARK: - Public properties
     var delegate: TrainingViewModelDelegate?
-    var trainingUserSections: [TrainingUserSection] = []
+    var trainingUserSections: [TrainingUserSection] = [].sorted { $0.name < $1.name }
     
     //MARK: - Public methods
     func fetchTrainingUser(_ date: String) {
         service.getTrainingUser(date) { trainingUsers, error in
             guard let trainingUsers = trainingUsers else { return }
             
-            self.trainingUserList = trainingUsers
             self.organizeSections(trainings: trainingUsers)
             self.delegate?.reloadData()
         }
@@ -46,7 +45,7 @@ class TrainingsViewModel {
     }
     
     //MARK: - Private method
-    private func organizeSections(trainings: [TrainingUser]) {
+    private func organizeSections(trainings: [TrainingUserDTO]) {
         trainings.forEach { training in
             let section = trainingUserSections.first(where: { section in
                 return section.name == training.trainingHours?.training.name

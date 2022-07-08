@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TrainingUser: Decodable {
+struct TrainingUserDTO: Decodable {
     let id: String
-    let user: User?
+    let user: UserDTO?
     let userId: String
-    let trainingHours: TrainingHours?
+    let trainingHours: TrainingHoursDTO?
     let trainingHoursId: String
     
     enum CodingKeys: String, CodingKey {

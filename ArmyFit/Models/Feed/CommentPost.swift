@@ -13,7 +13,7 @@ struct CommentPost: Decodable {
     let feedsId: String
     let usersId: String
     let createdAt: String
-    let user: User
+    let user: UserDTO
     
     enum CodingKeys: String, CodingKey {
         case id, comment, feedsId, usersId

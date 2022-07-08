@@ -16,13 +16,13 @@ class SchedulesViewModel {
     
     //MARK: - Private properties
     private let service: TrainingHoursService = .init()
-    private var trainingHoursList: [TrainingHours] = []
+    private var trainingHoursList: [TrainingHoursDTO] = []
     
     //MARK: - Public properties
     var delegate: SchedulesViewModelDelegate?
     var trainingDays: [(String, String)] = []
     var cellSelected: Int = 0
-    var date: String?
+    var date: String? = Date.getCurrentDateToDateString()
     
     //MARK: - Getter
     var trainingHoursCount: Int {
@@ -102,7 +102,7 @@ class SchedulesViewModel {
     }
     
     //MARK: - Private method
-    private func sortedDate(_ hours: [TrainingHours]) -> [TrainingHours] {
+    private func sortedDate(_ hours: [TrainingHoursDTO]) -> [TrainingHoursDTO] {
         let dateFormatter = DateFormatter()
         
         let hours = hours.sorted(by: { firstDate, secondDate in

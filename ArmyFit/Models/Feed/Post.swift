@@ -13,7 +13,7 @@ struct Post: Decodable {
     let like: Int
     let userId: String
     let createdAt: String
-    let user: User
+    let user: UserDTO
     let feedComments: [CommentPost]?
     
     enum CodingKeys: String, CodingKey {

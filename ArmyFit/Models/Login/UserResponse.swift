@@ -11,5 +11,5 @@ struct UserResponse: Decodable {
     let id: String
     let name: String
     let email: String
-    let photoUrl: String?
+    let photoUrl: String
 }
