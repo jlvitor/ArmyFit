@@ -40,7 +40,7 @@ class PostViewController: UIViewController {
     }
     
     private func configUserLabel() {
-        posterImage.image = UIImage(named: viewModel.getUserImage)
+        posterImage.loadFrom(URLAddress: viewModel.getUserImage)
         userNameLabel.text = viewModel.getUserName
     }
 }

@@ -15,7 +15,7 @@ class ScheduleDetailTableViewCell: UITableViewCell {
     
     //MARK: - Punlic method
     func configure(_ index: Int, _ viewModel: RegisterTrainingViewModel) {
-        posterUser.image = UIImage(named: viewModel.getUserImage(index))
+        posterUser.loadFrom(URLAddress: viewModel.getUserImage(index))
         userNameLabel.text = viewModel.getUserName(index)
     }    
 }

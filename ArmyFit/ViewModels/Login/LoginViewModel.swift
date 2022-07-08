@@ -49,6 +49,7 @@ class LoginViewModel {
         UserDefaults.setValue(auth.user.id, key: .userId)
         UserDefaults.setValue(auth.user.name, key: .userName)
         UserDefaults.setValue(auth.user.email, key: .userEmail)
+        UserDefaults.setValue(auth.user.photoUrl, key: .userPhoto)
     }
     
     private func loadUserImageFrom(_ imageUrl: String) {

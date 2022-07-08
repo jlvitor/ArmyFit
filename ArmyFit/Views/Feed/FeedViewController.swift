@@ -32,7 +32,7 @@ class FeedViewController: UIViewController {
     
     //MARK: - Private methods
     private func configUserImage() {
-        userImageView.image = UIImage(named: viewModel.getUserImage)
+        userImageView.loadFrom(URLAddress: viewModel.getUserImage)
     }
     
     private func configCollectionView() {
