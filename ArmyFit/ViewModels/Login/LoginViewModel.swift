@@ -33,6 +33,7 @@ class LoginViewModel {
                 }
                 
                 self.setKeychain(with: auth)
+                self.loadUserImageFrom(auth.user.photoUrl)
                 self.setUserDefaultsValues(with: auth)
                 self.delegate?.successAuth()
             }
@@ -48,7 +49,10 @@ class LoginViewModel {
         UserDefaults.setValue(auth.user.id, key: .userId)
         UserDefaults.setValue(auth.user.name, key: .userName)
         UserDefaults.setValue(auth.user.email, key: .userEmail)
-        UserDefaults.setValue(auth.user.photoUrl ?? "profile", key: .userPhoto)
+    }
+    
+    private func loadUserImageFrom(_ imageUrl: String) {
+        service.loadUserImageFrom(imageUrl)
     }
     
     private func getValueToValidade(_ text: String?) -> String {

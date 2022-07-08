@@ -14,10 +14,7 @@ class CoreDataService {
     
     static var shared = CoreDataService()
     
-    var sampleImageData: Data = .init()
-    var storedImageData: Data = .init()
-    
-    func saveOnCoreData() {
+    func saveImageOnCoreData(sampleImageData: Data) {
         let image: User = .init(context: context)
         
         image.photoUrl = sampleImageData
@@ -32,6 +29,11 @@ class CoreDataService {
         }
         
         return []
+    }
+    
+    func deleteUserFromCoreData(user: User) {
+        context.delete(user)
+        saveContext()
     }
     
     private func saveContext() {

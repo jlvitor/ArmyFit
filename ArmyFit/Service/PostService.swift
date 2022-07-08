@@ -23,7 +23,7 @@ class PostService {
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else { return }
-
+            
             do {
                 let posts = try JSONDecoder().decode([Post].self, from: data)
                 DispatchQueue.main.async {
@@ -52,7 +52,7 @@ class PostService {
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else { return }
-
+            
             do {
                 let newPost = try JSONDecoder().decode(Post.self, from: data)
                 DispatchQueue.main.async {
@@ -99,7 +99,7 @@ class PostService {
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else { return }
-
+            
             do {
                 let comment = try JSONDecoder().decode([CommentPost].self, from: data)
                 DispatchQueue.main.async {
@@ -136,6 +136,19 @@ class PostService {
                 }
             } catch {
                 completion(nil, error)
+            }
+        }
+        task.resume()
+    }
+    
+    func loadUserImageFrom(_ imageUrl: String) {
+        guard let url = URL(string: imageUrl) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+
+            DispatchQueue.main.async {
+                CoreDataService.shared.saveImageOnCoreData(sampleImageData: data)
             }
         }
         task.resume()

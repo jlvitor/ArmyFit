@@ -236,10 +236,10 @@
 			isa = PBXGroup;
 			children = (
 				90D000112857AE8500143DB3 /* AuthService.swift */,
-				CCAF5FDF284ED7F900678230 /* UserService.swift */,
-				144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */,
 				CCCB48A7285C0C3300AEC1E2 /* PostService.swift */,
+				CCAF5FDF284ED7F900678230 /* UserService.swift */,
 				CCA204D8287495AC00C8CBFA /* CoreDataService.swift */,
+				144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -266,14 +266,14 @@
 		CCA204BF2874946200C8CBFA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */,
 				CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */,
-				CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */,
 				CC7F205528760F29008219BB /* User+CoreDataProperties copy.swift */,
-				CC7F205428760F29008219BB /* Training+CoreDataProperties copy.swift */,
-				CC7F205328760F29008219BB /* TrainingUser+CoreDataProperties copy.swift */,
-				CC7F205228760F29008219BB /* TrainingUser+CoreDataClass copy.swift */,
 				CC7F205128760F29008219BB /* Training+CoreDataClass copy.swift */,
+				CC7F205428760F29008219BB /* Training+CoreDataProperties copy.swift */,
+				CC7F205228760F29008219BB /* TrainingUser+CoreDataClass copy.swift */,
+				CC7F205328760F29008219BB /* TrainingUser+CoreDataProperties copy.swift */,
+				CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */,
+				CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";

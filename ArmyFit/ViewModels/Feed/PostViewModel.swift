@@ -10,6 +10,7 @@ import Foundation
 class PostViewModel {
     
     //MARK: - Private propertie
+    private let service: PostService = .init()
     private let post: Post
     
     init(_ post: Post) {
@@ -18,7 +19,7 @@ class PostViewModel {
     
     //MARK: - Getters
     var getUserImage: String {
-        post.user.photoUrl ?? "person.circle"
+        post.user.photoUrl ?? "profile"
     }
     
     var getUserName: String {

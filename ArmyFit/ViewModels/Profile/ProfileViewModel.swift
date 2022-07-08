@@ -11,11 +11,14 @@ import UIKit
 
 class ProfileViewModel {
     
+    private var user: [User] = []
+    private let coreDataService: CoreDataService = .init()
     private let keychain: KeychainSwift = .init()
     
     //MARK: - Getters
-    var getUserImage: String {
-        UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String ?? "profile2"
+    var getUserImage: Data {
+        user = coreDataService.fetchUserImage()
+        return user[0].photoUrl!
     }
     
     var getUserName: String {
@@ -103,6 +106,7 @@ class ProfileViewModel {
                 resetUserDefaultsValue()
                 clearKeychain()
                 setRootViewController()
+                coreDataService.deleteUserFromCoreData(user: user[0])
             }
         }
     }

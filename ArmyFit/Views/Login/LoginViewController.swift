@@ -129,7 +129,7 @@ class LoginViewController: UIViewController {
 
 //MARK: - LoginViewModelDelegate
 extension LoginViewController: LoginViewModelDelegate {
-    func successAuth() {
+    func successAuth() {        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let mainTabBarController = storyboard.instantiateViewController(
             withIdentifier: "TabBarViewController") as? CustomTabBarViewController else { return }
