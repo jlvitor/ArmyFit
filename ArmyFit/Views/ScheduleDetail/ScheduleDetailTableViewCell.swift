@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ScheduleDetailTableViewCell: UITableViewCell {
 
@@ -15,7 +16,7 @@ class ScheduleDetailTableViewCell: UITableViewCell {
     
     //MARK: - Punlic method
     func configure(_ index: Int, _ viewModel: RegisterTrainingViewModel) {
-        posterUser.loadFrom(URLAddress: viewModel.getUserImage(index))
+        posterUser.kf.setImage(with: URL(string: viewModel.getUserImage(index)))
         userNameLabel.text = viewModel.getUserName(index)
     }    
 }

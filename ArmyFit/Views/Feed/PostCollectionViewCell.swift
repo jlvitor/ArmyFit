@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostCollectionViewCell: UICollectionViewCell {
     
@@ -19,10 +20,10 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var buttonsStackView: UIStackView!
-    
+        
     //MARK: - Public method
     func configure(_ viewModel: PostViewModel) {
-        userImageView.loadFrom(URLAddress: viewModel.getUserImage)
+        userImageView.kf.setImage(with: URL(string: viewModel.getUserImage))
         userNameLabel.text = viewModel.getUserName
         postLabel.text = viewModel.getPostText
         numberOfLikesLabel.text = viewModel.getNumberOfLikes
