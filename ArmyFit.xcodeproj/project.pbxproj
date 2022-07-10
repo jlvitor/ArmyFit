@@ -52,7 +52,6 @@
 		CC7F205E28760F29008219BB /* TrainingHours+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */; };
 		CC7F205F28760F29008219BB /* User+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */; };
 		CC7F206028760F29008219BB /* TrainingHours+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */; };
-		CC8B20412878B51C007157A5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8B20402878B51C007157A5 /* UIImageView+Extension.swift */; };
 		CC9B2E82285949A40081745D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B2E81285949A40081745D /* Date+Extension.swift */; };
 		CC9FE16F2857A86C0010EE58 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE16E2857A86C0010EE58 /* Auth.swift */; };
 		CC9FE1722857CCDB0010EE58 /* HideKeyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */; };
@@ -124,7 +123,6 @@
 		CC7F205628760F29008219BB /* TrainingHours+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingHours+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingHours+CoreDataClass copy.swift"; sourceTree = "<group>"; };
-		CC8B20402878B51C007157A5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		CC9B2E81285949A40081745D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CC9FE16E2857A86C0010EE58 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+Extension.swift"; sourceTree = "<group>"; };
@@ -251,7 +249,6 @@
 			children = (
 				CC9B2E81285949A40081745D /* Date+Extension.swift */,
 				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
-				CC8B20402878B51C007157A5 /* UIImageView+Extension.swift */,
 				CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */,
 				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
 			);
@@ -661,7 +658,6 @@
 				CC7F205B28760F29008219BB /* TrainingUser+CoreDataProperties copy.swift in Sources */,
 				CC52D997286243FA00C10680 /* TrainingHoursDTO.swift in Sources */,
 				144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */,
-				CC8B20412878B51C007157A5 /* UIImageView+Extension.swift in Sources */,
 				CCA204BE2874941200C8CBFA /* CoreDataManager.swift in Sources */,
 				144FF8AA285FABBA0014B6E7 /* ScheduleDetailTableViewCell.swift in Sources */,
 				CC7F205A28760F29008219BB /* TrainingUser+CoreDataClass copy.swift in Sources */,

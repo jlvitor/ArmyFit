@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostViewController: UIViewController {
     
@@ -40,7 +41,7 @@ class PostViewController: UIViewController {
     }
     
     private func configUserLabel() {
-        posterImage.loadFrom(URLAddress: viewModel.getUserImage)
+        posterImage.kf.setImage(with: URL(string: viewModel.getUserImage))
         userNameLabel.text = viewModel.getUserName
     }
 }

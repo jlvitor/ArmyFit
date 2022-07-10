@@ -7,4 +7,5 @@ target 'ArmyFit' do
 
   # Pods for ArmyFit
 pod 'KeychainSwift', '~> 20.0'
+pod 'Kingfisher', '~> 7.0'
 end

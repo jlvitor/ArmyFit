@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeedViewController: UIViewController {
     
@@ -32,7 +33,7 @@ class FeedViewController: UIViewController {
     
     //MARK: - Private methods
     private func configUserImage() {
-        userImageView.loadFrom(URLAddress: viewModel.getUserImage)
+        userImageView.kf.setImage(with: URL(string: viewModel.getUserImage))
     }
     
     private func configCollectionView() {
@@ -90,7 +91,9 @@ extension FeedViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         let cellViewModel = viewModel.getPostCellViewModel(indexPath.row)
-        cell.configure(cellViewModel)
+        DispatchQueue.main.async {
+            cell.configure(cellViewModel)
+        }
         
         return cell
     }
