@@ -13,6 +13,7 @@
 		144FF8B1285FACC70014B6E7 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AE285FACC70014B6E7 /* SchedulesViewModel.swift */; };
 		144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */; };
 		144FF8B42860F8FE0014B6E7 /* TrainingHoursService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */; };
+		14B0BF19287C9F6100644B44 /* UpdateIfNotInternet+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0BF18287C9F6100644B44 /* UpdateIfNotInternet+Extension.swift */; };
 		14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4928454F7200E5FEA4 /* User.swift */; };
 		14C0AD4C28454FB000E5FEA4 /* TrainingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */; };
 		6E277B5628590D4B00672B92 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E277B5528590D4B00672B92 /* RegisterViewModel.swift */; };
@@ -81,6 +82,7 @@
 		144FF8AE285FACC70014B6E7 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
 		144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewModel.swift; sourceTree = "<group>"; };
 		144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingHoursService.swift; sourceTree = "<group>"; };
+		14B0BF18287C9F6100644B44 /* UpdateIfNotInternet+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpdateIfNotInternet+Extension.swift"; sourceTree = "<group>"; };
 		14C0AD4928454F7200E5FEA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDTO.swift; sourceTree = "<group>"; };
 		61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.release.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
 				CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */,
 				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
+				14B0BF18287C9F6100644B44 /* UpdateIfNotInternet+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				CCCB48AA285C36EC00AEC1E2 /* PostsViewModel.swift in Sources */,
 				CC63E188285A520F009446D2 /* UserDefaults+Extension.swift in Sources */,
 				90D0FFD028513FA000143DB3 /* TrainingDetailViewController.swift in Sources */,
+				14B0BF19287C9F6100644B44 /* UpdateIfNotInternet+Extension.swift in Sources */,
 				CC7F205928760F29008219BB /* Training+CoreDataClass copy.swift in Sources */,
 				CCCB48A6285C0A2A00AEC1E2 /* Post.swift in Sources */,
 				144FF8B1285FACC70014B6E7 /* SchedulesViewModel.swift in Sources */,

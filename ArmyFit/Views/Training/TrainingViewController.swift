@@ -16,8 +16,9 @@ class TrainingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configViewModel()
         configTableView()
+        configViewModel()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
