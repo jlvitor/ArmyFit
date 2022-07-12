@@ -1,4 +1,6 @@
-![Logo do projeto ArmyFit](https://i.imgur.com/Bu815yq.png?1)
+<p align="center">
+  <img src="https://i.imgur.com/Bu815yq.png?1"/>
+</p>
 
 > :construction: Projeto em construção :construction:
 ## Descrição do projeto
