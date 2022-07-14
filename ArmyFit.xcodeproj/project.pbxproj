@@ -13,6 +13,7 @@
 		144FF8B1285FACC70014B6E7 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AE285FACC70014B6E7 /* SchedulesViewModel.swift */; };
 		144FF8B2285FACC70014B6E7 /* ScheduleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */; };
 		144FF8B42860F8FE0014B6E7 /* TrainingHoursService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */; };
+		14B0BF9428803FED00644B44 /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B0BF9328803FED00644B44 /* GoogleService-Info-3.plist */; };
 		14C0AD4A28454F7200E5FEA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4928454F7200E5FEA4 /* User.swift */; };
 		14C0AD4C28454FB000E5FEA4 /* TrainingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */; };
 		6E277B5628590D4B00672B92 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E277B5528590D4B00672B92 /* RegisterViewModel.swift */; };
@@ -81,6 +82,7 @@
 		144FF8AE285FACC70014B6E7 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
 		144FF8AF285FACC70014B6E7 /* ScheduleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDetailViewModel.swift; sourceTree = "<group>"; };
 		144FF8B32860F8FE0014B6E7 /* TrainingHoursService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingHoursService.swift; sourceTree = "<group>"; };
+		14B0BF9328803FED00644B44 /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		14C0AD4928454F7200E5FEA4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		14C0AD4B28454FB000E5FEA4 /* TrainingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDTO.swift; sourceTree = "<group>"; };
 		61915DC3C8EEC918FBE56A8D /* Pods-ArmyFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArmyFit.release.xcconfig"; path = "Target Support Files/Pods-ArmyFit/Pods-ArmyFit.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				CCE1056C2850E438006376B8 /* ViewModels */,
 				CCFB5ADD28714C1A00A7A9B4 /* Resources */,
 				CCA94981283D643000A6FB05 /* Info.plist */,
+				14B0BF9328803FED00644B44 /* GoogleService-Info-3.plist */,
 				CCA204B9287491F100C8CBFA /* ArmyFit.xcdatamodeld */,
 			);
 			path = ArmyFit;
@@ -552,6 +555,7 @@
 				CCA94980283D643000A6FB05 /* LaunchScreen.storyboard in Resources */,
 				CCA9497D283D643000A6FB05 /* Assets.xcassets in Resources */,
 				CCA9497B283D642E00A6FB05 /* Main.storyboard in Resources */,
+				14B0BF9428803FED00644B44 /* GoogleService-Info-3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +819,8 @@
 				DEVELOPMENT_TEAM = L859KY23VK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ArmyFit/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "É necessário acesso a camera para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "É necessário acesso as fotos para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -845,6 +851,8 @@
 				DEVELOPMENT_TEAM = L859KY23VK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ArmyFit/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "É necessário acesso a camera para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "É necessário acesso as fotos para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

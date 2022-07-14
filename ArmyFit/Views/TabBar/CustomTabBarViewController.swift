@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import GoogleSignIn
 
 class CustomTabBarViewController: UITabBarController {
     
