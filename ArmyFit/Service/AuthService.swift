@@ -76,22 +76,26 @@ class AuthService {
         task.resume()
     }
     
-    func signinWithGoogle(_ vc: UIViewController, completion: @escaping (GIDGoogleUser?) -> Void) {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+    func saveUserOnFirebase(with credential: AuthCredential) {
+        Auth.auth().signIn(with: credential)
+    }
+    
+    func getGoogleCredential(from user: GIDGoogleUser?) -> AuthCredential? {
+        guard let authentication = user?.authentication,
+              let idToken = authentication.idToken else { return nil }
+
+        let credential = GoogleAuthProvider.credential(
+            withIDToken: idToken,
+            accessToken: authentication.accessToken)
+        
+        return credential
+    }
+    
+    func getGoogleConfig() -> GIDConfiguration? {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return nil }
         let config = GIDConfiguration(clientID: clientID)
         
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: vc) { user, _ in
-            completion(user)
-            
-            guard let authentication = user?.authentication,
-                  let idToken = authentication.idToken else { return }
-
-            let credential = GoogleAuthProvider.credential(
-                withIDToken: idToken,
-                accessToken: authentication.accessToken)
-            
-            Auth.auth().signIn(with: credential)
-        }
+        return config
     }
     
     func loadUserImageFrom(_ imageUrl: String) {

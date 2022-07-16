@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseCore
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -137,7 +137,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func googleLoginAction(_ sender: UITapGestureRecognizer) {
-        viewModel.makeLoginWithGoogle(self)
+        viewModel.makeLoginGoogle()
     }
     
     private func showActivityIndicator() {
@@ -166,6 +166,13 @@ extension LoginViewController: LoginViewModelDelegate {
     func errorAuth() {
         errorAlert()
         stopActivityIndicator()
+    }
+    
+    // Login com Google
+    func loginGoogle(with config: GIDConfiguration) {
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+            self.viewModel.handleGoogleLogin(with: user, error: error)
+        }
     }
 }
 

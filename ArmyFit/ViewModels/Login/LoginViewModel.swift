@@ -12,6 +12,7 @@ import GoogleSignIn
 protocol LoginViewModelDelegate {
     func successAuth()
     func errorAuth()
+    func loginGoogle(with config: GIDConfiguration)
 }
 
 protocol GoogleLoginDelegate {
@@ -52,31 +53,35 @@ class LoginViewModel {
             }
     }
     
-    func makeLoginWithGoogle(_ vc: UIViewController) {
-        service.signinWithGoogle(vc) { user in
-            guard let user = user else {
-                self.googleDelegate?.googleError()
-                return
-            }
-            
-            if user.profile?.email == self.userDTO?.email {
-                self.googleDelegate?.googleError()
-            } else {
-                self.googleUser = user
-                self.randomPassword = String.passwordGenerator()
-                self.googleDelegate?.googleSuccess()
-            }
-        }
+    func makeLoginGoogle() {
+        guard let configuration = service.getGoogleConfig() else { return }
+        
+        delegate?.loginGoogle(with: configuration)
     }
     
-    func makeRegisterRequest(_ name: String, _ email: String, _ password: String, _ photoUrl: String?) {
-        guard let photoUrl = photoUrl else {  return }
+    func handleGoogleLogin(with user: GIDGoogleUser?, error: Error?) {
+        if let error = error {
+            print(error)
+            return
+        }
         
+        guard let user = user else {
+            googleDelegate?.googleError()
+            return
+        }
+        
+        googleUser = user
+        randomPassword = String.passwordGenerator()
+        googleDelegate?.googleSuccess()
+        saveDataOnFirebase(with: user)
+    }
+    
+    func makeRegisterRequest(_ name: String, _ email: String, _ password: String, _ photoUrl: String?) {        
         service.registerUser(
             name: name,
             email: email,
             password: getValueToValidade(password),
-            photoUrl: photoUrl) { _, error in
+            photoUrl: photoUrl ?? "https://storage.googleapis.com/armyfit/profile.png") { _, error in
                 if error != nil {
                     self.googleDelegate?.loginError()
                 } else {
@@ -105,6 +110,12 @@ class LoginViewModel {
     private func getValueToValidade(_ text: String?) -> String {
         guard let text = text else { return "" }
         return text
+    }
+    
+    private func saveDataOnFirebase(with user: GIDGoogleUser?) {
+        guard let credential = service.getGoogleCredential(from: user) else { return }
+        
+        service.saveUserOnFirebase(with: credential)
     }
 }
 
