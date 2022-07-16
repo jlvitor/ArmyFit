@@ -8,36 +8,41 @@
 import UIKit
 
 class CommentsViewController: UIViewController {
-
-    @IBOutlet weak var commentTextView: UITextView!
+    
+    @IBOutlet weak var commentTextField: UITextView!
+    
+    @IBOutlet weak var commentTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTextView()
         
     }
+    
     private func configTextView() {
-        commentTextView.delegate = self
-        commentTextView.text = "Adicione um comentário..."
-        commentTextView.textColor = UIColor.lightGray
+        commentTextField.delegate = self
+        commentTextField.text = "Adicione um comentário..."
+        commentTextField.textColor = UIColor.lightGray
     }
-
-
+    
+    @IBAction func sendCommentButtonAction(_ sender: UIButton) {
+        
+    }
+    
 }
 
-//MARK: - UITextViewDelegate
 extension CommentsViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ publicationUserTextView: UITextView) {
-        if commentTextView.textColor == UIColor.lightGray {
-            commentTextView.text = ""
-            commentTextView.textColor = UIColor.white
+    func textViewDidBeginEditing(_ commentTextField: UITextView) {
+        if commentTextField.textColor == UIColor.lightGray {
+            commentTextField.text = ""
+            commentTextField.textColor = UIColor.white
         }
     }
     
     func textViewDidEndEditing(_ publicationUserTextView: UITextView) {
-        if commentTextView.text.isEmpty {
-            commentTextView.text = "Adicione um comentário..."
-            commentTextView.textColor = UIColor.lightGray
+            if publicationUserTextView.text.isEmpty {
+                publicationUserTextView.text = "Adicione um comentário..."
+                publicationUserTextView.textColor = UIColor.lightGray
+            }
         }
     }
-}
