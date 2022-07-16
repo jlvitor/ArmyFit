@@ -5,7 +5,7 @@
 > :construction: Projeto em construção :construction:
 ## Descrição do projeto
 
-A ArmyFit foi criada e pensada no usuário que gosta de se exercitar e compartilhar suas conquistas. Com este app você pode compartilhar em um feed seu dia a dia de treino e também podera ver o que seus colegas compartilham, você terá acesso aos treinos disponibilizados pelo box de crossfit para se matricular no que for do seu interesse e poderá acessra aos detalhes treinos mesmo sem internet **(o treino ficará disponível somente no dia de sua realização).**
+A ArmyFit foi criada e pensada no usuário que gosta de se exercitar e compartilhar suas conquistas. Com este app você pode compartilhar em um feed seu dia a dia de treino e também podera ver o que seus colegas compartilham, você terá acesso aos treinos disponibilizados pelo box de crossfit para se matricular no que for do seu interesse e poderá acessar aos detalhes dos treinos mesmo sem internet **(o treino ficará disponível somente no dia de sua realização).**
 
 ## :iphone: Tecnologias utilizadas
 
