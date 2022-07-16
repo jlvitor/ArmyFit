@@ -6,15 +6,17 @@
 //
 
 import UIKit
+import FirebaseCore
 
 class LoginViewController: UIViewController {
     
     //MARK: - Private properties
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var registerScreen: UIStackView!
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var spinner: UIActivityIndicatorView!
+    @IBOutlet private weak var googleLoginStackView: UIStackView!
+    @IBOutlet private weak var registerScreen: UIStackView!
     
     private let viewModel: LoginViewModel = .init()
     private var iconClick = false
@@ -26,6 +28,7 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         configViewModel()
         configGestureRecognizer()
+        configGoogleLoginGesture()
         configureContentView()
         configureImageIcon()
     }
@@ -43,12 +46,23 @@ class LoginViewController: UIViewController {
     
     private func configViewModel() {
         viewModel.delegate = self
+        viewModel.googleDelegate = self
     }
     
     private func errorAlert() {
         let error = UIAlertController(
             title: "Acesso negado",
             message: "Dados incorretos, verifique e tente novamente!",
+            preferredStyle: .alert)
+        let confirm = UIAlertAction(title: "OK", style: .cancel)
+        error.addAction(confirm)
+        present(error, animated: true)
+    }
+    
+    private func errorRegisterAlert() {
+        let error = UIAlertController(
+            title: "Email já cadastrado",
+            message: "Caso não lembre da senha você pode definir uma nova.",
             preferredStyle: .alert)
         let confirm = UIAlertAction(title: "OK", style: .cancel)
         error.addAction(confirm)
@@ -114,6 +128,18 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
     
+    private func configGoogleLoginGesture() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(googleLoginAction(_:))
+        )
+        self.googleLoginStackView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func googleLoginAction(_ sender: UITapGestureRecognizer) {
+        viewModel.makeLoginWithGoogle(self)
+    }
+    
     private func showActivityIndicator() {
         loginButton.setTitle("", for: .normal)
         spinner.layer.position = loginButton.layer.position
@@ -129,7 +155,7 @@ class LoginViewController: UIViewController {
 
 //MARK: - LoginViewModelDelegate
 extension LoginViewController: LoginViewModelDelegate {
-    func successAuth() {        
+    func successAuth() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let mainTabBarController = storyboard.instantiateViewController(
             withIdentifier: "TabBarViewController") as? CustomTabBarViewController else { return }
@@ -140,5 +166,35 @@ extension LoginViewController: LoginViewModelDelegate {
     func errorAuth() {
         errorAlert()
         stopActivityIndicator()
+    }
+}
+
+//MARK: - GoogleLoginDelegate
+extension LoginViewController: GoogleLoginDelegate {
+    func googleSuccess() {
+        guard let profile = viewModel.googleUser.profile else { return }
+        
+        viewModel.makeRegisterRequest(
+            profile.name ,
+            profile.email,
+            viewModel.randomPassword,
+            "\(profile.imageURL(withDimension: 100))"
+        )
+    }
+    
+    func googleError() {
+        errorRegisterAlert()
+    }
+    
+    func loginSuccess() {
+        guard let profile = viewModel.googleUser.profile else { return }
+        
+        viewModel.makeLoginRequest(
+            profile.email,
+            viewModel.randomPassword) 
+    }
+    
+    func loginError() {
+        errorRegisterAlert()
     }
 }

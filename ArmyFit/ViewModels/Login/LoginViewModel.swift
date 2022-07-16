@@ -7,10 +7,18 @@
 
 import Foundation
 import KeychainSwift
+import GoogleSignIn
 
 protocol LoginViewModelDelegate {
     func successAuth()
     func errorAuth()
+}
+
+protocol GoogleLoginDelegate {
+    func googleSuccess()
+    func loginSuccess()
+    func googleError()
+    func loginError()
 }
 
 class LoginViewModel {
@@ -21,10 +29,15 @@ class LoginViewModel {
     
     //MARK: - Public propertie
     var delegate: LoginViewModelDelegate?
+    var googleDelegate: GoogleLoginDelegate?
+    
+    var userDTO: UserDTO?
+    var googleUser: GIDGoogleUser = .init()
+    var randomPassword: String = ""
     
     //MARK: - Public method
     func makeLoginRequest(_ email: String?, _ password: String?) {
-        service.makeAuthPostRequest(
+        service.authUser(
             email: getValueToValidade(email),
             password: getValueToValidade(password)) { auth, error in
                 guard let auth = auth else {
@@ -39,12 +52,45 @@ class LoginViewModel {
             }
     }
     
+    func makeLoginWithGoogle(_ vc: UIViewController) {
+        service.signinWithGoogle(vc) { user in
+            guard let user = user else {
+                self.googleDelegate?.googleError()
+                return
+            }
+            
+            if user.profile?.email == self.userDTO?.email {
+                self.googleDelegate?.googleError()
+            } else {
+                self.googleUser = user
+                self.randomPassword = String.passwordGenerator()
+                self.googleDelegate?.googleSuccess()
+            }
+        }
+    }
+    
+    func makeRegisterRequest(_ name: String, _ email: String, _ password: String, _ photoUrl: String?) {
+        guard let photoUrl = photoUrl else {  return }
+        
+        service.registerUser(
+            name: name,
+            email: email,
+            password: getValueToValidade(password),
+            photoUrl: photoUrl) { _, error in
+                if error != nil {
+                    self.googleDelegate?.loginError()
+                } else {
+                    self.googleDelegate?.loginSuccess()
+                }
+            }
+    }
+    
     //MARK: - Private methods
-    private func setKeychain(with auth: Auth) {
+    private func setKeychain(with auth: Authentication) {
         keychain.set(auth.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
     }
     
-    private func setUserDefaultsValues(with auth: Auth) {
+    private func setUserDefaultsValues(with auth: Authentication) {
         UserDefaults.setIsLogged(true)
         UserDefaults.setValue(auth.user.id, key: .userId)
         UserDefaults.setValue(auth.user.name, key: .userName)
