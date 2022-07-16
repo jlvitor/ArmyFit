@@ -36,7 +36,7 @@ extension CommentsViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ publicationUserTextView: UITextView) {
         if commentTextView.text.isEmpty {
-            commentTextView.text = "No que você está pensando?"
+            commentTextView.text = "Adicione um comentário..."
             commentTextView.textColor = UIColor.lightGray
         }
     }
