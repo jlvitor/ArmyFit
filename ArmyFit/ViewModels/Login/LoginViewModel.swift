@@ -7,10 +7,19 @@
 
 import Foundation
 import KeychainSwift
+import GoogleSignIn
 
 protocol LoginViewModelDelegate {
     func successAuth()
     func errorAuth()
+    func loginGoogle(with config: GIDConfiguration)
+}
+
+protocol GoogleLoginDelegate {
+    func googleSuccess()
+    func loginSuccess()
+    func googleError()
+    func loginError()
 }
 
 class LoginViewModel {
@@ -21,10 +30,15 @@ class LoginViewModel {
     
     //MARK: - Public propertie
     var delegate: LoginViewModelDelegate?
+    var googleDelegate: GoogleLoginDelegate?
+    
+    var userDTO: UserDTO?
+    var googleUser: GIDGoogleUser = .init()
+    var randomPassword: String = ""
     
     //MARK: - Public method
     func makeLoginRequest(_ email: String?, _ password: String?) {
-        service.makeAuthPostRequest(
+        service.authUser(
             email: getValueToValidade(email),
             password: getValueToValidade(password)) { auth, error in
                 guard let auth = auth else {
@@ -39,12 +53,49 @@ class LoginViewModel {
             }
     }
     
+    func makeLoginGoogle() {
+        guard let configuration = service.getGoogleConfig() else { return }
+        
+        delegate?.loginGoogle(with: configuration)
+    }
+    
+    func handleGoogleLogin(with user: GIDGoogleUser?, error: Error?) {
+        if let error = error {
+            print(error)
+            return
+        }
+        
+        guard let user = user else {
+            googleDelegate?.googleError()
+            return
+        }
+        
+        googleUser = user
+        randomPassword = String.passwordGenerator()
+        googleDelegate?.googleSuccess()
+        saveDataOnFirebase(with: user)
+    }
+    
+    func makeRegisterRequest(_ name: String, _ email: String, _ password: String, _ photoUrl: String?) {        
+        service.registerUser(
+            name: name,
+            email: email,
+            password: getValueToValidade(password),
+            photoUrl: photoUrl ?? "https://storage.googleapis.com/armyfit/profile.png") { _, error in
+                if error != nil {
+                    self.googleDelegate?.loginError()
+                } else {
+                    self.googleDelegate?.loginSuccess()
+                }
+            }
+    }
+    
     //MARK: - Private methods
-    private func setKeychain(with auth: Auth) {
+    private func setKeychain(with auth: Authentication) {
         keychain.set(auth.token, forKey: "token", withAccess: .accessibleWhenUnlocked)
     }
     
-    private func setUserDefaultsValues(with auth: Auth) {
+    private func setUserDefaultsValues(with auth: Authentication) {
         UserDefaults.setIsLogged(true)
         UserDefaults.setValue(auth.user.id, key: .userId)
         UserDefaults.setValue(auth.user.name, key: .userName)
@@ -59,6 +110,12 @@ class LoginViewModel {
     private func getValueToValidade(_ text: String?) -> String {
         guard let text = text else { return "" }
         return text
+    }
+    
+    private func saveDataOnFirebase(with user: GIDGoogleUser?) {
+        guard let credential = service.getGoogleCredential(from: user) else { return }
+        
+        service.saveUserOnFirebase(with: credential)
     }
 }
 

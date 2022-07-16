@@ -32,7 +32,7 @@
 		CC086958284D8D14005E74B0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC086957284D8D14005E74B0 /* ProfileViewModel.swift */; };
 		CC1CB0842842E1320079501C /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */; };
 		CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */; };
-		CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E326C285A4CD600B7AA7B /* String+Extension.swift */; };
+		CC3E326D285A4CD600B7AA7B /* StringInterpolation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E326C285A4CD600B7AA7B /* StringInterpolation+Extension.swift */; };
 		CC42A674285C45D900F2F857 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A673285C45D900F2F857 /* PostViewModel.swift */; };
 		CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */; };
 		CC52D997286243FA00C10680 /* TrainingHoursDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC52D996286243FA00C10680 /* TrainingHoursDTO.swift */; };
@@ -54,7 +54,7 @@
 		CC7F205F28760F29008219BB /* User+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */; };
 		CC7F206028760F29008219BB /* TrainingHours+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */; };
 		CC9B2E82285949A40081745D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B2E81285949A40081745D /* Date+Extension.swift */; };
-		CC9FE16F2857A86C0010EE58 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE16E2857A86C0010EE58 /* Auth.swift */; };
+		CC9FE16F2857A86C0010EE58 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE16E2857A86C0010EE58 /* Authentication.swift */; };
 		CC9FE1722857CCDB0010EE58 /* HideKeyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */; };
 		CCA204BB287491F100C8CBFA /* ArmyFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCA204B9287491F100C8CBFA /* ArmyFit.xcdatamodeld */; };
 		CCA204BE2874941200C8CBFA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA204BD2874941200C8CBFA /* CoreDataManager.swift */; };
@@ -66,9 +66,11 @@
 		CCA94980283D643000A6FB05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA9497E283D643000A6FB05 /* LaunchScreen.storyboard */; };
 		CCAF5FE0284ED7F900678230 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAF5FDF284ED7F900678230 /* UserService.swift */; };
 		CCBDF758286A3FA9009F3FB9 /* NewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBDF757286A3FA9009F3FB9 /* NewPostViewModel.swift */; };
+		CCC69AC6288065FE008F3FCA /* Password+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC69AC5288065FE008F3FCA /* Password+Extension.swift */; };
 		CCCB48A6285C0A2A00AEC1E2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB48A5285C0A2A00AEC1E2 /* Post.swift */; };
 		CCCB48A8285C0C3300AEC1E2 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB48A7285C0C3300AEC1E2 /* PostService.swift */; };
 		CCCB48AA285C36EC00AEC1E2 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB48A9285C36EC00AEC1E2 /* PostsViewModel.swift */; };
+		CCDD08A9287C6326007EFB47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCDD08A8287C6326007EFB47 /* GoogleService-Info.plist */; };
 		CCE105702850E4B5006376B8 /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1056F2850E4B5006376B8 /* DayViewModel.swift */; };
 		CCE1F2032864EECB0072F231 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1F2022864EECB0072F231 /* TrainingViewModel.swift */; };
 		CCE1F20B28652BE00072F231 /* TrainingUserSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE1F20A28652BE00072F231 /* TrainingUserSection.swift */; };
@@ -104,7 +106,7 @@
 		CC086957284D8D14005E74B0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewModel.swift; path = ArmyFit/ViewModels/Profile/ProfileViewModel.swift; sourceTree = SOURCE_ROOT; };
 		CC1CB0832842E1320079501C /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		CC22396D284FC69B00CBB22C /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduleViewModel.swift; path = ArmyFit/ViewModels/Schedules/ScheduleViewModel.swift; sourceTree = SOURCE_ROOT; };
-		CC3E326C285A4CD600B7AA7B /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CC3E326C285A4CD600B7AA7B /* StringInterpolation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringInterpolation+Extension.swift"; sourceTree = "<group>"; };
 		CC42A673285C45D900F2F857 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		CC42A675285C516500F2F857 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		CC52D996286243FA00C10680 /* TrainingHoursDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingHoursDTO.swift; sourceTree = "<group>"; };
@@ -126,7 +128,7 @@
 		CC7F205728760F29008219BB /* User+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		CC7F205828760F29008219BB /* TrainingHours+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrainingHours+CoreDataClass copy.swift"; sourceTree = "<group>"; };
 		CC9B2E81285949A40081745D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		CC9FE16E2857A86C0010EE58 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		CC9FE16E2857A86C0010EE58 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+Extension.swift"; sourceTree = "<group>"; };
 		CCA204BA287491F100C8CBFA /* ArmyFit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ArmyFit.xcdatamodel; sourceTree = "<group>"; };
 		CCA204BD2874941200C8CBFA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -140,9 +142,11 @@
 		CCA94981283D643000A6FB05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCAF5FDF284ED7F900678230 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		CCBDF757286A3FA9009F3FB9 /* NewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewModel.swift; sourceTree = "<group>"; };
+		CCC69AC5288065FE008F3FCA /* Password+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+Extension.swift"; sourceTree = "<group>"; };
 		CCCB48A5285C0A2A00AEC1E2 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CCCB48A7285C0C3300AEC1E2 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		CCCB48A9285C36EC00AEC1E2 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		CCDD08A8287C6326007EFB47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CCE1056F2850E4B5006376B8 /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		CCE1F2022864EECB0072F231 /* TrainingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
 		CCE1F20A28652BE00072F231 /* TrainingUserSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingUserSection.swift; sourceTree = "<group>"; };
@@ -211,7 +215,7 @@
 		CC52D9A2286244AD00C10680 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				CC9FE16E2857A86C0010EE58 /* Auth.swift */,
+				CC9FE16E2857A86C0010EE58 /* Authentication.swift */,
 				CC52D9A02862449C00C10680 /* UserResponse.swift */,
 			);
 			path = Login;
@@ -250,9 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				CC9B2E81285949A40081745D /* Date+Extension.swift */,
-				CC3E326C285A4CD600B7AA7B /* String+Extension.swift */,
+				CCC69AC5288065FE008F3FCA /* Password+Extension.swift */,
 				CC63E187285A520F009446D2 /* UserDefaults+Extension.swift */,
 				CC9FE1712857CCDB0010EE58 /* HideKeyboard+Extension.swift */,
+				CC3E326C285A4CD600B7AA7B /* StringInterpolation+Extension.swift */,
 				14B0BF18287C9F6100644B44 /* UpdateIfNotInternet+Extension.swift */,
 			);
 			path = Extensions;
@@ -304,15 +309,16 @@
 			children = (
 				CCFB5ADC28714C0B00A7A9B4 /* Utils */,
 				CC9FE1702857CCAA0010EE58 /* Extensions */,
-				CC916E53284A9C2D002A4AE1 /* Service */,
 				CCA204BC287493F300C8CBFA /* Manager */,
 				CCA204BF2874946200C8CBFA /* Entities */,
+				CC916E53284A9C2D002A4AE1 /* Service */,
 				14C0AD4828454F4700E5FEA4 /* Models */,
 				CC7E4D8E28400835003E5DB1 /* Views */,
 				CCE1056C2850E438006376B8 /* ViewModels */,
 				CCFB5ADD28714C1A00A7A9B4 /* Resources */,
 				CCA94981283D643000A6FB05 /* Info.plist */,
 				CCA204B9287491F100C8CBFA /* ArmyFit.xcdatamodeld */,
+				CCDD08A8287C6326007EFB47 /* GoogleService-Info.plist */,
 			);
 			path = ArmyFit;
 			sourceTree = "<group>";
@@ -320,13 +326,13 @@
 		CCE1056C2850E438006376B8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				CCE1056F2850E4B5006376B8 /* DayViewModel.swift */,
 				CCE1F2072864F7F80072F231 /* Login */,
 				CCE1F2082864F8000072F231 /* Register */,
 				CCE1F2042864F76C0072F231 /* Feed */,
 				CCE1F2052864F77D0072F231 /* Schedules */,
 				CCE1F2062864F7D90072F231 /* Training */,
 				CCE1F2092864F8120072F231 /* Profile */,
+				CCE1056F2850E4B5006376B8 /* DayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -555,6 +561,7 @@
 				CCA94980283D643000A6FB05 /* LaunchScreen.storyboard in Resources */,
 				CCA9497D283D643000A6FB05 /* Assets.xcassets in Resources */,
 				CCA9497B283D642E00A6FB05 /* Main.storyboard in Resources */,
+				CCDD08A9287C6326007EFB47 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +620,7 @@
 				CC7E4D9128400863003E5DB1 /* LoginViewController.swift in Sources */,
 				CC7F205D28760F29008219BB /* User+CoreDataProperties copy.swift in Sources */,
 				6E4DDBBF286641690038E652 /* PostViewController.swift in Sources */,
+				CCC69AC6288065FE008F3FCA /* Password+Extension.swift in Sources */,
 				CC7F205F28760F29008219BB /* User+CoreDataClass copy.swift in Sources */,
 				CCCB48A8285C0C3300AEC1E2 /* PostService.swift in Sources */,
 				144FF8AC285FABD90014B6E7 /* ScheduleDetailViewController.swift in Sources */,
@@ -624,7 +632,7 @@
 				144FF8B0285FACC70014B6E7 /* RegisterTrainingViewModel.swift in Sources */,
 				CCBDF758286A3FA9009F3FB9 /* NewPostViewModel.swift in Sources */,
 				CC7F206028760F29008219BB /* TrainingHours+CoreDataClass copy.swift in Sources */,
-				CC3E326D285A4CD600B7AA7B /* String+Extension.swift in Sources */,
+				CC3E326D285A4CD600B7AA7B /* StringInterpolation+Extension.swift in Sources */,
 				9091028628624C5200A03DFF /* TrainingViewController.swift in Sources */,
 				CC22396E284FC69B00CBB22C /* ScheduleViewModel.swift in Sources */,
 				6E3B8ED92857BCDA0023E5A7 /* LoginViewModel.swift in Sources */,
@@ -640,7 +648,7 @@
 				90D0FFD42851448D00143DB3 /* TrainingTableViewCell.swift in Sources */,
 				CC42A676285C516500F2F857 /* PostCollectionViewCell.swift in Sources */,
 				90D000122857AE8500143DB3 /* AuthService.swift in Sources */,
-				CC9FE16F2857A86C0010EE58 /* Auth.swift in Sources */,
+				CC9FE16F2857A86C0010EE58 /* Authentication.swift in Sources */,
 				CCA204BB287491F100C8CBFA /* ArmyFit.xcdatamodeld in Sources */,
 				CC7A2A212863B05A00E9943B /* TrainingDetailViewModel.swift in Sources */,
 				CCA204D9287495AC00C8CBFA /* CoreDataService.swift in Sources */,
@@ -744,7 +752,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -798,7 +806,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -819,12 +827,14 @@
 				DEVELOPMENT_TEAM = L859KY23VK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ArmyFit/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "É necessário acesso a camera para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "É necessário acesso as fotos para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -849,12 +859,14 @@
 				DEVELOPMENT_TEAM = L859KY23VK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ArmyFit/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "É necessário acesso a camera para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "É necessário acesso as fotos para atualizar a foto de perfil e para poder compartilhar conteúdo no seu feed.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
