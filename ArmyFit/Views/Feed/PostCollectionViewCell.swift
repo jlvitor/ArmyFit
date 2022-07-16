@@ -17,6 +17,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var postLabel: UILabel!
     @IBOutlet private weak var numberOfLikesLabel: UILabel!
     @IBOutlet private weak var numberOfCommentsLabel: UILabel!
+    @IBOutlet weak var commentsStackView: UIButton!
     
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var buttonsStackView: UIStackView!
@@ -43,5 +44,6 @@ class PostCollectionViewCell: UICollectionViewCell {
             likeButton.tag = 0
         }
     }
+    
 }
 
