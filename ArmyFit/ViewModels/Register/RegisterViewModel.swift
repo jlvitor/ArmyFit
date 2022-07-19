@@ -20,7 +20,7 @@ protocol PasswordValidationDelegate {
 class RegisterViewModel {
     
     //MARK: - Private properti
-    private let service: UserService = .init()
+    private let service: AuthService = .init()
     
     //MARK: - Public properties
     var delegate: RegisterViewModelDelegate?
@@ -31,7 +31,8 @@ class RegisterViewModel {
         service.registerUser(
             name: getValueToValidade(name),
             email: getValueToValidade(email),
-            password: getValueToValidade(password)) { _, error in
+            password: getValueToValidade(password),
+            photoUrl: nil) { _, error in
                 if error != nil {
                     self.delegate?.errorRegister()
                 } else {

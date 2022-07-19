@@ -16,15 +16,18 @@ class TrainingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configViewModel()
         configTableView()
+        configViewModel()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.trainingUserSections = []
         viewModel.fetchTrainingUser(Date.getCurrentDateToDateString())
+        trainingTableView.reloadData()
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? TrainingDetailViewController {
@@ -67,7 +70,11 @@ extension TrainingViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "trainingCell", for: indexPath) as? TrainingTableViewCell else {
             return UITableViewCell()
         }
-        
+        let quantidade = viewModel.trainingUserSections[indexPath.row].trainings.count
+        if quantidade == 0 {
+            trainingTableView.setEmptyMessage("Não existem treinos disponiveis!")
+            return UITableViewCell()
+        }
         let cellViewModel = viewModel.getTrainingCellViewModel(indexPath.section, indexPath.row)
         cell.configure(viewModel: cellViewModel)
         
@@ -86,6 +93,7 @@ extension TrainingViewController: UITableViewDataSource {
 //MARK: - TrainingViewModelDelegate
 extension TrainingViewController: TrainingViewModelDelegate {    
     func reloadData() {
-        trainingTableView.reloadData()
+        trainingTableView.setEmptyMessage("Não existem treinos disponiveis!")
+        self.trainingTableView.reloadData()
     }
 }

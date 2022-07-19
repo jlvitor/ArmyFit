@@ -8,12 +8,14 @@
 import Foundation
 import KeychainSwift
 import UIKit
+import FirebaseAuth
 
 class ProfileViewModel {
     
     private var user: [User] = []
     private let coreDataService: CoreDataService = .init()
     private let keychain: KeychainSwift = .init()
+    private let service: AuthService = .init()
     
     //MARK: - Getters
     var getUserImage: Data {
@@ -103,10 +105,18 @@ class ProfileViewModel {
     func logout(at section: Int, at index: Int) {
         if section == 2 {
             if index == 0 {
+                let firebaseAuth = Auth.auth()
+                
                 resetUserDefaultsValue()
                 clearKeychain()
                 setRootViewController()
                 coreDataService.deleteUserFromCoreData(user: user[0])
+                
+                do {
+                    try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                    print("Error signing out: %@", signOutError)
+                }
             }
         }
     }
