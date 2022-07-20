@@ -44,6 +44,8 @@ class CommentsViewController: UIViewController {
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
+        
+        
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
            return
         }
