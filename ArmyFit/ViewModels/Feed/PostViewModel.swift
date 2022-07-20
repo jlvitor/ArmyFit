@@ -23,7 +23,7 @@ class PostViewModel {
     }
     
     var getUserName: String {
-        post.user.name
+        post.user.name.capitalized
     }
     
     var getPostText: String {
