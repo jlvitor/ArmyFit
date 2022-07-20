@@ -16,6 +16,7 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextView!
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var commentBoxView: UITextView!
+    @IBOutlet weak var commentBoxButtonStackView: UIStackView!
     
     private let viewModel: CommentsViewModel = CommentsViewModel()
     
@@ -23,7 +24,12 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTextView()
-        commentTableView.dataSource = self
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     private func configTextView() {
@@ -32,12 +38,36 @@ class CommentsViewController: UIViewController {
         commentTextField.textColor = UIColor.lightGray
     }
     
+//MARK: - Hide/Show keyboard configuration
+    @objc private func hideKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           return
+        }
+      view.frame.origin.y = -keyboardRect.height
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        self.view.frame.origin.y = 0
+        }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+   
+   
+    
     @IBAction func sendCommentButtonAction(_ sender: UIButton) {
         
     }
     
 }
-
+//MARK: - TextViewDelegate (commentBox)
 extension CommentsViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ commentTextField: UITextView) {
         if commentTextField.textColor == UIColor.lightGray {
@@ -54,15 +84,4 @@ extension CommentsViewController: UITextViewDelegate {
         }
     }
 
-extension CommentsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return lista.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    
-}
 

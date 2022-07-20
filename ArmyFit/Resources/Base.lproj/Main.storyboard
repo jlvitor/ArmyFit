@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -1749,48 +1749,6 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="DR6-Jq-ali">
-                                        <rect key="frame" x="20" y="741" width="374" height="33"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zxh-On-51i">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="33"/>
-                                                <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8mR-0W-8rX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="33"/>
-                                                        <color key="backgroundColor" name="dark_background"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" name="dark_background"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="280" id="C6E-K7-9sG"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n1b-id-8m7">
-                                                <rect key="frame" x="298" y="2" width="76" height="31"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-f4-6ih">
-                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="31"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system">
-                                                            <color key="baseForegroundColor" name="green_button"/>
-                                                        </buttonConfiguration>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                <integer key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="sendCommentButtonAction:" destination="D6B-BX-c0H" eventType="touchUpInside" id="42q-T1-dz5"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSx-Ub-d04">
                                         <rect key="frame" x="0.0" y="70" width="414" height="173"/>
                                         <subviews>
@@ -1808,22 +1766,52 @@
                                             <constraint firstAttribute="height" constant="173" id="cf0-Mw-SMA"/>
                                         </constraints>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QCa-VF-arK">
+                                        <rect key="frame" x="16" y="748" width="382" height="30"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="p8B-w9-75u">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8mR-0W-8rX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                                        <color key="backgroundColor" name="dark_background"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="320" id="Sbr-2V-KOZ"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLt-qL-vil">
+                                                <rect key="frame" x="322" y="0.0" width="60" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="paperplane.fill" catalog="system">
+                                                    <color key="baseForegroundColor" name="green_button"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="OU5-Bw-Zwg"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" name="Background 2"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="QCa-VF-arK" secondAttribute="bottom" constant="30" id="3ew-Xe-7Yc"/>
                                     <constraint firstItem="W3K-6G-fv9" firstAttribute="top" secondItem="iPc-Gl-5rc" secondAttribute="top" constant="12" id="Gj8-g2-N9p"/>
                                     <constraint firstAttribute="trailing" secondItem="vSx-Ub-d04" secondAttribute="trailing" id="J28-UI-DZP"/>
                                     <constraint firstItem="GPA-2i-Ni5" firstAttribute="top" secondItem="iPc-Gl-5rc" secondAttribute="top" constant="19" id="K17-ys-daL"/>
                                     <constraint firstItem="vSx-Ub-d04" firstAttribute="top" secondItem="W3K-6G-fv9" secondAttribute="bottom" constant="8" symbolic="YES" id="LJ2-Xh-kGb"/>
                                     <constraint firstItem="W3K-6G-fv9" firstAttribute="leading" secondItem="iPc-Gl-5rc" secondAttribute="leading" constant="20" id="Q94-T9-6Lb"/>
                                     <constraint firstAttribute="trailing" secondItem="ifN-MN-qm1" secondAttribute="trailing" id="Rls-tY-tUm"/>
-                                    <constraint firstAttribute="trailing" secondItem="DR6-Jq-ali" secondAttribute="trailing" constant="20" id="Sff-gD-u5w"/>
                                     <constraint firstItem="GPA-2i-Ni5" firstAttribute="leading" secondItem="W3K-6G-fv9" secondAttribute="trailing" constant="16" id="V8E-l0-CBF"/>
-                                    <constraint firstAttribute="bottom" secondItem="DR6-Jq-ali" secondAttribute="bottom" constant="34" id="dlY-FA-hmc"/>
-                                    <constraint firstItem="DR6-Jq-ali" firstAttribute="leading" secondItem="iPc-Gl-5rc" secondAttribute="leading" constant="20" id="fNg-wc-KRE"/>
                                     <constraint firstItem="ifN-MN-qm1" firstAttribute="leading" secondItem="iPc-Gl-5rc" secondAttribute="leading" id="gOW-l1-RAu"/>
+                                    <constraint firstAttribute="trailing" secondItem="QCa-VF-arK" secondAttribute="trailing" constant="16" id="gPO-31-dNP"/>
                                     <constraint firstItem="ifN-MN-qm1" firstAttribute="top" secondItem="vSx-Ub-d04" secondAttribute="bottom" constant="1" id="gxf-kK-KOQ"/>
                                     <constraint firstItem="vSx-Ub-d04" firstAttribute="leading" secondItem="iPc-Gl-5rc" secondAttribute="leading" id="vRF-Sc-hAb"/>
+                                    <constraint firstItem="QCa-VF-arK" firstAttribute="leading" secondItem="iPc-Gl-5rc" secondAttribute="leading" constant="16" id="zZT-mk-SEO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1839,6 +1827,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TU1-Aa-RE0"/>
                     <connections>
+                        <outlet property="commentBoxButtonStackView" destination="p8B-w9-75u" id="IFf-be-iCr"/>
                         <outlet property="commentBoxView" destination="8mR-0W-8rX" id="azc-vv-iaM"/>
                         <outlet property="commentPostView" destination="XgL-JW-eGv" id="clf-mZ-XJT"/>
                         <outlet property="commentTableView" destination="ifN-MN-qm1" id="4aQ-NI-btP"/>
