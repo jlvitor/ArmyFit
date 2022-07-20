@@ -20,7 +20,7 @@ class UserService {
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
             "name": name
         ]

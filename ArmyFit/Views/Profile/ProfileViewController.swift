@@ -95,6 +95,7 @@ class ProfileViewController: UIViewController {
             style: .default) { action in
                 if let name = alertController.textFields?.first?.text {
                     self.nameLabel.text = String(name).uppercased()
+                    self.viewModel.changeName(name)
                 }
             }
         

@@ -15,7 +15,7 @@ class ProfileViewModel {
     private var user: [User] = []
     private let coreDataService: CoreDataService = .init()
     private let keychain: KeychainSwift = .init()
-    private let service: AuthService = .init()
+    private let service: UserService = .init()
     
     //MARK: - Getters
     var getUserImage: Data {
@@ -29,6 +29,18 @@ class ProfileViewModel {
     }
     
     //MARK: - Public methods
+    
+    func changeName(_ name: String?) {
+        guard let name = name else { return }
+
+        service.updateUserName(name: name) { user, error in
+            guard let user = user else { return }
+            
+            UserDefaults.setValue(user.name, key: UserDefaults.Keys.userName)
+
+        }
+    }
+    
     func countRowsInSection(at section: Int) -> Int {
         switch section {
         case 0:
