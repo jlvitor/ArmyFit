@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import FacebookLogin
 
 class LoginViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var spinner: UIActivityIndicatorView!
     @IBOutlet private weak var googleLoginStackView: UIStackView!
+    @IBOutlet private weak var facebookLoginStackView: UIStackView!
     @IBOutlet private weak var registerScreen: UIStackView!
     
     private let viewModel: LoginViewModel = .init()
@@ -29,6 +31,7 @@ class LoginViewController: UIViewController {
         configViewModel()
         configGestureRecognizer()
         configGoogleLoginGesture()
+        configFacebookLoginGesture()
         configureContentView()
         configureImageIcon()
     }
@@ -140,6 +143,18 @@ class LoginViewController: UIViewController {
         viewModel.makeLoginGoogle()
     }
     
+    private func configFacebookLoginGesture() {
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(facebookLoginAction(_:))
+        )
+        self.facebookLoginStackView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func facebookLoginAction(_ sender: UITapGestureRecognizer) {
+        viewModel.makeLoginFacebook()
+    }
+    
     private func showActivityIndicator() {
         loginButton.setTitle("", for: .normal)
         spinner.layer.position = loginButton.layer.position
@@ -172,6 +187,14 @@ extension LoginViewController: LoginViewModelDelegate {
     func loginGoogle(with config: GIDConfiguration) {
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
             self.viewModel.handleGoogleLogin(with: user, error: error)
+        }
+    }
+    
+    func loginFacebook() {
+        let loginManager = LoginManager()
+        
+        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { result, error in
+            self.viewModel.handleFacebookLogin(with: result, error: error)
         }
     }
 }

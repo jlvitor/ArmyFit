@@ -9,6 +9,7 @@ import Foundation
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import FacebookLogin
 
 class AuthService {
     
@@ -80,6 +81,7 @@ class AuthService {
         Auth.auth().signIn(with: credential)
     }
     
+    // Start Google Signin
     func getGoogleCredential(from user: GIDGoogleUser?) -> AuthCredential? {
         guard let authentication = user?.authentication,
               let idToken = authentication.idToken else { return nil }
@@ -96,6 +98,24 @@ class AuthService {
         let config = GIDConfiguration(clientID: clientID)
         
         return config
+    }
+    
+    // Start Facebook Login
+    func handleFacebookLoginResult(with result: LoginManagerLoginResult?, error: Error?) {
+        
+        switch result {
+        case .none:
+            print("Erro ao fazer login")
+        case .some(let loginResult):
+            guard let token = loginResult.token?.tokenString else { return }
+            
+            let credential = getFacebookConfig(with: token)
+            saveUserOnFirebase(with: credential)
+        }
+    }
+    
+    func getFacebookConfig(with token: String) -> AuthCredential {
+        return FacebookAuthProvider.credential(withAccessToken: token)
     }
     
     func loadUserImageFrom(_ imageUrl: String) {

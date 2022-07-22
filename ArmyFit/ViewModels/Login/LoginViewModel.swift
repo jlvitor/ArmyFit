@@ -8,11 +8,14 @@
 import Foundation
 import KeychainSwift
 import GoogleSignIn
+import FacebookLogin
+import FacebookCore
 
 protocol LoginViewModelDelegate {
     func successAuth()
     func errorAuth()
     func loginGoogle(with config: GIDConfiguration)
+    func loginFacebook()
 }
 
 protocol GoogleLoginDelegate {
@@ -34,6 +37,7 @@ class LoginViewModel {
     
     var userDTO: UserDTO?
     var googleUser: GIDGoogleUser = .init()
+    var facebookUser: [String: Any] = [:]
     var randomPassword: String = ""
     
     //MARK: - Public method
@@ -59,6 +63,10 @@ class LoginViewModel {
         delegate?.loginGoogle(with: configuration)
     }
     
+    func makeLoginFacebook() {
+        delegate?.loginFacebook()
+    }
+    
     func handleGoogleLogin(with user: GIDGoogleUser?, error: Error?) {
         if let error = error {
             print(error)
@@ -76,7 +84,26 @@ class LoginViewModel {
         saveDataOnFirebase(with: user)
     }
     
-    func makeRegisterRequest(_ name: String, _ email: String, _ password: String, _ photoUrl: String?) {        
+    func handleFacebookLogin(with result: LoginManagerLoginResult?, error: Error?) {
+        service.handleFacebookLoginResult(with: result, error: error)
+        
+        guard let token = result?.token?.tokenString else { return }
+        
+        let request = GraphRequest(
+            graphPath: "me",
+            parameters: ["fields": "name, email, picture"],
+            tokenString: token,
+            version: nil,
+            httpMethod: .get)
+        
+        request.start { connection, result, error in
+            guard let result = result else { return }
+            
+            print(result)
+        }
+    }
+    
+    func makeRegisterRequest(_ name: String, _ email: String, _ password: String, _ photoUrl: String?) {
         service.registerUser(
             name: name,
             email: email,
