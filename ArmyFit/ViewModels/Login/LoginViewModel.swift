@@ -20,9 +20,16 @@ protocol LoginViewModelDelegate {
 
 protocol GoogleLoginDelegate {
     func googleSuccess()
-    func loginSuccess()
+    func loginGoogleSuccess()
     func googleError()
-    func loginError()
+    func loginGoogleError()
+}
+
+protocol FacebookLoginDelegate {
+    func facebookSuccess()
+    func loginFacebookSuccess()
+    func facebookError()
+    func loginFacebookError()
 }
 
 class LoginViewModel {
@@ -34,6 +41,7 @@ class LoginViewModel {
     //MARK: - Public propertie
     var delegate: LoginViewModelDelegate?
     var googleDelegate: GoogleLoginDelegate?
+    var facebookDelegate: FacebookLoginDelegate?
     
     var userDTO: UserDTO?
     var googleUser: GIDGoogleUser = .init()
@@ -97,9 +105,14 @@ class LoginViewModel {
             httpMethod: .get)
         
         request.start { connection, result, error in
-            guard let result = result else { return }
+            guard let result = result as? [String: Any] else {
+                self.facebookDelegate?.facebookError()
+                return
+            }
             
-            print(result)
+            self.facebookUser = result
+            self.randomPassword = String.passwordGenerator()
+            self.facebookDelegate?.facebookSuccess()
         }
     }
     
@@ -110,9 +123,11 @@ class LoginViewModel {
             password: getValueToValidade(password),
             photoUrl: photoUrl ?? "https://storage.googleapis.com/armyfit/profile.png") { _, error in
                 if error != nil {
-                    self.googleDelegate?.loginError()
+                    self.googleDelegate?.loginGoogleError()
+                    self.facebookDelegate?.loginFacebookError()
                 } else {
-                    self.googleDelegate?.loginSuccess()
+                    self.googleDelegate?.loginGoogleSuccess()
+                    self.facebookDelegate?.loginFacebookSuccess()
                 }
             }
     }
