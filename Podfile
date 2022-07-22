@@ -10,6 +10,8 @@ pod 'KeychainSwift', '~> 20.0'
 pod 'Kingfisher', '~> 7.0'
 pod 'FirebaseAuth'
 pod 'GoogleSignIn'
+pod 'FacebookCore'
+pod 'FacebookLogin'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

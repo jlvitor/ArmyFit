@@ -181,6 +181,7 @@
                     <navigationItem key="navigationItem" id="zh5-jV-h4N"/>
                     <connections>
                         <outlet property="emailTextField" destination="aaH-lu-RwK" id="kkP-mH-nWb"/>
+                        <outlet property="facebookLoginStackView" destination="xRR-EJ-hen" id="D91-Ej-Gju"/>
                         <outlet property="googleLoginStackView" destination="ags-dL-k5a" id="eGL-HX-5WL"/>
                         <outlet property="loginButton" destination="wpU-Fp-Hdx" id="1kT-tO-KaE"/>
                         <outlet property="passwordTextField" destination="zd1-Bu-l0W" id="7yY-Wt-sQw"/>
