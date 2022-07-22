@@ -50,6 +50,7 @@ class LoginViewController: UIViewController {
     private func configViewModel() {
         viewModel.delegate = self
         viewModel.googleDelegate = self
+        viewModel.facebookDelegate = self
     }
     
     private func errorAlert() {
@@ -216,7 +217,7 @@ extension LoginViewController: GoogleLoginDelegate {
         errorRegisterAlert()
     }
     
-    func loginSuccess() {
+    func loginGoogleSuccess() {
         guard let profile = viewModel.googleUser.profile else { return }
         
         viewModel.makeLoginRequest(
@@ -224,7 +225,35 @@ extension LoginViewController: GoogleLoginDelegate {
             viewModel.randomPassword) 
     }
     
-    func loginError() {
+    func loginGoogleError() {
+        errorRegisterAlert()
+    }
+}
+
+extension LoginViewController: FacebookLoginDelegate {
+    func facebookSuccess() {
+        let profile = viewModel.facebookUser
+        
+        viewModel.makeRegisterRequest(
+            profile["name"] as? String ?? "",
+            profile["email"] as? String ?? "",
+            viewModel.randomPassword,
+            "https://storage.googleapis.com/armyfit/profile.png")
+    }
+    
+    func facebookError() {
+        errorRegisterAlert()
+    }
+    
+    func loginFacebookSuccess() {
+        let profile = viewModel.facebookUser
+        
+        viewModel.makeLoginRequest(
+            profile["email"] as? String ?? "",
+            viewModel.randomPassword)
+    }
+    
+    func loginFacebookError() {
         errorRegisterAlert()
     }
 }
