@@ -25,7 +25,6 @@ class CommentsViewController: UIViewController {
     @IBOutlet weak var commentBoxBotton: NSLayoutConstraint!
     var commentBoxBottomIdentity = CGFloat()
     
-  
     
     private let viewModel: CommentsViewModel = CommentsViewModel()
     
@@ -37,8 +36,6 @@ class CommentsViewController: UIViewController {
         commentBoxBottomIdentity = commentBoxBotton.constant
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-
         
     }
     
@@ -58,12 +55,11 @@ class CommentsViewController: UIViewController {
     @objc private func keyboardWillShow(notification: NSNotification) {
         
         if let keyboard_size = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            commentBoxBotton.constant += keyboard_size.height
+            commentBoxBotton.constant = keyboard_size.height + 16
         }
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
-        
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
@@ -71,18 +67,13 @@ class CommentsViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
         
     func textViewDidChange(_ textView: UITextView) {
-        
-        let new_size = textView.sizeThatFits(CGSize.init(width: textView.frame.width, height: CGFloat(MAXFLOAT)))
-        textView.frame.size = CGSize.init(width: CGFloat(fmaxf(Float(new_size.width), Float(textView.frame.width))), height: new_size.height)
-        self.commentBoxHeight.constant = new_size.height
-        self.view.layoutIfNeeded()
-        }
-        }
+        self.commentBoxHeight.constant = textView.contentSize.height
+    }
     
     @IBAction func sendCommentButtonAction(_ sender: UIButton) {
-        
     }
     
 }
