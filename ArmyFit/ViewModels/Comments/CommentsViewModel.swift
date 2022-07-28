@@ -27,12 +27,12 @@ class CommentsViewModel {
     }
     
     func loadComments() {
-        // Aqui deverá ter uma chamada para carregar todos os comentários de um post específico!
+        // Carregar todos os comentários de um post específico
         self.delegate?.reloadData()
     }
     
     func createNewComment(comment: CommentPost) {
-        // Aqui deve ser chamado um método do serviço para criar um novo comentário!!
+        // método para criar um novo comentário
         commentList.append(comment)
         loadComments()
     }
