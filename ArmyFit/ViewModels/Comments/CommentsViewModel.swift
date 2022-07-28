@@ -13,7 +13,17 @@ protocol CommentsViewModelDelegate {
 }
 
 class CommentsViewModel {
+    
+    var delegate: CommentsViewModelDelegate?
+    
+    func getNumberOfComments() -> Int {
+        return 5
+    }
+    
+    
 }
+
+
     
     
 

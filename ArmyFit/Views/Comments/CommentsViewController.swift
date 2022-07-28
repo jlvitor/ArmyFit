@@ -29,14 +29,22 @@ class CommentsViewController: UIViewController {
     private let viewModel: CommentsViewModel = CommentsViewModel()
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTextView()
+        configureNotificationCenter()
+//        commentTableView.dataSource = self
+        commentTableView.delegate = self
+       
+        
+    }
     
+    private func configureNotificationCenter() {
         commentBoxBottomIdentity = commentBoxBotton.constant
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
     private func configTextView() {
@@ -57,14 +65,14 @@ class CommentsViewController: UIViewController {
         if let keyboard_size = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             commentBoxBotton.constant = keyboard_size.height + 16
         }
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
         }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
         commentBoxBotton.constant = commentBoxBottomIdentity
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
         }
     }
@@ -94,4 +102,35 @@ extension CommentsViewController: UITextViewDelegate {
         }
     }
 
+extension CommentsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+}
 
+//extension CommentsViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.getNumberOfComments()
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = commentTableView.dequeueReusableCell(withIdentifier: "commentCell") as? CommentsTableViewCell
+//        let commentsPage = Post.feedComments[indexPath.row]
+//        {
+//
+//        }
+//
+//
+//            cell?.profileImage.image =
+//
+//        }
+//
+//        return cell ?? UITableViewCell()
+//    }
+    
+    
+
+
+//profileImage: UIImageView!
+//@IBOutlet weak var userNameLabel: UILabel!
+//@IBOutlet weak var userCommentLabel: UILabel!
