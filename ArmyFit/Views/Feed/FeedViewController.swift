@@ -93,6 +93,15 @@ extension FeedViewController: UICollectionViewDataSource {
         let cellViewModel = viewModel.getPostCellViewModel(indexPath.row)
         DispatchQueue.main.async {
             cell.configure(cellViewModel)
+            cell.sharedAction = { text in
+                let textToShare = [ text ]
+                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view 
+                
+                activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                
+                self.present(activityViewController, animated: true, completion: nil)
+            }
         }
         
         return cell

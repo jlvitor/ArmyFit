@@ -29,13 +29,11 @@ class CommentsViewController: UIViewController {
     private let viewModel: CommentsViewModel = CommentsViewModel()
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configTextView()
         configureNotificationCenter()
-//        commentTableView.dataSource = self
+//      commentTableView.dataSource = self
         commentTableView.delegate = self
        
         
@@ -82,6 +80,8 @@ class CommentsViewController: UIViewController {
     }
     
     @IBAction func sendCommentButtonAction(_ sender: UIButton) {
+        //viewModel.createNewComment(comment: commentBoxView.text ?? "")
+        
     }
     
 }
@@ -108,29 +108,16 @@ extension CommentsViewController: UITableViewDelegate {
     }
 }
 
-//extension CommentsViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.getNumberOfComments()
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = commentTableView.dequeueReusableCell(withIdentifier: "commentCell") as? CommentsTableViewCell
-//        let commentsPage = Post.feedComments[indexPath.row]
-//        {
-//
-//        }
-//
-//
-//            cell?.profileImage.image =
-//
-//        }
-//
-//        return cell ?? UITableViewCell()
-//    }
-    
-    
+extension CommentsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getNumberOfComments()
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-//profileImage: UIImageView!
-//@IBOutlet weak var userNameLabel: UILabel!
-//@IBOutlet weak var userCommentLabel: UILabel!
+        let cell = UITableViewCell()
+        return cell
+    }
+}
+
+    
