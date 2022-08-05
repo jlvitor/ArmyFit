@@ -26,6 +26,6 @@ class RegisterTrainingViewModel {
     func getUserName(_ index: Int) -> String {
         guard let user = trainingDetail.trainingUsers,
               let name = user[index].user?.name else { return "Usuario sem nome"}
-        return name
+        return name.capitalized
     }
 }

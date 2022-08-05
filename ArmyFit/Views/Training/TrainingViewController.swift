@@ -93,7 +93,7 @@ extension TrainingViewController: UITableViewDataSource {
 //MARK: - TrainingViewModelDelegate
 extension TrainingViewController: TrainingViewModelDelegate {    
     func reloadData() {
-        trainingTableView.setEmptyMessage("Não existem treinos disponiveis!")
+//        trainingTableView.setEmptyMessage("Não existem treinos disponiveis!")
         self.trainingTableView.reloadData()
     }
 }

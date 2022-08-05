@@ -26,7 +26,8 @@ class NewPostViewModel {
     }
     
     var getUserName: String {
-        UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String ?? "Usuário sem nome"
+        let name = UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String ?? "Usuário sem nome"
+        return name.capitalized
     }
     
     //MARK: - Public method
