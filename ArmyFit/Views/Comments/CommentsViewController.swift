@@ -9,39 +9,31 @@ import UIKit
 
 class CommentsViewController: UIViewController {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var timePost: UILabel!
-    @IBOutlet weak var commentPostView: UILabel!
-    @IBOutlet weak var commentTextField: UITextView!
-    @IBOutlet weak var commentTableView: UITableView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var userImage: UIImageView!
+    @IBOutlet private weak var timePost: UILabel!
+    @IBOutlet private weak var commentPostView: UILabel!
+    @IBOutlet private weak var commentTextField: UITextView!
+    @IBOutlet private weak var commentTableView: UITableView!
+    @IBOutlet private weak var commentBoxButtonStackView: UIStackView!
+    @IBOutlet private weak var commentBoxView: UITextView!
+    @IBOutlet private weak var commentBoxHeight: NSLayoutConstraint!
+    @IBOutlet private weak var commentBoxBotton: NSLayoutConstraint!
     
-    @IBOutlet weak var commentBoxButtonStackView: UIStackView!
-    
-    
-    @IBOutlet weak var commentBoxView: UITextView!
-   
-    @IBOutlet weak var commentBoxHeight: NSLayoutConstraint!
-    @IBOutlet weak var commentBoxBotton: NSLayoutConstraint!
-    var commentBoxBottomIdentity = CGFloat()
-    
-    
-    private let viewModel: CommentsViewModel = CommentsViewModel()
-    
+    private var commentBoxBottomIdentity = CGFloat()
+    private let viewModel: CommentsViewModel = .init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTextView()
         configureNotificationCenter()
-//      commentTableView.dataSource = self
+        //commentTableView.dataSource = self
         commentTableView.delegate = self
-       
-        
     }
     
     private func configureNotificationCenter() {
         commentBoxBottomIdentity = commentBoxBotton.constant
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
@@ -51,7 +43,8 @@ class CommentsViewController: UIViewController {
         commentTextField.textColor = UIColor.lightGray
     }
     
-//MARK: - Hide/Show keyboard configuration
+    //MARK: - Hide/Show keyboard configuration
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -59,24 +52,13 @@ class CommentsViewController: UIViewController {
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
-        
-        if let keyboard_size = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboard_size = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             commentBoxBotton.constant = keyboard_size.height + 16
-        }
-        UIView.animate(withDuration: 0.1) {
-            self.view.layoutIfNeeded()
         }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
         commentBoxBotton.constant = commentBoxBottomIdentity
-        UIView.animate(withDuration: 0.1) {
-            self.view.layoutIfNeeded()
-        }
-    }
-        
-    func textViewDidChange(_ textView: UITextView) {
-        self.commentBoxHeight.constant = textView.contentSize.height
     }
     
     @IBAction func sendCommentButtonAction(_ sender: UIButton) {
@@ -95,12 +77,16 @@ extension CommentsViewController: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ publicationUserTextView: UITextView) {
-            if publicationUserTextView.text.isEmpty {
-                publicationUserTextView.text = "Adicione um comentário..."
-                publicationUserTextView.textColor = UIColor.lightGray
-            }
+        if publicationUserTextView.text.isEmpty {
+            publicationUserTextView.text = "Adicione um comentário..."
+            publicationUserTextView.textColor = UIColor.lightGray
         }
     }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.commentBoxHeight.constant = textView.contentSize.height
+    }
+}
 
 extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,12 +98,12 @@ extension CommentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getNumberOfComments()
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = UITableViewCell()
         return cell
     }
 }
 
-    
+
