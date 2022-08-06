@@ -7,16 +7,23 @@
 
 import UIKit
 import Kingfisher
+import AudioToolbox
 
 class PostCollectionViewCell: UICollectionViewCell {
     
+    var sharedAction: ((String) -> Void)?
+    
     //MARK: - Private properties
+    
+    private var sharedText: String?
+    
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var postDateLabel: UILabel!
     @IBOutlet private weak var postLabel: UILabel!
     @IBOutlet private weak var numberOfLikesLabel: UILabel!
     @IBOutlet private weak var numberOfCommentsLabel: UILabel!
+    @IBOutlet private weak var commentsStackView: UIButton!
     
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var buttonsStackView: UIStackView!
@@ -27,6 +34,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         userNameLabel.text = viewModel.getUserName
         postLabel.text = viewModel.getPostText
         numberOfLikesLabel.text = viewModel.getNumberOfLikes
+        sharedText = viewModel.getPostText
     }
     
     //MARK: - Private method
@@ -42,6 +50,14 @@ class PostCollectionViewCell: UICollectionViewCell {
             likeButton.tintColor = UIColor(named: "green_color")
             likeButton.tag = 0
         }
+    }
+    
+    @IBAction func sharedButtonPressed(_ sender: UIButton) {
+        guard let sharedText = sharedText else {
+            return
+        }
+        
+        sharedAction?(sharedText)
     }
 }
 
