@@ -21,3 +21,11 @@ struct CommentPost: Decodable {
         case user
     }
 }
+
+struct Comments: Decodable {
+    let comments: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case comments = "feed_comments"
+    }
+}

@@ -10,12 +10,12 @@ import KeychainSwift
 
 class PostService {
     
-    private let baseUrl: String = "https://armyapi.herokuapp.com/feeds"
+    private let baseUrl: String = "https://armyapi.herokuapp.com"
     private let keychain: KeychainSwift = .init()
     
-    // Pega as postagens do banco de dados
-    func getPost(completion: @escaping ([Post]?, Error?) -> Void) {
-        guard let url = URL(string: baseUrl) else { return }
+    // Pega todas as postagens do banco de dados
+    func getAllPosts(completion: @escaping ([Post]?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/feeds" ) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -37,9 +37,33 @@ class PostService {
         task.resume()
     }
     
+    // Pega uma postagem específica do banco de dados
+    func getPost(with postId: String, completion: @escaping (Post?, Error?) -> Void) {
+        guard let url = URL(string: "\(baseUrl)/feeds/\(postId)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data else { return }
+            
+            do {
+                let post = try JSONDecoder().decode(Post.self, from: data)
+                DispatchQueue.main.async {
+                    completion(post, nil)
+                }
+            } catch {
+                print(error)
+                completion(nil, error)
+            }
+        }
+        task.resume()
+    }
+    
     // Faz uma nova postagem
     func makeNewPost(description: String, completion: @escaping (Post?, Error?) -> Void) {
-        guard let url = URL(string: baseUrl) else { return }
+        guard let url = URL(string: "\(baseUrl)/feeds") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -67,12 +91,12 @@ class PostService {
     
     // Da like em uma postagem
     func likePost(postId: String, completion: @escaping (LikePost?, Error?) -> Void) {
-        guard let url = URL(string: "\(baseUrl)\(postId)") else { return}
+        guard let url = URL(string: "\(baseUrl)/feeds/\(postId)") else { return}
         
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data else { return }
@@ -89,39 +113,16 @@ class PostService {
         task.resume()
     }
     
-    // Pega os comentarios de uma postagem
-    func commentPost(feedId: String, comment: String, completion: @escaping ([CommentPost]?, Error?) -> Void) {
-        guard let url = URL(string: baseUrl) else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data else { return }
-            
-            do {
-                let comment = try JSONDecoder().decode([CommentPost].self, from: data)
-                DispatchQueue.main.async {
-                    completion(comment, nil)
-                }
-            } catch {
-                completion(nil, error)
-            }
-        }
-        task.resume()
-    }
-    
     // Faz um comentario em uma postagem
     func commentPost(feedId: String, comment: String, completion: @escaping (CommentPost?, Error?) -> Void) {
-        guard let url = URL(string: baseUrl) else { return }
+        guard let url = URL(string: "\(baseUrl)/comments") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("Bearer\(keychain.get("token"))", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(keychain.get("token"))", forHTTPHeaderField: "Authorization")
         let body: [String: String] = [
-            "feedId": feedId,
+            "feedsId": feedId,
             "comment": comment
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)

@@ -6,23 +6,18 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CommentsTableViewCell: UITableViewCell {
-    
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userCommentLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-      
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-      
+    func config(viewModel: CommentViewModel) {
+        profileImage.kf.setImage(with: URL(string: viewModel.getUserImage))
+        userNameLabel.text = viewModel.getUserName
+        userCommentLabel.text = viewModel.getComment
     }
 
 }

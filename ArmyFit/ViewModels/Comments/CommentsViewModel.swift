@@ -9,59 +9,72 @@ import Foundation
 import UIKit
 
 protocol CommentsViewModelDelegate {
+    func errorGetComments()
+}
+
+protocol NewCommentDelegate {
+    func commentSuccess()
     func reloadData()
 }
 
 class CommentsViewModel {
     
+    //MARK: - Private propertie
     private let service: PostService = .init()
+    
+    //MARK: - Public propertie
     var delegate: CommentsViewModelDelegate?
-    private var commentList: [CommentPost] = []
+    var newCommentDelegate: NewCommentDelegate?
+    var post: Post
     
-    func getNumberOfComments() -> Int {
-        return commentList.count
+    //MARK: - Getters
+    var getUserImage: String {
+        post.user.photoUrl ?? "profile"
     }
     
-    func getComment(row: Int) -> CommentPost {
-        return commentList[row]
+    var getUserName: String {
+        post.user.name.capitalized
     }
     
-    func loadComments() {
-        // Carregar todos os comentários de um post específico
-        self.delegate?.reloadData()
+    var getNumberOfComments: Int {
+        post.feedComments?.count ?? 0
     }
     
-    func createNewComment(comment: CommentPost) {
-        // método para criar um novo comentário
-        commentList.append(comment)
-        loadComments()
+    var getPost: String {
+        post.description
+    }
+    
+    init(post: Post) {
+        self.post = post
+    }
+    
+    //MARK: - Public method
+    func fetchPost() {
+        service.getPost(with: post.id) { post, error in
+            guard let post = post else {
+                self.delegate?.errorGetComments()
+                return
+            }
+            
+            self.post = post
+            self.newCommentDelegate?.reloadData()
+        }
+    }
+    
+    func makeAComment(with comment: String) {
+        service.commentPost(
+            feedId: post.id,
+            comment: comment) { _, error in
+                if error != nil {
+                    return
+                }
+                
+                self.newCommentDelegate?.commentSuccess()
+            }
+    }
+    
+    func getCommentCellViewModel(at index: Int) -> CommentViewModel? {
+        guard let comment = post.feedComments?[index] else { return nil }
+        return CommentViewModel(comment)
     }
 }
-    
-    
-    
-//    var getUserImage: String {
-//        UserDefaults.getValue(key: UserDefaults.Keys.userPhoto) as? String ?? "profile"
-//    }
-//
-//    var getUserName: String {
-//            UserDefaults.getValue(key: UserDefaults.Keys.userName) as? String ?? "profile"
-//        }
-//
-//
-//    func getComments() {
-//        service.commentPost(feedId: CommentPost.id, comment: CommentPost.comment) { <#[CommentPost]?#>, error in
-//            guard let comment = comment else { return }
-//            self.commentList = comment
-//            self.delegate?.reloadData()
-//        }
-//}
-
-
-    
-    
-
-
-        
-
-
