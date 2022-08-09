@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CommentsViewController: UIViewController {
     
+    //MARK: - Private properties
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var userImage: UIImageView!
     @IBOutlet private weak var timePost: UILabel!
@@ -21,14 +23,35 @@ class CommentsViewController: UIViewController {
     @IBOutlet private weak var commentBoxBotton: NSLayoutConstraint!
     
     private var commentBoxBottomIdentity = CGFloat()
-    private let viewModel: CommentsViewModel = .init()
+    
+    //MARK: - Public propertie
+    var viewModel: CommentsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         configTextView()
         configureNotificationCenter()
-        //commentTableView.dataSource = self
-        commentTableView.delegate = self
+        configViewModel()
+        configUser()
+        configTableView()
+    }
+    
+    private func configViewModel() {
+        viewModel?.delegate = self
+        viewModel?.newCommentDelegate = self
+        viewModel?.fetchPost()
+    }
+    
+    private func configTableView() {
+        commentTableView.dataSource = self
+        commentTableView.overrideUserInterfaceStyle = .dark
+    }
+    
+    private func configUser() {
+        userImage.kf.setImage(with: URL(string: viewModel?.getUserImage ?? ""))
+        nameLabel.text = viewModel?.getUserName
+        commentPostView.text = viewModel?.getPost
     }
     
     private func configureNotificationCenter() {
@@ -43,8 +66,7 @@ class CommentsViewController: UIViewController {
         commentTextField.textColor = UIColor.lightGray
     }
     
-    //MARK: - Hide/Show keyboard configuration
-    
+    // Start Hide/Show keyboard configuration
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -53,17 +75,17 @@ class CommentsViewController: UIViewController {
     
     @objc private func keyboardWillShow(notification: NSNotification) {
         if let keyboard_size = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            commentBoxBotton.constant = keyboard_size.height + 16
+            commentBoxBotton.constant = keyboard_size.height + 10
         }
     }
     
     @objc private func keyboardWillHide(notification: NSNotification) {
         commentBoxBotton.constant = commentBoxBottomIdentity
     }
+    // End Hide/Show keyboard configuration
     
     @IBAction func sendCommentButtonAction(_ sender: UIButton) {
-        //viewModel.createNewComment(comment: commentBoxView.text ?? "")
-        
+        viewModel?.makeAComment(with: commentBoxView.text)
     }
     
 }
@@ -88,22 +110,38 @@ extension CommentsViewController: UITextViewDelegate {
     }
 }
 
-extension CommentsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-}
-
+//MARK: - UITableViewDataSource
 extension CommentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getNumberOfComments()
+        return viewModel?.getNumberOfComments ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as? CommentsTableViewCell else { return UITableViewCell() }
         
-        let cell = UITableViewCell()
+        if let cellViewModel = viewModel?.getCommentCellViewModel(at: indexPath.row) {
+            cell.config(viewModel: cellViewModel)
+        }
+        
         return cell
     }
 }
 
+//MARK: - CommentsViewModelDelegate
+extension CommentsViewController: CommentsViewModelDelegate {
+    func errorGetComments() {
+        print("Erro")
+    }
+}
 
+//MARK: - NewCommentDelegate
+extension CommentsViewController: NewCommentDelegate {
+    func commentSuccess() {
+        viewModel?.fetchPost()
+    }
+    
+    func reloadData() {
+        configTextView()
+        commentTableView.reloadData()
+    }
+}

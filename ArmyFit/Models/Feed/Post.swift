@@ -14,6 +14,7 @@ struct Post: Decodable {
     let userId: String
     let createdAt: String
     let user: UserDTO
+    let comments: Comments?
     let feedComments: [CommentPost]?
     
     enum CodingKeys: String, CodingKey {
@@ -21,10 +22,7 @@ struct Post: Decodable {
         case userId = "user_id"
         case createdAt = "created_at"
         case user
+        case comments = "_count"
         case feedComments = "feed_comments"
     }
 }
-
-
-
-

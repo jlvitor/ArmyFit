@@ -7,11 +7,18 @@
 
 import Foundation
 
+protocol ButtonPressedDelegate {
+    func likeButton(sender: Int)
+    func commentButton()
+}
+
 class PostViewModel {
     
     //MARK: - Private propertie
-    private let service: PostService = .init()
     private let post: Post
+    
+    //MARK: - Public propertie
+    var delegate: ButtonPressedDelegate?
     
     init(_ post: Post) {
         self.post = post
@@ -32,5 +39,13 @@ class PostViewModel {
     
     var getNumberOfLikes: String {
         "\(post.like)"
+    }
+    
+    var getNumberOfComments: String {
+        "\(post.comments?.comments)"
+    }
+    
+    var getPostId: String {
+        post.id
     }
 }

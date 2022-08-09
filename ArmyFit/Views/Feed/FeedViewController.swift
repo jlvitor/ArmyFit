@@ -31,6 +31,20 @@ class FeedViewController: UIViewController {
         viewModel.getPosts()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let commentsVC = segue.destination as? CommentsViewController {
+            let index = sender as? Int
+            commentsVC.viewModel = viewModel.getPostDetail(at: index)
+        }
+        
+        if segue.identifier == "goToCommentScreen" {
+            if let commentsVC = segue.destination as? CommentsViewController {
+                let index = sender as? Int
+                commentsVC.viewModel = viewModel.getPostDetail(at: index)
+            }
+        }
+    }
+    
     //MARK: - Private methods
     private func configUserImage() {
         userImageView.kf.setImage(with: URL(string: viewModel.getUserImage))
@@ -43,6 +57,7 @@ class FeedViewController: UIViewController {
     
     private func configViewModel() {
         viewModel.delegate = self
+        viewModel.likeDelegate = self
         viewModel.getPosts()
     }
     
@@ -57,7 +72,6 @@ class FeedViewController: UIViewController {
     @objc private func tapAction(_ sender: UITapGestureRecognizer) {
         performSegue(withIdentifier: "goToPostScreen", sender: self)
     }
-    
 }
 
 //MARK: - PostViewModelDelegate
@@ -67,8 +81,19 @@ extension FeedViewController: PostViewModelDelegate {
     }
 }
 
+extension FeedViewController: LikeAPostDelegate {
+    func likeSuccess() {
+        viewModel.getPosts()
+    }
+}
+
 //MARK: - UITableViewDelegate
 extension FeedViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToCommentScreen", sender: indexPath.item)
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
             width: view.bounds.width,
@@ -92,11 +117,13 @@ extension FeedViewController: UICollectionViewDataSource {
         }
         let cellViewModel = viewModel.getPostCellViewModel(indexPath.row)
         DispatchQueue.main.async {
+            cell.delegate = self
             cell.configure(cellViewModel)
+            cell.likeButton.tag = indexPath.row
             cell.sharedAction = { text in
                 let textToShare = [ text ]
                 let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view 
+                activityViewController.popoverPresentationController?.sourceView = self.view
                 
                 activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
                 
@@ -105,5 +132,15 @@ extension FeedViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+}
+
+extension FeedViewController: ButtonPressedDelegate {
+    func likeButton(sender: Int) {
+        viewModel.likeAPost(index: sender)
+    }
+    
+    func commentButton() {
+        print("comentario")
     }
 }
