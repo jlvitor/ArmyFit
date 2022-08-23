@@ -21,8 +21,6 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var registerScreen: UIStackView!
     
     private let viewModel: LoginViewModel = .init()
-    private var iconClick = false
-    private let imageIcon = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +30,7 @@ class LoginViewController: UIViewController {
         configGestureRecognizer()
         configGoogleLoginGesture()
         configFacebookLoginGesture()
-        configureContentView()
-        configureImageIcon()
+        passwordTextField.enablePasswordToggle()
     }
     
     //MARK: - Private methods
@@ -72,53 +69,6 @@ class LoginViewController: UIViewController {
         error.addAction(confirm)
         present(error, animated: true)
     }
-    
-    //-----> Start of show password configuration <-----//
-    private func configureContentView() {
-        let contentView = UIView()
-        contentView.addSubview(imageIcon)
-        
-        contentView.frame = CGRect(
-            x: 100,
-            y: 100,
-            width: UIImage(systemName: "eye.slash")!.size.width,
-            height: UIImage(systemName: "eye.slash")!.size.height
-        )
-        imageIcon.frame = CGRect(
-            x: -10,
-            y: 0,
-            width: UIImage(systemName: "eye.slash")!.size.width,
-            height: UIImage(systemName: "eye.slash")!.size.height
-        )
-        
-        passwordTextField.rightView = contentView
-        passwordTextField.rightViewMode = .always
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(imageTapped(tapGestureRecognizer:)))
-        imageIcon.isUserInteractionEnabled = true
-        imageIcon.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    private func configureImageIcon() {
-        imageIcon.image = UIImage(systemName: "eye.slash")
-        imageIcon.tintColor = .black
-    }
-    
-    @objc private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        if iconClick {
-            iconClick = false
-            tappedImage.image = UIImage(systemName: "eye")
-            passwordTextField.isSecureTextEntry = false
-        } else {
-            iconClick = true
-            tappedImage.image = UIImage(systemName: "eye.slash")
-            passwordTextField.isSecureTextEntry = true
-        }
-    }
-    //-----> End of show password configuration <-----//
     
     private func configGestureRecognizer() {
         let tap = UITapGestureRecognizer(
